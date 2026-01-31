@@ -36,7 +36,7 @@ a:hover{ text-decoration: underline; }
   top: 0;
   z-index: 50;
   background: rgba(255,255,255,.92);
-  backdrop-filter: blur(0.35px) saturate(1.05) contrast(1.08);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -49,8 +49,7 @@ a:hover{ text-decoration: underline; }
 }
 
 .brand__logo{
-  object-fit: contain;
-  height: 56px;
+  height: 58px;
   width: auto;
   display: block;
 }
@@ -141,23 +140,21 @@ a:hover{ text-decoration: underline; }
   background-image: url("assets/hero-bg.jpg");
   background-size: cover;
   background-position: center;
-  opacity: 1;
-  transform: scale(1.03);
-  filter: blur(0.35px) saturate(1.05) contrast(1.08);
+  opacity: .45;
   transform: scale(1.03);
 }
 .hero::after{
   content:"";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(244,248,255,.38) 0%, rgba(244,248,255,.52) 45%, rgba(255,255,255,.62) 100%);
+  background: linear-gradient(180deg, rgba(244,248,255,.96) 0%, rgba(244,248,255,.90) 40%, rgba(255,255,255,.98) 100%);
 }
 
 .hero__grid{
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1.1fr .9fr;
   gap: 28px;
   align-items: start;
 }
@@ -190,6 +187,14 @@ a:hover{ text-decoration: underline; }
   font-size: 16px;
   line-height: 1.6;
   max-width: 52ch;
+}
+
+.hero__body{
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 70ch;
 }
 
 .hero__cta{ display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
@@ -388,7 +393,7 @@ a:hover{ text-decoration: underline; }
   gap: 16px;
   padding: 18px 0;
 }
-.footer__logo{ height: 34px; width: auto; }
+.footer__logo{ height: 44px; width: auto; }
 .footer__small{ font-size: 12px; color: rgba(11,18,32,.55); margin-top: 6px; }
 .footer__link{ font-weight: 800; color: rgba(31,95,156,1); }
 
@@ -402,11 +407,4 @@ a:hover{ text-decoration: underline; }
 
 @media (min-width: 981px){
   .nav{ display: flex; }
-}
-
-
-.pill--subtle{
-  margin: 8px 0 14px;
-  background: rgba(255,255,255,.55);
-  font-size: 13px;
 }

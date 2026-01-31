@@ -14,7 +14,8 @@ const i18n = {
       pill: "Bilingual: English / Russian",
       title1: "Accounting & Bookkeeping",
       title2: "for Small Businesses & Individuals",
-      subtitle: "Monthly bookkeeping, tax preparation, and clean reporting — built for clarity, not chaos.",
+      subtitle: "Reliable bookkeeping, tax preparation, and clean reporting \u2014 built for clarity, not chaos.",
+            body: "We provide reliable bookkeeping, tax preparation, and financial support for small businesses and individuals across the United States. Our goal is to keep your finances accurate, organized, and compliant \u2014 without stress or confusion. Whether you are running a business, working as a freelancer, or managing personal taxes, we help you stay in control and avoid costly mistakes. You get clear reports, timely filings, and responsive support, so you can focus on your work while we handle the numbers. Start with a free consultation to understand your situation and the best next steps.",
       chip1: "Fast response",
       chip2: "Clean monthly reports",
       chip3: "US small-business focused"
@@ -62,7 +63,7 @@ const i18n = {
       phone: "Phone Number",
       email: "Email",
       message: "Message",
-      note: ""
+      note: "Note: This demo site uses an email draft fallback. To receive submissions automatically, connect a form service (Formspree/Netlify) — instructions included in README."
     }
   },
   ru: {
@@ -80,7 +81,8 @@ const i18n = {
       pill: "Двуязычно: Английский / Русский",
       title1: "Бухгалтерия и учёт",
       title2: "для малого бизнеса и частных лиц",
-      subtitle: "Ежемесячный учёт, подготовка налогов и понятные отчёты — без хаоса.",
+      subtitle: "\u041f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u0430\u044f \u0431\u0443\u0445\u0433\u0430\u043b\u0442\u0435\u0440\u0438\u044f, \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0430 \u043d\u0430\u043b\u043e\u0433\u043e\u0432 \u0438 \u043f\u043e\u043d\u044f\u0442\u043d\u044b\u0435 \u043e\u0442\u0447\u0451\u0442\u044b \u2014 \u0431\u0435\u0437 \u0445\u0430\u043e\u0441\u0430.",
+            body: "\u041c\u044b \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u043c \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0431\u0443\u0445\u0433\u0430\u043b\u0442\u0435\u0440\u0441\u043a\u0438\u0439 \u0443\u0447\u0451\u0442, \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0443 \u043d\u0430\u043b\u043e\u0433\u043e\u0432 \u0438 \u0444\u0438\u043d\u0430\u043d\u0441\u043e\u0432\u0443\u044e \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u043b\u044f \u043c\u0430\u043b\u043e\u0433\u043e \u0431\u0438\u0437\u043d\u0435\u0441\u0430 \u0438 \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043b\u0438\u0446 \u0432 \u0421\u0428\u0410. \u041d\u0430\u0448\u0430 \u0437\u0430\u0434\u0430\u0447\u0430 \u2014 \u0447\u0442\u043e\u0431\u044b \u0432\u0430\u0448\u0438 \u0444\u0438\u043d\u0430\u043d\u0441\u044b \u0431\u044b\u043b\u0438 \u0442\u043e\u0447\u043d\u044b\u043c\u0438, \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u043c\u0438 \u0438 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u043b\u0438 \u0442\u0440\u0435\u0431\u043e\u0432\u0430\u043d\u0438\u044f\u043c, \u0431\u0435\u0437 \u0441\u0442\u0440\u0435\u0441\u0441\u0430 \u0438 \u043f\u0443\u0442\u0430\u043d\u0438\u0446\u044b. \u0415\u0441\u043b\u0438 \u0432\u044b \u0432\u043b\u0430\u0434\u0435\u043b\u0435\u0446 \u0431\u0438\u0437\u043d\u0435\u0441\u0430, \u0444\u0440\u0438\u043b\u0430\u043d\u0441\u0435\u0440 \u0438\u043b\u0438 \u0445\u043e\u0442\u0438\u0442\u0435 \u043d\u0430\u0432\u0435\u0441\u0442\u0438 \u043f\u043e\u0440\u044f\u0434\u043e\u043a \u0432 \u043d\u0430\u043b\u043e\u0433\u0430\u0445, \u043c\u044b \u043f\u043e\u043c\u043e\u0436\u0435\u043c \u0438\u0437\u0431\u0435\u0436\u0430\u0442\u044c \u043e\u0448\u0438\u0431\u043e\u043a \u0438 \u0434\u0435\u0440\u0436\u0430\u0442\u044c \u0432\u0441\u0451 \u043f\u043e\u0434 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0435\u043c. \u0412\u044b \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442\u0435 \u043f\u043e\u043d\u044f\u0442\u043d\u044b\u0435 \u043e\u0442\u0447\u0451\u0442\u044b, \u0441\u0432\u043e\u0435\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u0443\u044e \u043f\u043e\u0434\u0430\u0447\u0443 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u0438 \u043e\u043f\u0435\u0440\u0430\u0442\u0438\u0432\u043d\u0443\u044e \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443, \u0447\u0442\u043e\u0431\u044b \u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0438\u0442\u044c\u0441\u044f \u043d\u0430 \u0440\u0430\u0431\u043e\u0442\u0435, \u043f\u043e\u043a\u0430 \u043c\u044b \u0432\u0435\u0434\u0451\u043c \u0446\u0438\u0444\u0440\u044b. \u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u0441 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e\u0439 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u0438 \u2014 \u0440\u0430\u0437\u0431\u0435\u0440\u0451\u043c \u0432\u0430\u0448\u0443 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044e \u0438 \u0441\u043e\u0433\u043b\u0430\u0441\u0443\u0435\u043c \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0439 \u0448\u0430\u0433.",
       chip1: "Быстрый ответ",
       chip2: "Понятные ежемесячные отчёты",
       chip3: "Фокус на малом бизнесе США"
@@ -128,19 +130,10 @@ const i18n = {
       phone: "Телефон",
       email: "Email",
       message: "Сообщение",
-      note: ""
+      note: "Примечание: в демо-версии форма делает черновик письма. Для автодоставки заявок на email подключите Formspree/Netlify — инструкция в README."
     }
   }
 };
-
-// ===============================
-// Contact form delivery
-// ===============================
-// GitHub Pages is static, so it can't send emails on its own.
-// To receive submissions automatically, set FORM_ENDPOINT to a form provider URL.
-// Recommended: Formspree (create a form, then paste its endpoint here).
-// Example: https://formspree.io/f/xxxxabcd
-const FORM_ENDPOINT = "";
 
 function setLanguage(lang){
   const dict = i18n[lang] || i18n.en;
@@ -165,11 +158,10 @@ function setLanguage(lang){
   localStorage.setItem("fs_lang", lang);
 }
 
-function hookLeadForm(formId){
+function hookMailto(formId){
   const form = document.getElementById(formId);
   if (!form) return;
-
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = new FormData(form);
     const name = (data.get("name") || "").toString().trim();
@@ -182,32 +174,6 @@ function hookLeadForm(formId){
       ? "Запрос консультации — Financial Stream"
       : "Consultation request — Financial Stream";
 
-    // 1) If a form endpoint is configured, submit in the background (no mail client pop-up).
-    if (FORM_ENDPOINT && FORM_ENDPOINT.trim() && !FORM_ENDPOINT.includes("xxxx")) {
-      try {
-        const res = await fetch(FORM_ENDPOINT, {
-          method: "POST",
-          body: data,
-          headers: { "Accept": "application/json" }
-        });
-
-        if (res.ok) {
-          form.reset();
-          alert(lang === "ru"
-            ? "Спасибо! Заявка отправлена. Мы свяжемся с вами в ближайшее время."
-            : "Thank you! Your request was sent. We'll get back to you shortly.");
-          return;
-        }
-      } catch (err) {
-        // fall back to mailto below
-      }
-
-      alert(lang === "ru"
-        ? "Не удалось отправить форму автоматически. Сейчас откроем черновик письма — нажмите Send."
-        : "We couldn't send the form automatically. We'll open an email draft — please press Send.");
-    }
-
-    // 2) Fallback: open an email draft via mailto.
     const bodyLines = [
       `Name: ${name}`,
       `Phone: ${phone}`,
@@ -232,6 +198,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
   });
 
-  hookLeadForm("leadForm");
-  hookLeadForm("contactForm");
+  hookMailto("leadForm");
+  hookMailto("contactForm");
 });

@@ -16,17 +16,14 @@ Right now the forms use a safe fallback:
 
 ### To receive submissions automatically (recommended)
 Pick **one** option:
+1) **Formspree** (easy):
+   - Create a Formspree form endpoint
+   - Replace `action="#"` in both forms with your Formspree URL
+   - Remove the JS `hookMailto(...)` calls (or keep, but it will conflict)
 
-1) **Formspree** (easiest on GitHub Pages)
-   - Create a Formspree form and verify the destination email.
-   - Copy your endpoint URL (looks like `https://formspree.io/f/xxxxabcd`).
-   - Open `script.js` and set:
-     - `const FORM_ENDPOINT = "https://formspree.io/f/xxxxabcd";`
-   - Commit + deploy. The form will submit via `fetch()`; if the endpoint is empty, it falls back to opening an email draft.
-
-2) **Netlify Forms** (if you host on Netlify)
-   - Deploy the site via Netlify (instead of GitHub Pages).
-   - Add Netlify form attributes in HTML and configure notifications.
+2) **Netlify Forms**:
+   - Deploy via Netlify (instead of GitHub Pages)
+   - Add Netlify form attributes and connect notifications to email
 
 ## Assets
 - `assets/logo-horizontal.png` extracted from the approved business card
