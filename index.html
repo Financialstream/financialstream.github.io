@@ -2,357 +2,279 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Tax preparation and bookkeeping for individuals and small businesses. Monthly bookkeeping, catch-up, and clear reporting — built for clarity, not chaos." />
-  <title>Financial Stream LLC — Tax Preparation &amp; Bookkeeping</title>
-
-  <link rel="icon" href="assets/img/logo.svg" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Financial Stream LLC — Tax Preparation & Bookkeeping</title>
+  <meta name="description" content="Accounting & bookkeeping for small businesses and individuals. Bilingual: English / Russian." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Financial Stream LLC Home">
-        <img class="brand-logo" src="assets/img/logo.svg" alt="Financial Stream logo" />
-        <span class="brand-text">
-          <span class="brand-name">Financial Stream</span>
-          <span class="brand-sub">LLC • Tax Preparation &amp; Bookkeeping</span>
-        </span>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top" aria-label="Financial Stream LLC">
+        <img class="brand__logo" src="assets/logo-horizontal.png" alt="Financial Stream LLC logo" />
       </a>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-          <span class="nav-toggle-bars" aria-hidden="true"></span>
-        </button>
-
-        <div class="nav-menu" id="navMenu">
-          <a class="nav-link" href="#services">Services</a>
-          <a class="nav-link" href="#process">Process</a>
-          <a class="nav-link" href="#testimonials">Testimonials</a>
-          <a class="nav-link" href="#faq">FAQ</a>
-          <a class="nav-link" href="#contact">Contact</a>
-          <a class="nav-cta" href="#contact">Book a free consult</a>
-        </div>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="#services" data-i18n="nav.services">Services</a>
+        <a class="nav__link" href="#process" data-i18n="nav.process">Process</a>
+        <a class="nav__link" href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a class="nav__link" href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
+
+      <div class="topbar__actions">
+        <div class="lang">
+          <button class="lang__btn" type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang__btn" type="button" data-lang="ru" aria-pressed="false">RU</button>
+        </div>
+        <a class="btn btn--primary" href="#contact" data-i18n="cta.bookTop">Request a Free Consultation</a>
+      </div>
     </div>
   </header>
 
-  <main id="main">
+  <main id="top">
     <!-- HERO -->
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="badge">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Tax Preparation &amp; Bookkeeping • Individuals &amp; Small Businesses
-          </div>
-
-          <h1 class="hero-title">Bookkeeping &amp; accounting that stays under control.</h1>
-
-          <p class="hero-subtitle">
-            Monthly bookkeeping, catch-up, and clear reporting — built for small businesses that want clarity, not chaos.
+      <div class="hero__bg" role="img" aria-label="Office work background"></div>
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <div class="pill" data-i18n="hero.pill">Bilingual: English / Russian</div>
+          <h1 class="hero__title">
+            <span data-i18n="hero.title1">Accounting & Bookkeeping</span><br/>
+            <span class="muted" data-i18n="hero.title2">for Small Businesses & Individuals</span>
+          </h1>
+          <p class="hero__subtitle" data-i18n="hero.subtitle">
+            Monthly bookkeeping, tax preparation, and clean reporting — built for clarity, not chaos.
           </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Book a free consult</a>
-            <a class="btn btn-ghost" href="#services">See services</a>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#contact" data-i18n="cta.bookHero">Request a Free Consultation</a>
+            <a class="btn btn--ghost" href="#services" data-i18n="cta.seeServices">See services</a>
           </div>
-
-          <ul class="trust-bullets" aria-label="Trust highlights">
-            <li>Fast response</li>
-            <li>Clean monthly reports</li>
-            <li>US small-business focused</li>
-          </ul>
-
-          <div class="hero-contact">
-            <a class="hero-contact-link" href="tel:+12064303464">Call/Text: +1 (206) 430-3464</a>
-            <span class="hero-contact-sep">•</span>
-            <a class="hero-contact-link" href="mailto:financialstreamllc@gmail.com">financialstreamllc@gmail.com</a>
+          <div class="chips" aria-label="Highlights">
+            <span class="chip" data-i18n="hero.chip1">Fast response</span>
+            <span class="chip" data-i18n="hero.chip2">Clean monthly reports</span>
+            <span class="chip" data-i18n="hero.chip3">US small-business focused</span>
           </div>
         </div>
 
-        <!-- “dashboard-like” illustration card -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="dash-card">
-            <div class="dash-top">
-              <div class="pill"></div>
-              <div class="pill small"></div>
-              <div class="pill small"></div>
+        <aside class="hero__panel" aria-label="Consultation panel">
+          <div class="panel">
+            <div class="panel__head">
+              <h3 class="panel__title" data-i18n="panel.title">Request a Free Consultation</h3>
+              <p class="panel__desc" data-i18n="panel.desc">Call, text, or fill out the form — we’ll get back to you shortly.</p>
             </div>
-            <div class="dash-body">
-              <div class="kpis">
-                <div class="kpi">
-                  <div class="kpi-label">Monthly Close</div>
-                  <div class="kpi-value">On time</div>
-                  <div class="kpi-bar"></div>
-                </div>
-                <div class="kpi">
-                  <div class="kpi-label">Reporting</div>
-                  <div class="kpi-value">Clean</div>
-                  <div class="kpi-bar alt"></div>
-                </div>
-              </div>
-              <div class="chart">
-                <div class="bar b1"></div>
-                <div class="bar b2"></div>
-                <div class="bar b3"></div>
-                <div class="bar b4"></div>
-                <div class="bar b5"></div>
-                <div class="bar b6"></div>
-                <div class="bar b7"></div>
-              </div>
-              <div class="rows">
-                <div class="row">
-                  <div class="dot"></div><div class="line"></div><div class="line short"></div>
-                </div>
-                <div class="row">
-                  <div class="dot alt"></div><div class="line"></div><div class="line short"></div>
-                </div>
-                <div class="row">
-                  <div class="dot"></div><div class="line"></div><div class="line short"></div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="float-card fc-1"></div>
-          <div class="float-card fc-2"></div>
-        </div>
+            <div class="panel__contact">
+              <div class="contact-row">
+                <span class="icon" aria-hidden="true">📞</span>
+                <div class="contact-row__text">
+                  <div class="contact-row__main"><a href="tel:+12064303464">+1 (206) 430-3464</a> <span class="small" data-i18n="panel.callText">(Call / Text)</span></div>
+                </div>
+              </div>
+              <div class="contact-row">
+                <span class="icon" aria-hidden="true">✉️</span>
+                <div class="contact-row__text">
+                  <div class="contact-row__main"><a href="mailto:financialstreamllc@gmail.com">financialstreamllc@gmail.com</a></div>
+                </div>
+              </div>
+              <div class="contact-row">
+                <span class="icon" aria-hidden="true">🌐</span>
+                <div class="contact-row__text">
+                  <div class="contact-row__main"><a href="https://financialstream.github.io" target="_blank" rel="noopener">financialstream.github.io</a></div>
+                </div>
+              </div>
+            </div>
+
+            <form class="panel__form" id="leadForm" action="#" method="post" novalidate>
+              <label class="field">
+                <span class="field__label" data-i18n="form.name">Your Name</span>
+                <input class="field__input" name="name" type="text" autocomplete="name" />
+              </label>
+              <label class="field">
+                <span class="field__label" data-i18n="form.phone">Phone Number</span>
+                <input class="field__input" name="phone" type="tel" autocomplete="tel" />
+              </label>
+              <label class="field">
+                <span class="field__label" data-i18n="form.email">Email</span>
+                <input class="field__input" name="email" type="email" autocomplete="email" />
+              </label>
+              <label class="field">
+                <span class="field__label" data-i18n="form.message">Message</span>
+                <textarea class="field__input field__textarea" name="message" rows="3"></textarea>
+              </label>
+
+              <button class="btn btn--primary btn--full" type="submit" data-i18n="cta.sendRequest">Send Request</button>
+              <p class="fineprint" data-i18n="form.note">
+                Note: This demo site uses an email draft fallback. To receive submissions automatically, connect a form service (Formspree/Netlify) — instructions included in README.
+              </p>
+            </form>
+          </div>
+        </aside>
       </div>
     </section>
 
     <!-- SERVICES -->
     <section class="section" id="services">
       <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Services</h2>
-          <p class="section-desc">
-            Focused support for tax prep, bookkeeping, and reporting — aligned to the business card services.
-          </p>
+        <div class="section__head">
+          <h2 class="section__title" data-i18n="services.title">Our Services</h2>
+          <p class="section__subtitle" data-i18n="services.subtitle">Clear scope. Clean deliverables. No surprises.</p>
         </div>
 
-        <div class="cards grid-3">
+        <div class="cards">
           <article class="card">
-            <h3>Tax Preparation</h3>
-            <p>Tax preparation for <strong>individuals</strong> and <strong>small businesses</strong>.</p>
+            <div class="card__icon">📚</div>
+            <h3 class="card__title" data-i18n="services.s1.title">Bookkeeping</h3>
+            <p class="card__text" data-i18n="services.s1.text">Monthly bookkeeping, reconciliation, and organized records.</p>
           </article>
-
           <article class="card">
-            <h3>Bookkeeping</h3>
-            <p>Accurate categorization and reconciliations so your books stay clean and usable.</p>
+            <div class="card__icon">🧾</div>
+            <h3 class="card__title" data-i18n="services.s2.title">Tax Preparation</h3>
+            <p class="card__text" data-i18n="services.s2.text">Individual and small-business tax filing with deduction support.</p>
           </article>
-
           <article class="card">
-            <h3>Financial Reporting</h3>
-            <p>Clear reports that help you track performance and make decisions with confidence.</p>
+            <div class="card__icon">🧮</div>
+            <h3 class="card__title" data-i18n="services.s3.title">Payroll / Sales Tax</h3>
+            <p class="card__text" data-i18n="services.s3.text">Payroll processing and sales tax compliance, done on time.</p>
           </article>
-
           <article class="card">
-            <h3>Consulting</h3>
-            <p>Practical guidance on bookkeeping workflows and financial clarity for your business.</p>
+            <div class="card__icon">📈</div>
+            <h3 class="card__title" data-i18n="services.s4.title">Financial Reporting</h3>
+            <p class="card__text" data-i18n="services.s4.text">Simple, readable monthly reports to guide decisions.</p>
           </article>
-
           <article class="card">
-            <h3>LLC / Business Setup &amp; Compliance</h3>
-            <p>Support with setup steps and ongoing compliance organization.</p>
+            <div class="card__icon">🏢</div>
+            <h3 class="card__title" data-i18n="services.s5.title">LLC / Business Setup</h3>
+            <p class="card__text" data-i18n="services.s5.text">Guidance on setup, basics, and ongoing compliance hygiene.</p>
           </article>
-
-          <article class="card">
-            <h3>Payroll / Sales Tax</h3>
-            <p>Help organizing payroll and sales tax processes to reduce stress and errors.</p>
+          <article class="card card--cta">
+            <h3 class="card__title" data-i18n="services.cta.title">Not sure what you need?</h3>
+            <p class="card__text" data-i18n="services.cta.text">Book a free call — we’ll clarify scope and next steps.</p>
+            <a class="btn btn--primary" href="#contact" data-i18n="cta.bookMid">Request a Free Consultation</a>
           </article>
-        </div>
-
-        <div class="cta-strip">
-          <div>
-            <h3 class="cta-title">Not sure what you need?</h3>
-            <p class="cta-text">A short consult is usually enough to scope it clearly.</p>
-          </div>
-          <a class="btn btn-primary" href="#contact">Book a free consult</a>
         </div>
       </div>
     </section>
 
     <!-- PROCESS -->
-    <section class="section section-muted" id="process">
+    <section class="section section--alt" id="process">
       <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">How it works</h2>
-          <p class="section-desc">Simple, predictable steps — no chaos, no surprises.</p>
+        <div class="section__head">
+          <h2 class="section__title" data-i18n="process.title">How it works</h2>
+          <p class="section__subtitle" data-i18n="process.subtitle">A simple flow that keeps finances under control.</p>
         </div>
 
         <ol class="steps">
           <li class="step">
-            <div class="step-num">1</div>
-            <div class="step-body">
-              <h3>Discovery call</h3>
-              <p>We clarify what you need (tax prep, bookkeeping, cleanup, reporting) and define scope.</p>
+            <div class="step__num">1</div>
+            <div class="step__body">
+              <h3 class="step__title" data-i18n="process.p1.title">Free consultation</h3>
+              <p class="step__text" data-i18n="process.p1.text">We understand your situation and confirm scope.</p>
             </div>
           </li>
-
           <li class="step">
-            <div class="step-num">2</div>
-            <div class="step-body">
-              <h3>Access &amp; setup</h3>
-              <p>We request access and align tools, accounts, and reporting preferences.</p>
+            <div class="step__num">2</div>
+            <div class="step__body">
+              <h3 class="step__title" data-i18n="process.p2.title">Secure onboarding</h3>
+              <p class="step__text" data-i18n="process.p2.text">We collect access and documents with clear instructions.</p>
             </div>
           </li>
-
           <li class="step">
-            <div class="step-num">3</div>
-            <div class="step-body">
-              <h3>Monthly close / prep work</h3>
-              <p>We keep records current so reporting and tax work stays under control.</p>
+            <div class="step__num">3</div>
+            <div class="step__body">
+              <h3 class="step__title" data-i18n="process.p3.title">Monthly close</h3>
+              <p class="step__text" data-i18n="process.p3.text">Reconciliations and cleanup — consistent and on time.</p>
             </div>
           </li>
-
           <li class="step">
-            <div class="step-num">4</div>
-            <div class="step-body">
-              <h3>Reporting &amp; support</h3>
-              <p>You get clean outputs and fast answers when questions come up.</p>
+            <div class="step__num">4</div>
+            <div class="step__body">
+              <h3 class="step__title" data-i18n="process.p4.title">Reports & support</h3>
+              <p class="step__text" data-i18n="process.p4.text">You get clear reports plus quick answers when needed.</p>
             </div>
           </li>
         </ol>
-      </div>
-    </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="section" id="testimonials">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Testimonials</h2>
-          <p class="section-desc">Placeholders — replace with real client quotes when ready.</p>
-        </div>
-
-        <div class="cards grid-3">
-          <figure class="card quote">
-            <blockquote>“Owner, Construction Company”</blockquote>
-            <figcaption>— Client</figcaption>
-          </figure>
-
-          <figure class="card quote">
-            <blockquote>“Practice Manager, Dental Clinic”</blockquote>
-            <figcaption>— Client</figcaption>
-          </figure>
-
-          <figure class="card quote">
-            <blockquote>“Founder, Professional Services”</blockquote>
-            <figcaption>— Client</figcaption>
-          </figure>
+        <div class="center">
+          <a class="btn btn--primary" href="#contact" data-i18n="cta.bookProcess">Request a Free Consultation</a>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section section-muted" id="faq">
+    <section class="section" id="faq">
       <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">FAQ</h2>
-          <p class="section-desc">Quick answers to common questions.</p>
+        <div class="section__head">
+          <h2 class="section__title" data-i18n="faq.title">FAQ</h2>
+          <p class="section__subtitle" data-i18n="faq.subtitle">Common questions — quick answers.</p>
         </div>
 
         <div class="faq">
-          <details class="faq-item">
-            <summary>What do you need from me to start?</summary>
-            <div class="faq-panel">
-              <p>Usually: your current records (statements or accounting access), what you want done, and your timeline.</p>
-            </div>
+          <details class="faq__item">
+            <summary class="faq__q" data-i18n="faq.q1.q">Do you work with both individuals and businesses?</summary>
+            <div class="faq__a" data-i18n="faq.q1.a">Yes — individuals, freelancers, and small businesses.</div>
           </details>
-
-          <details class="faq-item">
-            <summary>How much does it cost?</summary>
-            <div class="faq-panel">
-              <p>Pricing depends on volume and complexity. We’ll provide a quote after a short call.</p>
-            </div>
+          <details class="faq__item">
+            <summary class="faq__q" data-i18n="faq.q2.q">Do you support English and Russian?</summary>
+            <div class="faq__a" data-i18n="faq.q2.a">Yes. We’re bilingual (EN/RU).</div>
           </details>
-
-          <details class="faq-item">
-            <summary>Do you work with QuickBooks Online?</summary>
-            <div class="faq-panel">
-              <p>Yes. If you use a different tool, we’ll confirm on the discovery call.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Can you clean up months of backlog?</summary>
-            <div class="faq-panel">
-              <p>Yes — cleanup/catch-up is common. We’ll confirm scope and timeline after a quick review.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>How fast do you respond?</summary>
-            <div class="faq-panel">
-              <p>We prioritize fast, practical responses, especially for active clients.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Do you do taxes?</summary>
-            <div class="faq-panel">
-              <p>Yes — tax preparation is available for individuals and small businesses.</p>
-            </div>
+          <details class="faq__item">
+            <summary class="faq__q" data-i18n="faq.q3.q">How fast do you respond?</summary>
+            <div class="faq__a" data-i18n="faq.q3.a">Typically same day or within 24 hours on business days.</div>
           </details>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Contact</h2>
-          <p class="section-desc">Tell us what you need — we’ll reply quickly.</p>
-        </div>
+    <section class="section section--alt" id="contact">
+      <div class="container contact">
+        <div class="contact__left">
+          <h2 class="section__title" data-i18n="contact.title">Contact</h2>
+          <p class="section__subtitle" data-i18n="contact.subtitle">Tell us what you need — we’ll reply shortly.</p>
 
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3>Get in touch</h3>
-
-            <div class="contact-line">
-              <span class="contact-label">Phone</span>
-              <a class="contact-link" href="tel:+12064303464">+1 (206) 430-3464</a>
+          <div class="contact__grid">
+            <div class="contact-card">
+              <div class="contact-card__k" data-i18n="contact.phone">Phone</div>
+              <div class="contact-card__v"><a href="tel:+12064303464">+1 (206) 430-3464</a></div>
             </div>
-
-            <div class="contact-line">
-              <span class="contact-label">Email</span>
-              <a class="contact-link" href="mailto:financialstreamllc@gmail.com">financialstreamllc@gmail.com</a>
+            <div class="contact-card">
+              <div class="contact-card__k" data-i18n="contact.email">Email</div>
+              <div class="contact-card__v"><a href="mailto:financialstreamllc@gmail.com">financialstreamllc@gmail.com</a></div>
             </div>
-
-            <div class="contact-note">
-              <p><strong>Owner:</strong> Tetiana</p>
-              <p class="muted">Book a free consult — we’ll confirm scope and next steps.</p>
+            <div class="contact-card">
+              <div class="contact-card__k" data-i18n="contact.website">Website</div>
+              <div class="contact-card__v"><a href="https://financialstream.github.io" target="_blank" rel="noopener">financialstream.github.io</a></div>
             </div>
           </div>
+        </div>
 
-          <div class="form-card">
-            <h3>Request a consultation</h3>
-            <form id="contactForm">
+        <div class="contact__right">
+          <div class="panel panel--flat">
+            <h3 class="panel__title" data-i18n="contact.formTitle">Send a request</h3>
+            <form class="stack" id="contactForm" action="#" method="post" novalidate>
               <label class="field">
-                <span>Name</span>
-                <input name="name" type="text" autocomplete="name" placeholder="Your name" required />
+                <span class="field__label" data-i18n="form.name">Your Name</span>
+                <input class="field__input" name="name" type="text" />
               </label>
-
               <label class="field">
-                <span>Email</span>
-                <input name="email" type="email" autocomplete="email" placeholder="you@company.com" required />
+                <span class="field__label" data-i18n="form.phone">Phone Number</span>
+                <input class="field__input" name="phone" type="tel" />
               </label>
-
               <label class="field">
-                <span>Message</span>
-                <textarea name="message" rows="5" placeholder="Tell us what you need (tax prep / bookkeeping / reporting)..." required></textarea>
+                <span class="field__label" data-i18n="form.email">Email</span>
+                <input class="field__input" name="email" type="email" />
               </label>
-
-              <button class="btn btn-primary btn-block" type="submit">
-                Send request
-              </button>
-
-              <p class="form-hint">
-                No backend needed — this opens your email client with the message prefilled.
+              <label class="field">
+                <span class="field__label" data-i18n="form.message">Message</span>
+                <textarea class="field__input field__textarea" name="message" rows="4"></textarea>
+              </label>
+              <button class="btn btn--primary btn--full" type="submit" data-i18n="cta.sendRequest">Send Request</button>
+              <p class="fineprint" data-i18n="form.note">
+                Note: This demo site uses an email draft fallback. To receive submissions automatically, connect a form service (Formspree/Netlify) — instructions included in README.
               </p>
             </form>
           </div>
@@ -362,28 +284,17 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <div class="footer-brand">
-          <img src="assets/img/logo.svg" alt="" class="footer-logo" />
-          <div>
-            <div class="footer-name">Financial Stream LLC</div>
-            <div class="footer-copy">© <span id="year"></span> Financial Stream LLC</div>
-          </div>
-        </div>
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <img class="footer__logo" src="assets/logo-horizontal.png" alt="Financial Stream LLC" />
+        <div class="footer__small">© <span id="year"></span> Financial Stream LLC</div>
       </div>
-
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-        <a href="#" aria-label="Privacy policy placeholder">Privacy</a>
+      <div class="footer__right">
+        <a class="footer__link" href="#contact" data-i18n="cta.bookFooter">Request a Free Consultation</a>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

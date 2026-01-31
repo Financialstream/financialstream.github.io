@@ -1,0 +1,201 @@
+const i18n = {
+  en: {
+    nav: { services: "Services", process: "Process", faq: "FAQ", contact: "Contact" },
+    cta: {
+      bookTop: "Request a Free Consultation",
+      bookHero: "Request a Free Consultation",
+      seeServices: "See services",
+      sendRequest: "Send Request",
+      bookMid: "Request a Free Consultation",
+      bookProcess: "Request a Free Consultation",
+      bookFooter: "Request a Free Consultation"
+    },
+    hero: {
+      pill: "Bilingual: English / Russian",
+      title1: "Accounting & Bookkeeping",
+      title2: "for Small Businesses & Individuals",
+      subtitle: "Monthly bookkeeping, tax preparation, and clean reporting — built for clarity, not chaos.",
+      chip1: "Fast response",
+      chip2: "Clean monthly reports",
+      chip3: "US small-business focused"
+    },
+    panel: {
+      title: "Request a Free Consultation",
+      desc: "Call, text, or fill out the form — we’ll get back to you shortly.",
+      callText: "(Call / Text)"
+    },
+    services: {
+      title: "Our Services",
+      subtitle: "Clear scope. Clean deliverables. No surprises.",
+      s1: { title: "Bookkeeping", text: "Monthly bookkeeping, reconciliation, and organized records." },
+      s2: { title: "Tax Preparation", text: "Individual and small-business tax filing with deduction support." },
+      s3: { title: "Payroll / Sales Tax", text: "Payroll processing and sales tax compliance, done on time." },
+      s4: { title: "Financial Reporting", text: "Simple, readable monthly reports to guide decisions." },
+      s5: { title: "LLC / Business Setup", text: "Guidance on setup, basics, and ongoing compliance hygiene." },
+      cta: { title: "Not sure what you need?", text: "Book a free call — we’ll clarify scope and next steps." }
+    },
+    process: {
+      title: "How it works",
+      subtitle: "A simple flow that keeps finances under control.",
+      p1: { title: "Free consultation", text: "We understand your situation and confirm scope." },
+      p2: { title: "Secure onboarding", text: "We collect access and documents with clear instructions." },
+      p3: { title: "Monthly close", text: "Reconciliations and cleanup — consistent and on time." },
+      p4: { title: "Reports & support", text: "You get clear reports plus quick answers when needed." }
+    },
+    faq: {
+      title: "FAQ",
+      subtitle: "Common questions — quick answers.",
+      q1: { q: "Do you work with both individuals and businesses?", a: "Yes — individuals, freelancers, and small businesses." },
+      q2: { q: "Do you support English and Russian?", a: "Yes. We’re bilingual (EN/RU)." },
+      q3: { q: "How fast do you respond?", a: "Typically same day or within 24 hours on business days." }
+    },
+    contact: {
+      title: "Contact",
+      subtitle: "Tell us what you need — we’ll reply shortly.",
+      phone: "Phone",
+      email: "Email",
+      website: "Website",
+      formTitle: "Send a request"
+    },
+    form: {
+      name: "Your Name",
+      phone: "Phone Number",
+      email: "Email",
+      message: "Message",
+      note: "Note: This demo site uses an email draft fallback. To receive submissions automatically, connect a form service (Formspree/Netlify) — instructions included in README."
+    }
+  },
+  ru: {
+    nav: { services: "Услуги", process: "Процесс", faq: "FAQ", contact: "Контакты" },
+    cta: {
+      bookTop: "Запросить бесплатную консультацию",
+      bookHero: "Запросить бесплатную консультацию",
+      seeServices: "Посмотреть услуги",
+      sendRequest: "Отправить запрос",
+      bookMid: "Запросить бесплатную консультацию",
+      bookProcess: "Запросить бесплатную консультацию",
+      bookFooter: "Запросить бесплатную консультацию"
+    },
+    hero: {
+      pill: "Двуязычно: Английский / Русский",
+      title1: "Бухгалтерия и учёт",
+      title2: "для малого бизнеса и частных лиц",
+      subtitle: "Ежемесячный учёт, подготовка налогов и понятные отчёты — без хаоса.",
+      chip1: "Быстрый ответ",
+      chip2: "Понятные ежемесячные отчёты",
+      chip3: "Фокус на малом бизнесе США"
+    },
+    panel: {
+      title: "Бесплатная консультация",
+      desc: "Позвоните, напишите или заполните форму — мы быстро ответим.",
+      callText: "(Звонок / SMS)"
+    },
+    services: {
+      title: "Услуги",
+      subtitle: "Чёткий объём работ. Понятный результат.",
+      s1: { title: "Бухгалтерский учёт", text: "Ежемесячный учёт, сверки и порядок в документах." },
+      s2: { title: "Подготовка налогов", text: "Налоги для частных лиц и малого бизнеса, с учётом вычетов." },
+      s3: { title: "Payroll / Sales Tax", text: "Payroll и Sales Tax — вовремя и без сюрпризов." },
+      s4: { title: "Финансовые отчёты", text: "Понятные отчёты для контроля и решений." },
+      s5: { title: "LLC / Открытие бизнеса", text: "Подскажем по базовой настройке и соблюдению требований." },
+      cta: { title: "Не уверены, что нужно?", text: "Запишитесь на бесплатный звонок — уточним задачу и следующий шаг." }
+    },
+    process: {
+      title: "Как мы работаем",
+      subtitle: "Простой процесс, чтобы финансы были под контролем.",
+      p1: { title: "Бесплатная консультация", text: "Разбираемся в ситуации и согласуем объём работ." },
+      p2: { title: "Безопасное подключение", text: "Собираем доступы и документы по понятным инструкциям." },
+      p3: { title: "Ежемесячное закрытие", text: "Сверки и порядок — стабильно и вовремя." },
+      p4: { title: "Отчёты и поддержка", text: "Вы получаете отчёты и быстрые ответы по вопросам." }
+    },
+    faq: {
+      title: "FAQ",
+      subtitle: "Частые вопросы — коротко.",
+      q1: { q: "Вы работаете и с частными лицами, и с бизнесом?", a: "Да — частные лица, самозанятые и малый бизнес." },
+      q2: { q: "Есть поддержка русского и английского?", a: "Да. Мы работаем на EN/RU." },
+      q3: { q: "Как быстро вы отвечаете?", a: "Обычно в тот же день или в течение 24 часов в будни." }
+    },
+    contact: {
+      title: "Контакты",
+      subtitle: "Опишите задачу — мы быстро ответим.",
+      phone: "Телефон",
+      email: "Email",
+      website: "Сайт",
+      formTitle: "Отправить запрос"
+    },
+    form: {
+      name: "Ваше имя",
+      phone: "Телефон",
+      email: "Email",
+      message: "Сообщение",
+      note: "Примечание: в демо-версии форма делает черновик письма. Для автодоставки заявок на email подключите Formspree/Netlify — инструкция в README."
+    }
+  }
+};
+
+function setLanguage(lang){
+  const dict = i18n[lang] || i18n.en;
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    const parts = key.split(".");
+    let val = dict;
+    for (const p of parts){
+      if (val && typeof val === "object" && p in val) val = val[p];
+      else { val = null; break; }
+    }
+    if (typeof val === "string") el.textContent = val;
+  });
+
+  document.querySelectorAll(".lang__btn").forEach(btn => {
+    const isActive = btn.dataset.lang === lang;
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+  });
+
+  localStorage.setItem("fs_lang", lang);
+}
+
+function hookMailto(formId){
+  const form = document.getElementById(formId);
+  if (!form) return;
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = (data.get("name") || "").toString().trim();
+    const phone = (data.get("phone") || "").toString().trim();
+    const email = (data.get("email") || "").toString().trim();
+    const message = (data.get("message") || "").toString().trim();
+
+    const lang = localStorage.getItem("fs_lang") || "en";
+    const subject = (lang === "ru")
+      ? "Запрос консультации — Financial Stream"
+      : "Consultation request — Financial Stream";
+
+    const bodyLines = [
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Email: ${email}`,
+      "",
+      "Message:",
+      message
+    ];
+    const body = encodeURIComponent(bodyLines.join("\n"));
+    const mailto = `mailto:financialstreamllc@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = mailto;
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const saved = localStorage.getItem("fs_lang");
+  setLanguage(saved || "en");
+
+  document.querySelectorAll(".lang__btn").forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+  });
+
+  hookMailto("leadForm");
+  hookMailto("contactForm");
+});
