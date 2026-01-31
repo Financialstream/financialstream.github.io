@@ -49,7 +49,7 @@ a:hover{ text-decoration: underline; }
 }
 
 .brand__logo{
-  height: 58px;
+  height: 57px;
   width: auto;
   display: block;
 }
@@ -188,14 +188,14 @@ a:hover{ text-decoration: underline; }
   line-height: 1.6;
   max-width: 52ch;
 }
-
 .hero__body{
-  margin: 0 0 18px;
+  margin: 0 0 22px;
   color: var(--muted);
   font-size: 15px;
   line-height: 1.7;
   max-width: 70ch;
 }
+
 
 .hero__cta{ display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
 
