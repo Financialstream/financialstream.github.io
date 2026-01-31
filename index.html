@@ -1,262 +1,241 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Financial Stream LLC — Tax Preparation & Bookkeeping</title>
-  <meta name="description" content="Accounting & bookkeeping for small businesses and individuals. Bilingual: English / Russian." />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Financial Stream LLC — Tax Preparation &amp; Bookkeeping</title>
+<meta content="Accounting &amp; bookkeeping for small businesses and individuals. Bilingual: English / Russian." name="description"/>
+<link href="assets/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet">
+</link></head>
 <body>
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="#top" aria-label="Financial Stream LLC">
-        <img class="brand__logo" src="assets/logo-horizontal.png" alt="Financial Stream LLC logo" />
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <a class="nav__link" href="#services" data-i18n="nav.services">Services</a>
-<a class="nav__link" href="#faq" data-i18n="nav.faq">FAQ</a>
-        <a class="nav__link" href="#contact" data-i18n="nav.contact">Contact</a>
-      </nav>
-
-      <div class="topbar__actions">
-        <div class="lang">
-          <button class="lang__btn" type="button" data-lang="en" aria-pressed="true">EN</button>
-          <button class="lang__btn" type="button" data-lang="ru" aria-pressed="false">RU</button>
-        </div>
-        <a class="btn btn--primary" href="#contact" data-i18n="cta.bookTop">Request a Free Consultation</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero__bg" role="img" aria-label="Office work background"></div>
-      <div class="container hero__grid">
-        <div class="hero__copy">
+<header class="topbar">
+<div class="container topbar__inner">
+<a aria-label="Financial Stream LLC" class="brand" href="#top">
+<img alt="Financial Stream LLC logo" class="brand__logo" src="assets/logo-horizontal.png"/>
+</a>
+<nav aria-label="Primary" class="nav">
+<a class="nav__link" data-i18n="nav.services" href="#services">Services</a><a class="nav__link" data-i18n="nav.process" href="#process">Process</a>
+<a class="nav__link" data-i18n="nav.faq" href="#faq">FAQ</a>
+<a class="nav__link" data-i18n="nav.contact" href="#contact">Contact</a>
+</nav>
+<div class="topbar__actions">
+<div class="lang">
+<button aria-pressed="true" class="lang__btn" data-lang="en" type="button">EN</button>
+<button aria-pressed="false" class="lang__btn" data-lang="ru" type="button">RU</button>
+</div>
+<a class="btn btn--primary" data-i18n="cta.bookTop" href="#contact">Request a Free Consultation</a>
+</div>
+</div>
+</header>
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+<div aria-label="Office work background" class="hero__bg" role="img"></div>
+<div class="container hero__grid">
+<div class="hero__copy">
 <h1 class="hero__title">
-            <span data-i18n="hero.title1">Accounting & Bookkeeping</span><br/>
-            <span class="muted" data-i18n="hero.title2">for Small Businesses & Individuals</span>
-          </h1>
-          <p class="hero__subtitle" data-i18n="hero.subtitle">
+<span data-i18n="hero.title1">Accounting &amp; Bookkeeping</span><br/>
+<span class="muted" data-i18n="hero.title2">for Small Businesses &amp; Individuals</span>
+</h1>
+<p class="hero__subtitle" data-i18n="hero.subtitle">
             Monthly bookkeeping, tax preparation, and clean reporting — built for clarity, not chaos.
           </p>
-          <p class="hero__body" data-i18n="hero.body"></p>
-
+<p class="hero__body" data-i18n="hero.body"></p>
 <div class="pillrow">
-  <div class="pill" data-i18n="hero.pillService">e‑Service</div>
-  <div class="pill" data-i18n="hero.pillLang">Bilingual: English / Russian</div>
+<div class="pill" data-i18n="hero.pillService">C‑E Services</div>
+<div class="pill" data-i18n="hero.pillLang">Bilingual: English / Russian</div>
 </div>
+<div class="hero__cta">
+<a class="btn btn--ghost" data-i18n="cta.seeServices" href="#services">See services</a>
+</div>
+<div aria-label="Highlights" class="chips">
+<span class="chip" data-i18n="hero.chip1">Fast response</span>
+<span class="chip" data-i18n="hero.chip2">Clean monthly reports</span>
+<span class="chip" data-i18n="hero.chip3">US small-business focused</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SERVICES -->
+<section class="section" id="services">
+<div class="container">
+<div class="section__head">
+<h2 class="section__title" data-i18n="services.title">Our Services</h2>
+<p class="section__subtitle" data-i18n="services.subtitle">Clear scope. Clean deliverables. No surprises.</p>
+</div>
+<div class="cards">
+<article class="card">
+<div class="card__icon">📚</div>
+<h3 class="card__title" data-i18n="services.s1.title">Bookkeeping</h3>
+<p class="card__text" data-i18n="services.s1.text">Monthly bookkeeping, reconciliation, and organized records.</p>
+</article>
+<article class="card">
+<div class="card__icon">🧾</div>
+<h3 class="card__title" data-i18n="services.s2.title">Tax Preparation</h3>
+<p class="card__text" data-i18n="services.s2.text">Individual and small-business tax filing with deduction support.</p>
+</article>
+<article class="card">
+<div class="card__icon">🧮</div>
+<h3 class="card__title" data-i18n="services.s3.title">Payroll / Sales Tax</h3>
+<p class="card__text" data-i18n="services.s3.text">Payroll processing and sales tax compliance, done on time.</p>
+</article>
+<article class="card">
+<div class="card__icon">📈</div>
+<h3 class="card__title" data-i18n="services.s4.title">Financial Reporting</h3>
+<p class="card__text" data-i18n="services.s4.text">Simple, readable monthly reports to guide decisions.</p>
+</article>
+<article class="card">
+<div class="card__icon">🏢</div>
+<h3 class="card__title" data-i18n="services.s5.title">LLC / Business Setup</h3>
+<p class="card__text" data-i18n="services.s5.text">Guidance on setup, basics, and ongoing compliance hygiene.</p>
+</article>
+<article class="card card--cta">
+<h3 class="card__title" data-i18n="services.cta.title">Not sure what you need?</h3>
+<p class="card__text" data-i18n="services.cta.text">Book a free call — we’ll clarify scope and next steps.</p>
+<a class="btn btn--primary" data-i18n="cta.bookMid" href="#contact">Request a Free Consultation</a>
+</article>
+</div>
+</div>
+</section>
+<!-- PROCESS -->
+<section class="section section--alt" id="process">
+<div class="container">
+<div class="section__head">
+<h2 class="section__title" data-i18n="process.title">How it works</h2>
+<p class="section__subtitle" data-i18n="process.subtitle">A simple flow that keeps finances under control.</p>
+</div>
+<ol class="steps">
+<li class="step">
+<div class="step__num">1</div>
+<div class="step__body">
+<h3 class="step__title" data-i18n="process.p1.title">Free consultation</h3>
+<p class="step__text" data-i18n="process.p1.text">We understand your situation and confirm scope.</p>
+</div>
+</li>
+<li class="step">
+<div class="step__num">2</div>
+<div class="step__body">
+<h3 class="step__title" data-i18n="process.p2.title">Secure onboarding</h3>
+<p class="step__text" data-i18n="process.p2.text">We collect access and documents with clear instructions.</p>
+</div>
+</li>
+<li class="step">
+<div class="step__num">3</div>
+<div class="step__body">
+<h3 class="step__title" data-i18n="process.p3.title">Monthly close</h3>
+<p class="step__text" data-i18n="process.p3.text">Reconciliations and cleanup — consistent and on time.</p>
+</div>
+</li>
+<li class="step">
+<div class="step__num">4</div>
+<div class="step__body">
+<h3 class="step__title" data-i18n="process.p4.title">Reports &amp; support</h3>
+<p class="step__text" data-i18n="process.p4.text">You get clear reports plus quick answers when needed.</p>
+</div>
+</li>
+</ol>
+<div class="center">
 
-          <div class="hero__cta">
-<a class="btn btn--ghost" href="#services" data-i18n="cta.seeServices">See services</a>
-          </div>
-          <div class="chips" aria-label="Highlights">
-            <span class="chip" data-i18n="hero.chip1">Fast response</span>
-            <span class="chip" data-i18n="hero.chip2">Clean monthly reports</span>
-            <span class="chip" data-i18n="hero.chip3">US small-business focused</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title" data-i18n="services.title">Our Services</h2>
-          <p class="section__subtitle" data-i18n="services.subtitle">Clear scope. Clean deliverables. No surprises.</p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="card__icon">📚</div>
-            <h3 class="card__title" data-i18n="services.s1.title">Bookkeeping</h3>
-            <p class="card__text" data-i18n="services.s1.text">Monthly bookkeeping, reconciliation, and organized records.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon">🧾</div>
-            <h3 class="card__title" data-i18n="services.s2.title">Tax Preparation</h3>
-            <p class="card__text" data-i18n="services.s2.text">Individual and small-business tax filing with deduction support.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon">🧮</div>
-            <h3 class="card__title" data-i18n="services.s3.title">Payroll / Sales Tax</h3>
-            <p class="card__text" data-i18n="services.s3.text">Payroll processing and sales tax compliance, done on time.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon">📈</div>
-            <h3 class="card__title" data-i18n="services.s4.title">Financial Reporting</h3>
-            <p class="card__text" data-i18n="services.s4.text">Simple, readable monthly reports to guide decisions.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon">🏢</div>
-            <h3 class="card__title" data-i18n="services.s5.title">LLC / Business Setup</h3>
-            <p class="card__text" data-i18n="services.s5.text">Guidance on setup, basics, and ongoing compliance hygiene.</p>
-          </article>
-          <article class="card card--cta">
-            <h3 class="card__title" data-i18n="services.cta.title">Not sure what you need?</h3>
-            <p class="card__text" data-i18n="services.cta.text">Book a free call — we’ll clarify scope and next steps.</p>
-            <a class="btn btn--primary" href="#contact" data-i18n="cta.bookMid">Request a Free Consultation</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="section section--alt" id="process">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title" data-i18n="process.title">How it works</h2>
-          <p class="section__subtitle" data-i18n="process.subtitle">A simple flow that keeps finances under control.</p>
-        </div>
-
-        <ol class="steps">
-          <li class="step">
-            <div class="step__num">1</div>
-            <div class="step__body">
-              <h3 class="step__title" data-i18n="process.p1.title">Free consultation</h3>
-              <p class="step__text" data-i18n="process.p1.text">We understand your situation and confirm scope.</p>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step__num">2</div>
-            <div class="step__body">
-              <h3 class="step__title" data-i18n="process.p2.title">Secure onboarding</h3>
-              <p class="step__text" data-i18n="process.p2.text">We collect access and documents with clear instructions.</p>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step__num">3</div>
-            <div class="step__body">
-              <h3 class="step__title" data-i18n="process.p3.title">Monthly close</h3>
-              <p class="step__text" data-i18n="process.p3.text">Reconciliations and cleanup — consistent and on time.</p>
-            </div>
-          </li>
-          <li class="step">
-            <div class="step__num">4</div>
-            <div class="step__body">
-              <h3 class="step__title" data-i18n="process.p4.title">Reports & support</h3>
-              <p class="step__text" data-i18n="process.p4.text">You get clear reports plus quick answers when needed.</p>
-            </div>
-          </li>
-        </ol>
-
-        <div class="center">
-          <a class="btn btn--primary" href="#contact" data-i18n="cta.bookProcess">Request a Free Consultation</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title" data-i18n="faq.title">FAQ</h2>
-          <p class="section__subtitle" data-i18n="faq.subtitle">Common questions — quick answers.</p>
-        </div>
-
-        <div class="faq">
-          <details class="faq__item">
-            <summary class="faq__q" data-i18n="faq.q1.q">Do you work with both individuals and businesses?</summary>
-            <div class="faq__a" data-i18n="faq.q1.a">Yes — individuals, freelancers, and small businesses.</div>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__q" data-i18n="faq.q2.q">Do you support English and Russian?</summary>
-            <div class="faq__a" data-i18n="faq.q2.a">Yes. We’re bilingual (EN/RU).</div>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__q" data-i18n="faq.q3.q">How fast do you respond?</summary>
-            <div class="faq__a" data-i18n="faq.q3.a">Typically same day or within 24 hours on business days.</div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section section--alt" id="contact">
-      <div class="container contact">
-        <div class="contact__left">
-          <h2 class="section__title" data-i18n="contact.title">Contact</h2>
-          <p class="section__subtitle" data-i18n="contact.subtitle">Tell us what you need — we’ll reply shortly.</p>
-
-          <div class="contact__grid">
-            <div class="contact-card">
-              <div class="contact-card__k" data-i18n="contact.phone">Phone</div>
-              <div class="contact-card__v"><a href="tel:+12064303464">+1 (206) 430-3464</a></div>
-            </div>
-            <div class="contact-card">
-              <div class="contact-card__k" data-i18n="contact.email">Email</div>
-              <div class="contact-card__v"><a href="mailto:financialstreamllc@gmail.com">financialstreamllc@gmail.com</a></div>
-            </div>
-            <div class="contact-card">
-              <div class="contact-card__k" data-i18n="contact.website">Website</div>
-              <div class="contact-card__v"><a href="https://financialstream.github.io" target="_blank" rel="noopener">financialstream.github.io</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact__right">
-          <div class="panel panel--flat">
-            <h3 class="panel__title" data-i18n="contact.formTitle">Send a request</h3>
-            <form class="stack" id="contactForm" action="https://formspree.io/f/xwvqekla" method="POST" novalidate>
-              <label class="field">
-                <span class="field__label" data-i18n="form.name">Your Name</span>
-                <input class="field__input" name="name" type="text" />
-              </label>
-              <label class="field">
-                <span class="field__label" data-i18n="form.phone">Phone Number</span>
-                <input class="field__input" name="phone" type="tel" />
-              </label>
-              <label class="field">
-                <span class="field__label" data-i18n="form.email">Email</span>
-                <input class="field__input" name="email" type="email" />
-              </label>
-              <label class="field">
-                <span class="field__label" data-i18n="form.message">Message</span>
-                <textarea class="field__input field__textarea" name="message" rows="4"></textarea>
-              </label>
-
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="section" id="faq">
+<div class="container">
+<div class="section__head">
+<h2 class="section__title" data-i18n="faq.title">FAQ</h2>
+<p class="section__subtitle" data-i18n="faq.subtitle">Common questions — quick answers.</p>
+</div>
+<div class="faq">
+<details class="faq__item">
+<summary class="faq__q" data-i18n="faq.q1.q">Do you work with both individuals and businesses?</summary>
+<div class="faq__a" data-i18n="faq.q1.a">Yes — individuals, freelancers, and small businesses.</div>
+</details>
+<details class="faq__item">
+<summary class="faq__q" data-i18n="faq.q2.q">Do you support English and Russian?</summary>
+<div class="faq__a" data-i18n="faq.q2.a">Yes. We’re bilingual (EN/RU).</div>
+</details>
+<details class="faq__item">
+<summary class="faq__q" data-i18n="faq.q3.q">How fast do you respond?</summary>
+<div class="faq__a" data-i18n="faq.q3.a">Typically same day or within 24 hours on business days.</div>
+</details>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section class="section section--alt" id="contact">
+<div class="container contact">
+<div class="contact__left">
+<h2 class="section__title" data-i18n="contact.title">Contact</h2>
+<p class="section__subtitle" data-i18n="contact.subtitle">Tell us what you need — we’ll reply shortly.</p>
+<div class="contact__grid">
+<div class="contact-card">
+<div class="contact-card__k" data-i18n="contact.phone">Phone</div>
+<div class="contact-card__v"><a href="tel:+12064303464">+1 (206) 430-3464</a></div>
+</div>
+<div class="contact-card">
+<div class="contact-card__k" data-i18n="contact.email">Email</div>
+<div class="contact-card__v"><a href="mailto:financialstreamllc@gmail.com">financialstreamllc@gmail.com</a></div>
+</div>
+<div class="contact-card">
+<div class="contact-card__k" data-i18n="contact.website">Website</div>
+<div class="contact-card__v"><a href="https://financialstream.github.io" rel="noopener" target="_blank">financialstream.github.io</a></div>
+</div>
+</div>
+</div>
+<div class="contact__right">
+<div class="panel panel--flat">
+<h3 class="panel__title" data-i18n="contact.formTitle">Send a request</h3>
+<form action="https://formspree.io/f/xwvqekla" class="stack" id="contactForm" method="POST" novalidate=""><div class="form-success hidden" data-i18n="form.success" id="formSuccess">Thank you — your request was sent.</div>
 <label class="field">
-  <span class="field__label" data-i18n="form.filelink">Attachment link (optional)</span>
-  <input class="field__input" name="file_link" type="url" placeholder="Google Drive / Dropbox link"/>
+<span class="field__label" data-i18n="form.name">Your Name</span>
+<input class="field__input" name="name" type="text"/>
 </label>
-
-              
-<input type="hidden" name="_subject" value="Financial Stream — Consultation request">
-<input type="hidden" name="_next" value="https://financialstream.github.io/?success=1#contact">
-<button class="btn btn--primary btn--full" type="submit" data-i18n="cta.sendRequest">Send Request</button>
+<label class="field">
+<span class="field__label" data-i18n="form.phone">Phone Number</span>
+<input class="field__input" name="phone" type="tel"/>
+</label>
+<label class="field">
+<span class="field__label" data-i18n="form.email">Email</span>
+<input class="field__input" name="email" type="email"/>
+</label>
+<label class="field">
+<span class="field__label" data-i18n="form.message">Message</span>
+<textarea class="field__input field__textarea" name="message" rows="4"></textarea>
+</label>
+<label class="field">
+<span class="field__label" data-i18n="form.filelink">Attachment link (optional)</span>
+<input class="field__input" name="file_link" placeholder="Google Drive / Dropbox link" type="url"/>
+</label>
+<input name="_subject" type="hidden" value="Financial Stream — Consultation request"/>
+<input name="_next" type="hidden" value="https://financialstream.github.io/?success=1#contact"/>
+<button class="btn btn--primary btn--full" data-i18n="cta.sendRequest" type="submit">Send Request</button>
 </form>
-
-<div class="notice notice--success" id="thankYou" style="display:none;" role="status" aria-live="polite">
-  <strong data-i18n="form.thanksTitle">Thank you!</strong>
-  <span data-i18n="form.thanksBody">Your request was sent. We’ll reply soon.</span>
+<div aria-live="polite" class="notice notice--success" id="thankYou" role="status" style="display:none;">
+<strong data-i18n="form.thanksTitle">Thank you!</strong>
+<span data-i18n="form.thanksBody">Your request was sent. We’ll reply soon.</span>
 </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__left">
-        <img class="footer__logo" src="assets/logo-horizontal.png" alt="Financial Stream LLC" />
-        <div class="footer__small">© <span id="year"></span> Financial Stream LLC</div>
-      </div>
-      <div class="footer__right">
-        <a class="footer__link" href="#contact" data-i18n="cta.bookFooter">Request a Free Consultation</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container footer__inner">
+<div class="footer__left">
+<img alt="Financial Stream LLC" class="footer__logo" src="assets/logo-horizontal.png"/>
+<div class="footer__small">© <span id="year"></span> Financial Stream LLC</div>
+</div>
+<div class="footer__right">
+<a class="footer__link" data-i18n="cta.bookFooter" href="#contact">Request a Free Consultation</a>
+</div>
+</div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>

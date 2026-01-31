@@ -440,3 +440,14 @@ a:hover{ text-decoration: underline; }
   display:block;
   margin-bottom:4px;
 }
+
+
+.hidden{ display:none !important; }
+.form-success{
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background: rgba(42,111,176,.10);
+  border-radius: 14px;
+  font-weight: 500;
+}

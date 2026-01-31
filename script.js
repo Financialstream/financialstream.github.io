@@ -11,6 +11,8 @@ const i18n = {
       bookFooter: "Book a Free Consultation"
     },
     hero: {
+    pillService: "C‑E Services",
+    pillLang: "Bilingual: English / Russian",
       pill: "Bilingual: English / Russian",
       title1: "Accounting & Bookkeeping",
       title2: "for Small Businesses & Individuals",
@@ -59,6 +61,7 @@ const i18n = {
       formTitle: "Book a Free Consultation"
     },
     form: {
+    success: "Thank you — your request was sent.",
       name: "Your Name",
       phone: "Phone Number",
       email: "Email",
@@ -83,6 +86,8 @@ const i18n = {
       bookFooter: "Записаться на бесплатную консультацию"
     },
     hero: {
+    pillService: "C‑E Services",
+    pillLang: "Билингвально: English / Russian",
       pill: "Двуязычно: Английский / Русский",
       title1: "Бухгалтерия и учёт",
       title2: "для малого бизнеса и частных лиц",
@@ -131,6 +136,7 @@ const i18n = {
       formTitle: "Записаться на бесплатную консультацию"
     },
     form: {
+    success: "Спасибо — запрос отправлен.",
       name: "Ваше имя",
       phone: "Телефон",
       email: "Email",
@@ -199,6 +205,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const saved = localStorage.getItem("fs_lang");
   setLanguage(saved || "en");
+
+
+  // Show success message after Formspree redirect (?success=1)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("success") === "1") {
+    const el = document.getElementById("formSuccess");
+    if (el) el.classList.remove("hidden");
+    params.delete("success");
+    const clean = window.location.pathname + (params.toString() ? `?${params.toString()}` : "") + window.location.hash;
+    window.history.replaceState({}, document.title, clean);
+  }
+
 
   document.querySelectorAll(".lang__btn").forEach(btn => {
     btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
