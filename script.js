@@ -2,13 +2,13 @@ const i18n = {
   en: {
     nav: { services: "Services", process: "Process", faq: "FAQ", contact: "Contact" },
     cta: {
-      bookTop: "Request a Free Consultation",
-      bookHero: "Request a Free Consultation",
+      bookTop: "Book a Free Consultation",
+      bookHero: "Book a Free Consultation",
       seeServices: "See services",
       sendRequest: "Send Request",
-      bookMid: "Request a Free Consultation",
-      bookProcess: "Request a Free Consultation",
-      bookFooter: "Request a Free Consultation"
+      bookMid: "Book a Free Consultation",
+      bookProcess: "Book a Free Consultation",
+      bookFooter: "Book a Free Consultation"
     },
     hero: {
       pill: "Bilingual: English / Russian",
@@ -21,8 +21,8 @@ const i18n = {
       chip3: "US small-business focused"
     },
     panel: {
-      title: "Request a Free Consultation",
-      desc: "Call, text, or fill out the form — we’ll get back to you shortly.",
+      title: "Book a Free Consultation",
+      desc: "Ask a question or request a free consultation — we’ll get back to you shortly.",
       callText: "(Call / Text)"
     },
     services: {
@@ -52,11 +52,11 @@ const i18n = {
     },
     contact: {
       title: "Contact",
-      subtitle: "Tell us what you need — we’ll reply shortly.",
+      subtitle: "Ask a question or request a free consultation — we’ll reply shortly.",
       phone: "Phone",
       email: "Email",
       website: "Website",
-      formTitle: "Send a request"
+      formTitle: "Book a Free Consultation"
     },
     form: {
       name: "Your Name",
@@ -69,13 +69,13 @@ const i18n = {
   ru: {
     nav: { services: "Услуги", process: "Процесс", faq: "FAQ", contact: "Контакты" },
     cta: {
-      bookTop: "Запросить бесплатную консультацию",
-      bookHero: "Запросить бесплатную консультацию",
+      bookTop: "Записаться на бесплатную консультацию",
+      bookHero: "Записаться на бесплатную консультацию",
       seeServices: "Посмотреть услуги",
-      sendRequest: "Отправить запрос",
-      bookMid: "Запросить бесплатную консультацию",
-      bookProcess: "Запросить бесплатную консультацию",
-      bookFooter: "Запросить бесплатную консультацию"
+      sendRequest: "Отправить",
+      bookMid: "Записаться на бесплатную консультацию",
+      bookProcess: "Записаться на бесплатную консультацию",
+      bookFooter: "Записаться на бесплатную консультацию"
     },
     hero: {
       pill: "Двуязычно: Английский / Русский",
@@ -88,8 +88,8 @@ const i18n = {
       chip3: "Фокус на малом бизнесе США"
     },
     panel: {
-      title: "Бесплатная консультация",
-      desc: "Позвоните, напишите или заполните форму — мы быстро ответим.",
+      title: "Записаться на бесплатную консультацию",
+      desc: "Задать вопрос или записаться на консультацию — мы быстро ответим.",
       callText: "(Звонок / SMS)"
     },
     services: {
@@ -119,11 +119,11 @@ const i18n = {
     },
     contact: {
       title: "Контакты",
-      subtitle: "Опишите задачу — мы быстро ответим.",
+      subtitle: "Задать вопрос или записаться на консультацию — мы быстро ответим.",
       phone: "Телефон",
       email: "Email",
       website: "Сайт",
-      formTitle: "Отправить запрос"
+      formTitle: "Записаться на бесплатную консультацию"
     },
     form: {
       name: "Ваше имя",
