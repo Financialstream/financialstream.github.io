@@ -62,7 +62,7 @@ const i18n = {
       phone: "Phone Number",
       email: "Email",
       message: "Message",
-      note: "Note: This demo site uses an email draft fallback. To receive submissions automatically, connect a form service (Formspree/Netlify) — instructions included in README."
+      note: ""
     }
   },
   ru: {
@@ -128,10 +128,19 @@ const i18n = {
       phone: "Телефон",
       email: "Email",
       message: "Сообщение",
-      note: "Примечание: в демо-версии форма делает черновик письма. Для автодоставки заявок на email подключите Formspree/Netlify — инструкция в README."
+      note: ""
     }
   }
 };
+
+// ===============================
+// Contact form delivery
+// ===============================
+// GitHub Pages is static, so it can't send emails on its own.
+// To receive submissions automatically, set FORM_ENDPOINT to a form provider URL.
+// Recommended: Formspree (create a form, then paste its endpoint here).
+// Example: https://formspree.io/f/xxxxabcd
+const FORM_ENDPOINT = "";
 
 function setLanguage(lang){
   const dict = i18n[lang] || i18n.en;
@@ -156,10 +165,11 @@ function setLanguage(lang){
   localStorage.setItem("fs_lang", lang);
 }
 
-function hookMailto(formId){
+function hookLeadForm(formId){
   const form = document.getElementById(formId);
   if (!form) return;
-  form.addEventListener("submit", (e) => {
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const data = new FormData(form);
     const name = (data.get("name") || "").toString().trim();
@@ -172,6 +182,32 @@ function hookMailto(formId){
       ? "Запрос консультации — Financial Stream"
       : "Consultation request — Financial Stream";
 
+    // 1) If a form endpoint is configured, submit in the background (no mail client pop-up).
+    if (FORM_ENDPOINT && FORM_ENDPOINT.trim() && !FORM_ENDPOINT.includes("xxxx")) {
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          form.reset();
+          alert(lang === "ru"
+            ? "Спасибо! Заявка отправлена. Мы свяжемся с вами в ближайшее время."
+            : "Thank you! Your request was sent. We'll get back to you shortly.");
+          return;
+        }
+      } catch (err) {
+        // fall back to mailto below
+      }
+
+      alert(lang === "ru"
+        ? "Не удалось отправить форму автоматически. Сейчас откроем черновик письма — нажмите Send."
+        : "We couldn't send the form automatically. We'll open an email draft — please press Send.");
+    }
+
+    // 2) Fallback: open an email draft via mailto.
     const bodyLines = [
       `Name: ${name}`,
       `Phone: ${phone}`,
@@ -196,6 +232,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
   });
 
-  hookMailto("leadForm");
-  hookMailto("contactForm");
+  hookLeadForm("leadForm");
+  hookLeadForm("contactForm");
 });
