@@ -135,26 +135,28 @@ a:hover{ text-decoration: underline; }
 }
 
 .hero__bg{
-  position: absolute;
-  inset: 0;
-  background-image: url("assets/hero-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  opacity: .45;
+  position:absolute;
+  inset:0;
+  background: url('assets/hero-bg.jpg') center/cover no-repeat;
+  filter: blur(1px);
+  transform: scale(1.03);
+  opacity: 1;
+
   transform: scale(1.03);
 }
 .hero::after{
-  content:"";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(244,248,255,.96) 0%, rgba(244,248,255,.90) 40%, rgba(255,255,255,.98) 100%);
+  content:'';
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(255,255,255,.62) 0%, rgba(255,255,255,.78) 55%, rgba(255,255,255,.70) 100%);
 }
+
 
 .hero__grid{
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns:1fr;
   gap: 28px;
   align-items: start;
 }
@@ -302,7 +304,7 @@ a:hover{ text-decoration: underline; }
 .card{
   border: 1px solid rgba(14,34,64,.12);
   border-radius: var(--radius);
-  background: rgba(255,255,255,.86);
+  background: rgba(255,255,255,.62);
   box-shadow: 0 10px 22px rgba(10,25,44,.06);
   padding: 18px;
 }
@@ -327,7 +329,7 @@ a:hover{ text-decoration: underline; }
   padding: 16px;
   border-radius: var(--radius);
   border: 1px solid rgba(14,34,64,.12);
-  background: rgba(255,255,255,.86);
+  background: rgba(255,255,255,.62);
 }
 .step__num{
   width: 46px; height: 46px;
@@ -349,7 +351,7 @@ a:hover{ text-decoration: underline; }
 .faq__item{
   border: 1px solid rgba(14,34,64,.12);
   border-radius: var(--radius);
-  background: rgba(255,255,255,.86);
+  background: rgba(255,255,255,.62);
   padding: 12px 14px;
 }
 .faq__q{
@@ -374,7 +376,7 @@ a:hover{ text-decoration: underline; }
 .contact-card{
   border: 1px solid rgba(14,34,64,.12);
   border-radius: var(--radius);
-  background: rgba(255,255,255,.86);
+  background: rgba(255,255,255,.62);
   padding: 14px;
 }
 .contact-card__k{ font-size: 12px; color: rgba(11,18,32,.62); font-weight: 800; }
@@ -408,3 +410,5 @@ a:hover{ text-decoration: underline; }
 @media (min-width: 981px){
   .nav{ display: flex; }
 }
+
+.hero__content{max-width:760px;}
