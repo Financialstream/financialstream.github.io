@@ -20,8 +20,7 @@
 
       <nav class="nav" aria-label="Primary">
         <a class="nav__link" href="#services" data-i18n="nav.services">Services</a>
-        <a class="nav__link" href="#process" data-i18n="nav.process">Process</a>
-        <a class="nav__link" href="#faq" data-i18n="nav.faq">FAQ</a>
+<a class="nav__link" href="#faq" data-i18n="nav.faq">FAQ</a>
         <a class="nav__link" href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
 
@@ -41,8 +40,7 @@
       <div class="hero__bg" role="img" aria-label="Office work background"></div>
       <div class="container hero__grid">
         <div class="hero__copy">
-          <div class="pill" data-i18n="hero.pill">Bilingual: English / Russian</div>
-          <h1 class="hero__title">
+<h1 class="hero__title">
             <span data-i18n="hero.title1">Accounting & Bookkeeping</span><br/>
             <span class="muted" data-i18n="hero.title2">for Small Businesses & Individuals</span>
           </h1>
@@ -50,9 +48,14 @@
             Monthly bookkeeping, tax preparation, and clean reporting — built for clarity, not chaos.
           </p>
           <p class="hero__body" data-i18n="hero.body"></p>
+
+<div class="pillrow">
+  <div class="pill" data-i18n="hero.pillService">e‑Service</div>
+  <div class="pill" data-i18n="hero.pillLang">Bilingual: English / Russian</div>
+</div>
+
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#contact" data-i18n="cta.bookHero">Request a Free Consultation</a>
-            <a class="btn btn--ghost" href="#services" data-i18n="cta.seeServices">See services</a>
+<a class="btn btn--ghost" href="#services" data-i18n="cta.seeServices">See services</a>
           </div>
           <div class="chips" aria-label="Highlights">
             <span class="chip" data-i18n="hero.chip1">Fast response</span>
@@ -202,7 +205,7 @@
         <div class="contact__right">
           <div class="panel panel--flat">
             <h3 class="panel__title" data-i18n="contact.formTitle">Send a request</h3>
-            <form class="stack" id="contactForm" action="#" method="post" novalidate>
+            <form class="stack" id="contactForm" action="https://formspree.io/f/xwvqekla" method="POST" novalidate>
               <label class="field">
                 <span class="field__label" data-i18n="form.name">Your Name</span>
                 <input class="field__input" name="name" type="text" />
@@ -219,11 +222,23 @@
                 <span class="field__label" data-i18n="form.message">Message</span>
                 <textarea class="field__input field__textarea" name="message" rows="4"></textarea>
               </label>
-              <button class="btn btn--primary btn--full" type="submit" data-i18n="cta.sendRequest">Send Request</button>
-              <p class="fineprint" data-i18n="form.note">
-                Note: This demo site uses an email draft fallback. To receive submissions automatically, connect a form service (Formspree/Netlify) — instructions included in README.
-              </p>
-            </form>
+
+<label class="field">
+  <span class="field__label" data-i18n="form.filelink">Attachment link (optional)</span>
+  <input class="field__input" name="file_link" type="url" placeholder="Google Drive / Dropbox link"/>
+</label>
+
+              
+<input type="hidden" name="_subject" value="Financial Stream — Consultation request">
+<input type="hidden" name="_next" value="https://financialstream.github.io/?success=1#contact">
+<button class="btn btn--primary btn--full" type="submit" data-i18n="cta.sendRequest">Send Request</button>
+</form>
+
+<div class="notice notice--success" id="thankYou" style="display:none;" role="status" aria-live="polite">
+  <strong data-i18n="form.thanksTitle">Thank you!</strong>
+  <span data-i18n="form.thanksBody">Your request was sent. We’ll reply soon.</span>
+</div>
+
           </div>
         </div>
       </div>

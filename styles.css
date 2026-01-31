@@ -415,3 +415,28 @@ a:hover{ text-decoration: underline; }
 }
 
 .hero__content{max-width:760px;}
+
+/* Pill row under hero text */
+.pillrow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin: 14px 0 0;
+}
+.pillrow .pill{
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(12, 33, 66, 0.10);
+}
+
+/* Success notice */
+.notice{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(12,33,66,0.12);
+  background: rgba(255,255,255,0.9);
+}
+.notice--success strong{
+  display:block;
+  margin-bottom:4px;
+}
