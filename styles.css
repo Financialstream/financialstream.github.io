@@ -141,16 +141,16 @@ a:hover{ text-decoration: underline; }
   background-image: url("assets/hero-bg.jpg");
   background-size: cover;
   background-position: center;
-  opacity: .75;
+  opacity: .9;
   transform: scale(1.03);
-  filter: blur(1.5px);
+  filter: blur(0.8px);
   transform: scale(1.03);
 }
 .hero::after{
   content:"";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(244,248,255,.78) 0%, rgba(244,248,255,.86) 45%, rgba(255,255,255,.94) 100%);
+  background: linear-gradient(180deg, rgba(244,248,255,.55) 0%, rgba(244,248,255,.68) 45%, rgba(255,255,255,.80) 100%);
 }
 
 .hero__grid{
