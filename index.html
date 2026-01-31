@@ -47,11 +47,10 @@
           </p>
 <p class="hero__body" data-i18n="hero.body"></p>
 <div class="pillrow">
-<div class="pill" data-i18n="hero.pillService">C‑E Services</div>
-<div class="pill" data-i18n="hero.pillLang">Bilingual: English / Russian</div>
 </div>
 <div class="hero__cta">
 <a class="btn btn--ghost" data-i18n="cta.seeServices" href="#services">See services</a>
+      <div class="pill pill--cta" data-i18n="hero.pillLang">Bilingual: English / Russian</div>
 </div>
 <div aria-label="Highlights" class="chips">
 <span class="chip" data-i18n="hero.chip1">Fast response</span>
@@ -192,26 +191,6 @@
 <div class="panel panel--flat">
 <h3 class="panel__title" data-i18n="contact.formTitle">Send a request</h3>
 <form action="https://formspree.io/f/xwvqekla" class="stack" id="contactForm" method="POST" novalidate=""><div class="form-success hidden" data-i18n="form.success" id="formSuccess">Thank you — your request was sent.</div>
-<label class="field">
-<span class="field__label" data-i18n="form.name">Your Name</span>
-<input class="field__input" name="name" type="text"/>
-</label>
-<label class="field">
-<span class="field__label" data-i18n="form.phone">Phone Number</span>
-<input class="field__input" name="phone" type="tel"/>
-</label>
-<label class="field">
-<span class="field__label" data-i18n="form.email">Email</span>
-<input class="field__input" name="email" type="email"/>
-</label>
-<label class="field">
-<span class="field__label" data-i18n="form.message">Message</span>
-<textarea class="field__input field__textarea" name="message" rows="4"></textarea>
-</label>
-<label class="field">
-<span class="field__label" data-i18n="form.filelink">Attachment link (optional)</span>
-<input class="field__input" name="file_link" placeholder="Google Drive / Dropbox link" type="url"/>
-</label>
 <input name="_subject" type="hidden" value="Financial Stream — Consultation request"/>
 <input name="_next" type="hidden" value="https://financialstream.github.io/?success=1#contact"/>
 <button class="btn btn--primary btn--full" data-i18n="cta.sendRequest" type="submit">Send Request</button>
@@ -239,3 +218,34 @@
 <script src="script.js"></script>
 </body>
 </html>
+  <section id="reviews" class="section section--alt">
+    <div class="container">
+      <h2 class="section__title" data-i18n="reviews.title">Client reviews</h2>
+      <p class="section__subtitle" data-i18n="reviews.subtitle">A few recent notes from clients.</p>
+
+      <div class="reviews">
+        <article class="review">
+          <p class="review__text" data-i18n="reviews.r1.text">“Clear, fast, and accurate. We finally have clean monthly reports.”</p>
+          <p class="review__name" data-i18n="reviews.r1.name">Alex</p>
+        </article>
+        <article class="review">
+          <p class="review__text" data-i18n="reviews.r2.text">“Great communication and everything is organized. Highly recommend.”</p>
+          <p class="review__name" data-i18n="reviews.r2.name">Olga</p>
+        </article>
+        <article class="review">
+          <p class="review__text" data-i18n="reviews.r3.text">“They helped me fix issues from the previous bookkeeper and set everything up correctly.”</p>
+          <p class="review__name" data-i18n="reviews.r3.name">Svetlana</p>
+        </article>
+        <article class="review">
+          <p class="review__text" data-i18n="reviews.r4.text">“Professional service and quick answers — exactly what a small business needs.”</p>
+          <p class="review__name" data-i18n="reviews.r4.name">Viktor</p>
+        </article>
+        <article class="review">
+          <p class="review__text" data-i18n="reviews.r5.text">“Very attentive approach. Everything is on time and stress-free.”</p>
+          <p class="review__name" data-i18n="reviews.r5.name">Tetiana</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+

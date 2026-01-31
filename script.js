@@ -201,6 +201,7 @@ function hookMailto(formId){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initFormSuccess();
   document.getElementById("year").textContent = new Date().getFullYear();
 
   const saved = localStorage.getItem("fs_lang");
@@ -225,3 +226,19 @@ document.addEventListener("DOMContentLoaded", () => {
   hookMailto("leadForm");
   hookMailto("contactForm");
 });
+function initFormSuccess(){
+  try{
+    const params = new URLSearchParams(window.location.search);
+    if(params.get("success") === "1"){
+      const el = document.getElementById("formSuccess");
+      if(el){
+        el.hidden = false;
+        // optional: scroll to contact section
+        const contact = document.getElementById("contact");
+        if(contact){ contact.scrollIntoView({behavior:"smooth", block:"start"}); }
+      }
+    }
+  }catch(e){}
+}
+
+
