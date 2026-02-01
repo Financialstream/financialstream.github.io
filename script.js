@@ -1,270 +1,300 @@
-const i18n = {
-  en: {
-    nav: { services: "Services", process: "Process", faq: "FAQ", contact: "Contact" },
-    cta: {
-      bookTop: "Book a Free Consultation",
-      bookHero: "Book a Free Consultation",
-      seeServices: "See services",
-      sendRequest: "Send Request",
-      bookMid: "Book a Free Consultation",
-      bookProcess: "Book a Free Consultation",
-      bookFooter: "Book a Free Consultation",
-      formTitle: "Request a free consultation",
-      formSub: "Ask a question — we’ll reply shortly."
+(() => {
+  const i18n = {
+    en: {
+      nav: {
+        services: 'Services',
+        process: 'Process',
+        faq: 'FAQ',
+        contact: 'Contact',
+      },
+      cta: {
+        bookTop: 'Book a Free Consultation',
+        seeServices: 'See services',
+        ctaTitle: 'Ready to get started?',
+        ctaText: 'Book a free consultation or send a request — we’ll reply shortly.',
+        ctaButton: 'Request a Free Consultation',
+      },
+      hero: {
+        title1: 'Accounting & Bookkeeping',
+        title2: 'for Small Businesses & Individuals',
+        subtitle: 'Monthly bookkeeping, tax preparation, and clean reporting — built for clarity, not chaos.',
+        body: 'We provide reliable bookkeeping, tax preparation, and financial support for small businesses and individuals across the United States. Our goal is to keep your finances accurate, organized, and compliant — without stress or confusion. Whether you are running a business, working as a freelancer, or managing personal taxes, we help you stay in control and avoid costly mistakes. You get clear reports, timely filings, and responsive support, so you can focus on your work while we handle the numbers. Start with a free consultation to understand your situation and the best next steps.',
+      },
+      pill: {
+        lang: 'Bilingual: English / Russian',
+      },
+      badges: {
+        response: 'Fast response',
+        reports: 'Clean monthly reports',
+        us: 'US small-business focused',
+      },
+      services: {
+        title: 'Our Services',
+        subtitle: 'Clear scope, predictable workflow, and clean outputs you can rely on.',
+        card1: {
+          title: 'Bookkeeping',
+          desc: 'Monthly bookkeeping, reconciliations, and reports to keep your numbers accurate.',
+        },
+        card2: {
+          title: 'Tax Preparation',
+          desc: 'Tax filing for individuals and businesses, with a focus on maximizing deductions.',
+        },
+        card3: {
+          title: 'Payroll',
+          desc: 'Payroll processing and filings (W-2 / 1099) — accurate and on time.',
+        },
+        card4: {
+          title: 'Cleanup & Catch‑Up',
+          desc: 'Fix past months, organize records, and get back to a clean baseline.',
+        },
+        card5: {
+          title: 'New Business Setup',
+          desc: 'Accounting system setup, chart of accounts, and basic process guidance.',
+        },
+        card6: {
+          title: 'Support & Advisory',
+          desc: 'Clear answers, monthly check‑ins, and practical guidance when you need it.',
+        },
+      },
+      process: {
+        title: 'How it works',
+        subtitle: 'A simple flow that keeps finances under control.',
+        p1: {
+          title: 'Free consultation',
+          desc: 'We understand your situation and confirm scope.',
+        },
+        p2: {
+          title: 'Secure onboarding',
+          desc: 'We collect access and documents with clear instructions.',
+        },
+        p3: {
+          title: 'Monthly close',
+          desc: 'Reconciliations and cleanup — consistent and on time.',
+        },
+      },
+      reviews: {
+        title: 'Client reviews',
+        subtitle: 'Hundreds of clients trust us — here are a few notes.',
+        r1: { text: '“Clear, fast, and accurate. We finally have clean monthly reports.”', name: 'Alex' },
+        r2: { text: '“Great communication and everything is organized. Highly recommend.”', name: 'Olga' },
+        r3: { text: '“They helped me fix issues from the previous bookkeeper and set everything up correctly.”', name: 'Svetlana' },
+        r4: { text: '“Professional service and quick answers — exactly what a small business needs.”', name: 'Viktor' },
+        r5: { text: '“Very attentive approach. Everything is on time and stress‑free.”', name: 'Tetiana' },
+      },
+      faq: {
+        title: 'FAQ',
+        subtitle: 'Answers to common questions.',
+        q1: { q: 'Do you work with both individuals and businesses?', a: 'Yes. We support individuals, freelancers, and small businesses across the US.' },
+        q2: { q: 'Which software do you use?', a: 'We work with QuickBooks and Xero, depending on your needs and current setup.' },
+        q3: { q: 'How fast can we start?', a: 'Often within a few days after the initial call and access collection.' },
+        q4: { q: 'Can you help with past‑due bookkeeping?', a: 'Yes. We can clean up and catch up past periods, then move to monthly support.' },
+      },
+      contact: {
+        title: 'Contact',
+        subtitle: 'Tell us what you need — we’ll reply shortly.',
+        phoneLabel: 'Phone',
+        emailLabel: 'Email',
+        websiteLabel: 'Website',
+      },
+      form: {
+        title: 'Request a free consultation',
+        subtitle: 'Or ask a question.',
+        name: 'Your Name',
+        phone: 'Phone Number',
+        email: 'Email',
+        message: 'Message',
+        submit: 'Send Request',
+        thankYouTitle: 'Thank you!',
+        thankYouText: 'Your request has been sent. We will contact you shortly.',
+      },
+      footer: {
+        rights: '© 2026 Financial Stream LLC',
+      },
     },
-    hero: {
-    pillService: "C‑E Services",
-    pillLang: "Bilingual: English / Russian",
-      pill: "Bilingual: English / Russian",
-      title1: "Accounting & Bookkeeping",
-      title2: "for Small Businesses & Individuals",
-      subtitle: "Monthly bookkeeping, tax preparation, and clean reporting — built for clarity, not chaos.",
-      body: "We provide reliable bookkeeping, tax preparation, and financial support for small businesses and individuals across the United States. Our goal is to keep your finances accurate, organized, and compliant \u2014 without stress or confusion. Whether you are running a business, working as a freelancer, or managing personal taxes, we help you stay in control and avoid costly mistakes. You get clear reports, timely filings, and responsive support, so you can focus on your work while we handle the numbers. Start with a free consultation to understand your situation and the best next steps.",
-      chip1: "Fast response",
-      chip2: "Clean monthly reports",
-      chip3: "US small-business focused"
+
+    ru: {
+      nav: {
+        services: 'Услуги',
+        process: 'Процесс',
+        faq: 'Вопросы',
+        contact: 'Контакты',
+      },
+      cta: {
+        bookTop: 'Бесплатная консультация',
+        seeServices: 'Смотреть услуги',
+        ctaTitle: 'Готовы начать?',
+        ctaText: 'Запишитесь на бесплатную консультацию или отправьте запрос — мы ответим в ближайшее время.',
+        ctaButton: 'Записаться на бесплатную консультацию',
+      },
+      hero: {
+        title1: 'Бухгалтерия и учет',
+        title2: 'для малого бизнеса и частных лиц',
+        subtitle: 'Ежемесячный учет, налоги и понятные отчеты — для ясности, а не хаоса.',
+        body: 'Мы предоставляем надежное бухгалтерское сопровождение, подготовку налогов и финансовую поддержку для малого бизнеса и частных лиц по всей территории США. Наша цель — чтобы ваши финансы были точными, организованными и соответствовали требованиям — без стресса и путаницы. Независимо от того, ведете ли вы бизнес, работаете как фрилансер или занимаетесь личными налогами, мы помогаем держать все под контролем и избегать дорогих ошибок. Вы получаете понятные отчеты, своевременные подачи и быстрые ответы, чтобы вы могли заниматься своим делом, а цифры мы возьмем на себя. Начните с бесплатной консультации — разберемся в ситуации и предложим лучшие следующие шаги.',
+      },
+      pill: {
+        lang: 'Два языка: Английский / Русский',
+      },
+      badges: {
+        response: 'Быстрый ответ',
+        reports: 'Понятные ежемесячные отчеты',
+        us: 'Фокус на малом бизнесе США',
+      },
+      services: {
+        title: 'Наши услуги',
+        subtitle: 'Понятный объем работ, предсказуемый процесс и чистый результат.',
+        card1: {
+          title: 'Бухгалтерия (Bookkeeping)',
+          desc: 'Ежемесячный учет, сверки и отчеты — чтобы цифры были точными.',
+        },
+        card2: {
+          title: 'Налоги (Tax Preparation)',
+          desc: 'Подготовка и подача налогов для физлиц и бизнеса с учетом вычетов.',
+        },
+        card3: {
+          title: 'Зарплата (Payroll)',
+          desc: 'Начисление зарплаты и формы (W‑2 / 1099) — точно и вовремя.',
+        },
+        card4: {
+          title: 'Наведение порядка (Cleanup)',
+          desc: 'Исправим прошлые месяцы,整理记录 и вернем учет в норму.',
+        },
+        card5: {
+          title: 'Настройка для нового бизнеса',
+          desc: 'Настроим учетную систему, план счетов и базовые процессы.',
+        },
+        card6: {
+          title: 'Поддержка и консультации',
+          desc: 'Понятные ответы, регулярные проверки и практические рекомендации.',
+        },
+      },
+      process: {
+        title: 'Как мы работаем',
+        subtitle: 'Простой процесс, который держит финансы под контролем.',
+        p1: {
+          title: 'Бесплатная консультация',
+          desc: 'Разбираем вашу ситуацию и согласуем объем работ.',
+        },
+        p2: {
+          title: 'Безопасный старт',
+          desc: 'Собираем доступы и документы по понятным инструкциям.',
+        },
+        p3: {
+          title: 'Ежемесячное закрытие',
+          desc: 'Сверки и порядок — стабильно и в срок.',
+        },
+      },
+      reviews: {
+        title: 'Отзывы клиентов',
+        subtitle: 'Нам доверяют сотни клиентов — вот несколько коротких отзывов.',
+        r1: { text: '“Четко, быстро и аккуратно. Наконец-то есть нормальные ежемесячные отчеты.”', name: 'Алексей' },
+        r2: { text: '“Отличная коммуникация, все разложили по полочкам. Рекомендую.”', name: 'Ольга' },
+        r3: { text: '“Помогли исправить ошибки прошлого бухгалтера и настроили учет правильно.”', name: 'Светлана' },
+        r4: { text: '“Профессионально и быстро отвечают — именно то, что нужно малому бизнесу.”', name: 'Виктор' },
+        r5: { text: '“Очень внимательный подход. Все вовремя и без стресса.”', name: 'Татьяна' },
+      },
+      faq: {
+        title: 'Частые вопросы',
+        subtitle: 'Короткие ответы на популярные вопросы.',
+        q1: { q: 'Вы работаете и с частными лицами, и с бизнесом?', a: 'Да. Мы работаем с физлицами, фрилансерами и малым бизнесом по США.' },
+        q2: { q: 'С какими программами вы работаете?', a: 'Чаще всего QuickBooks и Xero — в зависимости от вашей ситуации.' },
+        q3: { q: 'Как быстро можно начать?', a: 'Обычно — в течение нескольких дней после созвона и получения доступов.' },
+        q4: { q: 'Можете ли вы “догнать” прошлые месяцы?', a: 'Да. Мы делаем cleanup/catch‑up и затем переходим на ежемесячное сопровождение.' },
+      },
+      contact: {
+        title: 'Контакты',
+        subtitle: 'Опишите задачу — мы ответим в ближайшее время.',
+        phoneLabel: 'Телефон',
+        emailLabel: 'Email',
+        websiteLabel: 'Сайт',
+      },
+      form: {
+        title: 'Записаться на бесплатную консультацию',
+        subtitle: 'Или задайте вопрос.',
+        name: 'Ваше имя',
+        phone: 'Телефон',
+        email: 'Email',
+        message: 'Сообщение',
+        submit: 'Отправить запрос',
+        thankYouTitle: 'Спасибо!',
+        thankYouText: 'Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.',
+      },
+      footer: {
+        rights: '© 2026 Financial Stream LLC',
+      },
     },
-    panel: {
-      title: "Book a Free Consultation",
-      desc: "Ask a question or request a free consultation — we’ll get back to you shortly.",
-      callText: "(Call / Text)"
-    },
-    services: {
-      title: "Our Services",
-      subtitle: "Clear scope. Clean deliverables. No surprises.",
-      s1: { title: "Bookkeeping", text: "Monthly bookkeeping, reconciliation, and organized records." },
-      s2: { title: "Tax Preparation", text: "Individual and small-business tax filing with deduction support." },
-      s3: { title: "Payroll / Sales Tax", text: "Payroll processing and sales tax compliance, done on time." },
-      s4: { title: "Financial Reporting", text: "Simple, readable monthly reports to guide decisions." },
-      s5: { title: "LLC / Business Setup", text: "Guidance on setup, basics, and ongoing compliance hygiene." },
-      cta: { title: "Not sure what you need?", text: "Book a free call — we’ll clarify scope and next steps." }
-    },
-    process: {
-      title: "How it works",
-      subtitle: "A simple flow that keeps finances under control.",
-      p1: { title: "Free consultation", text: "We understand your situation and confirm scope." },
-      p2: { title: "Secure onboarding", text: "We collect access and documents with clear instructions." },
-      p3: { title: "Monthly close", text: "Reconciliations and cleanup — consistent and on time." },
-      p4: { title: "Reports & support", text: "You get clear reports plus quick answers when needed." }
-    },
-    faq: {
-      title: "FAQ",
-      subtitle: "Common questions — quick answers.",
-      q1: { q: "Do you work with both individuals and businesses?", a: "Yes — individuals, freelancers, and small businesses." },
-      q2: { q: "Do you support English and Russian?", a: "Yes. We’re bilingual (EN/RU)." },
-      q3: { q: "How fast do you respond?", a: "Typically same day or within 24 hours on business days." }
-    },
-    contact: {
-      title: "Contact",
-      subtitle: "Ask a question or request a free consultation — we’ll reply shortly.",
-      phone: "Phone",
-      email: "Email",
-      website: "Website",
-      formTitle: "Book a Free Consultation"
-    },
-    form: {
-      success: "Thank you — your request was sent.",
-      nameLabel: "Your Name",
-      namePlaceholder: "Your Name",
-      phoneLabel: "Phone Number",
-      phonePlaceholder: "Phone Number",
-      emailLabel: "Email",
-      emailPlaceholder: "Email",
-      messageLabel: "Message",
-      messagePlaceholder: "How can we help?",
-      thanksTitle: "Thank you!",
-      thanksBody: "We received your request and will get back to you shortly."
+  };
 
-    }
-  
+  const getNested = (obj, path) => path.split('.').reduce((o, k) => (o && k in o ? o[k] : undefined), obj);
 
-    reviews: {
-      title: "Client reviews",
-      subtitle: "Trusted by hundreds of clients across the U.S. Here are a few short notes from people who value clarity, responsiveness, and accuracy.",
-      r1: "“Clear, fast, and accurate. We finally have clean monthly reports.”",
-      n1: "Alex",
-      r2: "“Great communication and everything is organized. Highly recommend.”",
-      n2: "Olga",
-      r3: "“They helped me fix issues from the previous bookkeeper and set everything up correctly.”",
-      n3: "Svetlana",
-      r4: "“Professional service and quick answers — exactly what a small business needs.”",
-      n4: "Viktor",
-      r5: "“Very attentive approach. Everything is on time and stress‑free.”",
-      n5: "Tetiana"
-    },
-  },
-  ru: {
-    nav: { services: "Услуги", process: "Процесс", faq: "FAQ", contact: "Контакты" },
-    cta: {
-      bookTop: "Записаться на бесплатную консультацию",
-      bookHero: "Записаться на бесплатную консультацию",
-      seeServices: "Посмотреть услуги",
-      sendRequest: "Отправить",
-      bookMid: "Записаться на бесплатную консультацию",
-      bookProcess: "Записаться на бесплатную консультацию",
-      bookFooter: "Записаться на бесплатную консультацию",
-      formTitle: "Записаться на бесплатную консультацию",
-      formSub: "Задать вопрос — мы ответим в ближайшее время."
-    },
-    hero: {
-    pillService: "C‑E Services",
-    pillLang: "Билингвально: English / Russian",
-      pill: "Двуязычно: Английский / Русский",
-      title1: "Бухгалтерия и учёт",
-      title2: "для малого бизнеса и частных лиц",
-      subtitle: "Ежемесячный учёт, подготовка налогов и понятные отчёты — без хаоса.",
-      body: "\u041c\u044b \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u043c \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0431\u0443\u0445\u0433\u0430\u043b\u0442\u0435\u0440\u0441\u043a\u0438\u0439 \u0443\u0447\u0451\u0442, \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0443 \u043d\u0430\u043b\u043e\u0433\u043e\u0432 \u0438 \u0444\u0438\u043d\u0430\u043d\u0441\u043e\u0432\u0443\u044e \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0434\u043b\u044f \u043c\u0430\u043b\u043e\u0433\u043e \u0431\u0438\u0437\u043d\u0435\u0441\u0430 \u0438 \u0447\u0430\u0441\u0442\u043d\u044b\u0445 \u043b\u0438\u0446 \u0432 \u0421\u0428\u0410. \u041d\u0430\u0448\u0430 \u0437\u0430\u0434\u0430\u0447\u0430 \u2014 \u0447\u0442\u043e\u0431\u044b \u0432\u0430\u0448\u0438 \u0444\u0438\u043d\u0430\u043d\u0441\u044b \u0431\u044b\u043b\u0438 \u0442\u043e\u0447\u043d\u044b\u043c\u0438, \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u043c\u0438 \u0438 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u043b\u0438 \u0442\u0440\u0435\u0431\u043e\u0432\u0430\u043d\u0438\u044f\u043c, \u0431\u0435\u0437 \u0441\u0442\u0440\u0435\u0441\u0441\u0430 \u0438 \u043f\u0443\u0442\u0430\u043d\u0438\u0446\u044b. \u0415\u0441\u043b\u0438 \u0432\u044b \u0432\u043b\u0430\u0434\u0435\u043b\u0435\u0446 \u0431\u0438\u0437\u043d\u0435\u0441\u0430, \u0444\u0440\u0438\u043b\u0430\u043d\u0441\u0435\u0440 \u0438\u043b\u0438 \u0445\u043e\u0442\u0438\u0442\u0435 \u043d\u0430\u0432\u0435\u0441\u0442\u0438 \u043f\u043e\u0440\u044f\u0434\u043e\u043a \u0432 \u043d\u0430\u043b\u043e\u0433\u0430\u0445, \u043c\u044b \u043f\u043e\u043c\u043e\u0436\u0435\u043c \u0438\u0437\u0431\u0435\u0436\u0430\u0442\u044c \u043e\u0448\u0438\u0431\u043e\u043a \u0438 \u0434\u0435\u0440\u0436\u0430\u0442\u044c \u0432\u0441\u0451 \u043f\u043e\u0434 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0435\u043c. \u0412\u044b \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442\u0435 \u043f\u043e\u043d\u044f\u0442\u043d\u044b\u0435 \u043e\u0442\u0447\u0451\u0442\u044b, \u0441\u0432\u043e\u0435\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u0443\u044e \u043f\u043e\u0434\u0430\u0447\u0443 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u0438 \u043e\u043f\u0435\u0440\u0430\u0442\u0438\u0432\u043d\u0443\u044e \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443, \u0447\u0442\u043e\u0431\u044b \u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0438\u0442\u044c\u0441\u044f \u043d\u0430 \u0440\u0430\u0431\u043e\u0442\u0435, \u043f\u043e\u043a\u0430 \u043c\u044b \u0432\u0435\u0434\u0451\u043c \u0446\u0438\u0444\u0440\u044b. \u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u0441 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e\u0439 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u0438 \u2014 \u0440\u0430\u0437\u0431\u0435\u0440\u0451\u043c \u0432\u0430\u0448\u0443 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044e \u0438 \u0441\u043e\u0433\u043b\u0430\u0441\u0443\u0435\u043c \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0439 \u0448\u0430\u0433.",
-      chip1: "Быстрый ответ",
-      chip2: "Понятные ежемесячные отчёты",
-      chip3: "Фокус на малом бизнесе США"
-    },
-    panel: {
-      title: "Записаться на бесплатную консультацию",
-      desc: "Задать вопрос или записаться на консультацию — мы быстро ответим.",
-      callText: "(Звонок / SMS)"
-    },
-    services: {
-      title: "Услуги",
-      subtitle: "Чёткий объём работ. Понятный результат.",
-      s1: { title: "Бухгалтерский учёт", text: "Ежемесячный учёт, сверки и порядок в документах." },
-      s2: { title: "Подготовка налогов", text: "Налоги для частных лиц и малого бизнеса, с учётом вычетов." },
-      s3: { title: "Payroll / Sales Tax", text: "Payroll и Sales Tax — вовремя и без сюрпризов." },
-      s4: { title: "Финансовые отчёты", text: "Понятные отчёты для контроля и решений." },
-      s5: { title: "LLC / Открытие бизнеса", text: "Подскажем по базовой настройке и соблюдению требований." },
-      cta: { title: "Не уверены, что нужно?", text: "Запишитесь на бесплатный звонок — уточним задачу и следующий шаг." }
-    },
-    process: {
-      title: "Как мы работаем",
-      subtitle: "Простой процесс, чтобы финансы были под контролем.",
-      p1: { title: "Бесплатная консультация", text: "Разбираемся в ситуации и согласуем объём работ." },
-      p2: { title: "Безопасное подключение", text: "Собираем доступы и документы по понятным инструкциям." },
-      p3: { title: "Ежемесячное закрытие", text: "Сверки и порядок — стабильно и вовремя." },
-      p4: { title: "Отчёты и поддержка", text: "Вы получаете отчёты и быстрые ответы по вопросам." }
-    },
-    faq: {
-      title: "FAQ",
-      subtitle: "Частые вопросы — коротко.",
-      q1: { q: "Вы работаете и с частными лицами, и с бизнесом?", a: "Да — частные лица, самозанятые и малый бизнес." },
-      q2: { q: "Есть поддержка русского и английского?", a: "Да. Мы работаем на EN/RU." },
-      q3: { q: "Как быстро вы отвечаете?", a: "Обычно в тот же день или в течение 24 часов в будни." }
-    },
-    contact: {
-      title: "Контакты",
-      subtitle: "Задать вопрос или записаться на консультацию — мы быстро ответим.",
-      phone: "Телефон",
-      email: "Email",
-      website: "Сайт",
-      formTitle: "Записаться на бесплатную консультацию"
-    },
-    form: {
-      success: "Спасибо — заявка отправлена.",
-      nameLabel: "Ваше имя",
-      namePlaceholder: "Ваше имя",
-      phoneLabel: "Телефон",
-      phonePlaceholder: "Номер телефона",
-      emailLabel: "Email",
-      emailPlaceholder: "Email",
-      messageLabel: "Сообщение",
-      messagePlaceholder: "Чем можем помочь?",
-      thanksTitle: "Спасибо!",
-      thanksBody: "Мы получили вашу заявку и скоро свяжемся с вами."
+  function setLanguage(lang) {
+    if (!i18n[lang]) return;
 
-    }
-  
-
-    reviews: {
-      title: "Отзывы клиентов",
-      subtitle: "Нам доверяют сотни клиентов по США. Ниже — несколько коротких отзывов от людей, которые ценят ясность, скорость ответа и точность.",
-      r1: "«Быстро, точно и понятно. Наконец-то у нас чистые ежемесячные отчёты.»",
-      n1: "Алексей",
-      r2: "«Отличная коммуникация и полный порядок в документах. Рекомендую.»",
-      n2: "Ольга",
-      r3: "«Помогли исправить ошибки предыдущего бухгалтера и всё правильно настроить.»",
-      n3: "Светлана",
-      r4: "«Профессионально и быстро отвечают — именно то, что нужно малому бизнесу.»",
-      n4: "Виктор",
-      r5: "«Очень внимательный подход. Всё вовремя и без стресса.»",
-      n5: "Татьяна"
-    },
-  }
-};
-
-function setLanguage(lang){
-  const dict = i18n[lang] || i18n.en;
-  document.documentElement.lang = lang;
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    const parts = key.split(".");
-    let val = dict;
-    for (const p of parts){
-      if (val && typeof val === "object" && p in val) val = val[p];
-      else { val = null; break; }
-    }
-    if (typeof val === "string") el.textContent = val;
-  });
-
-  // Placeholder translations
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-    const key = el.getAttribute("data-i18n-placeholder");
-    const parts = key.split(".");
-    let val = dict;
-    for (const p of parts) {
-      if (val && typeof val === "object" && p in val) val = val[p];
-      else { val = null; break; }
-    }
-    if (typeof val === "string") el.setAttribute("placeholder", val);
-  });
-
-  // Persist language with form submission
-  const formLang = document.getElementById("formLang");
-  if (formLang) formLang.value = lang;
-
-  document.querySelectorAll(".lang__btn").forEach(btn => {
-    const isActive = btn.dataset.lang === lang;
-    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
-  });
-
-  localStorage.setItem("fs_lang", lang);
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  initFormSuccess();
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  const saved = localStorage.getItem("fs_lang");
-  setLanguage(saved || "en");
-
-
-  // Show success message after Formspree redirect (?success=1)
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("success") === "1") {
-    const el = document.getElementById("formSuccess");
-    if (el) el.classList.remove("hidden");
-    params.delete("success");
-    const clean = window.location.pathname + (params.toString() ? `?${params.toString()}` : "") + window.location.hash;
-    window.history.replaceState({}, document.title, clean);
-  }
-
-
-  document.querySelectorAll(".lang__btn").forEach(btn => {
-    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
-  });
-});
-function initFormSuccess(){
-  try{
-    const params = new URLSearchParams(window.location.search);
-    if(params.get("success") === "1"){
-      const el = document.getElementById("formSuccess");
-      if(el){
-        el.hidden = false;
-        // optional: scroll to contact section
-        const contact = document.getElementById("contact");
-        if(contact){ contact.scrollIntoView({behavior:"smooth", block:"start"}); }
+    // Text content
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      const value = getNested(i18n[lang], key);
+      if (typeof value === 'string') {
+        el.textContent = value;
       }
+    });
+
+    // Placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      const value = getNested(i18n[lang], key);
+      if (typeof value === 'string') {
+        el.setAttribute('placeholder', value);
+      }
+    });
+
+    // Reviews cards
+    for (let i = 1; i <= 5; i++) {
+      const t = getNested(i18n[lang], `reviews.r${i}.text`);
+      const n = getNested(i18n[lang], `reviews.r${i}.name`);
+      const tEl = document.querySelector(`[data-i18n="reviews.r${i}.text"]`);
+      const nEl = document.querySelector(`[data-i18n="reviews.r${i}.name"]`);
+      if (tEl && typeof t === 'string') tEl.textContent = t;
+      if (nEl && typeof n === 'string') nEl.textContent = n;
     }
-  }catch(e){}
-}
 
+    // Active state
+    document.querySelectorAll('.lang__btn').forEach((btn) => {
+      const isActive = btn.getAttribute('data-lang') === lang;
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
 
+    // Store
+    localStorage.setItem('fs_lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+
+    // Hidden language field for Formspree (optional)
+    const formLang = document.getElementById('formLang');
+    if (formLang) formLang.value = lang;
+  }
+
+  // Hook language buttons
+  document.querySelectorAll('.lang__btn').forEach((btn) => {
+    btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+  });
+
+  // Init language
+  const saved = localStorage.getItem('fs_lang');
+  const initial = saved ? saved : (((navigator.language || '').toLowerCase().startsWith('ru')) ? 'ru' : 'en');
+  setLanguage(initial);
+
+  // Simple success message based on URL param (?sent=1)
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('sent') === '1') {
+      const t = document.getElementById('thankyou');
+      if (t) t.style.display = 'block';
+      // Remove the param from URL (optional, no reload)
+      params.delete('sent');
+      const clean = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}${window.location.hash || ''}`;
+      window.history.replaceState({}, '', clean);
+    }
+  } catch (_) {
+    // no-op
+  }
+})();
