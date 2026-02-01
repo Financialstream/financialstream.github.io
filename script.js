@@ -61,18 +61,35 @@ const i18n = {
       formTitle: "Book a Free Consultation"
     },
     form: {
-    success: "Thank you — your request was sent.",
-      name: "Your Name",
-      phone: "Phone Number",
-      email: "Email",
-      message: "Message",
-      filelink: "Attachment link (optional)",
-      note: "",
-      thanksTitle: "\u0421\u043f\u0430\u0441\u0438\u0431\u043e!",
-      thanksBody: "\u0417\u0430\u043f\u0440\u043e\u0441 \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d. \u041c\u044b \u0441\u043a\u043e\u0440\u043e \u043e\u0442\u0432\u0435\u0442\u0438\u043c.",
+      success: "Thank you — your request was sent.",
+      nameLabel: "Your Name",
+      namePlaceholder: "Your Name",
+      phoneLabel: "Phone Number",
+      phonePlaceholder: "Phone Number",
+      emailLabel: "Email",
+      emailPlaceholder: "Email",
+      messageLabel: "Message",
+      messagePlaceholder: "How can we help?",
       thanksTitle: "Thank you!",
-      thanksBody: "Your request was sent. We\u2019ll reply soon."
+      thanksBody: "We received your request and will get back to you shortly."
+
     }
+  
+
+    reviews: {
+      title: "Client reviews",
+      subtitle: "Hundreds of clients trust us with bookkeeping and taxes — here are a few notes.",
+      r1: "“Clear, fast, and accurate. We finally have clean monthly reports.”",
+      n1: "Alex",
+      r2: "“Great communication and everything is organized. Highly recommend.”",
+      n2: "Olga",
+      r3: "“They helped me fix issues from the previous bookkeeper and set everything up correctly.”",
+      n3: "Svetlana",
+      r4: "“Professional service and quick answers — exactly what a small business needs.”",
+      n4: "Viktor",
+      r5: "“Very attentive approach. Everything is on time and stress‑free.”",
+      n5: "Tetiana"
+    },
   },
   ru: {
     nav: { services: "Услуги", process: "Процесс", faq: "FAQ", contact: "Контакты" },
@@ -136,14 +153,35 @@ const i18n = {
       formTitle: "Записаться на бесплатную консультацию"
     },
     form: {
-    success: "Спасибо — запрос отправлен.",
-      name: "Ваше имя",
-      phone: "Телефон",
-      email: "Email",
-      message: "Сообщение",
-      filelink: "\u0421\u0441\u044b\u043b\u043a\u0430 \u043d\u0430 \u0444\u0430\u0439\u043b (\u043f\u043e \u0436\u0435\u043b\u0430\u043d\u0438\u044e)",
-      note: ""
+      success: "Спасибо — заявка отправлена.",
+      nameLabel: "Ваше имя",
+      namePlaceholder: "Ваше имя",
+      phoneLabel: "Телефон",
+      phonePlaceholder: "Номер телефона",
+      emailLabel: "Email",
+      emailPlaceholder: "Email",
+      messageLabel: "Сообщение",
+      messagePlaceholder: "Чем можем помочь?",
+      thanksTitle: "Спасибо!",
+      thanksBody: "Мы получили вашу заявку и скоро свяжемся с вами."
+
     }
+  
+
+    reviews: {
+      title: "Отзывы клиентов",
+      subtitle: "Нам доверяют сотни клиентов — вот несколько коротких отзывов.",
+      r1: "«Быстро, точно и понятно. Наконец-то у нас чистые ежемесячные отчёты.»",
+      n1: "Алексей",
+      r2: "«Отличная коммуникация и полный порядок в документах. Рекомендую.»",
+      n2: "Ольга",
+      r3: "«Помогли исправить ошибки предыдущего бухгалтера и всё правильно настроить.»",
+      n3: "Светлана",
+      r4: "«Профессионально и быстро отвечают — именно то, что нужно малому бизнесу.»",
+      n4: "Виктор",
+      r5: "«Очень внимательный подход. Всё вовремя и без стресса.»",
+      n5: "Татьяна"
+    },
   }
 };
 
@@ -161,6 +199,22 @@ function setLanguage(lang){
     }
     if (typeof val === "string") el.textContent = val;
   });
+
+  // Placeholder translations
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const parts = key.split(".");
+    let val = dict;
+    for (const p of parts) {
+      if (val && typeof val === "object" && p in val) val = val[p];
+      else { val = null; break; }
+    }
+    if (typeof val === "string") el.setAttribute("placeholder", val);
+  });
+
+  // Persist language with form submission
+  const formLang = document.getElementById("formLang");
+  if (formLang) formLang.value = currentLang;
 
   document.querySelectorAll(".lang__btn").forEach(btn => {
     const isActive = btn.dataset.lang === lang;

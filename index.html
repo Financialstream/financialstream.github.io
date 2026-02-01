@@ -49,10 +49,11 @@
 <div class="pillrow">
 </div>
 <div class="hero__cta">
-<a class="btn btn--ghost" data-i18n="cta.seeServices" href="#services">See services</a>
+      <a class="pill pill--cta" href="#services" data-i18n="cta.seeServices">See services</a>
       <div class="pill pill--cta" data-i18n="hero.pillLang">Bilingual: English / Russian</div>
-</div>
-<div aria-label="Highlights" class="chips">
+    </div>
+
+    <div aria-label="Highlights" class="chips">
 <span class="chip" data-i18n="hero.chip1">Fast response</span>
 <span class="chip" data-i18n="hero.chip2">Clean monthly reports</span>
 <span class="chip" data-i18n="hero.chip3">US small-business focused</span>
@@ -144,6 +145,38 @@
 </div>
 </section>
 <!-- FAQ -->
+
+
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <h2 class="section__title" data-i18n="reviews.title">Client reviews</h2>
+    <p class="section__subtitle" data-i18n="reviews.subtitle">Hundreds of clients trust us — here are a few notes.</p>
+
+    <div class="reviews__grid">
+      <article class="review">
+        <p class="review__text" data-i18n="reviews.r1">“Clear, fast, and accurate. We finally have clean monthly reports.”</p>
+        <p class="review__name" data-i18n="reviews.n1">Alex</p>
+      </article>
+      <article class="review">
+        <p class="review__text" data-i18n="reviews.r2">“Great communication and everything is organized. Highly recommend.”</p>
+        <p class="review__name" data-i18n="reviews.n2">Olga</p>
+      </article>
+      <article class="review">
+        <p class="review__text" data-i18n="reviews.r3">“They helped me fix issues from the previous bookkeeper and set everything up correctly.”</p>
+        <p class="review__name" data-i18n="reviews.n3">Svetlana</p>
+      </article>
+      <article class="review">
+        <p class="review__text" data-i18n="reviews.r4">“Professional service and quick answers — exactly what a small business needs.”</p>
+        <p class="review__name" data-i18n="reviews.n4">Viktor</p>
+      </article>
+      <article class="review">
+        <p class="review__text" data-i18n="reviews.r5">“Very attentive approach. Everything is on time and stress‑free.”</p>
+        <p class="review__name" data-i18n="reviews.n5">Tetiana</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="faq">
 <div class="container">
 <div class="section__head">
@@ -190,10 +223,34 @@
 <div class="contact__right">
 <div class="panel panel--flat">
 <h3 class="panel__title" data-i18n="contact.formTitle">Send a request</h3>
-<form action="https://formspree.io/f/xwvqekla" class="stack" id="contactForm" method="POST" novalidate=""><div class="form-success hidden" data-i18n="form.success" id="formSuccess">Thank you — your request was sent.</div>
-<input name="_subject" type="hidden" value="Financial Stream — Consultation request"/>
-<input name="_next" type="hidden" value="https://financialstream.github.io/?success=1#contact"/>
-<button class="btn btn--primary btn--full" data-i18n="cta.sendRequest" type="submit">Send Request</button>
+<form action="https://formspree.io/f/xwvqekla" method="POST" class="stack" id="contactForm">
+  <div id="formSuccess" class="form-success hidden" data-i18n="form.success">Thank you — your request was sent.</div>
+
+  <input type="hidden" name="_subject" value="Financial Stream — Consultation request">
+  <input type="hidden" name="_next" value="https://financialstream.github.io/?success=1#contact">
+  <input type="hidden" name="site_lang" id="formLang" value="en">
+
+  <label class="field">
+    <span class="field__label" data-i18n="form.nameLabel">Your Name</span>
+    <input class="field__input" type="text" name="name" required autocomplete="name" placeholder="Your Name" data-i18n-placeholder="form.namePlaceholder">
+  </label>
+
+  <label class="field">
+    <span class="field__label" data-i18n="form.phoneLabel">Phone Number</span>
+    <input class="field__input" type="tel" name="phone" autocomplete="tel" placeholder="Phone Number" data-i18n-placeholder="form.phonePlaceholder">
+  </label>
+
+  <label class="field">
+    <span class="field__label" data-i18n="form.emailLabel">Email</span>
+    <input class="field__input" type="email" name="email" required autocomplete="email" placeholder="Email" data-i18n-placeholder="form.emailPlaceholder">
+  </label>
+
+  <label class="field">
+    <span class="field__label" data-i18n="form.messageLabel">Message</span>
+    <textarea class="field__textarea" name="message" rows="5" required placeholder="How can we help?" data-i18n-placeholder="form.messagePlaceholder"></textarea>
+  </label>
+
+  <button class="btn btn--primary btn--full" type="submit" data-i18n="cta.sendRequest">Send Request</button>
 </form>
 <div aria-live="polite" class="notice notice--success" id="thankYou" role="status" style="display:none;">
 <strong data-i18n="form.thanksTitle">Thank you!</strong>
@@ -218,34 +275,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-  <section id="reviews" class="section section--alt">
-    <div class="container">
-      <h2 class="section__title" data-i18n="reviews.title">Client reviews</h2>
-      <p class="section__subtitle" data-i18n="reviews.subtitle">A few recent notes from clients.</p>
-
-      <div class="reviews">
-        <article class="review">
-          <p class="review__text" data-i18n="reviews.r1.text">“Clear, fast, and accurate. We finally have clean monthly reports.”</p>
-          <p class="review__name" data-i18n="reviews.r1.name">Alex</p>
-        </article>
-        <article class="review">
-          <p class="review__text" data-i18n="reviews.r2.text">“Great communication and everything is organized. Highly recommend.”</p>
-          <p class="review__name" data-i18n="reviews.r2.name">Olga</p>
-        </article>
-        <article class="review">
-          <p class="review__text" data-i18n="reviews.r3.text">“They helped me fix issues from the previous bookkeeper and set everything up correctly.”</p>
-          <p class="review__name" data-i18n="reviews.r3.name">Svetlana</p>
-        </article>
-        <article class="review">
-          <p class="review__text" data-i18n="reviews.r4.text">“Professional service and quick answers — exactly what a small business needs.”</p>
-          <p class="review__name" data-i18n="reviews.r4.name">Viktor</p>
-        </article>
-        <article class="review">
-          <p class="review__text" data-i18n="reviews.r5.text">“Very attentive approach. Everything is on time and stress-free.”</p>
-          <p class="review__name" data-i18n="reviews.r5.name">Tetiana</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
