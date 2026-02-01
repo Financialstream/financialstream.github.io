@@ -479,10 +479,17 @@ a:hover{ text-decoration: underline; }
 }
 
 /* Reviews */
-.reviews{
+.reviews{ padding-top: 0; }
+.reviews__grid{
   display:grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap:14px;
+}
+@media (max-width: 1100px){
+  .reviews__grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 760px){
+  .reviews__grid{ grid-template-columns: repeat(1, minmax(0, 1fr)); }
 }
 .review{
   background:#fff;
@@ -512,4 +519,12 @@ a:hover{ text-decoration: underline; }
 }
 @media (max-width: 720px){
   .reviews{grid-template-columns: repeat(1, minmax(0, 1fr));}
+}
+
+
+.panel__subtitle{
+  margin: 6px 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
 }

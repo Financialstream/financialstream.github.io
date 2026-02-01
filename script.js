@@ -8,7 +8,9 @@ const i18n = {
       sendRequest: "Send Request",
       bookMid: "Book a Free Consultation",
       bookProcess: "Book a Free Consultation",
-      bookFooter: "Book a Free Consultation"
+      bookFooter: "Book a Free Consultation",
+      formTitle: "Request a free consultation",
+      formSub: "Ask a question — we’ll reply shortly."
     },
     hero: {
     pillService: "C‑E Services",
@@ -78,7 +80,7 @@ const i18n = {
 
     reviews: {
       title: "Client reviews",
-      subtitle: "Hundreds of clients trust us with bookkeeping and taxes — here are a few notes.",
+      subtitle: "Trusted by hundreds of clients across the U.S. Here are a few short notes from people who value clarity, responsiveness, and accuracy.",
       r1: "“Clear, fast, and accurate. We finally have clean monthly reports.”",
       n1: "Alex",
       r2: "“Great communication and everything is organized. Highly recommend.”",
@@ -100,7 +102,9 @@ const i18n = {
       sendRequest: "Отправить",
       bookMid: "Записаться на бесплатную консультацию",
       bookProcess: "Записаться на бесплатную консультацию",
-      bookFooter: "Записаться на бесплатную консультацию"
+      bookFooter: "Записаться на бесплатную консультацию",
+      formTitle: "Записаться на бесплатную консультацию",
+      formSub: "Задать вопрос — мы ответим в ближайшее время."
     },
     hero: {
     pillService: "C‑E Services",
@@ -170,7 +174,7 @@ const i18n = {
 
     reviews: {
       title: "Отзывы клиентов",
-      subtitle: "Нам доверяют сотни клиентов — вот несколько коротких отзывов.",
+      subtitle: "Нам доверяют сотни клиентов по США. Ниже — несколько коротких отзывов от людей, которые ценят ясность, скорость ответа и точность.",
       r1: "«Быстро, точно и понятно. Наконец-то у нас чистые ежемесячные отчёты.»",
       n1: "Алексей",
       r2: "«Отличная коммуникация и полный порядок в документах. Рекомендую.»",
@@ -214,7 +218,7 @@ function setLanguage(lang){
 
   // Persist language with form submission
   const formLang = document.getElementById("formLang");
-  if (formLang) formLang.value = currentLang;
+  if (formLang) formLang.value = lang;
 
   document.querySelectorAll(".lang__btn").forEach(btn => {
     const isActive = btn.dataset.lang === lang;
@@ -224,35 +228,6 @@ function setLanguage(lang){
   localStorage.setItem("fs_lang", lang);
 }
 
-function hookMailto(formId){
-  const form = document.getElementById(formId);
-  if (!form) return;
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const name = (data.get("name") || "").toString().trim();
-    const phone = (data.get("phone") || "").toString().trim();
-    const email = (data.get("email") || "").toString().trim();
-    const message = (data.get("message") || "").toString().trim();
-
-    const lang = localStorage.getItem("fs_lang") || "en";
-    const subject = (lang === "ru")
-      ? "Запрос консультации — Financial Stream"
-      : "Consultation request — Financial Stream";
-
-    const bodyLines = [
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      `Email: ${email}`,
-      "",
-      "Message:",
-      message
-    ];
-    const body = encodeURIComponent(bodyLines.join("\n"));
-    const mailto = `mailto:financialstreamllc@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-    window.location.href = mailto;
-  });
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   initFormSuccess();
@@ -276,9 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".lang__btn").forEach(btn => {
     btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
   });
-
-  hookMailto("leadForm");
-  hookMailto("contactForm");
 });
 function initFormSuccess(){
   try{
