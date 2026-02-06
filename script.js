@@ -6,6 +6,8 @@
         process: 'Process',
         faq: 'FAQ',
         contact: 'Contact',
+        formTitle: 'Request a free consultation',
+        formSub: 'Ask a question — we’ll reply shortly.',
       },
       cta: {
         bookTop: 'Book a Free Consultation',
@@ -13,12 +15,20 @@
         ctaTitle: 'Ready to get started?',
         ctaText: 'Book a free consultation or send a request — we’ll reply shortly.',
         ctaButton: 'Request a Free Consultation',
+        sendRequest: 'Send Request',
+        bookFooter: 'Request a Free Consultation',
+        bookMid: 'Request a Free Consultation',
       },
       hero: {
         title1: 'Accounting & Bookkeeping',
         title2: 'for Small Businesses & Individuals',
         subtitle: 'Monthly bookkeeping, tax preparation, and clean reporting — built for clarity, not chaos.',
-        body: 'We provide reliable bookkeeping, tax preparation, and financial support for small businesses and individuals across the United States. Our goal is to keep your finances accurate, organized, and compliant — without stress or confusion. Whether you are running a business, working as a freelancer, or managing personal taxes, we help you stay in control and avoid costly mistakes. You get clear reports, timely filings, and responsive support, so you can focus on your work while we handle the numbers. Start with a free consultation to understand your situation and the best next steps.',
+        body: 'Financial Stream LLC provides practical accounting and bookkeeping support for small businesses and individuals. We help with business formation and closure, day‑to‑day bookkeeping in QuickBooks, and accurate monthly reporting. We also assist with sales tax and compliance communication with agencies like the Department of Revenue and L&I, and we prepare and file both business and personal tax returns. Our focus is financial clarity and clean documentation — the foundation for running a successful business.',
+        pillLang: 'Bilingual: English / Russian',
+        chip1: 'Fast response',
+        chip2: 'Clean monthly reports',
+        chip3: 'US small-business focused',
+
       },
       pill: {
         lang: 'Bilingual: English / Russian',
@@ -30,32 +40,14 @@
       },
       services: {
         title: 'Our Services',
-        subtitle: 'Clear scope, predictable workflow, and clean outputs you can rely on.',
-        card1: {
-          title: 'Bookkeeping',
-          desc: 'Monthly bookkeeping, reconciliations, and reports to keep your numbers accurate.',
-        },
-        card2: {
-          title: 'Tax Preparation',
-          desc: 'Tax filing for individuals and businesses, with a focus on maximizing deductions.',
-        },
-        card3: {
-          title: 'Payroll',
-          desc: 'Payroll processing and filings (W-2 / 1099) — accurate and on time.',
-        },
-        card4: {
-          title: 'Cleanup & Catch‑Up',
-          desc: 'Fix past months, organize records, and get back to a clean baseline.',
-        },
-        card5: {
-          title: 'New Business Setup',
-          desc: 'Accounting system setup, chart of accounts, and basic process guidance.',
-        },
-        card6: {
-          title: 'Support & Advisory',
-          desc: 'Clear answers, monthly check‑ins, and practical guidance when you need it.',
-        },
-      },
+        subtitle: 'Clear scope, predictable workflow, and clean deliverables.',
+        s1: { title: 'Bookkeeping (QuickBooks)', text: 'Ongoing bookkeeping in QuickBooks, reconciliations, and organized records.' },
+        s2: { title: 'Sales Tax Support', text: 'Sales tax tracking, filings, and compliance support with the Department of Revenue.' },
+        s3: { title: 'L&I Compliance Support', text: 'Help with L&I correspondence and required reporting so you stay compliant.' },
+        s4: { title: 'Business Tax Returns', text: 'Preparation and filing of business tax returns with clean documentation.' },
+        s5: { title: 'Personal Tax Returns', text: 'Preparation and filing of personal tax returns with clear guidance and accuracy.' },
+        s6: { title: 'Business Formation & Closure', text: 'Support for opening or closing a business — paperwork, setup basics, and next steps.' },
+      }
       process: {
         title: 'How it works',
         subtitle: 'A simple flow that keeps finances under control.',
@@ -92,20 +84,22 @@
       contact: {
         title: 'Contact',
         subtitle: 'Tell us what you need — we’ll reply shortly.',
-        phoneLabel: 'Phone',
-        emailLabel: 'Email',
-        websiteLabel: 'Website',
+        phone: 'Phone',
+        email: 'Email',
+        website: 'Website',
       },
       form: {
-        title: 'Request a free consultation',
-        subtitle: 'Or ask a question.',
-        name: 'Your Name',
-        phone: 'Phone Number',
-        email: 'Email',
-        message: 'Message',
-        submit: 'Send Request',
-        thankYouTitle: 'Thank you!',
-        thankYouText: 'Your request has been sent. We will contact you shortly.',
+        success: 'Thank you — your request was sent.',
+        nameLabel: 'Your Name',
+        phoneLabel: 'Phone Number',
+        emailLabel: 'Email',
+        messageLabel: 'Message',
+        namePlaceholder: 'Your Name',
+        phonePlaceholder: 'Phone Number',
+        emailPlaceholder: 'Email',
+        messagePlaceholder: 'How can we help?',
+        thanksTitle: 'Thank you!',
+        thanksBody: 'Your request has been sent. We will contact you shortly.',
       },
       footer: {
         rights: '© 2026 Financial Stream LLC',
@@ -118,6 +112,8 @@
         process: 'Процесс',
         faq: 'Вопросы',
         contact: 'Контакты',
+        formTitle: 'Записаться на бесплатную консультацию',
+        formSub: 'Задайте вопрос — мы ответим в ближайшее время.',
       },
       cta: {
         bookTop: 'Бесплатная консультация',
@@ -125,12 +121,20 @@
         ctaTitle: 'Готовы начать?',
         ctaText: 'Запишитесь на бесплатную консультацию или отправьте запрос — мы ответим в ближайшее время.',
         ctaButton: 'Записаться на бесплатную консультацию',
+        sendRequest: 'Отправить',
+        bookFooter: 'Записаться на бесплатную консультацию',
+        bookMid: 'Записаться на бесплатную консультацию',
       },
       hero: {
         title1: 'Бухгалтерия и учет',
         title2: 'для малого бизнеса и частных лиц',
         subtitle: 'Ежемесячный учет, налоги и понятные отчеты — для ясности, а не хаоса.',
-        body: 'Мы предоставляем надежное бухгалтерское сопровождение, подготовку налогов и финансовую поддержку для малого бизнеса и частных лиц по всей территории США. Наша цель — чтобы ваши финансы были точными, организованными и соответствовали требованиям — без стресса и путаницы. Независимо от того, ведете ли вы бизнес, работаете как фрилансер или занимаетесь личными налогами, мы помогаем держать все под контролем и избегать дорогих ошибок. Вы получаете понятные отчеты, своевременные подачи и быстрые ответы, чтобы вы могли заниматься своим делом, а цифры мы возьмем на себя. Начните с бесплатной консультации — разберемся в ситуации и предложим лучшие следующие шаги.',
+        body: 'Financial Stream LLC помогает малому бизнесу и частным лицам навести порядок в финансах и документах. Мы сопровождаем открытие и закрытие бизнеса, ведём учёт в QuickBooks, закрываем месяц и готовим понятные отчёты. Помогаем с sales tax и коммуникацией с Department of Revenue и L&I, а также готовим и подаём налоговые декларации для бизнеса и физических лиц. Наш фокус — финансовая грамотность и порядок в документах как основа успешного бизнеса.',
+        pillLang: 'Два языка: Английский / Русский',
+        chip1: 'Быстрый ответ',
+        chip2: 'Понятные ежемесячные отчеты',
+        chip3: 'Фокус на малом бизнесе США',
+
       },
       pill: {
         lang: 'Два языка: Английский / Русский',
@@ -143,31 +147,13 @@
       services: {
         title: 'Наши услуги',
         subtitle: 'Понятный объем работ, предсказуемый процесс и чистый результат.',
-        card1: {
-          title: 'Бухгалтерия (Bookkeeping)',
-          desc: 'Ежемесячный учет, сверки и отчеты — чтобы цифры были точными.',
-        },
-        card2: {
-          title: 'Налоги (Tax Preparation)',
-          desc: 'Подготовка и подача налогов для физлиц и бизнеса с учетом вычетов.',
-        },
-        card3: {
-          title: 'Зарплата (Payroll)',
-          desc: 'Начисление зарплаты и формы (W‑2 / 1099) — точно и вовремя.',
-        },
-        card4: {
-          title: 'Наведение порядка (Cleanup)',
-          desc: 'Исправим прошлые месяцы,整理记录 и вернем учет в норму.',
-        },
-        card5: {
-          title: 'Настройка для нового бизнеса',
-          desc: 'Настроим учетную систему, план счетов и базовые процессы.',
-        },
-        card6: {
-          title: 'Поддержка и консультации',
-          desc: 'Понятные ответы, регулярные проверки и практические рекомендации.',
-        },
-      },
+        s1: { title: 'Bookkeeping в QuickBooks', text: 'Ведение учёта в QuickBooks, сверки и порядок в документах.' },
+        s2: { title: 'Sales Tax и Department of Revenue', text: 'Sales tax: учёт, подачи и помощь во взаимодействии с Department of Revenue.' },
+        s3: { title: 'Поддержка по L&I', text: 'Помощь с письмами и требованиями L&I, чтобы вы оставались compliant.' },
+        s4: { title: 'Налоги для бизнеса', text: 'Подготовка и подача business tax returns с чистыми документами.' },
+        s5: { title: 'Личные налоги', text: 'Подготовка и подача personal tax returns — точно и понятно.' },
+        s6: { title: 'Открытие и закрытие бизнеса', text: 'Сопровождение регистрации и закрытия бизнеса, базовые шаги и документы.' },
+      }
       process: {
         title: 'Как мы работаем',
         subtitle: 'Простой процесс, который держит финансы под контролем.',
@@ -203,21 +189,23 @@
       },
       contact: {
         title: 'Контакты',
-        subtitle: 'Опишите задачу — мы ответим в ближайшее время.',
-        phoneLabel: 'Телефон',
-        emailLabel: 'Email',
-        websiteLabel: 'Сайт',
-      },
-      form: {
-        title: 'Записаться на бесплатную консультацию',
-        subtitle: 'Или задайте вопрос.',
-        name: 'Ваше имя',
+        subtitle: 'Напишите, что нужно — мы ответим в ближайшее время.',
         phone: 'Телефон',
         email: 'Email',
-        message: 'Сообщение',
-        submit: 'Отправить запрос',
-        thankYouTitle: 'Спасибо!',
-        thankYouText: 'Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.',
+        website: 'Сайт',
+      },
+      form: {
+        success: 'Спасибо — ваш запрос отправлен.',
+        nameLabel: 'Имя',
+        phoneLabel: 'Телефон',
+        emailLabel: 'Email',
+        messageLabel: 'Сообщение',
+        namePlaceholder: 'Ваше имя',
+        phonePlaceholder: 'Номер телефона',
+        emailPlaceholder: 'Email',
+        messagePlaceholder: 'Чем можем помочь?',
+        thanksTitle: 'Спасибо!',
+        thanksBody: 'Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.',
       },
       footer: {
         rights: '© 2026 Financial Stream LLC',
@@ -286,11 +274,11 @@
   // Simple success message based on URL param (?sent=1)
   try {
     const params = new URLSearchParams(window.location.search);
-    if (params.get('sent') === '1') {
-      const t = document.getElementById('thankyou');
+    if (params.get('success') === '1') {
+      const t = document.getElementById('formSuccess');
       if (t) t.style.display = 'block';
       // Remove the param from URL (optional, no reload)
-      params.delete('sent');
+      params.delete('success');
       const clean = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}${window.location.hash || ''}`;
       window.history.replaceState({}, '', clean);
     }
