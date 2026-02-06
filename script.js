@@ -6,8 +6,6 @@
         process: 'Process',
         faq: 'FAQ',
         contact: 'Contact',
-        formTitle: 'Request a free consultation',
-        formSub: 'Ask a question — we’ll reply shortly.',
       },
       cta: {
         bookTop: 'Book a Free Consultation',
@@ -47,21 +45,21 @@
         s4: { title: 'Business Tax Returns', text: 'Preparation and filing of business tax returns with clean documentation.' },
         s5: { title: 'Personal Tax Returns', text: 'Preparation and filing of personal tax returns with clear guidance and accuracy.' },
         s6: { title: 'Business Formation & Closure', text: 'Support for opening or closing a business — paperwork, setup basics, and next steps.' },
-      }
+      },
       process: {
         title: 'How it works',
         subtitle: 'A simple flow that keeps finances under control.',
         p1: {
           title: 'Free consultation',
-          desc: 'We understand your situation and confirm scope.',
+          text: 'We understand your situation and confirm scope.',
         },
         p2: {
           title: 'Secure onboarding',
-          desc: 'We collect access and documents with clear instructions.',
+          text: 'We collect access and documents with clear instructions.',
         },
         p3: {
           title: 'Monthly close',
-          desc: 'Reconciliations and cleanup — consistent and on time.',
+          text: 'Reconciliations and cleanup — consistent and on time.',
         },
       },
       reviews: {
@@ -84,6 +82,8 @@
       contact: {
         title: 'Contact',
         subtitle: 'Tell us what you need — we’ll reply shortly.',
+        formTitle: 'Request a free consultation',
+        formSub: 'Ask a question — we’ll reply shortly.',
         phone: 'Phone',
         email: 'Email',
         website: 'Website',
@@ -112,8 +112,6 @@
         process: 'Процесс',
         faq: 'Вопросы',
         contact: 'Контакты',
-        formTitle: 'Записаться на бесплатную консультацию',
-        formSub: 'Задайте вопрос — мы ответим в ближайшее время.',
       },
       cta: {
         bookTop: 'Бесплатная консультация',
@@ -153,21 +151,21 @@
         s4: { title: 'Налоги для бизнеса', text: 'Подготовка и подача business tax returns с чистыми документами.' },
         s5: { title: 'Личные налоги', text: 'Подготовка и подача personal tax returns — точно и понятно.' },
         s6: { title: 'Открытие и закрытие бизнеса', text: 'Сопровождение регистрации и закрытия бизнеса, базовые шаги и документы.' },
-      }
+      },
       process: {
         title: 'Как мы работаем',
         subtitle: 'Простой процесс, который держит финансы под контролем.',
         p1: {
           title: 'Бесплатная консультация',
-          desc: 'Разбираем вашу ситуацию и согласуем объем работ.',
+          text: 'Разбираем вашу ситуацию и согласуем объем работ.',
         },
         p2: {
           title: 'Безопасный старт',
-          desc: 'Собираем доступы и документы по понятным инструкциям.',
+          text: 'Собираем доступы и документы по понятным инструкциям.',
         },
         p3: {
           title: 'Ежемесячное закрытие',
-          desc: 'Сверки и порядок — стабильно и в срок.',
+          text: 'Сверки и порядок — стабильно и в срок.',
         },
       },
       reviews: {
@@ -190,6 +188,8 @@
       contact: {
         title: 'Контакты',
         subtitle: 'Напишите, что нужно — мы ответим в ближайшее время.',
+        formTitle: 'Записаться на бесплатную консультацию',
+        formSub: 'Задать вопрос — мы ответим в ближайшее время.',
         phone: 'Телефон',
         email: 'Email',
         website: 'Сайт',
