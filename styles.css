@@ -427,6 +427,17 @@ a:hover{ text-decoration: underline; }
   .nav{ display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
   .nav a{ font-size: 14px; padding: 8px 10px; }
   .cards{ grid-template-columns: 1fr; }
+  .brand__logo{ height: 60px; }
+  .footer__logo{ height: 48px; }
+  .topbar__inner{ flex-wrap: wrap; justify-content: center; }
+  .topbar__actions{ flex-wrap: wrap; justify-content: center; }
+  .btn.btn--primary{ padding: 10px 12px; font-size: 13px; }
+  .lang{ order: 1; }
+
+}
+
+/* Contact layout: keep 2 columns longer; stack only on very small screens */
+@media (max-width: 640px){
   .contact{ grid-template-columns: 1fr; }
   .contact__grid{
     grid-template-columns: 1fr;
@@ -436,13 +447,6 @@ a:hover{ text-decoration: underline; }
       "email"
       "website";
   }
-  .brand__logo{ height: 60px; }
-  .footer__logo{ height: 48px; }
-  .topbar__inner{ flex-wrap: wrap; justify-content: center; }
-  .topbar__actions{ flex-wrap: wrap; justify-content: center; }
-  .btn.btn--primary{ padding: 10px 12px; font-size: 13px; }
-  .lang{ order: 1; }
-
 }
 
 @media (min-width: 761px){
