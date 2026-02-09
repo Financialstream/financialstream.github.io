@@ -99,7 +99,9 @@
         phone: 'Phone',
         email: 'Email',
         website: 'Website',
-      },
+      
+        location: 'Location',
+        locationValue: 'Virtually serving clients across the U.S. Based out of Federal Way, Washington.',},
       form: {
         success: 'Thank you — your request was sent.',
         nameLabel: 'Your Name',
@@ -172,15 +174,7 @@
     ru: {
       nav: {
         services: 'Услуги',
-        monthly: {
-        title: 'Что вы получаете каждый месяц',
-        b1: 'Сверенные банковские счета и карты',
-        b2: 'Чистая категоризация в QuickBooks Online',
-        b3: 'P&L и Balance Sheet каждый месяц',
-        b4: 'Пояснения: что изменилось и на что обратить внимание',
-        b5: 'Быстрые ответы на вопросы по учёту',
-      },
-      process: 'Процесс',
+        process: 'Процесс',
         faq: 'Вопросы',
         contact: 'Контакты',
       },
@@ -247,6 +241,15 @@
         r4: { text: '“Профессионально и быстро отвечают — именно то, что нужно малому бизнесу.”', name: 'Виктор' },
         r5: { text: '“Очень внимательный подход. Все вовремя и без стресса.”', name: 'Татьяна' },
       },
+monthly: {
+      title: 'Что вы получаете каждый месяц',
+      b1: 'Сверенные банковские счета и карты',
+      b2: 'Чистая категоризация в QuickBooks Online',
+      b3: 'P&L и Balance Sheet каждый месяц',
+      b4: 'Пояснения: что изменилось и на что обратить внимание',
+      b5: 'Быстрые ответы на вопросы по учёту',
+      },
+      
       faq: {
         title: 'Вопросы и ответы',
         subtitle: 'Коротко отвечаем на самые частые вопросы.',
@@ -268,7 +271,9 @@
         phone: 'Телефон',
         email: 'Email',
         website: 'Сайт',
-      },
+      
+        location: 'Локация',
+        locationValue: 'Работаем с клиентами онлайн по всей территории США. Базируемся в Federal Way, Washington.',},
       form: {
         success: 'Спасибо — ваш запрос отправлен.',
         nameLabel: 'Имя',

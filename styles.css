@@ -362,6 +362,13 @@ a:hover{ text-decoration: underline; }
 }
 .faq__a{ margin-top: 10px; color: var(--muted); line-height: 1.55; }
 
+
+@media (min-width: 900px){
+  .faq{
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+  }
+}
 .contact{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -406,7 +413,6 @@ a:hover{ text-decoration: underline; }
   .nav{ display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
   .nav a{ font-size: 14px; padding: 8px 10px; }
   .cards{ grid-template-columns: 1fr; }
-  .faq{ grid-template-columns: 1fr; }
   .contact{ grid-template-columns: 1fr; }
   .contact__grid{ grid-template-columns: 1fr; }
   .brand__logo{ height: 60px; }
