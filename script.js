@@ -20,7 +20,7 @@
       hero: {
         title1: 'Accounting & Bookkeeping',
         title2: 'for Small Businesses & Individuals',
-        subtitle: 'QuickBooks bookkeeping, taxes, and clear reporting — built for clarity, not chaos.',
+        subtitle: 'Leave your bookkeeping and paperwork to professionals.',
         body: 'Financial Stream LLC helps small businesses and individuals keep clean books, stay compliant, and feel confident in their numbers. We handle monthly bookkeeping in QuickBooks Online, support state revenue and labor agency matters when needed, and prepare and file business and personal tax returns. If you’re starting a business, catching up on backlog, or getting ready for year-end — we’ll organize everything and keep it simple. Most work is done remotely, so you don’t need to visit an office.',
         pillLang: 'Bilingual: English / Russian',
         chip1: 'Fast response',
@@ -37,13 +37,14 @@
       },
       services: {
         title: 'Our Services',
-        subtitle: 'Clear scope, predictable workflow, and clean deliverables.',
-        s1: { title: 'QuickBooks Online Bookkeeping (Monthly)', text: 'Monthly categorization, reconciliation, and clean financials you can trust.' },
-        s2: { title: 'Catch-Up & Cleanup', text: 'Fix messy books and close past months so you’re back on track.' },
-        s3: { title: 'Financial Statements (P&L & Balance Sheet)', text: 'Clear monthly reporting for owners — built from accurate books.' },
-        s4: { title: 'Sales Tax Support (State Revenue Departments)', text: 'Filing support, notices, and compliance help with your state revenue department.' },
-        s5: { title: "State Labor & Workers' Comp Support", text: "Help with reporting, documentation, and communication with state labor / workers' comp agencies." },
-        s6: { title: 'Tax Returns (Business & Personal)', text: 'Prepare and file business and personal returns with organized documentation.' },
+        subtitle: 'We do our work fast, high-quality, and professionally.',
+        s1: { b1: 'Company registration / closure', b2: 'EIN application', b3: 'Business license', b4: 'Contractor license' },
+        s2: { b1: 'Bookkeeping in QuickBooks (QB). Professional monthly categorization.' },
+        s3: { b1: 'Monthly and quarterly reporting to the Department of Revenue, sales tax filing.' },
+        s4: { b1: "Payroll calculation and quarterly reporting to the Department of Labor & Industries (L&I)" },
+        s5: { b1: 'Preparation and filing of tax returns for businesses and individuals.' },
+        s6: { b1: 'Financial analysis and consultation on financial matters and documents.' },
+      }
       },
       monthly: {
         title: 'What you get each month',
@@ -191,7 +192,7 @@
       hero: {
         title1: 'Бухгалтерия и учёт',
         title2: 'для малого бизнеса и частных лиц',
-        subtitle: 'Учёт в QuickBooks, налоги и понятные отчёты — для ясности, а не хаоса.',
+        subtitle: 'Доверьте учёт и бумажную рутину профессионалам.',
         body: 'Financial Stream LLC помогает малому бизнесу и частным лицам держать финансы и документы под контролем. Мы ведём ежемесячный учёт в QuickBooks Online, помогаем по вопросам государственных департаментов (налоги с продаж, отчётность и т.п.), а также готовим и подаём налоговые декларации для бизнеса и физических лиц. Если вы открываете бизнес, нужно восстановить учёт за прошлые месяцы или подготовиться к концу года — мы всё структурируем и сделаем понятным. Большинство задач решаем онлайн или по телефону, поэтому приезжать в офис не нужно — работаем по всей США.',
         pillLang: 'Двуязычно: английский / русский',
         chip1: 'Быстрый ответ',
@@ -208,13 +209,14 @@
       },
       services: {
         title: 'Наши услуги',
-        subtitle: 'Понятный объём работ, предсказуемый процесс и аккуратный результат.',
-        s1: { title: 'Ежемесячный учёт в QuickBooks Online', text: 'Категоризация, сверки и чистая бухгалтерия каждый месяц.' },
-        s2: { title: 'Восстановление и наведение порядка (Catch-Up/Cleanup)', text: 'Закроем прошлые месяцы и приведём учёт в норму.' },
-        s3: { title: 'Финансовые отчёты (P&L и Balance Sheet)', text: 'Понятные ежемесячные отчёты на основе корректных данных.' },
-        s4: { title: 'Sales Tax (State Revenue Departments)', text: 'Помощь с подачей, уведомлениями и соблюдением требований вашего департамента доходов/налогообложения штата.' },
-        s5: { title: "Поддержка по вопросам труда и workers' comp", text: 'Отчётность, документы и коммуникации с профильными ведомствами штата (труд/страхование работников).' },
-        s6: { title: 'Налоговые декларации (Business + Personal)', text: 'Подготовка и подача бизнес- и личных деклараций с порядком в документах.' },
+        subtitle: 'Мы делаем свою работу быстро, качественно и профессионально.',
+        s1: { b1: 'Регистрация/ликвидация компании', b2: 'получение EIN', b3: 'оформление бизнесс лицензии', b4: 'оформление лицензии контрактора' },
+        s2: { b1: 'Ведение бухгалтерского учета в QB. Профессиональная ежемесячная категоризация.' },
+        s3: { b1: 'Подача ежемесячных и ежеквартальных отчетов в Department of Revenue , Sales Tax filing.' },
+        s4: { b1: 'Расчет заработной платы и подача ежеквартальных отчетов в Department L& I' },
+        s5: { b1: 'Подготовка и подача налоговых деклараций для бизнесса и частных лиц.' },
+        s6: { b1: 'Анализ и консультация в финансовых вопросах и документах.' },
+      }
       },
       process: {
         title: 'Как мы работаем',

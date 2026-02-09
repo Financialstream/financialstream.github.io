@@ -317,6 +317,22 @@ a:hover{ text-decoration: underline; }
 .card__icon{ font-size: 22px; }
 .card__title{ margin: 10px 0 6px; font-size: 18px; }
 .card__text{ margin: 0; color: var(--muted); line-height: 1.55; }
+
+.svc-list{
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+.svc-list li{
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+}
+@media (max-width: 640px){
+  .svc-list li{ font-size: 15px; }
+}
 .card--cta{
   background: linear-gradient(180deg, rgba(42,111,176,.10), rgba(255,255,255,.92));
 }
