@@ -37,7 +37,7 @@
       },
       services: {
         title: 'Our Services',
-        subtitle: 'We do our work fast, high-quality, and professionally.',
+        subtitle: 'We offer a wide range of services at affordable prices.',
         s1: { b1: 'Company registration / closure', b2: 'EIN application', b3: 'Business license', b4: 'Contractor license' },
         s2: { b1: 'Bookkeeping in QuickBooks (QB). Professional monthly categorization.' },
         s3: { b1: 'Monthly and quarterly reporting to the Department of Revenue, sales tax filing.' },
@@ -55,7 +55,7 @@
       },
       process: {
         title: 'How it works',
-        subtitle: 'A simple flow that keeps finances under control.',
+        subtitle: 'We do our work fast, high-quality, and professionally.',
         p1: {
           title: 'Free consultation',
           text: 'We understand your situation and confirm scope.',
@@ -208,7 +208,7 @@
       },
       services: {
         title: 'Наши услуги',
-        subtitle: 'Мы делаем свою работу быстро, качественно и профессионально.',
+        subtitle: 'Предоставляем широкий спектр услуг по доступным ценам.',
         s1: { b1: 'Регистрация/ликвидация компании', b2: 'Получение EIN', b3: 'Оформление бизнесс лицензии', b4: 'Оформление лицензии контрактора' },
         s2: { b1: 'Ведение бухгалтерского учета в QB. Профессиональная ежемесячная категоризация.' },
         s3: { b1: 'Подача ежемесячных и ежеквартальных отчетов в Department of Revenue , Sales Tax filing.' },
@@ -218,7 +218,7 @@
       },
       process: {
         title: 'Как мы работаем',
-        subtitle: 'Простой процесс, который держит финансы под контролем.',
+        subtitle: 'Мы делаем свою работу быстро, качественно и профессионально.',
         p1: {
           title: 'Бесплатная консультация',
           text: 'Разбираем вашу ситуацию и согласуем объем работ.',
