@@ -44,7 +44,6 @@
         s4: { b1: "Payroll calculation and quarterly reporting to the Department of Labor & Industries (L&I)" },
         s5: { b1: 'Preparation and filing of tax returns for businesses and individuals.' },
         s6: { b1: 'Financial analysis and consultation on financial matters and documents.' },
-      }
       },
       monthly: {
         title: 'What you get each month',
@@ -216,7 +215,6 @@
         s4: { b1: 'Расчет заработной платы и подача ежеквартальных отчетов в Department L& I' },
         s5: { b1: 'Подготовка и подача налоговых деклараций для бизнесса и частных лиц.' },
         s6: { b1: 'Анализ и консультация в финансовых вопросах и документах.' },
-      }
       },
       process: {
         title: 'Как мы работаем',
