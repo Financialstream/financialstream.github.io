@@ -20,7 +20,7 @@
       hero: {
         title1: 'Accounting & Bookkeeping',
         title2: 'for Small Businesses & Individuals',
-        subtitle: 'Leave your bookkeeping and paperwork to professionals.',
+        subtitle: 'Leave your accounting and paperwork to professionals.',
         body: 'Financial Stream LLC helps small businesses and individuals keep clean books, stay compliant, and feel confident in their numbers. We handle monthly bookkeeping in QuickBooks Online, support state revenue and labor agency matters when needed, and prepare and file business and personal tax returns. If you’re starting a business, catching up on backlog, or getting ready for year-end — we’ll organize everything and keep it simple. Most work is done remotely, so you don’t need to visit an office.',
         pillLang: 'Bilingual: English / Russian',
         chip1: 'Fast response',
@@ -210,7 +210,7 @@
       services: {
         title: 'Наши услуги',
         subtitle: 'Мы делаем свою работу быстро, качественно и профессионально.',
-        s1: { b1: 'Регистрация/ликвидация компании', b2: 'получение EIN', b3: 'оформление бизнесс лицензии', b4: 'оформление лицензии контрактора' },
+        s1: { b1: 'Регистрация/ликвидация компании', b2: 'Получение EIN', b3: 'Оформление бизнесс лицензии', b4: 'Оформление лицензии контрактора' },
         s2: { b1: 'Ведение бухгалтерского учета в QB. Профессиональная ежемесячная категоризация.' },
         s3: { b1: 'Подача ежемесячных и ежеквартальных отчетов в Department of Revenue , Sales Tax filing.' },
         s4: { b1: 'Расчет заработной платы и подача ежеквартальных отчетов в Department L& I' },
