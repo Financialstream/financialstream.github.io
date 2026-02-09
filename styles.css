@@ -406,6 +406,7 @@ a:hover{ text-decoration: underline; }
   .nav{ display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
   .nav a{ font-size: 14px; padding: 8px 10px; }
   .cards{ grid-template-columns: 1fr; }
+  .faq{ grid-template-columns: 1fr; }
   .contact{ grid-template-columns: 1fr; }
   .contact__grid{ grid-template-columns: 1fr; }
   .brand__logo{ height: 60px; }
