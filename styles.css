@@ -145,7 +145,8 @@ a:hover{ text-decoration: underline; }
   inset:0;
   background: url('assets/hero-bg.jpg') center/cover no-repeat;
   /* Keep it gentle, but make the subject more visible */
-  filter: blur(0.45px) saturate(1.06) contrast(1.06);
+  /* Slightly reduce blur and increase contrast/saturation so the subject is clearer */
+  filter: blur(0.2px) saturate(1.12) contrast(1.10);
   transform: scale(1.03);
   opacity: 1;
 }
@@ -153,8 +154,9 @@ a:hover{ text-decoration: underline; }
   content:'';
   position:absolute;
   inset:0;
-  /* Lighter veil so the background woman is noticeably clearer */
-  background: linear-gradient(90deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.64) 55%, rgba(255,255,255,.52) 100%);
+  /* Reduce veil ~20–30% so the background image is more visible */
+  /* Make the photo ~20–30% more visible while keeping text readable */
+  background: linear-gradient(90deg, rgba(255,255,255,.24) 0%, rgba(255,255,255,.42) 55%, rgba(255,255,255,.30) 100%);
 }
 
 
