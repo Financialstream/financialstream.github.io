@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://financialstream.github.io/sitemap.xml
