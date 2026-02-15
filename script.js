@@ -114,7 +114,11 @@
         messagePlaceholder: 'How can we help?',
         thanksTitle: 'Thank you!',
         thanksBody: 'Your request has been sent. We will contact you shortly.',
-      smsConsentLabel: 'I agree that Financial Stream LLC may send me one SMS if I call and the call is missed, or if I request SMS communication. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.',
+      optional: 'Optional:',
+        details: 'Details:',
+        smsConsentLabel: 'I agree that Financial Stream LLC may send me service-related SMS in response to my inquiry, a missed call, or if I request SMS communication. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.',
+        ackPrefix: 'By submitting, you acknowledge our',
+        ackAnd: 'and',
         smsConsentHint: 'By submitting, you acknowledge our Privacy Policy and Terms.',
       },
       
@@ -307,8 +311,12 @@ monthly: {
         messagePlaceholder: 'Чем можем помочь?',
         thanksTitle: 'Спасибо!',
         thanksBody: 'Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.',
-      smsConsentLabel: 'Я согласен(на), что Financial Stream LLC может отправить мне одно SMS, если я позвоню и звонок будет пропущен, или если я попрошу общаться по SMS. Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.',
-        smsConsentHint: 'Отправляя форму, вы соглашаетесь с Политикой конфиденциальности и Условиями.',
+      optional: 'Необязательно:',
+        details: 'Подробнее:',
+        smsConsentLabel: 'Я согласен(на), что Financial Stream LLC может отправлять мне служебные SMS в ответ на мой запрос, пропущенный звонок или если я попрошу общение по SMS. Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.',
+        ackPrefix: 'Отправляя форму, вы подтверждаете ознакомление с',
+        ackAnd: 'и',
+        smsConsentHint: 'Отправляя форму, вы подтверждаете ознакомление с Политикой конфиденциальности и Условиями.',
       },
       
       policyPrivacy: {

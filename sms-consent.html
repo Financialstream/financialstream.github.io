@@ -9,17 +9,26 @@
   <link rel="icon" href="assets/favicon.png" />
 </head>
 <body>
-  <header class="header">
-    <div class="container header__inner">
-      <a class="brand" href="index.html" aria-label="Financial Stream LLC">
-        <img class="brand__logo" src="assets/logo-horizontal.png" alt="Financial Stream LLC" />
-      </a>
-      <nav class="nav">
-        <a class="nav__link" href="index.html#services">Services</a>
-        <a class="nav__link" href="index.html#contact">Contact</a>
-      </nav>
+  <header class="topbar">
+  <div class="container topbar__inner">
+    <a class="brand" href="index.html#top" aria-label="Financial Stream LLC">
+      <img class="brand__logo" src="assets/logo-horizontal.png" alt="Financial Stream LLC logo" />
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__link" href="index.html#services" data-i18n="nav.services">Services</a>
+      <a class="nav__link" href="index.html#process" data-i18n="nav.process">Process</a>
+      <a class="nav__link" href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+      <a class="nav__link" href="index.html#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="topbar__actions">
+      <div class="lang">
+        <button type="button" class="lang__btn" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang__btn" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a class="btn btn--primary" href="index.html#contact" data-i18n="cta.bookTop">Request a Free Consultation</a>
     </div>
-  </header>
+  </div>
+</header>
 
   <main class="page">
     <section class="page__section">
@@ -91,26 +100,27 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__left">
-        <img class="footer__logo" src="assets/logo-horizontal.png" alt="Financial Stream LLC" />
-        <div class="footer__small">© <span id="year"></span> Financial Stream LLC</div>
-      </div>
-      <div class="footer__right">
-        <a class="footer__link" href="index.html#contact">Request a Free Consultation</a>
-        <div class="footer__policy">
-          <a class="footer__policy-link" href="privacy-policy.html">Privacy Policy</a>
-          <span class="footer__sep">|</span>
-          <a class="footer__policy-link" href="terms-and-conditions.html">Terms &amp; Conditions</a>
-          <span class="footer__sep">|</span>
-          <a class="footer__policy-link" href="sms-consent.html">SMS Consent</a>
-        </div>
+  <div class="container footer__inner">
+    <div class="footer__left">
+      <img class="footer__logo" src="assets/logo-horizontal.png" alt="Financial Stream LLC" />
+      <div class="footer__small">© <span id="year"></span> Financial Stream LLC</div>
+    </div>
+    <div class="footer__right">
+      <a class="footer__link" href="index.html#contact" data-i18n="cta.bookFooter">Request a Free Consultation</a>
+      <div class="footer__policy">
+        <a class="footer__policy-link" href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a>
+        <span class="footer__sep">|</span>
+        <a class="footer__policy-link" href="terms-and-conditions.html" data-i18n="footer.terms">Terms &amp; Conditions</a>
+        <span class="footer__sep">|</span>
+        <a class="footer__policy-link" href="sms-consent.html" data-i18n="footer.sms">SMS Consent</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+<script src="script.js?v=28"></script>
 </body>
 </html>
