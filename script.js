@@ -186,7 +186,11 @@
         recordsTitle: 'Consent records',
         records1: 'We may retain records of your consent and messaging activity (timestamp, phone number, and message content) to demonstrate compliance.',
         back: 'Back to the main page',
-      },
+      
+      links1: "Related policies:",
+      links2: "and",
+      links3: "(these links are provided for your review).",
+},
 
       footer: {
         rights: '© 2026 Financial Stream LLC',
@@ -387,7 +391,11 @@ monthly: {
         recordsTitle: 'Хранение согласия',
         records1: 'Мы можем хранить записи согласия и переписки (время, номер, текст сообщения) для подтверждения соблюдения правил.',
         back: 'Вернуться на главную страницу',
-      },
+      
+      links1: "Связанные документы:",
+      links2: "и",
+      links3: "(ссылки доступны для ознакомления).",
+},
 
       footer: {
         rights: '© 2026 Financial Stream LLC',
