@@ -114,6 +114,8 @@
         messagePlaceholder: 'How can we help?',
         thanksTitle: 'Thank you!',
         thanksBody: 'Your request has been sent. We will contact you shortly.',
+      smsConsentLabel: 'I agree to receive SMS from Financial Stream LLC in response to my inquiry or missed call. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.',
+        smsConsentHint: 'By submitting, you acknowledge our Privacy Policy and Terms.',
       },
       
       policyPrivacy: {
@@ -130,7 +132,7 @@
         use2: 'To deliver service updates and reminders by email or SMS when you request or consent to that communication.',
         use3: 'To improve our service quality and maintain site security.',
         smsTitle: 'SMS communications (service-related)',
-        sms1: 'If you provide your mobile number and opt in, we may send service-related text messages such as appointment coordination, document/status updates, and support follow‑ups. Message frequency varies. Message & data rates may apply.',
+        sms1: 'Если вы дадите согласие, мы можем отправлять сервисные SMS только по вашему запросу (например, после пропущенного звонка, для согласования консультации и статусов). Маркетинговых рассылок нет. Частота сообщений зависит от ситуации. Могут применяться тарифы оператора.',
         sms2: 'You can opt out at any time by replying STOP. For help, reply HELP.',
         shareTitle: 'Sharing',
         share1: 'We do not sell your personal information. We do not share your phone number with third parties for their marketing. We may use trusted service providers (for example, messaging and hosting providers) only to operate our services, under confidentiality obligations.',
@@ -153,7 +155,7 @@
         requestsTitle: 'Requests and consultations',
         requests1: 'When you submit a request, you agree that the information you provide is accurate to the best of your knowledge. We may contact you to clarify details needed to respond.',
         smsTitle: 'SMS terms (service-related)',
-        sms1: 'If you opt in to receive texts, you consent to receive service-related SMS messages (not marketing) such as coordination, reminders, document/status updates, and support follow-ups. Message frequency varies. Message & data rates may apply.',
+        sms1: 'Если вы согласились на SMS, вы даёте согласие получать сервисные сообщения только по вашему запросу (включая SMS после пропущенного звонка, согласование консультации и статусы). Маркетинговых рассылок нет. Частота сообщений зависит от ситуации. Могут применяться тарифы оператора.',
         sms2: 'To opt out, reply STOP. For help, reply HELP.',
         privacyTitle: 'Privacy',
         privacy1: 'Our Privacy Policy explains how we collect and use information. Please review it for details.',
@@ -163,11 +165,30 @@
         changes1: 'We may update these Terms from time to time. Updates take effect when posted on this page.',
         back: 'Back to the main page',
       },
-      
+      policySmsConsent: {
+        metaTitle: 'SMS Consent — Financial Stream LLC',
+        h1: 'SMS Consent',
+        updated: 'Last updated: 2026-02-15',
+        intro: 'This page explains how Financial Stream LLC uses SMS for customer-initiated communication.',
+        scopeTitle: 'What SMS is used for',
+        scope1: 'Missed call follow-up: if you call our business number and we miss your call, we may send one text acknowledging the missed call and inviting you to reply.',
+        scope2: 'If you reply, we may continue the conversation one-to-one to assist you (for example, answering questions or coordinating an appointment).',
+        scope3: 'We do not send marketing messages. We do not send bulk messages. We do not purchase or use lead lists.',
+        consentTitle: 'Your consent',
+        consent1: 'By calling our business number and/or submitting our contact form with the SMS checkbox selected, you consent to receive text messages related to your inquiry.',
+        consent2: 'Message frequency varies. Message & data rates may apply.',
+        optoutTitle: 'Opt out / Help',
+        optout1: 'Reply STOP to opt out at any time. Reply HELP for help.',
+        recordsTitle: 'Consent records',
+        records1: 'We may retain records of your consent and messaging activity (timestamp, phone number, and message content) to demonstrate compliance.',
+        back: 'Back to the main page',
+      },
+
       footer: {
         rights: '© 2026 Financial Stream LLC',
         privacy: 'Privacy Policy',
         terms: 'Terms & Conditions',
+      sms: 'SMS Consent',
       },
     },
 
@@ -286,6 +307,8 @@ monthly: {
         messagePlaceholder: 'Чем можем помочь?',
         thanksTitle: 'Спасибо!',
         thanksBody: 'Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.',
+      smsConsentLabel: 'Я согласен(на) получать SMS от Financial Stream LLC по моему запросу или при пропущенном звонке. Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.',
+        smsConsentHint: 'Отправляя форму, вы соглашаетесь с Политикой конфиденциальности и Условиями.',
       },
       
       policyPrivacy: {
@@ -335,11 +358,30 @@ monthly: {
         changes1: 'Мы можем обновлять эти условия. Изменения вступают в силу после публикации на этой странице.',
         back: 'Вернуться на главную',
       },
-      
+      policySmsConsent: {
+        metaTitle: 'Согласие на SMS — Financial Stream LLC',
+        h1: 'Согласие на SMS',
+        updated: 'Обновлено: 2026-02-15',
+        intro: 'На этой странице описано, как Financial Stream LLC использует SMS для коммуникации по инициативе клиента.',
+        scopeTitle: 'Для чего используются SMS',
+        scope1: 'Пропущенный звонок: если вы звоните на наш рабочий номер и мы не ответили, мы можем отправить одно SMS с подтверждением пропущенного звонка и просьбой написать ваш вопрос.',
+        scope2: 'Если вы ответите, мы можем продолжить переписку один-на-один, чтобы помочь вам (например, ответить на вопросы или согласовать консультацию).',
+        scope3: 'Мы не отправляем маркетинговые сообщения, не делаем массовые рассылки и не используем базы лидов.',
+        consentTitle: 'Ваше согласие',
+        consent1: 'Звоня на наш рабочий номер и/или отправляя форму на сайте с отмеченным чекбоксом SMS, вы соглашаетесь получать SMS по вашему запросу.',
+        consent2: 'Частота сообщений зависит от ситуации. Могут применяться тарифы оператора.',
+        optoutTitle: 'Отказ / Помощь',
+        optout1: 'Отправьте STOP, чтобы отказаться. Отправьте HELP для помощи.',
+        recordsTitle: 'Хранение согласия',
+        records1: 'Мы можем хранить записи согласия и переписки (время, номер, текст сообщения) для подтверждения соблюдения правил.',
+        back: 'Вернуться на главную страницу',
+      },
+
       footer: {
         rights: '© 2026 Financial Stream LLC',
         privacy: 'Политика конфиденциальности',
         terms: 'Условия использования',
+      sms: 'Согласие на SMS',
       },
     },
   };

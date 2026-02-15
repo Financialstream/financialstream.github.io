@@ -680,3 +680,9 @@ a:hover{ text-decoration: underline; }
 /* v29 tweaks: emphasize hero slogan */
 .hero__subtitle{font-size:1.15rem;font-weight:600;max-width:52ch;}
 @media (max-width: 640px){.hero__subtitle{font-size:1.05rem;}}
+
+/* --- SMS consent checkbox (A2P compliance) --- */
+.field--checkbox { margin-top: 10px; }
+.checkbox { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.35; }
+.checkbox input { margin-top: 3px; }
+.field__hint { margin-left: 26px; font-size: 12px; opacity: 0.75; }

@@ -264,8 +264,15 @@
 <label class="field">
 <span class="field__label" data-i18n="form.messageLabel">Message</span>
 <textarea class="field__textarea" data-i18n-placeholder="form.messagePlaceholder" name="message" placeholder="How can we help?" required="" rows="5"></textarea>
-</label>
-<button class="btn btn--primary btn--full" data-i18n="cta.sendRequest" type="submit">Send Request</button>
+
+<div class="field field--checkbox">
+  <label class="checkbox">
+    <input type="checkbox" name="sms_consent" value="yes" />
+    <span data-i18n="form.smsConsentLabel">I agree to receive SMS from Financial Stream LLC in response to my inquiry or missed call. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.</span>
+  </label>
+  <div class="field__hint" data-i18n="form.smsConsentHint">By submitting, you acknowledge our Privacy Policy and Terms.</div>
+</div>
+ data-i18n="cta.sendRequest" type="submit">Send Request</button>
 </form>
 <div aria-live="polite" class="notice notice--success" id="thankYou" role="status" style="display:none;">
 <strong data-i18n="form.thanksTitle">Thank you!</strong>
@@ -288,6 +295,8 @@
 <a class="footer__policy-link" data-i18n="footer.privacy" href="privacy-policy.html">Privacy Policy</a>
 <span class="footer__sep">|</span>
 <a class="footer__policy-link" data-i18n="footer.terms" href="terms-and-conditions.html">Terms &amp; Conditions</a>
+<span class=\"footer__sep\">|</span>
+<a class=\"footer__policy-link\" data-i18n=\"footer.sms\" href=\"sms-consent.html\">SMS Consent</a>
 </div>
 </div>
 </div>
