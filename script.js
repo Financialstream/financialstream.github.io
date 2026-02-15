@@ -171,7 +171,7 @@
       },
       policySmsConsent: {
         metaTitle: 'SMS Consent — Financial Stream LLC',
-        h1: 'SMS Consent',
+        h1: 'SMS Consent & Messaging Policy',
         updated: 'Last updated: 2026-02-15',
         intro: 'This page explains how Financial Stream LLC uses SMS for customer-initiated communication.',
         scopeTitle: 'What SMS is used for',
@@ -368,7 +368,7 @@ monthly: {
       },
       policySmsConsent: {
         metaTitle: 'Согласие на SMS — Financial Stream LLC',
-        h1: 'Согласие на SMS',
+        h1: 'Согласие на SMS и политика сообщений',
         updated: 'Обновлено: 2026-02-15',
         intro: 'На этой странице описано, как Financial Stream LLC использует SMS для коммуникации по инициативе клиента.',
         scopeTitle: 'Для чего используются SMS',
