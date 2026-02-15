@@ -114,7 +114,7 @@
         messagePlaceholder: 'How can we help?',
         thanksTitle: 'Thank you!',
         thanksBody: 'Your request has been sent. We will contact you shortly.',
-      smsConsentLabel: 'I agree to receive SMS from Financial Stream LLC in response to my inquiry or missed call. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.',
+      smsConsentLabel: 'I agree that Financial Stream LLC may send me one SMS if I call and the call is missed, or if I request SMS communication. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.',
         smsConsentHint: 'By submitting, you acknowledge our Privacy Policy and Terms.',
       },
       
@@ -307,7 +307,7 @@ monthly: {
         messagePlaceholder: 'Чем можем помочь?',
         thanksTitle: 'Спасибо!',
         thanksBody: 'Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.',
-      smsConsentLabel: 'Я согласен(на) получать SMS от Financial Stream LLC по моему запросу или при пропущенном звонке. Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.',
+      smsConsentLabel: 'Я согласен(на), что Financial Stream LLC может отправить мне одно SMS, если я позвоню и звонок будет пропущен, или если я попрошу общаться по SMS. Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.',
         smsConsentHint: 'Отправляя форму, вы соглашаетесь с Политикой конфиденциальности и Условиями.',
       },
       
