@@ -116,7 +116,7 @@
         thanksBody: 'Your request has been sent. We will contact you shortly.',
       optional: 'Optional:',
         details: 'Details:',
-        smsConsentLabel: 'I agree that Financial Stream LLC may send me service-related SMS in response to my inquiry, a missed call, or if I request SMS communication. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.',
+        smsConsentLabel: 'I agree that Financial Stream LLC may text me about my inquiry or a missed call (service-related only). Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.',
         ackPrefix: 'By submitting, you acknowledge our',
         ackAnd: 'and',
         smsConsentHint: 'By submitting, you acknowledge our Privacy Policy and Terms.',
@@ -185,12 +185,13 @@
         optout1: 'Reply STOP to opt out at any time. Reply HELP for help.',
         recordsTitle: 'Consent records',
         records1: 'We may retain records of your consent and messaging activity (timestamp, phone number, and message content) to demonstrate compliance.',
-        back: 'Back to the main page',
-      
-      links1: "Related policies:",
-      links2: "and",
-      links3: "(these links are provided for your review).",
-},
+      },
+
+      policySmsConsentLinksLabel: 'See also:',
+      policySmsConsentLinks1: 'Privacy Policy',
+      policySmsConsentLinksSep: 'and',
+      policySmsConsentLinks2: 'Terms & Conditions',
+      policyBackHome: 'Back to the main page',
 
       footer: {
         rights: '© 2026 Financial Stream LLC',
@@ -317,7 +318,7 @@ monthly: {
         thanksBody: 'Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.',
       optional: 'Необязательно:',
         details: 'Подробнее:',
-        smsConsentLabel: 'Я согласен(на), что Financial Stream LLC может отправлять мне служебные SMS в ответ на мой запрос, пропущенный звонок или если я попрошу общение по SMS. Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.',
+        smsConsentLabel: 'Я согласен(на), что Financial Stream LLC может отправить мне SMS по моему обращению или при пропущенном звонке (только по вопросам сервиса). Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.',
         ackPrefix: 'Отправляя форму, вы подтверждаете ознакомление с',
         ackAnd: 'и',
         smsConsentHint: 'Отправляя форму, вы подтверждаете ознакомление с Политикой конфиденциальности и Условиями.',
@@ -390,12 +391,13 @@ monthly: {
         contact1: 'Если у вас есть вопросы по этой политике, свяжитесь с Financial Stream LLC.',
         recordsTitle: 'Хранение согласия',
         records1: 'Мы можем хранить записи согласия и переписки (время, номер, текст сообщения) для подтверждения соблюдения правил.',
-        back: 'Вернуться на главную страницу',
-      
-      links1: "Связанные документы:",
-      links2: "и",
-      links3: "(ссылки доступны для ознакомления).",
-},
+      },
+
+      policySmsConsentLinksLabel: 'См. также:',
+      policySmsConsentLinks1: 'Политика конфиденциальности',
+      policySmsConsentLinksSep: 'и',
+      policySmsConsentLinks2: 'Условия использования',
+      policyBackHome: 'Вернуться на главную',
 
       footer: {
         rights: '© 2026 Financial Stream LLC',
