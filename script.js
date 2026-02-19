@@ -2,7 +2,8 @@
   const i18n = {
     en: {
       nav: {
-        services: 'Services',
+        
+        home: \'Home\',services: 'Services',
         process: 'Process',
         faq: 'FAQ',
         contact: 'Contact',
@@ -203,7 +204,8 @@
 
     ru: {
       nav: {
-        services: 'Услуги',
+        
+        home: \'Главная\',services: 'Услуги',
         process: 'Процесс',
         faq: 'Вопросы',
         contact: 'Контакты',
