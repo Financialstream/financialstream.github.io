@@ -456,15 +456,46 @@ monthly: {
     if (formLang) formLang.value = lang;
   }
 
-  // Hook language buttons
+  // Language toggle (URL-based: /ru/…)
+  function isRuPath() {
+    return window.location.pathname.startsWith('/ru/');
+  }
+
+  function targetPath(lang) {
+    const path = window.location.pathname;
+    if (lang === 'ru') {
+      if (path.startsWith('/ru/')) return path;
+      // root index served as "/" or "/index.html"
+      if (path === '/' || path.endsWith('/index.html')) return '/ru/index.html';
+      return '/ru' + path;
+    }
+    // lang === 'en'
+    if (!path.startsWith('/ru/')) return path;
+    const p = path.replace(/^\/ru\//, '/');
+    // If ru index, go to root
+    if (path === '/ru/index.html') return '/';
+    return p;
+  }
+
+  function setLangActive() {
+    const active = isRuPath() ? 'ru' : 'en';
+    document.querySelectorAll('.lang__btn').forEach((btn) => {
+      const isActive = btn.getAttribute('data-lang') === active;
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    const formLang = document.getElementById('formLang');
+    if (formLang) formLang.value = active;
+  }
+
   document.querySelectorAll('.lang__btn').forEach((btn) => {
-    btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = btn.getAttribute('data-lang');
+      window.location.href = targetPath(lang);
+    });
   });
 
-  // Init language
-  const saved = localStorage.getItem('fs_lang');
-  const initial = saved ? saved : (((navigator.language || '').toLowerCase().startsWith('ru')) ? 'ru' : 'en');
-  setLanguage(initial);
+  setLangActive();
 
   // Simple success message based on URL param (?sent=1)
   try {
