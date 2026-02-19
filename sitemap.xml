@@ -20,4 +20,10 @@
   <url><loc>https://financialstream.github.io/ru/services/payroll-li-quarterly.html</loc></url>
   <url><loc>https://financialstream.github.io/ru/services/tax-returns.html</loc></url>
   <url><loc>https://financialstream.github.io/ru/services/financial-consulting.html</loc></url>
+  <url>
+    <loc>https://financialstream.github.io/services/index.html</loc>
+  </url>
+  <url>
+    <loc>https://financialstream.github.io/ru/services/index.html</loc>
+  </url>
 </urlset>
