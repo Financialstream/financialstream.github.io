@@ -729,3 +729,118 @@ a:hover{ text-decoration: underline; }
   .hero__title{ font-size: 32px; }
   .lang__btn{ padding: 7px 9px; font-size: 13px; }
 }
+
+
+/* Trust strip under hero */
+.trust-strip{
+  margin-top: 18px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 6px);
+  padding: 14px 16px;
+}
+.trust-strip__grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px 14px;
+}
+.trust-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-height: 44px;
+}
+.trust-item__icon{
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  display:grid; place-items:center;
+  background: rgba(42,111,176,.10);
+  border: 1px solid rgba(42,111,176,.20);
+}
+.trust-item__text{
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Services: benefit line + button alignment */
+.cards > .card{
+  display:flex;
+  flex-direction:column;
+}
+.cards > .card .svc-list{
+  margin-bottom: 10px;
+}
+.svc-benefit{
+  margin: 0 0 14px;
+  color: var(--primary-2);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.cards > .card .btn{
+  margin-top:auto;
+}
+
+/* Updates teaser in contact left (fills the “hole”) */
+.updates-teaser{
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.updates-teaser__title{
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.updates-teaser__subtitle{
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+.updates-teaser__grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+}
+.update-card{
+  display:block;
+  text-decoration:none;
+  background: rgba(255,255,255,.88);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 12px;
+  box-shadow: 0 8px 20px rgba(10, 25, 44, .06);
+}
+.update-card:hover{
+  transform: translateY(-2px);
+  transition: .15s ease;
+}
+.update-card__meta{
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.update-card__title{
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Blog pages */
+.article{
+  max-width: 860px;
+  margin: 0 auto;
+}
+.article h1{ font-family: var(--serif); margin-top: 0; }
+.article .meta{ color: var(--muted); margin-bottom: 18px; }
+.article a{ color: var(--primary-2); }
+
+/* Responsive */
+@media (max-width: 980px){
+  .trust-strip__grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px){
+  .trust-strip{ padding: 12px; }
+  .trust-strip__grid{ grid-template-columns: 1fr; }
+  .updates-teaser__grid{ grid-template-columns: 1fr; }
+}
