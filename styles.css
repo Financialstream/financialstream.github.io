@@ -398,6 +398,9 @@ a:hover{ text-decoration: underline; }
     grid-template-columns: 1fr 1fr;
     gap: 14px 18px;
   }
+  .steps{
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .contact{
   display: grid;
