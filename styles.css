@@ -709,3 +709,20 @@ a:hover{ text-decoration: underline; }
   align-self: flex-start;
 }
 
+
+
+/* --- Mobile polish v8 (no layout redesign) --- */
+@media (max-width: 520px){
+  .container{ padding: 0 16px; }
+  .topbar__inner{ padding: 8px 0; gap: 10px; }
+  .brand__logo{ height: 52px; }
+  .nav{ gap: 8px; }
+  .nav a{ font-size: 13px; padding: 7px 9px; }
+  .topbar__actions{ width: 100%; justify-content: center; }
+  .topbar__actions .btn--primary{ flex: 1; max-width: 340px; }
+  .btn{ padding: 10px 14px; }
+}
+@media (max-width: 380px){
+  .hero__title{ font-size: 32px; }
+  .lang__btn{ padding: 7px 9px; font-size: 13px; }
+}
