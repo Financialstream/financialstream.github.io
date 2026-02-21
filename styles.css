@@ -13,6 +13,9 @@
   --sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
+/* Prevent accidental horizontal scrolling on mobile (white strip on swipe) */
+html, body{ overflow-x: hidden; }
+
 *{ box-sizing: border-box; }
 html, body{ height: 100%; }
 
@@ -719,10 +722,22 @@ a:hover{ text-decoration: underline; }
   .container{ padding: 0 16px; }
   .topbar__inner{ padding: 8px 0; gap: 10px; }
   .brand__logo{ height: 52px; }
-  .nav{ gap: 8px; }
-  .nav a{ font-size: 13px; padding: 7px 9px; }
-  .topbar__actions{ width: 100%; justify-content: center; }
-  .topbar__actions .btn--primary{ flex: 1; max-width: 340px; }
+  /* Keep the whole RU menu on one line; allow horizontal scroll if needed */
+  .nav{
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding: 0 6px;
+  }
+  .nav a{ font-size: 13px; padding: 7px 9px; white-space: nowrap; }
+  .nav::-webkit-scrollbar{ display:none; }
+
+  /* Prevent CTA + language switch from overflowing viewport */
+  .topbar__actions{ width: 100%; justify-content: space-between; gap: 10px; padding: 0 10px; box-sizing: border-box; }
+  .topbar__actions .btn--primary{ flex: 1 1 auto; max-width: none; min-width: 0; }
+  .lang{ flex: 0 0 auto; }
   .btn{ padding: 10px 14px; }
 }
 @media (max-width: 380px){
