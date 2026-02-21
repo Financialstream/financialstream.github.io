@@ -69,11 +69,11 @@
       reviews: {
         title: 'Client reviews',
         subtitle: 'A few examples of client feedback (names changed).',
-        r1: { text: '“My QuickBooks was a mess. They cleaned it up, set a simple monthly routine, and now I know where my business stands every month.”', name: 'Small business owner' },
-        r2: { text: '“Fast replies and plain‑English explanations. I stopped worrying about deadlines and finally feel in control of my finances.”', name: 'Self‑employed client' },
-        r3: { text: '“Sales tax filings are on time and the reports are easy to read. Their attention to detail saved me from avoidable mistakes.”', name: 'E‑commerce seller' },
-        r4: { text: '“They helped with setup paperwork and then kept the books clean month to month. Consistent, professional, and easy to work with.”', name: 'Service business' },
-        r5: { text: '“We had months of backlog. They caught us up, built a process, and now we receive monthly reports without chasing anyone.”', name: 'Growing company' },
+        r1: { text: '“My QuickBooks was a mess. They cleaned it up, set a simple monthly routine, and now I know where my business stands every month.”', name: 'Alex' },
+        r2: { text: '“Fast replies and plain‑English explanations. I stopped worrying about deadlines and finally feel in control of my finances.”', name: 'Svetlana' },
+        r3: { text: '“Sales tax filings are on time and the reports are easy to read. Their attention to detail saved me from avoidable mistakes.”', name: 'Olga' },
+        r4: { text: '“They helped with setup paperwork and then kept the books clean month to month. Consistent, professional, and easy to work with.”', name: 'Tatiana' },
+        r5: { text: '“We had months of backlog. They caught us up, built a process, and now we receive monthly reports without chasing anyone.”', name: 'Steve' },
       },
       faq: {
         title: 'FAQ',
@@ -259,11 +259,11 @@
       reviews: {
         title: 'Отзывы клиентов',
         subtitle: 'Несколько примеров обратной связи от клиентов (имена изменены).',
-        r1: { text: '“В QuickBooks был хаос. Навели порядок, настроили понятный ежемесячный процесс — теперь каждый месяц вижу реальную картину по бизнесу.”', name: 'Владелец малого бизнеса' },
-        r2: { text: '“Отвечают быстро и объясняют простыми словами. Перестал(а) нервничать из‑за сроков — теперь всё под контролем.”', name: 'Самозанятый клиент' },
-        r3: { text: '“Sales tax и отчеты сдаём вовремя, всё аккуратно и без сюрпризов. Внимание к деталям реально помогает избегать ошибок.”', name: 'Розница / e‑commerce' },
-        r4: { text: '“Помогли со стартом и документами, а дальше стабильно ведут учет. Удобно, понятно и по делу — без лишней бюрократии.”', name: 'Бизнес услуг' },
-        r5: { text: '“Был большой «хвост» по учету — восстановили, выстроили процесс и теперь каждый месяц получаем отчеты без напоминаний.”', name: 'Компания на росте' },
+        r1: { text: '“В QuickBooks был хаос. Навели порядок, настроили понятный ежемесячный процесс — теперь каждый месяц вижу реальную картину по бизнесу.”', name: 'Алексей' },
+        r2: { text: '“Отвечают быстро и объясняют простыми словами. Перестал(а) нервничать из‑за сроков — теперь всё под контролем.”', name: 'Светлана' },
+        r3: { text: '“Sales tax и отчеты сдаём вовремя, всё аккуратно и без сюрпризов. Внимание к деталям реально помогает избегать ошибок.”', name: 'Ольга' },
+        r4: { text: '“Помогли со стартом и документами, а дальше стабильно ведут учет. Удобно, понятно и по делу — без лишней бюрократии.”', name: 'Татьяна' },
+        r5: { text: '“Был большой «хвост» по учету — восстановили, выстроили процесс и теперь каждый месяц получаем отчеты без напоминаний.”', name: 'Стив' },
       },
 monthly: {
       title: 'Что вы получаете каждый месяц',
