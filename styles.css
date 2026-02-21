@@ -844,3 +844,11 @@ a:hover{ text-decoration: underline; }
   .trust-strip__grid{ grid-template-columns: 1fr; }
   .updates-teaser__grid{ grid-template-columns: 1fr; }
 }
+
+
+/* Micro polish: contact icons */
+.contact-card__k{display:flex;align-items:center;gap:8px;}
+.contact-card__k .icon{display:inline-flex;align-items:center;justify-content:center;opacity:.9;}
+
+/* Trust strip: QuickBooks badge */
+.qbo-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:#2db34a;color:#fff;font-weight:700;font-size:12px;letter-spacing:.5px;}
