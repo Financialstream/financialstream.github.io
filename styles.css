@@ -880,3 +880,29 @@ a:hover{ text-decoration: underline; }
 
 /* Trust strip: QuickBooks badge */
 .qbo-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:#2db34a;color:#fff;font-weight:700;font-size:12px;letter-spacing:.5px;}
+
+
+/* --- v7 conversion polish --- */
+.field__hint--above{
+  font-size: 12px;
+  line-height: 1.35;
+  color: rgba(23,33,45,0.72);
+  margin-top: 6px;
+}
+.field--consent{
+  font-size: 12px;
+  line-height: 1.35;
+}
+.field--consent .field__hint{
+  font-size: 12px;
+}
+@media (max-width: 520px){
+  .topbar .btn--primary{
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  .topbar .lang-toggle{
+    transform: scale(0.92);
+    transform-origin: right center;
+  }
+}
