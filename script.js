@@ -1,4 +1,9 @@
 (() => {
+  // Force HTTPS
+  if (window.location.protocol === 'http:') {
+    window.location.replace('https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash);
+    return;
+  }
   const i18n = {
     en: {
       nav: {
@@ -502,7 +507,7 @@ monthly: {
     const params = new URLSearchParams(window.location.search);
     if (params.get('success') === '1') {
       const t = document.getElementById('formSuccess');
-      if (t) t.style.display = 'block';
+      if (t) t.classList.remove('hidden');
       // Remove the param from URL (optional, no reload)
       params.delete('success');
       const clean = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}${window.location.hash || ''}`;
