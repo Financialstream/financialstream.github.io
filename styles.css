@@ -45,8 +45,8 @@ a:hover{ text-decoration: underline; }
 }
 
 .topbar{
-  position: sticky;
-  top: 0;
+  position: relative;
+  top: auto;
   z-index: 50;
   background: rgba(255,255,255,.92);
   backdrop-filter: blur(10px);

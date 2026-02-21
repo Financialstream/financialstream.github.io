@@ -68,7 +68,7 @@
       },
       reviews: {
         title: 'Client reviews',
-        subtitle: 'A few examples of client feedback (names changed).',
+        subtitle: 'We have many happy clients across the U.S. — here are a few examples of feedback about our work.',
         r1: { text: '“My QuickBooks was a mess. They cleaned it up, set a simple monthly routine, and now I know where my business stands every month.”', name: 'Alex' },
         r2: { text: '“Fast replies and plain‑English explanations. I stopped worrying about deadlines and finally feel in control of my finances.”', name: 'Svetlana' },
         r3: { text: '“Sales tax filings are on time and the reports are easy to read. Their attention to detail saved me from avoidable mistakes.”', name: 'Olga' },
@@ -258,7 +258,7 @@
       },
       reviews: {
         title: 'Отзывы клиентов',
-        subtitle: 'Несколько примеров обратной связи от клиентов (имена изменены).',
+        subtitle: 'У нас много довольных клиентов по всей территории США — вот несколько примеров отзывов о нашей работе.',
         r1: { text: '“В QuickBooks был хаос. Навели порядок, настроили понятный ежемесячный процесс — теперь каждый месяц вижу реальную картину по бизнесу.”', name: 'Алексей' },
         r2: { text: '“Отвечают быстро и объясняют простыми словами. Перестал(а) нервничать из‑за сроков — теперь всё под контролем.”', name: 'Светлана' },
         r3: { text: '“Sales tax и отчеты сдаём вовремя, всё аккуратно и без сюрпризов. Внимание к деталям реально помогает избегать ошибок.”', name: 'Ольга' },
