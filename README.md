@@ -3,7 +3,7 @@
 This is a static website intended for GitHub Pages.
 
 ## Live URL
-https://financialstream.github.io
+https://financialstreamllc.com
 
 ## Bilingual (EN/RU)
 Language switch is in the header. Text is controlled in `script.js` (`i18n` object).
@@ -30,7 +30,7 @@ Pick **one** option:
 - `assets/hero-bg.jpg` soft background image aligned with the card/site style
 
 ## Deploy to GitHub Pages
-1. Create repo named: `financialstream.github.io`
+1. Create repo named: `financialstreamllc.com`
 2. Upload all files from this folder to the repo root
 3. Settings → Pages → Source: `Deploy from a branch` → Branch: `main` → Folder: `/ (root)`
 4. Wait for build → your site is live.
