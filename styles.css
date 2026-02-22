@@ -906,3 +906,5 @@ a:hover{ text-decoration: underline; }
     transform-origin: right center;
   }
 }
+/* Ensure success message is not shown unless explicitly unhidden */
+#formSuccess[hidden]{display:none !important;}

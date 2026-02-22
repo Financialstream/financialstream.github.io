@@ -505,16 +505,34 @@ monthly: {
   // Simple success message based on URL param (?sent=1)
   try {
     const params = new URLSearchParams(window.location.search);
-    if (params.get('success') === '1') {
-      const t = document.getElementById('formSuccess');
-      if (t) t.classList.remove('hidden');
-      // Remove the param from URL (optional, no reload)
-      params.delete('success');
-      const clean = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}${window.location.hash || ''}`;
+    ${params.toString() ? '?' + params.toString() : ''}${window.location.hash || ''}`;
       window.history.replaceState({}, '', clean);
     }
   } catch (_) {
     // no-op
   }
 
+})();
+
+// --- Form success message (strictly hidden by default; shown only after successful submit redirect) ---
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const isRU = window.location.pathname.startsWith('/ru/');
+  const msgEl = document.getElementById('formSuccess');
+  if (!msgEl) return;
+
+  // Force-hide by default (defense in depth).
+  msgEl.setAttribute('hidden', '');
+  msgEl.style.display = 'none';
+
+  if (params.get('success') === '1') {
+    msgEl.textContent = isRU ? 'Спасибо — ваш запрос отправлен.' : 'Thank you — your request was sent.';
+    msgEl.removeAttribute('hidden');
+    msgEl.style.display = 'block';
+
+    // Clean URL (remove success=1) to avoid showing on refresh.
+    params.delete('success');
+    const clean = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
+    window.history.replaceState({}, document.title, clean);
+  }
 })();
