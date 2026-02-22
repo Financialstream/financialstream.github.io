@@ -930,3 +930,48 @@ a:hover{ text-decoration: underline; }
   border-color:rgba(255,255,255,0.55);
 }
 
+
+
+/* Language switcher: pill toggle with clear active state */
+.lang{
+  display:inline-flex;
+  align-items:center;
+  padding:4px;
+  border-radius:999px;
+  background: rgba(0,0,0,0.06);
+  border:1px solid rgba(0,0,0,0.10);
+}
+.lang__link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:46px;
+  height:34px;
+  padding:0 14px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:14px;
+  color: rgba(0,0,0,0.65);
+  text-decoration:none;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.lang__link:hover{ color: rgba(0,0,0,0.85); text-decoration:none; }
+.lang__link.is-active{
+  background: linear-gradient(180deg, #3f78c3 0%, #2e5fa8 100%);
+  color:#fff;
+  box-shadow: 0 8px 16px rgba(31,72,130,0.20);
+}
+
+
+/* Form: compact compliance note + helper hint */
+.form-consent{
+  font-size:0.88em;
+  line-height:1.25;
+  opacity:0.9;
+}
+.field-hint{
+  margin:6px 0 10px 0;
+  font-size:0.9em;
+  line-height:1.25;
+  opacity:0.85;
+}
