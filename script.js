@@ -442,10 +442,8 @@ monthly: {
     }
 
     // Active state
-    document.querySelectorAll('.lang__btn').forEach((btn) => {
-      const isActive = btn.getAttribute('data-lang') === lang;
-      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
+    // language buttons removed: using anchor links instead
+});
 
     // Store
     localStorage.setItem('fs_lang', lang);
@@ -480,9 +478,8 @@ monthly: {
 
   function updateLangButtons() {
     const current = getLangFromPath();
-    document.querySelectorAll('.lang__btn').forEach((btn) => {
-      const lang = btn.getAttribute('data-lang');
-      const isActive = lang === current;
+    // language buttons removed: using anchor links instead
+const isActive = lang === current;
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
     document.documentElement.setAttribute('lang', current);
@@ -490,10 +487,8 @@ monthly: {
 
   updateLangButtons();
 
-  document.querySelectorAll('.lang__btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const lang = btn.getAttribute('data-lang');
-      window.location.href = buildLangUrl(lang);
+  // language buttons removed: using anchor links instead
+window.location.href = buildLangUrl(lang);
     });
   });
 
