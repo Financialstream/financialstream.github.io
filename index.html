@@ -215,7 +215,7 @@
 <div class="panel panel--flat">
 <h3 class="panel__title" data-i18n="contact.formTitle">Book a free consultation or ask a question</h3><p class="panel__subtitle" data-i18n="contact.formSub">We’ll review your situation, ask a few quick questions, and suggest the next step.</p>
 <form action="https://formspree.io/f/xwvqekla" class="stack" id="contactForm" method="POST">
-<div class="form-success hidden" data-i18n="form.success" id="formSuccess">Thank you — your request was sent.</div>
+<div class="form-success hidden" role="status" aria-live="polite" data-i18n="form.success" id="formSuccess">Thank you — your request was sent.</div>
 <input name="_subject" type="hidden" value="Financial Stream — Consultation request"/>
 <input name="_next" type="hidden" value="https://financialstreamllc.com/?success=1#contact"/>
 <input id="formLang" name="site_lang" type="hidden" value="en"/>
@@ -249,10 +249,6 @@
 </div>
 <button class="btn btn--primary" data-i18n="cta.sendRequest" type="submit">Send Request</button>
 </form>
-<div aria-live="polite" class="notice notice--success" id="thankYou" role="status" style="display:none;">
-<strong data-i18n="form.thanksTitle">Thank you!</strong>
-<span data-i18n="form.thanksBody">Your request has been sent. We will contact you shortly.</span>
-</div>
 </div>
 </div>
 </div>
