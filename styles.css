@@ -398,6 +398,19 @@ a:hover{ text-decoration: underline; }
 }
 .faq__a{ margin-top: 10px; color: var(--muted); line-height: 1.55; }
 
+.faq__more{
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.faq__more a{
+  color: var(--primary);
+  text-decoration: none;
+}
+.faq__more a:hover{ text-decoration: underline; }
+.faq__more--spacer{ visibility: hidden; }
+
+
 
 @media (min-width: 900px){
   .faq{
