@@ -9,22 +9,23 @@
 </head>
 <body>
 <header class="topbar">
-  <div class="container topbar__inner">
-    <a class="brand" href="/ru/"><span class="brand__text">Financial Stream LLC</span></a>
-    <nav class="nav" aria-label="Primary">
-      <a class="nav__link" href="/ru/#services">Услуги</a>
-      <a class="nav__link" href="/ru/#process">Процесс</a>
-      <a class="nav__link" href="/ru/#faq">Вопросы</a>
-      <a class="nav__link" href="/ru/#contact">Контакты</a>
-    </nav>
-    <div class="topbar__actions">
-      <div class="lang" aria-label="Language">
-        <a class="lang__link" href="/getting-started.html">EN</a>
-        <a class="lang__link is-active" href="/ru/kak-nachat.html">RU</a>
-      </div>
-      <a class="btn btn--primary" href="/ru/#contact">Бесплатная консультация</a>
-    </div>
-  </div>
+<div class="container topbar__inner">
+<a aria-label="Financial Stream LLC" class="brand" href="/ru/index.html#top">
+<img alt="Financial Stream LLC logo" class="brand__logo" src="/assets/logo-horizontal.png"/>
+</a>
+<nav aria-label="Primary" class="nav">
+<a class="nav__link" data-i18n="nav.home" href="/ru/index.html#top">Главная</a><a class="nav__link" data-i18n="nav.services" href="/ru/index.html#services">Услуги</a><a class="nav__link" data-i18n="nav.process" href="/ru/index.html#process">Процесс</a>
+<a class="nav__link" data-i18n="nav.faq" href="/ru/index.html#faq">Вопросы</a>
+<a class="nav__link" data-i18n="nav.contact" href="/ru/index.html#contact">Контакты</a>
+</nav>
+<div class="topbar__actions">
+<div aria-label="Language" class="lang">
+<a aria-current="false" class="lang__link" href="/">EN</a>
+<a aria-current="page" class="lang__link is-active" href="/ru/index.html">RU</a>
+</div>
+<a class="btn btn--primary" data-i18n="cta.bookTop" href="/ru/index.html#contact">Бесплатная консультация</a>
+</div>
+</div>
 </header>
 
 <main class="policy">
@@ -84,14 +85,22 @@
 </main>
 
 <footer class="footer">
-  <div class="container footer__inner">
-    <p>© <span id="year"></span> Financial Stream LLC</p>
-    <div class="footer__links">
-      <a href="/ru/privacy-policy.html">Политика конфиденциальности</a>
-      <span aria-hidden="true">|</span>
-      <a href="/ru/terms-and-conditions.html">Условия и правила</a>
-    </div>
-  </div>
+<div class="container footer__inner">
+<div class="footer__left">
+<img alt="Financial Stream LLC" class="footer__logo" src="/assets/logo-horizontal.png"/>
+<div class="footer__small">© <span id="year"></span> Financial Stream LLC</div>
+</div>
+<div class="footer__right">
+<a class="footer__link" data-i18n="cta.bookFooter" href="/ru/index.html#contact">Записаться на бесплатную консультацию</a>
+<div class="footer__policy">
+<a class="footer__policy-link" data-i18n="footer.privacy" href="/ru/privacy-policy.html">Политика конфиденциальности</a>
+<span class="footer__sep">|</span>
+<a class="footer__policy-link" data-i18n="footer.terms" href="/ru/terms-and-conditions.html">Условия использования</a>
+<span class="footer__sep">|</span>
+<a class="footer__policy-link" data-i18n="footer.sms" href="/ru/sms-consent.html">Согласие на SMS</a>
+</div>
+</div>
+</div>
 </footer>
 
 <script src="/script.js"></script>
