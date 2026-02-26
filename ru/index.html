@@ -2,6 +2,24 @@
 
 <html lang="ru">
 <head>
+
+    <!-- FS: canonicalize /ru/index.html to /ru/ -->
+    <link rel="canonical" href="https://financialstreamllc.com/ru/">
+<script>
+      (function() {
+        try {
+          var path = window.location.pathname || "";
+          // If user lands on /ru/index.html, redirect to /ru/ preserving hash.
+          if (path.toLowerCase().endsWith("/ru/index.html")) {
+            var target = "/ru/" + (window.location.hash || "");
+            // Use replace to avoid polluting history.
+            window.location.replace(target);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Financial Stream LLC — Бухгалтерия и налоги в США</title>
