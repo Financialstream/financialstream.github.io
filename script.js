@@ -1,9 +1,4 @@
 (() => {
-  // Force HTTPS
-  if (window.location.protocol === 'http:') {
-    window.location.replace('https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash);
-    return;
-  }
   const i18n = {
     en: {
       nav: {
@@ -48,8 +43,8 @@
         more: 'Learn more',
         s1: { b1: 'Company registration / closure', b2: 'EIN application', b3: 'Business license', b4: 'Contractor license' },
         s2: { b1: 'Bookkeeping in QuickBooks (QB). Professional monthly categorization.' },
-        s3: { b1: 'Monthly and quarterly state reporting, sales tax filing.' },
-        s4: { b1: "Payroll and quarterly reporting to state labor agencies" },
+        s3: { b1: 'Monthly and quarterly reporting to the Department of Revenue, sales tax filing.' },
+        s4: { b1: "Payroll calculation and quarterly reporting to the Department of Labor & Industries (L&I)" },
         s5: { b1: 'Preparation and filing of tax returns for businesses and individuals.' },
         s6: { b1: 'Financial analysis and consultation on financial matters and documents.' },
       },
@@ -63,36 +58,41 @@
       },
       process: {
         title: 'How it works',
-        subtitle: 'Clear steps. No chaos.',
-        p1: { title: 'Free consultation', text: 'Tell us what you need — we ask a few questions and explain the best next step.' },
-        p2: { title: 'Secure onboarding', text: 'We set up secure document sharing and collect access to QuickBooks/banks if needed.' },
-        p3: { title: 'Cleanup (if needed)', text: 'If your books are behind, we clean up past months and make the numbers reliable.' },
-        p4: { title: 'Monthly bookkeeping', text: 'Every month we categorize transactions, reconcile accounts, and keep everything organized.' },
-        p5: { title: 'Reports & tax‑ready', text: 'You get clear monthly reports and a bookkeeping system that is ready for tax time.' },
-        p6: { title: 'Support & check‑ins', text: 'We answer questions, review results with you, and help you stay on track.' },
+        subtitle: 'We do our work fast, high-quality, and professionally.',
+        p1: {
+          title: 'Free consultation',
+          text: 'We understand your situation and confirm scope.',
+        },
+        p2: {
+          title: 'Secure onboarding',
+          text: 'We collect access and documents with clear instructions.',
+        },
+        p3: {
+          title: 'Monthly close',
+          text: 'Reconciliations and cleanup — consistent and on time.',
+        },
       },
       reviews: {
         title: 'Client reviews',
-        subtitle: 'We’ve supported many clients across the U.S. Here are a few short notes clients shared with us.',
-        r1: { text: '“Everything is organized now. The reports are easy to read, and I finally understand where my money is going.”', name: 'Alex' },
-        r2: { text: '“Fast replies and a calm, professional approach. I don’t have to chase anyone — I get answers when I need them.”', name: 'Olga' },
-        r3: { text: '“They helped me catch up and set a routine. Now bookkeeping is predictable and doesn’t take over my week.”', name: 'Svetlana' },
-        r4: { text: '“Clear communication and accurate work. The books stay clean, and everything is explained in simple terms.”', name: 'Viktor' },
-        r5: { text: '“Reliable and easy to work with. The process is simple, and I always know what’s happening and what’s next.”', name: 'Tetiana' },
+        subtitle: 'Clients across the U.S. — here are a few short notes.',
+        r1: { text: '“Clear, fast, and accurate. We finally have clean monthly reports.”', name: 'Alex' },
+        r2: { text: '“Great communication and everything is organized. Highly recommend.”', name: 'Olga' },
+        r3: { text: '“They helped me fix issues from the previous bookkeeper and set everything up correctly.”', name: 'Svetlana' },
+        r4: { text: '“Professional service and quick answers — exactly what a small business needs.”', name: 'Viktor' },
+        r5: { text: '“Very attentive approach. Everything is on time and stress‑free.”', name: 'Tetiana' },
       },
       faq: {
         title: 'FAQ',
         subtitle: 'Answers to common questions.',
-        q1: { q: 'What do you need from me to get started?', a: 'Usually: access to QuickBooks (if you use it), bank statements, and a quick overview of your business.' },
-        q2: { q: 'Do I need to come to your office in person?', a: 'No. We work remotely — meetings and document sharing are online.' },
-        q3: { q: 'Do you work with QuickBooks Online?', a: 'Yes. We work in QuickBooks Online and can help set it up if needed.' },
-        q4: { q: 'Can you catch up months of backlog?', a: 'Yes. We can clean up and catch up your bookkeeping for previous months.' },
-        q5: { q: 'Can you help with sales tax?', a: 'Yes. We can prepare and file sales tax reports where required.' },
-        q6: { q: 'Do you help with payroll and state reporting?', a: 'Yes. We can support payroll and required quarterly filings (depending on your setup).' },
-        q7: { q: 'Do you prepare tax returns?', a: 'Yes. We prepare and file business and personal tax returns.' },
-        q8: { q: 'What will I receive each month?', a: 'You get reconciled books and clear reports like Profit & Loss and Balance Sheet.' },
-        q9: { q: 'How fast do you respond?', a: 'We respond quickly during business days. Urgent items can be flagged.' },
-        q10:{ q: 'How does pricing work?', a: 'Pricing depends on volume and scope. After a short call we give a clear monthly quote.' },
+        q1: { q: 'What do you need from me to get started?', a: 'We’ll ask a few questions and request access to your bookkeeping platform and key documents.' },
+        q2: { q: 'Do I need to come to your office in person?', a: 'No. We can work fully online or by phone, so you don’t need to visit an office. We support clients across the U.S.' },
+        q3: { q: 'Do you work with QuickBooks Online?', a: 'Yes. QuickBooks Online is our primary platform, and we can help you set it up correctly.' },
+        q4: { q: 'Can you clean up months of backlog?', a: 'Yes. We can catch up past months, fix categorization, and move you into a stable monthly process.' },
+        q5: { q: 'Do you help with sales tax?', a: 'Yes. We support sales tax tracking, filings, and notices for your state.' },
+        q6: { q: 'Do you help with state revenue and labor agencies?', a: 'Yes. We can help with reporting, notices, documentation, and communication so you stay compliant.' },
+        q7: { q: 'Do you do taxes?', a: 'Yes. We prepare and file business and personal tax returns and help you keep documentation organized year-round.' },
+        q8: { q: 'How fast do you respond?', a: 'Typically within 1 business day. Complex cases may take longer — we’ll keep you updated.' },
+        q9: { q: 'How much does it cost?', a: 'Pricing depends on volume and complexity. We’ll provide a quote after a short call.' },
       },
       contact: {
         title: 'Contact',
@@ -246,29 +246,35 @@
         more: 'Подробнее',
         s1: { b1: 'Регистрация/ликвидация компании', b2: 'Получение EIN', b3: 'Оформление бизнесс лицензии', b4: 'Оформление лицензии контрактора' },
         s2: { b1: 'Ведение бухгалтерского учета в QB. Профессиональная ежемесячная категоризация.' },
-        s3: { b1: 'Подача ежемесячной и ежеквартальной отчётности по штату, включая Sales Tax filing.' },
-        s4: { b1: 'Расчёт заработной платы и ежеквартальная отчётность в государственные ведомства по труду.' },
+        s3: { b1: 'Подача ежемесячных и ежеквартальных отчетов в Department of Revenue , Sales Tax filing.' },
+        s4: { b1: 'Расчет заработной платы и подача ежеквартальных отчетов в Department L& I' },
         s5: { b1: 'Подготовка и подача налоговых деклараций для бизнесса и частных лиц.' },
         s6: { b1: 'Анализ и консультация в финансовых вопросах и документах.' },
       },
       process: {
         title: 'Как мы работаем',
-        subtitle: 'Понятные шаги без хаоса.',
-        p1: { title: 'Бесплатная консультация', text: 'Коротко обсуждаем задачу, задаём несколько вопросов и предлагаем понятный план.' },
-        p2: { title: 'Безопасный старт', text: 'Настраиваем безопасный обмен документами и доступы (QuickBooks/банк), если нужно.' },
-        p3: { title: 'Наводим порядок (если нужно)', text: 'Если учёт запущен — восстановим прошлые месяцы и сделаем цифры надёжными.' },
-        p4: { title: 'Ежемесячное ведение', text: 'Каждый месяц: категоризация, сверки, порядок в операциях и документах.' },
-        p5: { title: 'Отчёты и готовность к налогам', text: 'Вы получаете понятные отчёты и учёт, который готов к сдаче деклараций.' },
-        p6: { title: 'Поддержка и вопросы', text: 'Отвечаем на вопросы, обсуждаем результаты и помогаем не упускать важное.' },
+        subtitle: 'Мы делаем свою работу быстро, качественно и профессионально.',
+        p1: {
+          title: 'Бесплатная консультация',
+          text: 'Разбираем вашу ситуацию и согласуем объем работ.',
+        },
+        p2: {
+          title: 'Безопасный старт',
+          text: 'Собираем доступы и документы по понятным инструкциям.',
+        },
+        p3: {
+          title: 'Ежемесячное закрытие',
+          text: 'Сверки и порядок — стабильно и в срок.',
+        },
       },
       reviews: {
         title: 'Отзывы клиентов',
-        subtitle: 'Мы помогли многим клиентам по США. Ниже — несколько коротких отзывов.',
-        r1: { text: '«Теперь всё разложено по полочкам. Отчёты читаются легко, и наконец понятно, куда реально уходят деньги.»', name: 'Алексей' },
-        r2: { text: '«Быстрые ответы и спокойный профессиональный подход. Не нужно никого “догонять” — вопросы решаются вовремя.»', name: 'Ольга' },
-        r3: { text: '«Помогли закрыть хвосты и выстроить рутину. Теперь учёт предсказуемый и не съедает неделю.»', name: 'Светлана' },
-        r4: { text: '«Понятная коммуникация и аккуратная работа. Учёт чистый, а объясняют простыми словами, без “канцелярита”.»', name: 'Виктор' },
-        r5: { text: '«Надёжно и удобно в работе. Процесс простой — всегда понятно, что сделано и какой следующий шаг.»', name: 'Татьяна' },
+        subtitle: 'Нам доверяют сотни клиентов — вот несколько коротких отзывов.',
+        r1: { text: '“Четко, быстро и аккуратно. Наконец-то есть нормальные ежемесячные отчеты.”', name: 'Алексей' },
+        r2: { text: '“Отличная коммуникация, все разложили по полочкам. Рекомендую.”', name: 'Ольга' },
+        r3: { text: '“Помогли исправить ошибки прошлого бухгалтера и настроили учет правильно.”', name: 'Светлана' },
+        r4: { text: '“Профессионально и быстро отвечают — именно то, что нужно малому бизнесу.”', name: 'Виктор' },
+        r5: { text: '“Очень внимательный подход. Все вовремя и без стресса.”', name: 'Татьяна' },
       },
 monthly: {
       title: 'Что вы получаете каждый месяц',
@@ -280,18 +286,17 @@ monthly: {
       },
       
       faq: {
-        title: 'FAQ',
-        subtitle: 'Ответы на популярные вопросы.',
-        q1: { q: 'Что вам нужно от меня, чтобы начать?', a: 'Обычно достаточно доступа к QuickBooks (если он есть), выписок по счетам и короткого описания вашего бизнеса.' },
-        q2: { q: 'Нужно ли приезжать в офис лично?', a: 'Нет. Мы работаем удалённо — созвоны и документы онлайн.' },
-        q3: { q: 'Вы работаете в QuickBooks Online?', a: 'Да. Работаем в QuickBooks Online и поможем настроить, если нужно.' },
-        q4: { q: 'Можете восстановить учёт за прошлые месяцы?', a: 'Да. Наведём порядок и восстановим учёт за прошедшие периоды.' },
-        q5: { q: 'Помогаете с Sales Tax?', a: 'Да. Подготавливаем и подаём отчётность по sales tax там, где это требуется.' },
-        q6: { q: 'Помогаете с payroll и отчётностью штата?', a: 'Да. Поможем с payroll и квартальной отчётностью (в зависимости от вашей ситуации).' },
-        q7: { q: 'Вы делаете налоговые декларации?', a: 'Да. Готовим и подаём декларации для бизнеса и частных лиц.' },
-        q8: { q: 'Что я получаю каждый месяц?', a: 'Вы получаете порядок в учёте и понятные отчёты: P&L и Balance Sheet.' },
-        q9: { q: 'Как быстро вы отвечаете?', a: 'Отвечаем оперативно в рабочие дни. Срочные вопросы можно помечать.' },
-        q10:{ q: 'Сколько это стоит?', a: 'Цена зависит от объёма и задач. После короткого созвона даём понятную ежемесячную стоимость.' },
+        title: 'Вопросы и ответы',
+        subtitle: 'Коротко отвечаем на самые частые вопросы.',
+        q1: { q: 'Что нужно от меня, чтобы начать?', a: 'Мы уточним несколько вопросов и запросим доступ к бухгалтерской системе и ключевые документы.' },
+        q2: { q: 'Нужно ли приезжать к вам в офис лично?', a: 'Нет. Мы можем работать полностью онлайн или по телефону — приезжать не нужно. Работаем с клиентами по всей США.' },
+        q3: { q: 'Вы работаете с QuickBooks Online?', a: 'Да. QuickBooks Online — наша основная платформа, и мы поможем настроить всё правильно.' },
+        q4: { q: 'Можете восстановить учёт за прошлые месяцы?', a: 'Да. Мы сделаем catch-up, исправим категории и переведём на стабильный ежемесячный процесс.' },
+        q5: { q: 'Вы помогаете с sales tax?', a: 'Да. Помогаем с учётом, подачей и уведомлениями по вашему штату.' },
+        q6: { q: 'Помогаете по вопросам департаментов штата (налоги/труд)?', a: 'Да. Отчётность, уведомления, документы и коммуникация — чтобы вы соблюдали требования.' },
+        q7: { q: 'Вы делаете налоги?', a: 'Да. Готовим и подаём бизнес- и личные декларации и помогаем держать документы в порядке весь год.' },
+        q8: { q: 'Как быстро вы отвечаете?', a: 'Обычно в течение 1 рабочего дня. Сложные случаи могут занять больше времени — мы будем держать вас в курсе.' },
+        q9: { q: 'Сколько это стоит?', a: 'Стоимость зависит от объёма и сложности. Мы дадим расчёт после короткого созвона.' },
       },
       contact: {
         title: 'Контакты',
@@ -442,8 +447,10 @@ monthly: {
     }
 
     // Active state
-    // language buttons removed: using anchor links instead
-});
+    document.querySelectorAll('.lang__btn').forEach((btn) => {
+      const isActive = btn.getAttribute('data-lang') === lang;
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
 
     // Store
     localStorage.setItem('fs_lang', lang);
@@ -478,8 +485,9 @@ monthly: {
 
   function updateLangButtons() {
     const current = getLangFromPath();
-    // language buttons removed: using anchor links instead
-const isActive = lang === current;
+    document.querySelectorAll('.lang__btn').forEach((btn) => {
+      const lang = btn.getAttribute('data-lang');
+      const isActive = lang === current;
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
     document.documentElement.setAttribute('lang', current);
@@ -487,8 +495,10 @@ const isActive = lang === current;
 
   updateLangButtons();
 
-  // language buttons removed: using anchor links instead
-window.location.href = buildLangUrl(lang);
+  document.querySelectorAll('.lang__btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      window.location.href = buildLangUrl(lang);
     });
   });
 
@@ -500,7 +510,12 @@ window.location.href = buildLangUrl(lang);
   // Simple success message based on URL param (?sent=1)
   try {
     const params = new URLSearchParams(window.location.search);
-    ${params.toString() ? '?' + params.toString() : ''}${window.location.hash || ''}`;
+    if (params.get('success') === '1') {
+      const t = document.getElementById('formSuccess');
+      if (t) t.style.display = 'block';
+      // Remove the param from URL (optional, no reload)
+      params.delete('success');
+      const clean = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}${window.location.hash || ''}`;
       window.history.replaceState({}, '', clean);
     }
   } catch (_) {
@@ -509,29 +524,25 @@ window.location.href = buildLangUrl(lang);
 
 })();
 
-// --- Form success message (strictly hidden by default; shown only after successful submit redirect) ---
-(function () {
-  const params = new URLSearchParams(window.location.search);
-  const isRU = window.location.pathname.startsWith('/ru/');
-  const msgEl = document.getElementById('formSuccess');
-  if (!msgEl) return;
-
-  // Force-hide by default (defense in depth).
-  msgEl.setAttribute('hidden', '');
-  msgEl.style.display = 'none';
-
-  if (params.get('success') === '1') {
-    msgEl.textContent = isRU ? 'Спасибо — ваш запрос отправлен.' : 'Thank you — your request was sent.';
-    msgEl.removeAttribute('hidden');
-    msgEl.style.display = 'block';
-
-    // Clean URL (remove success=1) to avoid showing on refresh.
-    params.delete('success');
-    const clean = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
-    window.history.replaceState({}, document.title, clean);
+// Chatbase widget loader (Financial Stream Assistant)
+(function(){
+  try {
+    if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+      window.chatbase=(...arguments)=>{ if(!window.chatbase.q){ window.chatbase.q=[] } window.chatbase.q.push(arguments) };
+      window.chatbase=new Proxy(window.chatbase,{get(target,prop){ if(prop==="q"){ return target.q } return (...args)=>target(prop,...args) }});
+    }
+    const onLoad=function(){
+      // Avoid injecting twice
+      if(document.getElementById("L9Rqcw-6NJyxiL2AcTbtP")) return;
+      const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="L9Rqcw-6NJyxiL2AcTbtP";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script);
+    };
+    if(document.readyState === "complete") onLoad();
+    else window.addEventListener("load", onLoad);
+  } catch(e) {
+    // no-op
   }
 })();
-
-
-// Chatbase widget loader (Financial Stream Assistant)
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="L9Rqcw-6NJyxiL2AcTbtP";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
