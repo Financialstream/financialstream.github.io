@@ -471,19 +471,27 @@ monthly: {
     const search = window.location.search || '';
     const hash = window.location.hash || '';
 
-    // Normalize home paths
-    const normalized = (path === '/' || path === '') ? '/index.html' : path;
+    // Normalize home paths: prefer '/' (avoid creating duplicate /index.html URLs)
+    const isHome = (path === '/' || path === '' || path === '/index.html');
+    const normalized = isHome ? '/' : path;
 
     if (targetLang === 'ru') {
       if (normalized.startsWith('/ru/')) return normalized + search + hash;
+      if (normalized === '/') return '/ru/index.html' + search + hash;
       return '/ru' + normalized + search + hash;
     }
+
     // EN
-    if (normalized.startsWith('/ru/')) return normalized.replace(/^\/ru/, '') + search + hash;
+    if (normalized.startsWith('/ru/')) {
+      const enPath = normalized.replace(/^\/ru/, '');
+      if (enPath == '/index.html') return '/' + search + hash;
+      return enPath + search + hash;
+    }
+
     return normalized + search + hash;
   }
 
-  function updateLangButtons() {
+function updateLangButtons() {
     const current = getLangFromPath();
     document.querySelectorAll('.lang__btn').forEach((btn) => {
       const lang = btn.getAttribute('data-lang');
