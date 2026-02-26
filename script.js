@@ -477,7 +477,7 @@ monthly: {
 
     if (targetLang === 'ru') {
       if (normalized.startsWith('/ru/')) return normalized + search + hash;
-      if (normalized === '/') return '/ru/index.html' + search + hash;
+      if (normalized === '/') return '/ru/' + search + hash;
       return '/ru' + normalized + search + hash;
     }
 
