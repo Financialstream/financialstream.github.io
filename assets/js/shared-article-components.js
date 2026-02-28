@@ -11,15 +11,15 @@
   var t = ru ? {
     ctaTitle: 'Нужна помощь по этой теме?',
     ctaBody: 'Оставьте запрос — мы уточним детали и предложим лучший следующий шаг. Цены и сроки обсуждаем после уточнения вашей ситуации.',
-    ctaCall: 'Бесплатная консультация (15 мин)',
-    ctaForm: 'Заполнить форму',
+    ctaCall: 'Записаться на консультацию (15 мин)',
+    ctaForm: 'Оставить запрос (форма)',
     relatedTitle: 'Похожие статьи',
     backTo: '← Назад к новостям'
   } : {
     ctaTitle: 'Need help with this topic?',
     ctaBody: 'Send a request and we’ll confirm details and the best next step. Pricing and timing are discussed after we review your situation.',
     ctaCall: 'Book a free 15‑min consult',
-    ctaForm: 'Submit the form',
+    ctaForm: 'Send request (form)',
     relatedTitle: 'Related articles',
     backTo: '← Back to Updates'
   };
@@ -130,7 +130,7 @@
         <h2 class="article-cta__title">${t.ctaTitle}</h2>
         <p class="article-cta__text">${t.ctaBody}</p>
         <div class="article-cta__actions">
-          <a class="btn btn--primary" href="#contact">${ru ? 'Бесплатная консультация' : 'Book a Free Consultation'}</a>
+          <a class="btn btn-primary" href="#contact">${t.ctaCall}</a>
           <a class="btn btn-ghost" href="${ru ? 'https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor' : 'https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor'}" target="_blank" rel="noopener">${t.ctaForm}</a>
         </div>
       </div>`;

@@ -157,10 +157,14 @@ ul{ margin:0; padding:0; list-style: none; }
 }
 .btn-primary:hover{ transform: translateY(-1px); }
 .btn-ghost{
-  background: rgba(255,255,255,0.75);
-  border-color: var(--border);
-  color: var(--text);
+  background: #fff;
+  border-color: var(--primary);
+  color: var(--primary);
 }
+.btn-ghost:hover{
+  background: rgba(20, 64, 145, 0.06);
+}
+
 .btn-ghost:hover{
   transform: translateY(-1px);
   box-shadow: 0 10px 26px rgba(10, 35, 75, 0.08);

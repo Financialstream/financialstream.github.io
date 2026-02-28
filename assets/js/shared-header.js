@@ -100,7 +100,7 @@
         <a class="lang__link ${ru?'':'is-active'}" href="${lp.en}" data-lang="en" aria-current="${ru?'false':'page'}">EN</a>
         <a class="lang__link ${ru?'is-active':''}" href="${lp.ru}" data-lang="ru" aria-current="${ru?'page':'false'}">RU</a>
       </div>
-      <a class="btn btn--primary" href="#contact">${t.cta}</a>
+      <a class="btn btn-primary" href="#contact">${t.cta}</a>
     </div>
   </div>
 </header>`;
