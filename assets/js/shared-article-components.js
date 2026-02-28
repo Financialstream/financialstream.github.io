@@ -145,8 +145,8 @@
     var main = document.querySelector('main.page') || document.querySelector('main');
     if(!main) return;
 
-    // If an explicit slot exists, use it; else append after the article section.
-    if(main.querySelector('.related-section')) return;
+    // Prevent duplicates
+    if(document.querySelector('.related-section')) return;
 
     var items = related[path] || [];
     if(!items.length){
@@ -160,8 +160,9 @@
       ];
     }
 
+    // Use the same spacing system as other blocks ("section" + "container")
     var section = document.createElement('section');
-    section.className = 'related-section';
+    section.className = 'section related-section';
     var lis = items.map(function(it){
       return '<li><a href="'+it.href+'">'+it.text+'</a></li>';
     }).join('');
@@ -171,13 +172,8 @@
         <ul class="related-section__list">${lis}</ul>
       </div>`;
 
-    // Append right before footer if possible
-    var footer = document.querySelector('footer.footer');
-    if(footer && footer.parentNode){
-      footer.parentNode.insertBefore(section, footer);
-    }else{
-      main.appendChild(section);
-    }
+    // Keep it inside <main> so it doesn't visually merge into the footer.
+    main.appendChild(section);
   }
 
   ensureBacklink();

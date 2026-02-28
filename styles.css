@@ -1096,13 +1096,14 @@ a:hover{ text-decoration: underline; }
   flex-wrap: wrap;
 }
 .related-section{
-  margin-top: 26px;
-  padding-top: 18px;
+  /* Keep "Related" visually in the content area (not merged with footer) */
+  padding: 28px 0 44px;
+  margin: 0;
   border-top: 1px solid var(--border);
 }
 .related-section__title{
-  margin: 0 0 10px;
-  font-size: 18px;
+  margin: 0 0 12px;
+  font-size: 20px;
 }
 .related-section__list{
   margin: 0;
