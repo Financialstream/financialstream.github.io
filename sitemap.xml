@@ -4,7 +4,7 @@
 <loc>https://financialstreamllc.com/</loc>
 </url>
 <url>
-<loc>https://financialstreamllc.com/blog/index.html</loc>
+<loc>https://financialstreamllc.com/blog/</loc>
 </url>
 <url>
 <loc>https://financialstreamllc.com/blog/irs-2026-inflation-adjustments.html</loc>
@@ -22,7 +22,7 @@
 <loc>https://financialstreamllc.com/privacy-policy.html</loc>
 </url>
 <url>
-<loc>https://financialstreamllc.com/ru/blog/index.html</loc>
+<loc>https://financialstreamllc.com/ru/blog/</loc>
 </url>
 <url>
 <loc>https://financialstreamllc.com/ru/blog/irs-2026-inflation-adjustments.html</loc>
@@ -108,16 +108,9 @@
 <url>
 <loc>https://financialstreamllc.com/ru/kak-nachat.html</loc>
 </url>
-<url>
-<loc>https://financialstreamllc.com/blog/seattle-quickbooks-bookkeeping.html</loc>
-</url>
-<url>
-<loc>https://financialstreamllc.com/blog/seattle-tax-return-guide.html</loc>
-</url>
-<url>
-<loc>https://financialstreamllc.com/ru/blog/buhgalter-seattle-quickbooks.html</loc>
-</url>
-<url>
-<loc>https://financialstreamllc.com/ru/blog/nalogovaya-deklaraciya-seattle.html</loc>
-</url>
+  <url><loc>https://financialstreamllc.com/blog/seattle-quickbooks-bookkeeping.html</loc></url>
+  <url><loc>https://financialstreamllc.com/blog/seattle-tax-return-guide.html</loc></url>
+  <url><loc>https://financialstreamllc.com/ru/blog/buhgalter-seattle-quickbooks.html</loc></url>
+  <url><loc>https://financialstreamllc.com/ru/blog/nalogovaya-deklaraciya-seattle.html</loc></url>
+
 </urlset>
