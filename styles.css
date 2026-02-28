@@ -433,7 +433,7 @@ a:hover{ text-decoration: underline; }
 .contact__right{ grid-column: 1; }
 
 @media (min-width: 900px){
-  .contact{ grid-template-columns: 1fr 1fr; gap: 26px; }
+  .contact{ grid-template-columns: 1fr 1fr; gap: 26px; align-items: stretch; }
   .contact__left{ grid-column: 1; }
   .contact__right{ grid-column: 2; }
 }
@@ -829,6 +829,9 @@ a:hover{ text-decoration: underline; }
   margin-top: 18px;
   padding-top: 14px;
   border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .updates-teaser__title{
   margin: 0 0 6px;
@@ -839,17 +842,23 @@ a:hover{ text-decoration: underline; }
   color: var(--muted);
 }
 .updates-teaser__grid{
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(2, minmax(0,1fr));
   gap: 12px;
+  grid-auto-rows: 1fr;
+  align-content: stretch;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 6px; /* space for scrollbar */
 }
 .update-card{
-  display:block;
-  text-decoration:none;
+  display: block;
+  text-decoration: none;
   background: rgba(255,255,255,.88);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 12px 12px;
+  padding: 14px 14px;
+  min-height: 92px;
   box-shadow: 0 8px 20px rgba(10, 25, 44, .06);
 }
 .update-card:hover{
@@ -987,4 +996,8 @@ a:hover{ text-decoration: underline; }
   font-size:0.9em;
   line-height:1.25;
   opacity:0.85;
+}
+
+.updates-teaser__actions{
+  margin-top: 12px;
 }
