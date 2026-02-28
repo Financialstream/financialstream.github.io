@@ -138,6 +138,30 @@ a:hover{ text-decoration: underline; }
 }
 .btn--ghost:hover{ background: rgba(255,255,255,.9); }
 
+/* Alias used by shared article components (and some newer pages) */
+.btn-ghost{
+  background: #fff;
+  border-color: rgba(31,95,156,.55);
+  color: rgba(31,95,156,1);
+  box-shadow: 0 10px 22px rgba(31,95,156,.10);
+}
+.btn-ghost:hover{
+  background: rgba(46,123,200,.06);
+  box-shadow: 0 14px 30px rgba(31,95,156,.14);
+}
+
+/* In articles we keep both CTA buttons as white (primary emphasis comes from order/placement) */
+.article-cta .btn-primary{
+  background: #fff;
+  border-color: rgba(31,95,156,.55);
+  color: rgba(31,95,156,1);
+  box-shadow: 0 10px 22px rgba(31,95,156,.10);
+}
+.article-cta .btn-primary:hover{
+  background: rgba(46,123,200,.06);
+  box-shadow: 0 14px 30px rgba(31,95,156,.14);
+}
+
 .btn--full{ width: 100%; border-radius: 14px; padding: 12px 14px; }
 
 .hero{
