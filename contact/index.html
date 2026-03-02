@@ -17,10 +17,10 @@
 <link href="https://financialstreamllc.com/" hreflang="en" rel="alternate"/><link href="https://financialstreamllc.com/ru/" hreflang="ru" rel="alternate"/><link href="https://financialstreamllc.com/" hreflang="x-default" rel="alternate"/><style>
 
 /* Contact hub layout fixes (v41 contact) */
-.contact-hub-wrap{max-width:1100px;margin:0 auto;padding:28px 18px;}
+.contact-hub-wrap{max-width:1400px;margin:0 auto;padding:28px 18px;}
 .contact-hub-title, .contact-hub-subtitle, .contact-hub-seo{ text-align:center; }
 .contact-hub-subtitle{max-width:820px;margin:10px auto 22px;}
-.contact-hub-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:18px;align-items:start;}
+.contact-hub-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:start;}
 .contact-hub-left, .contact-hub-card{border-radius:16px;}
 .contact-hub-right{display:flex;flex-direction:column;gap:12px;}
 .contact-hub-card{padding:14px 16px;}
@@ -42,6 +42,10 @@
 /* Ensure anchor offset */
 :root{scroll-padding-top:84px;}
 
+
+.contact-hub-bottom{margin-top:24px;}
+.contact-hub-bottom .hub-seo-block{max-width:1100px;margin:0 auto;}
+.contact-hub-bottom .hub-seo{max-width:1100px;margin:0 auto;}
 </style>
 </head>
 <body>
@@ -66,15 +70,11 @@
 </header>
 
 <main id="top"><div class="contact-hub-wrap">
-  
-<div class="contact-hub-grid">
-  <section class="section contact-hub-left">
-    <div class="container">
-      <h1 class="section__title" class="contact-hub-title">Choose the easiest way to reach us</h1>
-      <p class="contact-hub-subtitle" class="section__subtitle">We’re remote‑first across the U.S. Pick the option that fits you best.</p>
-
-      <div class="hub">
-        <div class="hub-card hub-card--primary" id="quick-form">
+  <h1 class="contact-hub-title">Choose the easiest way to reach us</h1>
+  <p class="contact-hub-subtitle">We’re remote-first across the U.S. Pick the option that fits you best.</p>
+  <div class="contact-hub-grid contact-hub-grid--top">
+    <section class="section contact-hub-left">
+      <div class="hub-card hub-card--primary" id="quick-form">
           <h2 class="hub-card__title">Send a request (fastest)</h2>
           <p class="hub-card__desc">1–2 minutes. We’ll reply by email.</p>
           <form action="https://formspree.io/f/xwvqekla" class="stack" id="contactForm" method="POST">
@@ -113,8 +113,25 @@
 <button class="btn btn-primary" data-i18n="cta.sendRequest" type="submit">Send Request</button>
 </form>
         </div>
+    </section>
+    <aside class="section contact-hub-right">
+      <div class="hub-card">
+          <h2 class="hub-card__title">Book a free 15‑minute consultation</h2>
+          <p class="hub-card__desc">Best for first‑time questions or unclear scope. Available 8–9am weekdays.</p>
+          <a class="btn btn-primary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" target="_blank" rel="noopener">Book 15‑min consult</a>
+        </div>
+      <div class="hub-card">
+          <h2 class="hub-card__title">Book a free 15‑minute consultation</h2>
+          <p class="hub-card__desc">Best for first‑time questions or unclear scope. Available 8–9am weekdays.</p>
+          <a class="btn btn-primary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" target="_blank" rel="noopener">Book 15‑min consult</a>
+        </div>
 
         <div class="hub-card">
+          <h2 class="hub-card__title">Request a longer session (tax filing / complex cases)</h2>
+          <p class="hub-card__desc">Longer sessions are scheduled after a quick review. Submit details and we’ll follow up.</p>
+          <a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor" target="_blank" rel="noopener">Submit the detailed form</a>
+        </div>
+      <div class="hub-card">
           <h2 class="hub-card__title">Book a free 15‑minute consultation</h2>
           <p class="hub-card__desc">Best for first‑time questions or unclear scope. Available 8–9am weekdays.</p>
           <a class="btn btn-primary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" target="_blank" rel="noopener">Book 15‑min consult</a>
@@ -130,26 +147,19 @@
           <h2 class="hub-card__title">Email (documents / questions)</h2>
           <p class="hub-card__desc"><a href="mailto:financialstreamllc@gmail.com">financialstreamllc@gmail.com</a><br/><span class="hub-note">Please don’t email SSNs, passwords, or any login credentials.</span></p>
         </div>
-
-        <div class="hub-seo">
+    </aside>
+  </div>
+  <section class="section contact-hub-bottom">
+    <div class="hub-seo">
           <p>We help with <a href="/services/tax-returns.html">tax returns</a>, <a href="/services/quickbooks-bookkeeping.html">QuickBooks bookkeeping</a>, <a href="/services/sales-tax-dor-reporting.html">sales tax reporting</a>, <a href="/services/payroll-li-quarterly.html">payroll & quarterly reports</a>, and <a href="/services/company-formation.html">business formation</a>.</p>
         </div>
-      
-      <div class="hub-seo-block">
+    <div class="hub-seo-block">
         <h2>Accounting and tax support in the U.S. (remote-first)</h2>
         <p>Financial Stream LLC provides accounting and bookkeeping support for individuals and small businesses across the U.S., primarily in a remote-first format. If you’re looking for an accountant or bookkeeper to help organize records and confirm next steps, start with a quick request or a free 15‑minute consultation to confirm scope.</p>
         <p>Our core services include QuickBooks Online bookkeeping (monthly + catch-up/cleanup), professional categorization, preparation and filing of business and personal tax returns, Washington reporting support (including sales tax), payroll and quarterly reporting (including L&amp;I), and business formation/closure support (EIN and licensing-related steps).</p>
         <p>We’re based in the Seattle area, Washington, but work with clients nationwide. Helpful pages: <a href="/services/tax-returns.html">Tax Returns</a> and <a href="/services/quickbooks-bookkeeping.html">QuickBooks Bookkeeping</a>.</p>
       </div>
-    
-</div>
-    </div>
   </section>
-
-  <div class="contact-hub-right">
-    
-  </div>
-</div>
 </div></main>
 
 <footer class="footer">

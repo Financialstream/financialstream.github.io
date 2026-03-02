@@ -37,10 +37,10 @@
 <style>
 
 /* Contact hub layout fixes (v41 contact) */
-.contact-hub-wrap{max-width:1100px;margin:0 auto;padding:28px 18px;}
+.contact-hub-wrap{max-width:1400px;margin:0 auto;padding:28px 18px;}
 .contact-hub-title, .contact-hub-subtitle, .contact-hub-seo{ text-align:center; }
 .contact-hub-subtitle{max-width:820px;margin:10px auto 22px;}
-.contact-hub-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:18px;align-items:start;}
+.contact-hub-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:start;}
 .contact-hub-left, .contact-hub-card{border-radius:16px;}
 .contact-hub-right{display:flex;flex-direction:column;gap:12px;}
 .contact-hub-card{padding:14px 16px;}
@@ -62,6 +62,10 @@
 /* Ensure anchor offset */
 :root{scroll-padding-top:84px;}
 
+
+.contact-hub-bottom{margin-top:24px;}
+.contact-hub-bottom .hub-seo-block{max-width:1100px;margin:0 auto;}
+.contact-hub-bottom .hub-seo{max-width:1100px;margin:0 auto;}
 </style>
 </head>
 <body>
@@ -86,15 +90,11 @@
 </header>
 
 <main id="top"><div class="contact-hub-wrap">
-  
-<div class="contact-hub-grid">
-  <section class="section contact-hub-left">
-    <div class="container">
-      <h1 class="section__title" class="contact-hub-title">Выберите удобный способ связи</h1>
-      <p class="contact-hub-subtitle" class="section__subtitle">Мы работаем удалённо по всей США. Выберите вариант, который вам удобнее.</p>
-
-      <div class="hub">
-        <div class="hub-card hub-card--primary" id="quick-form">
+  <h1 class="contact-hub-title">Выберите удобный способ связи</h1>
+  <p class="contact-hub-subtitle">Мы работаем удалённо по всей США. Выберите вариант, который вам удобнее.</p>
+  <div class="contact-hub-grid contact-hub-grid--top">
+    <section class="section contact-hub-left">
+      <div class="hub-card hub-card--primary" id="quick-form">
           <h2 class="hub-card__title">Отправить заявку (самый быстрый вариант)</h2>
           <p class="hub-card__desc">1–2 минуты. Мы ответим по email.</p>
           <form action="https://formspree.io/f/xwvqekla" class="stack" id="contactForm" method="POST">
@@ -133,8 +133,25 @@
 <button class="btn btn-primary" data-i18n="cta.sendRequest" type="submit">Send Request</button>
 </form>
         </div>
+    </section>
+    <aside class="section contact-hub-right">
+      <div class="hub-card">
+          <h2 class="hub-card__title">Записаться на бесплатный созвон 15 минут</h2>
+          <p class="hub-card__desc">Подходит для первичных вопросов и когда объём работ неясен. Слоты сейчас 8–9 утра в будни.</p>
+          <a class="btn btn-primary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" target="_blank" rel="noopener">Записаться на 15 минут</a>
+        </div>
+      <div class="hub-card">
+          <h2 class="hub-card__title">Записаться на бесплатный созвон 15 минут</h2>
+          <p class="hub-card__desc">Подходит для первичных вопросов и когда объём работ неясен. Слоты сейчас 8–9 утра в будни.</p>
+          <a class="btn btn-primary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" target="_blank" rel="noopener">Записаться на 15 минут</a>
+        </div>
 
         <div class="hub-card">
+          <h2 class="hub-card__title">Запросить длительную сессию (налоги / сложные кейсы)</h2>
+          <p class="hub-card__desc">Длительные сессии назначаем после предварительного просмотра. Заполните форму — мы свяжемся с вами.</p>
+          <a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor" target="_blank" rel="noopener">Заполнить подробную форму</a>
+        </div>
+      <div class="hub-card">
           <h2 class="hub-card__title">Записаться на бесплатный созвон 15 минут</h2>
           <p class="hub-card__desc">Подходит для первичных вопросов и когда объём работ неясен. Слоты сейчас 8–9 утра в будни.</p>
           <a class="btn btn-primary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" target="_blank" rel="noopener">Записаться на 15 минут</a>
@@ -150,26 +167,19 @@
           <h2 class="hub-card__title">Email (документы / вопросы)</h2>
           <p class="hub-card__desc"><a href="mailto:financialstreamllc@gmail.com">financialstreamllc@gmail.com</a><br/><span class="hub-note">Пожалуйста, не отправляйте SSN, пароли и любые логины/доступы.</span></p>
         </div>
-
-        <div class="hub-seo">
+    </aside>
+  </div>
+  <section class="section contact-hub-bottom">
+    <div class="hub-seo">
           <p>Мы помогаем с <a href="/ru/services/tax-returns.html">налоговыми декларациями</a>, <a href="/ru/services/quickbooks-bookkeeping.html">учётом в QuickBooks</a>, <a href="/ru/services/sales-tax-dor-reporting.html">Sales Tax отчётностью</a>, <a href="/ru/services/payroll-li-quarterly.html">Payroll и квартальными отчётами</a>, и <a href="/ru/services/company-formation.html">регистрацией/закрытием бизнеса</a>.</p>
         </div>
-      
-      <div class="hub-seo-block">
+    <div class="hub-seo-block">
         <h2>Бухгалтерия и налоги в США (удалённо)</h2>
         <p>Financial Stream LLC помогает частным лицам и малому бизнесу в США с бухгалтерией и налоговой подготовкой — в большинстве случаев полностью онлайн. Если вы ищете бухгалтера, который сможет навести порядок в документах, настроить учёт и подсказать следующий шаг, начните с короткой заявки или 15‑минутной консультации, чтобы уточнить объём работ.</p>
         <p>Основные направления: ведение учёта в QuickBooks Online (ежемесячно + catch‑up/cleanup), подготовка и подача налоговых деклараций для бизнеса и частных лиц, поддержка по Sales Tax и отчётности штата, payroll и квартальные отчёты (включая L&amp;I), а также помощь с организационными вопросами (EIN и базовые шаги по лицензированию).</p>
         <p>Мы находимся в районе Seattle, Washington, но работаем с клиентами по всей территории США. Полезные страницы: <a href="/ru/services/tax-returns.html">Налоговые декларации</a> и <a href="/ru/services/quickbooks-bookkeeping.html">Бухгалтерия в QuickBooks</a>.</p>
       </div>
-    
-</div>
-    </div>
   </section>
-
-  <div class="contact-hub-right">
-    
-  </div>
-</div>
 </div></main>
 
 <footer class="footer">
