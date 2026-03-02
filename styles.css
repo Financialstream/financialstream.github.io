@@ -1116,3 +1116,15 @@ a:hover{ text-decoration: underline; }
   .article-cta{ padding: 14px; }
   .article-cta__title{ font-size: 18px; }
 }
+
+
+/* Contact hub */
+.hub{display:flex;flex-direction:column;gap:16px;margin-top:18px}
+.hub-card{background:rgba(255,255,255,.88);border:1px solid var(--border);border-radius:14px;padding:16px}
+.hub-card--primary{border-color:rgba(24,86,166,.35)}
+.hub-card__title{margin:0 0 6px 0;font-size:18px}
+.hub-card__desc{margin:0 0 12px 0;color:var(--muted)}
+.hub-card--minor{background:rgba(255,255,255,.82)}
+.hub-note{font-size:12px;color:var(--muted)}
+.hub-seo{font-size:14px;color:var(--muted)}
+.hub-seo a{text-decoration:underline}
