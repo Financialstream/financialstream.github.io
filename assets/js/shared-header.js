@@ -90,7 +90,7 @@
     </a>
     <nav aria-label="Primary" class="nav">
       <a class="nav__link" href="${ru?'/ru/':'/'}#top">${t.home}</a>
-      <a class="nav__link" href="${ru?'/ru/services/':'/services/'}">${t.services}</a>
+      <a class="nav__link" href="${ru?'/ru/#services':'/#services'}">${t.services}</a>
       <a class="nav__link" href="${ru?'/ru/#process':'/#process'}">${t.process}</a>
       <a class="nav__link" href="${ru?'/ru/#faq':'/#faq'}">${t.faq}</a>
       <a class="nav__link" href="${ru?'/ru/contact/':'/contact/'}">${t.contact}</a>
