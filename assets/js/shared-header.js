@@ -85,13 +85,13 @@
   var headerHTML = `
 <header class="topbar">
   <div class="container topbar__inner">
-    <a aria-label="${t.aria}" class="brand" href="${ru?'/ru/#top':'/#top'}">
+    <a aria-label="${t.aria}" class="brand" href="${ru?'/ru/':'/'}">
       <img alt="Financial Stream LLC logo" class="brand__logo" src="/assets/logo-horizontal.png"/>
     </a>
     <nav aria-label="Primary" class="nav">
-      <a class="nav__link" href="${ru?'/ru/':'/'}#top">${t.home}</a>
-      <a class="nav__link" href="${ru?'/ru/#services':'/#services'}">${t.services}</a>
-      <a class="nav__link" href="${ru?'/ru/#process':'/#process'}">${t.process}</a>
+      <a class="nav__link" href="${ru?'/ru/':'/'}">${t.home}</a>
+      <a class="nav__link" href="${ru?'/ru/services/':'/services/'}">${t.services}</a>
+      <a class="nav__link" href="${ru?'/ru/kak-nachat.html':'/getting-started.html'}">${t.process}</a>
       <a class="nav__link" href="${ru?'/ru/#faq':'/#faq'}">${t.faq}</a>
       <a class="nav__link" href="${ru?'/ru/contact/':'/contact/'}">${t.contact}</a>
     </nav>
