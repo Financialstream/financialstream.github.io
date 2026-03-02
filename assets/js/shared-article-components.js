@@ -130,7 +130,7 @@
         <h2 class="article-cta__title">${t.ctaTitle}</h2>
         <p class="article-cta__text">${t.ctaBody}</p>
         <div class="article-cta__actions">
-          <a class="btn btn-primary" href="#contact">${t.ctaCall}</a>
+          <a class="btn btn-primary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" target="_blank" rel="noopener">${t.ctaCall}</a>
           <a class="btn btn-ghost" href="${ru ? 'https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor' : 'https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor'}" target="_blank" rel="noopener">${t.ctaForm}</a>
         </div>
       </div>`;

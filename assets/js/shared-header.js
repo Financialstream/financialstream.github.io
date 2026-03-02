@@ -85,22 +85,22 @@
   var headerHTML = `
 <header class="topbar">
   <div class="container topbar__inner">
-    <a aria-label="${t.aria}" class="brand" href="#top">
+    <a aria-label="${t.aria}" class="brand" href="${ru?'/ru/#top':'/#top'}">
       <img alt="Financial Stream LLC logo" class="brand__logo" src="/assets/logo-horizontal.png"/>
     </a>
     <nav aria-label="Primary" class="nav">
       <a class="nav__link" href="${ru?'/ru/':'/'}#top">${t.home}</a>
       <a class="nav__link" href="${ru?'/ru/services/':'/services/'}">${t.services}</a>
-      <a class="nav__link" href="${ru?'/ru/process.html':'/process.html'}">${t.process}</a>
-      <a class="nav__link" href="${ru?'/ru/faq.html':'/faq.html'}">${t.faq}</a>
-      <a class="nav__link" href="#contact">${t.contact}</a>
+      <a class="nav__link" href="${ru?'/ru/#process':'/#process'}">${t.process}</a>
+      <a class="nav__link" href="${ru?'/ru/#faq':'/#faq'}">${t.faq}</a>
+      <a class="nav__link" href="${ru?'/ru/contact/':'/contact/'}">${t.contact}</a>
     </nav>
     <div class="topbar__actions">
       <div class="lang" role="navigation" aria-label="Language">
         <a class="lang__link ${ru?'':'is-active'}" href="${lp.en}" data-lang="en" aria-current="${ru?'false':'page'}">EN</a>
         <a class="lang__link ${ru?'is-active':''}" href="${lp.ru}" data-lang="ru" aria-current="${ru?'page':'false'}">RU</a>
       </div>
-      <a class="btn btn-primary" href="#contact">${t.cta}</a>
+      <a class="btn btn-primary" href="${ru?'/ru/contact/':'/contact/'}">${t.cta}</a>
     </div>
   </div>
 </header>`;
