@@ -1,3 +1,3 @@
 TODO_OWNER.md
 
-- After deploy, capture iPhone Safari screenshots (portrait+landscape) for acceptance pages per QA_REPORT_v64.md.
+- After deploy, hard refresh the blog/article page to clear cached JS and confirm header appears.
