@@ -1375,3 +1375,62 @@ a:hover{ text-decoration: underline; }
     gap: 8px 10px;
   }
 }
+
+/* ==========================================================
+   v68: Footer text safe-zone on mobile (do NOT move chatbot)
+   Goal: prevent footer right-side labels/links from being covered by the fixed Chatbase bubble.
+   Strategy: add right padding to the footer's right column on mobile so text sits more center/left.
+   No changes to chatbot position or JS.
+   ========================================================== */
+
+@media (max-width: 760px) and (orientation: portrait){
+  /* Reserve space on the right edge where the chat bubble sits */
+  .footer__right{ padding-right: 88px; }
+  .footer__policy{ padding-right: 88px; }
+}
+
+@media (max-width: 900px) and (orientation: landscape){
+  .footer__right{ padding-right: 72px; }
+  .footer__policy{ padding-right: 72px; }
+}
+
+/* ==========================================================
+   v69: Mobile header/footer micro-stabilization (no business logic)
+   - Keep primary nav (4 links) always visible on mobile portrait+landscape.
+   - Keep CTA button present and avoid "thick" header via controlled wrapping.
+   - Footer remains symmetric; avoid right block dropping.
+   ========================================================== */
+
+/* Primary header (topbar) */
+@media (max-width: 760px){
+  .topbar__inner{ flex-wrap: wrap; justify-content: center; }
+  .nav{ display:flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .nav a{ white-space: nowrap; }
+  .topbar__actions{ flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .topbar__actions .btn.btn-primary{ white-space: nowrap; }
+}
+
+/* Blog/news/article injected header: ensure nav never disappears and CTA stays, without uncontrolled growth */
+@media (max-width: 760px){
+  .site-header .header-inner{ flex-wrap: wrap; justify-content: center; gap: 10px 12px; }
+  .site-header .logo{ width: 100%; display:flex; justify-content:center; }
+  .site-header .main-nav{ width: 100%; justify-content: center; overflow-x:auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+  .site-header .header-right{ width: 100%; justify-content: center; flex-wrap: wrap; gap: 10px; }
+  .site-header .cta-btn{ white-space: nowrap; }
+}
+
+/* Footer: keep symmetric two-column on mobile portrait (if supported by structure) */
+@media (max-width: 760px) and (orientation: portrait){
+  .footer__inner{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 16px;
+    row-gap: 10px;
+    align-items: start;
+  }
+  .footer__right{
+    justify-self: end;
+    text-align: right;
+    min-width: 0;
+  }
+}
