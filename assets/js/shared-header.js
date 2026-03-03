@@ -1,6 +1,62 @@
 // Shared header injection + navigation + language switch
 // Dependency-free and safe for GitHub Pages.
 (function () {
+  const EXISTING_PATHS = new Set([
+    "/",
+    "/blog/",
+    "/blog/index.html",
+    "/blog/irs-2026-inflation-adjustments.html",
+    "/blog/payroll-2026.html",
+    "/blog/quickbooks-healthy-books.html",
+    "/blog/sales-tax-2026.html",
+    "/blog/seattle-area-accountant-bookkeeper.html",
+    "/blog/seattle-quickbooks-bookkeeping.html",
+    "/blog/seattle-tax-return-guide.html",
+    "/blog/washington-bookkeeping-quickbooks.html",
+    "/contact/",
+    "/contact/index.html",
+    "/getting-started.html",
+    "/googled57b0ab6edc65ff3.html",
+    "/index.html",
+    "/privacy-policy.html",
+    "/ru/",
+    "/ru/blog/",
+    "/ru/blog/buhgalter-seattle-quickbooks.html",
+    "/ru/blog/index.html",
+    "/ru/blog/irs-2026-inflation-adjustments.html",
+    "/ru/blog/nalogovaya-deklaraciya-seattle.html",
+    "/ru/blog/payroll-2026.html",
+    "/ru/blog/quickbooks-healthy-books.html",
+    "/ru/blog/sales-tax-2026.html",
+    "/ru/blog/seattle-area-accountant-bookkeeper.html",
+    "/ru/blog/washington-bookkeeping-quickbooks.html",
+    "/ru/contact/",
+    "/ru/contact/index.html",
+    "/ru/index.html",
+    "/ru/kak-nachat.html",
+    "/ru/privacy-policy.html",
+    "/ru/services/",
+    "/ru/services/company-formation.html",
+    "/ru/services/financial-consulting.html",
+    "/ru/services/index.html",
+    "/ru/services/payroll-li-quarterly.html",
+    "/ru/services/quickbooks-bookkeeping.html",
+    "/ru/services/sales-tax-dor-reporting.html",
+    "/ru/services/tax-returns.html",
+    "/ru/sms-consent.html",
+    "/ru/terms-and-conditions.html",
+    "/services/",
+    "/services/company-formation.html",
+    "/services/financial-consulting.html",
+    "/services/index.html",
+    "/services/payroll-li-quarterly.html",
+    "/services/quickbooks-bookkeeping.html",
+    "/services/sales-tax-dor-reporting.html",
+    "/services/tax-returns.html",
+    "/sms-consent.html",
+    "/terms-and-conditions.html"
+  ]);
+
   function normalizePath(pathname) {
     try {
       const u = new URL(pathname, window.location.origin);
@@ -26,7 +82,6 @@
     '/blog/payroll-2026.html': '/ru/blog/payroll-2026.html',
     '/blog/irs-2026-inflation-adjustments.html': '/ru/blog/irs-2026-inflation-adjustments.html'
   };
-
   const RU_TO_EN = Object.keys(EN_TO_RU).reduce((acc, en) => {
     acc[EN_TO_RU[en]] = en;
     return acc;
@@ -86,7 +141,7 @@
     };
   }
 
-  function renderHeader() {
+  function renderTopbar() {
     const pathname = normalizePath(window.location.pathname);
     const lang = isRuPath(pathname) ? 'ru' : 'en';
     const nav = buildNavLinks(lang);
@@ -129,6 +184,8 @@
       document.body.insertBefore(header, document.body.firstChild);
     } else {
       placeholder.replaceWith(header);
+    } else {
+      document.body.insertBefore(header, document.body.firstChild);
     }
   }
 
