@@ -452,8 +452,12 @@ monthly: {
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
-    // Store
-    localStorage.setItem('fs_lang', lang);
+    // Store (guarded for privacy modes where storage may be blocked)
+    try {
+      localStorage.setItem('fs_lang', lang);
+    } catch (_) {
+      // no-op
+    }
     document.documentElement.setAttribute('lang', lang);
 
     // Hidden language field for Formspree (optional)
@@ -511,7 +515,6 @@ function updateLangButtons() {
   });
 
   // Init language
-  const saved = localStorage.getItem('fs_lang');
   const initial = (window.location.pathname.startsWith('/ru/') ? 'ru' : 'en');
   setLanguage(initial);
 
@@ -533,24 +536,44 @@ function updateLangButtons() {
 })();
 
 // Chatbase widget loader (Financial Stream Assistant)
-(function(){
+(function () {
   try {
-    if(!window.chatbase || window.chatbase("getState") !== "initialized"){
-      window.chatbase=(...arguments)=>{ if(!window.chatbase.q){ window.chatbase.q=[] } window.chatbase.q.push(arguments) };
-      window.chatbase=new Proxy(window.chatbase,{get(target,prop){ if(prop==="q"){ return target.q } return (...args)=>target(prop,...args) }});
-    }
-    const onLoad=function(){
-      // Avoid injecting twice
-      if(document.getElementById("L9Rqcw-6NJyxiL2AcTbtP")) return;
-      const script=document.createElement("script");
-      script.src="https://www.chatbase.co/embed.min.js";
-      script.id="L9Rqcw-6NJyxiL2AcTbtP";
-      script.domain="www.chatbase.co";
-      document.body.appendChild(script);
+    var CHATBOT_ID = "L9Rqcw-6NJyxiL2AcTbtP";
+    var CHATBASE_DOMAIN = "www.chatbase.co";
+
+    // Keep official config object for current embed builds.
+    window.embeddedChatbotConfig = {
+      chatbotId: CHATBOT_ID,
+      domain: CHATBASE_DOMAIN,
     };
-    if(document.readyState === "complete") onLoad();
-    else window.addEventListener("load", onLoad);
-  } catch(e) {
+
+    // Queue calls safely until embed script is ready.
+    if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+      window.chatbase = function () {
+        (window.chatbase.q = window.chatbase.q || []).push(arguments);
+      };
+    }
+
+    function injectChatbase() {
+      if (document.getElementById(CHATBOT_ID)) return;
+      if (document.querySelector('script[data-chatbase-loader="1"]')) return;
+
+      var script = document.createElement("script");
+      script.src = "https://www.chatbase.co/embed.min.js";
+      script.id = CHATBOT_ID;
+      script.setAttribute("domain", CHATBASE_DOMAIN);
+      script.setAttribute("chatbotId", CHATBOT_ID);
+      script.setAttribute("data-chatbase-loader", "1");
+      script.async = true;
+      document.head.appendChild(script);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", injectChatbase, { once: true });
+    } else {
+      injectChatbase();
+    }
+  } catch (e) {
     // no-op
   }
 })();
