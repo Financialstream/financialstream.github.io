@@ -142,11 +142,11 @@
   }
 
   function injectRelated(){
-    var main = document.querySelector('main.page') || document.querySelector('main');
-    if(!main) return;
+    var article = document.querySelector('.article');
+    if(!article) return;
 
     // Prevent duplicates
-    if(document.querySelector('.related-section')) return;
+    if(article.querySelector('.related-section')) return;
 
     var items = related[path] || [];
     if(!items.length){
@@ -160,20 +160,17 @@
       ];
     }
 
-    // Use the same spacing system as other blocks ("section" + "container")
-    var section = document.createElement('section');
-    section.className = 'section related-section';
+    var block = document.createElement('div');
+    block.className = 'related-section';
     var lis = items.map(function(it){
       return '<li><a href="'+it.href+'">'+it.text+'</a></li>';
     }).join('');
-    section.innerHTML = `
-      <div class="container">
-        <h2 class="related-section__title">${t.relatedTitle}</h2>
-        <ul class="related-section__list">${lis}</ul>
-      </div>`;
+    block.innerHTML = `
+      <h2 class="related-section__title">${t.relatedTitle}</h2>
+      <ul class="related-section__list">${lis}</ul>`;
 
-    // Keep it inside <main> so it doesn't visually merge into the footer.
-    main.appendChild(section);
+    // Keep related links inside the same article container as body/CTA.
+    article.appendChild(block);
   }
 
   ensureBacklink();
