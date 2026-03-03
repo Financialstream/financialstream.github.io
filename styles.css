@@ -1223,35 +1223,33 @@ a:hover{ text-decoration: underline; }
 /* =======================================================
 
 /* ==========================================================
-   Header/Footer stabilization for mobile (v63)
-   Contract:
-   - Applies to ALL pages via shared CSS classes.
-   - Blog/news/article header (shared-header injected) must show:
-       * 4 nav items only: Home/Services/Process/FAQ
-       * No extra Contact item and no Contact CTA button in header.
-       * Mobile portrait/landscape: nav links must not disappear.
-   - Footer on mobile must remain symmetric:
-       Left: logo + ©
-       Right: Contact + policy links (wrap inside right column, no empty gap)
-   Safe: CSS-only layout rules + shared-header nav cleanup in JS.
+   Header/Footer stabilization for mobile (v64)
+   Canonical contract (match HOME):
+   Header order (ALL pages):
+     Logo + 4 nav links (Home/Services/Process/FAQ) + Language (EN/RU) + CTA "Contact us / Связаться с нами"
+   Footer order (ALL pages):
+     Left: logo + © Financial Stream LLC
+     Right: "Contact us / Связаться с нами" + (Privacy / Terms / SMS)
+   Mobile:
+     - Portrait: header can wrap to 2 rows but never loses links; CTA must remain visible.
+     - Landscape: keep compact one-row when possible; nav scrolls if tight (no disappearing links).
+   Safe: minimal CSS + shared-header template fix (CTA restored, extra Contact menu removed).
    ========================================================== */
 
-/* -------- Blog/news/article header (shared-header injected) -------- */
-
-/* Make nav visible on mobile (it was desktop-only). */
+/* Blog/news/article header (shared-header injected) */
 .site-header .main-nav{
   display:flex;
   gap:14px;
   align-items:center;
 }
 
-/* Mobile: keep nav accessible. Prefer single-row with horizontal scroll if tight. */
+/* Make nav always accessible on mobile: scroll within nav if tight */
 @media (max-width: 980px){
   .site-header .main-nav{
     overflow-x:auto;
     overflow-y:hidden;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
     white-space: nowrap;
     flex-wrap: nowrap;
     padding: 2px 0;
@@ -1265,7 +1263,7 @@ a:hover{ text-decoration: underline; }
   }
 }
 
-/* Portrait: stable two-row header like home (logo row, then nav+lang row). */
+/* Portrait: allow 2-row layout like home; keep CTA visible */
 @media (max-width: 760px) and (orientation: portrait){
   .site-header .header-inner{
     flex-wrap: wrap;
@@ -1279,7 +1277,6 @@ a:hover{ text-decoration: underline; }
   }
   .site-header .logo img{ height: 58px; }
 
-  /* Second row: nav (scrollable) + language */
   .site-header .main-nav{
     width: 100%;
     justify-content: center;
@@ -1287,10 +1284,13 @@ a:hover{ text-decoration: underline; }
   .site-header .header-right{
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
+  .site-header .cta-btn{ padding: 10px 14px; font-size: 14px; }
 }
 
-/* Landscape: keep compact one-row header; nav scrolls if needed (no disappearing). */
+/* Landscape: compact header; nav scrolls if needed; CTA stays */
 @media (max-width: 900px) and (orientation: landscape){
   .site-header .header-inner{
     flex-wrap: nowrap;
@@ -1301,25 +1301,30 @@ a:hover{ text-decoration: underline; }
   .site-header .logo img{ height: 46px; }
   .site-header .header-right{ flex-wrap: nowrap; gap: 10px; }
   .site-header .lang-switch a{ min-width: 34px; height: 26px; padding: 0 10px; font-size: 12px; }
-  .site-header .main-nav{ max-width: 60vw; }
+  .site-header .cta-btn{ padding: 9px 12px; font-size: 13px; white-space: nowrap; }
+  .site-header .main-nav{ max-width: 52vw; }
 }
 
-/* Prevent whole-page horizontal scroll caused by header. */
+/* Prevent whole-page horizontal scroll caused by header internals */
 .site-header .container{ overflow-x: hidden; }
 
-/* -------- Footer stabilization (mobile) -------- */
+/* Footer stabilization (mobile): keep symmetric left/right, wrap inside right only */
 @media (max-width: 760px){
   .footer__inner{
     flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 12px 16px;
   }
+  .footer__logo{ height: 48px; }
   .footer__left{ flex: 0 0 auto; }
   .footer__right{
-    flex: 1 1 auto;
-    min-width: 0;
+    flex: 1 1 240px;
+    min-width: 220px;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
     text-align: right;
   }
   .footer__link{ display:inline-block; margin-bottom: 6px; font-size: 14px; }
@@ -1334,8 +1339,9 @@ a:hover{ text-decoration: underline; }
   .footer__sep{ display:none; }
 }
 
-/* Extra-tight screens: slightly smaller typography for symmetry */
+/* Extra-tight screens */
 @media (max-width: 420px){
   .footer__link{ font-size: 13px; }
   .footer__policy{ font-size: 12.5px; }
+  .site-header .cta-btn{ padding: 9px 12px; font-size: 13px; }
 }

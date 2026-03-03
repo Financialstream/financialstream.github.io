@@ -181,6 +181,8 @@
             <a class="${lang === 'en' ? 'active' : ''}" href="${enUrl}">EN</a>
             <a class="${lang === 'ru' ? 'active' : ''}" href="${ruUrl}">RU</a>
           </div>
+          <a class="cta-btn" href="${nav.contactPage}">${lang === \'ru\' ? \'Связаться с нами\' : \'Contact us\'}</a>
+
 </div>
       </div>
     `;
