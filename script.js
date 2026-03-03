@@ -620,16 +620,6 @@ monthly: {
   // Re-run after DOM changes (e.g., injected header on blog articles)
   document.addEventListener('DOMContentLoaded', updateLangLinks);
 
-    // EN
-    if (normalized.startsWith('/ru/')) {
-      const enPath = normalized.replace(/^\/ru/, '');
-      if (enPath == '/index.html') return '/' + search + hash;
-      return enPath + search + hash;
-    }
-
-    return normalized + search + hash;
-  }
-
 function updateLangButtons() {
     const current = getLangFromPath();
     document.querySelectorAll('.lang__btn').forEach((btn) => {
@@ -677,6 +667,7 @@ function updateLangButtons() {
 (function(){
   try {
     var CHATBOT_ID = "L9Rqcw-6NJyxiL2AcTbtP";
+    var CHATBOT_ID_LOWER = "L9Rqcw-6NJyxiL2AcTbtP".toLowerCase();
     var CHATBASE_DOMAIN = "www.chatbase.co";
 
     // Current Chatbase embed expects explicit config + chatbotId attribute.
@@ -684,6 +675,8 @@ function updateLangButtons() {
       chatbotId: CHATBOT_ID,
       domain: CHATBASE_DOMAIN
     };
+    // Some builds/tools expect lower-case IDs
+    window.embeddedChatbotConfigLower = { chatbotId: CHATBOT_ID_LOWER, domain: CHATBASE_DOMAIN };
 
     const onLoad=function(){
       // Avoid injecting twice
@@ -691,9 +684,14 @@ function updateLangButtons() {
       const script=document.createElement("script");
       script.src="https://www.chatbase.co/embed.min.js";
       script.setAttribute("chatbotId", CHATBOT_ID);
+      script.setAttribute("chatbotid", CHATBOT_ID);
+      script.setAttribute("data-chatbot-id", CHATBOT_ID);
+      script.setAttribute("data-chatbotid", CHATBOT_ID);
+      script.setAttribute("data-chatbot-id-lower", CHATBOT_ID_LOWER);
       script.setAttribute("domain", CHATBASE_DOMAIN);
       script.setAttribute("data-chatbase-loader", "1");
       script.defer = true;
+      script.addEventListener("error", function(){ console.warn("Chatbase embed failed to load."); });
       document.body.appendChild(script);
     };
     if(document.readyState === "complete") onLoad();

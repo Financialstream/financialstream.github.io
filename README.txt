@@ -49,3 +49,9 @@ What it checked:
 Scan result:
 - missing_links: 0
 - anchor_issues: 0
+
+
+=== v51 HOTFIX: Chatbot not loading ===
+Root cause: script.js had stray leftover code referencing `normalized` and an `illegal return` at top-level, which prevents the entire file from executing in browsers. That stops the Chatbase loader from running.
+Fix: removed the stray block; added a few extra embed attributes for Chatbase compatibility and a console warning if embed fails.
+Files changed: script.js, README.txt
