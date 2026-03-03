@@ -65,3 +65,9 @@ What it checked:
 Scan result:
 - missing_links: 0
 - anchor_issues: 0
+
+
+HOTFIX v53 (Chatbot restore):
+- Root cause: script.js contained a broken code fragment (undefined `normalized` + illegal `return`), causing a SyntaxError and preventing any JS from running (including Chatbase loader).
+- Fix: replaced script.js with a syntax-valid version (from v51) while keeping v52 shared-header fix.
+- Result: header injection remains; chatbot loader executes again.
