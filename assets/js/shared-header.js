@@ -1,7 +1,16 @@
 // Shared header injection + navigation + language switch
 // Dependency-free and safe for GitHub Pages.
+//
+// Purpose:
+// - Ensure consistent header (logo, nav, language switch) on blog + standalone pages.
+// - EN and RU are independent localized sites: we only switch URLs, never translate content.
+// - Language switch must NEVER route to a 404 (uses existence-gated mapping + fallbacks).
+
 (function () {
-  const EXISTING_PATHS = new Set([
+  'use strict';
+
+  // Keep this list in sync with the build output (generated offline).
+  const FS_EXISTING_PATHS = new Set([
     "/",
     "/blog/",
     "/blog/index.html",
@@ -57,77 +66,79 @@
     "/terms-and-conditions.html"
   ]);
 
+  // Explicit mappings for cases where slugs differ.
+  const FS_EXPLICIT_LANG_MAP = {
+    "/blog/seattle-quickbooks-bookkeeping.html": "/ru/blog/buhgalter-seattle-quickbooks.html",
+    "/blog/seattle-tax-return-guide.html": "/ru/blog/nalogovaya-deklaraciya-seattle.html",
+    "/getting-started.html": "/ru/kak-nachat.html",
+    "/ru/blog/buhgalter-seattle-quickbooks.html": "/blog/seattle-quickbooks-bookkeeping.html",
+    "/ru/blog/nalogovaya-deklaraciya-seattle.html": "/blog/seattle-tax-return-guide.html",
+    "/ru/kak-nachat.html": "/getting-started.html"
+  };
+
   function normalizePath(pathname) {
     try {
       const u = new URL(pathname, window.location.origin);
       pathname = u.pathname;
-    } catch (e) {}
+    } catch (_) {
+      // no-op
+    }
     if (!pathname.startsWith('/')) pathname = '/' + pathname;
     pathname = pathname.replace(/\/{2,}/g, '/');
+    if (pathname === '/index.html') pathname = '/';
+    if (pathname === '/ru/index.html') pathname = '/ru/';
     return pathname;
   }
 
-  function isRuPath(pathname) {
+  function exists(pathname) {
+    return FS_EXISTING_PATHS.has(normalizePath(pathname));
+  }
+
+  function isRu(pathname) {
     return normalizePath(pathname).startsWith('/ru/');
   }
 
-  const EN_TO_RU = {
-    '/getting-started.html': '/ru/kak-nachat.html',
-    '/blog/seattle-quickbooks-bookkeeping.html': '/ru/blog/buhgalter-seattle-quickbooks.html',
-    '/blog/seattle-tax-return-guide.html': '/ru/blog/nalogovaya-deklaraciya-seattle.html',
-    '/blog/washington-bookkeeping-quickbooks.html': '/ru/blog/washington-bookkeeping-quickbooks.html',
-    '/blog/quickbooks-healthy-books.html': '/ru/blog/quickbooks-healthy-books.html',
-    '/blog/seattle-area-accountant-bookkeeper.html': '/ru/blog/seattle-area-accountant-bookkeeper.html',
-    '/blog/sales-tax-2026.html': '/ru/blog/sales-tax-2026.html',
-    '/blog/payroll-2026.html': '/ru/blog/payroll-2026.html',
-    '/blog/irs-2026-inflation-adjustments.html': '/ru/blog/irs-2026-inflation-adjustments.html'
-  };
-  const RU_TO_EN = Object.keys(EN_TO_RU).reduce((acc, en) => {
-    acc[EN_TO_RU[en]] = en;
-    return acc;
-  }, {});
+  function fallback(fromPath, targetLang) {
+    const from = normalizePath(fromPath);
+    const isBlogArticle = /\/(ru\/)?blog\/.+\.html$/.test(from) && !/\/blog\/index\.html$/.test(from);
+    const isServicesArticle = /\/(ru\/)?services\/.+\.html$/.test(from);
 
-  const KNOWN_PATHS = new Set([
-    '/', '/ru/', '/blog/', '/ru/blog/', '/contact/', '/ru/contact/', '/services/', '/ru/services/',
-    '/privacy-policy.html', '/ru/privacy-policy.html', '/terms-and-conditions.html', '/ru/terms-and-conditions.html',
-    '/sms-consent.html', '/ru/sms-consent.html', '/getting-started.html', '/ru/kak-nachat.html',
-    '/services/company-formation.html', '/services/financial-consulting.html', '/services/payroll-li-quarterly.html',
-    '/services/quickbooks-bookkeeping.html', '/services/sales-tax-dor-reporting.html', '/services/tax-returns.html',
-    '/ru/services/company-formation.html', '/ru/services/financial-consulting.html', '/ru/services/payroll-li-quarterly.html',
-    '/ru/services/quickbooks-bookkeeping.html', '/ru/services/sales-tax-dor-reporting.html', '/ru/services/tax-returns.html',
-    '/blog/seattle-quickbooks-bookkeeping.html', '/blog/seattle-tax-return-guide.html', '/blog/washington-bookkeeping-quickbooks.html',
-    '/blog/quickbooks-healthy-books.html', '/blog/seattle-area-accountant-bookkeeper.html', '/blog/sales-tax-2026.html',
-    '/blog/payroll-2026.html', '/blog/irs-2026-inflation-adjustments.html', '/ru/blog/buhgalter-seattle-quickbooks.html',
-    '/ru/blog/nalogovaya-deklaraciya-seattle.html', '/ru/blog/washington-bookkeeping-quickbooks.html',
-    '/ru/blog/quickbooks-healthy-books.html', '/ru/blog/seattle-area-accountant-bookkeeper.html',
-    '/ru/blog/sales-tax-2026.html', '/ru/blog/payroll-2026.html', '/ru/blog/irs-2026-inflation-adjustments.html'
-  ]);
-
-  function fallback(pathname, targetLang) {
-    const ru = targetLang === 'ru';
-    if (/\/(ru\/)?blog\/.+\.html$/.test(pathname)) {
-      return ru ? '/ru/blog/' : '/blog/';
+    if (targetLang === 'ru') {
+      if (isBlogArticle) return '/ru/blog/';
+      if (isServicesArticle) return '/ru/#services';
+      return '/ru/';
     }
-    if (pathname.includes('/services/') || pathname === '/services/' || pathname === '/ru/services/') {
-      return ru ? '/ru/#services' : '/#services';
-    }
-    return ru ? '/ru/' : '/';
+    // EN
+    if (isBlogArticle) return '/blog/';
+    if (isServicesArticle) return '/#services';
+    return '/';
   }
 
-  function toRu(pathname) {
-    pathname = normalizePath(pathname);
-    if (pathname === '/ru/' || pathname.startsWith('/ru/')) return pathname;
-    if (EN_TO_RU[pathname]) return EN_TO_RU[pathname];
-    const candidate = pathname === '/' ? '/ru/' : '/ru' + pathname;
-    return KNOWN_PATHS.has(candidate) ? candidate : fallback(pathname, 'ru');
-  }
+  function buildLangUrl(targetLang) {
+    const path = normalizePath(window.location.pathname || '/');
+    const search = window.location.search || '';
+    const hash = window.location.hash || '';
 
-  function toEn(pathname) {
-    pathname = normalizePath(pathname);
-    if (pathname === '/' || !pathname.startsWith('/ru/')) return pathname;
-    if (RU_TO_EN[pathname]) return RU_TO_EN[pathname];
-    const candidate = pathname === '/ru/' ? '/' : pathname.replace(/^\/ru/, '');
-    return KNOWN_PATHS.has(candidate) ? candidate : fallback(pathname, 'en');
+    const currentLang = isRu(path) ? 'ru' : 'en';
+    if (targetLang === currentLang) return path + search + hash;
+
+    // 1) Explicit mapping
+    if (FS_EXPLICIT_LANG_MAP[path]) {
+      const mapped = FS_EXPLICIT_LANG_MAP[path];
+      if (exists(mapped)) return mapped + search + hash;
+    }
+
+    // 2) Rule-based prefix/unprefix
+    let candidate;
+    if (targetLang === 'ru') {
+      candidate = (path === '/') ? '/ru/' : (path.startsWith('/ru/') ? path : '/ru' + path);
+    } else {
+      candidate = (path === '/ru/') ? '/' : (path.startsWith('/ru/') ? path.replace(/^\/ru/, '') : path);
+    }
+
+    // 3) Existence gate + fallback
+    if (exists(candidate)) return candidate + search + hash;
+    return fallback(path, targetLang) + search + hash;
   }
 
   function buildNavLinks(lang) {
@@ -137,17 +148,18 @@
       services: `${prefix}/#services`,
       process: `${prefix}/#process`,
       faq: `${prefix}/#faq`,
+      contact: `${prefix}/#contact`, // must remain an anchor to the main page
       contactPage: `${prefix}/contact/`
     };
   }
 
-  function renderTopbar() {
-    const pathname = normalizePath(window.location.pathname);
-    const lang = isRuPath(pathname) ? 'ru' : 'en';
+  function renderHeader() {
+    const path = normalizePath(window.location.pathname);
+    const lang = isRu(path) ? 'ru' : 'en';
     const nav = buildNavLinks(lang);
 
-    const enUrl = toEn(pathname);
-    const ruUrl = toRu(pathname);
+    const enUrl = buildLangUrl('en');
+    const ruUrl = buildLangUrl('ru');
 
     const header = document.createElement('header');
     header.className = 'site-header';
@@ -162,6 +174,7 @@
           <a href="${nav.services}">${lang === 'ru' ? 'Услуги' : 'Services'}</a>
           <a href="${nav.process}">${lang === 'ru' ? 'Процесс' : 'Process'}</a>
           <a href="${nav.faq}">${lang === 'ru' ? 'Вопросы' : 'FAQ'}</a>
+          <a href="${nav.contact}">${lang === 'ru' ? 'Контакты' : 'Contact'}</a>
         </nav>
 
         <div class="header-right">
@@ -177,16 +190,11 @@
   }
 
   function mountHeader() {
-    const placeholder = document.querySelector('[data-shared-header]') || document.body;
     if (document.querySelector('header.site-header')) return;
+    const placeholder = document.querySelector('[data-shared-header]');
     const header = renderHeader();
-    if (placeholder === document.body) {
-      document.body.insertBefore(header, document.body.firstChild);
-    } else {
-      placeholder.replaceWith(header);
-    } else {
-      document.body.insertBefore(header, document.body.firstChild);
-    }
+    if (placeholder) placeholder.replaceWith(header);
+    else document.body.insertBefore(header, document.body.firstChild);
   }
 
   if (document.readyState === 'loading') {

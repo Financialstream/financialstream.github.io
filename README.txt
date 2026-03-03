@@ -1,5 +1,21 @@
 FinancialStream v47 — Navigation/Language Switch Structural Fix Report
 
+---
+PATCH v52 (Hotfix): Blog header missing
+Root cause:
+- assets/js/shared-header.js in the deployed build was corrupted (undefined function call + malformed if/else), causing a JS parse/runtime failure.
+- Result: the shared header was never injected on /blog/ and blog article pages, so logo + language switch + nav were missing.
+
+Fix:
+- Replaced assets/js/shared-header.js with a clean, syntax-valid version that:
+  - injects a consistent header into [data-shared-header] placeholders
+  - includes the required nav items, including Contact (anchor to /#contact or /ru/#contact)
+  - keeps Contact-us button pointing to /contact/ or /ru/contact/
+  - preserves existence-gated EN↔RU mapping + fallbacks to guarantee no 404 on language switch
+
+No business copy changed.
+---
+
 Root cause(s) of broken nav / 404
 1) Language-switch mapping in assets/js/shared-header.js contained legacy EN blog slugs that no longer exist in the repo.
    - Example: /blog/tax-return-seattle-wa-russian.html (missing file) was used as EN target for RU article /ru/blog/nalogovaya-deklaraciya-seattle.html.
@@ -49,9 +65,3 @@ What it checked:
 Scan result:
 - missing_links: 0
 - anchor_issues: 0
-
-
-=== v51 HOTFIX: Chatbot not loading ===
-Root cause: script.js had stray leftover code referencing `normalized` and an `illegal return` at top-level, which prevents the entire file from executing in browsers. That stops the Chatbase loader from running.
-Fix: removed the stray block; added a few extra embed attributes for Chatbase compatibility and a console warning if embed fails.
-Files changed: script.js, README.txt
