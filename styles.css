@@ -20,7 +20,9 @@ html, body{ overflow-x: hidden; }
 html, body{ height: 100%; }
 
 /* Keep typography predictable across browsers and prevent accidental scaling */
-html{ font-size: 16px; }
+html{ font-size: 16px;   -webkit-text-size-adjust: 100%;
+}
+
 body{
   margin: 0;
   font-family: var(--sans);
@@ -1242,4 +1244,13 @@ a:hover{ text-decoration: underline; }
   /* Extra-tight screens */
   .logo img{ height: 50px; }
   .cta-btn{ padding: 9px 12px; font-size: 13px; }
+}
+
+
+/* v61: iOS Safari text autosizing + stable header/footer on mobile */
+html{ -webkit-text-size-adjust: 100%; }
+
+@media (max-width: 640px){
+  .footer__policy{ display:flex; flex-wrap:wrap; gap:10px 12px; }
+  .footer__sep{ display:none; }
 }

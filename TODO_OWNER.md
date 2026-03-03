@@ -1,3 +1,1 @@
-TODO_OWNER.md
-
-- No owner actions required for v60.
+- (none)
