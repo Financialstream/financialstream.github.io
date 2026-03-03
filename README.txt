@@ -1,46 +1,51 @@
-FinancialStreamNew_v47 — NAV/LANG/BLOG STRUCTURE PATCH
-Date: 2026-03-02
+FinancialStream v47 — Navigation/Language Switch Structural Fix Report
 
-ROOT CAUSE(S) OF BROKEN NAV / 404
-1) Language-switch explicit mapping in assets/js/shared-header.js referenced a non-existent EN blog URL:
-   /blog/tax-return-seattle-wa-russian.html
-   This URL does not exist in the build, so any navigation/language mapping to it produced a GitHub Pages 404.
+Root cause(s) of broken nav / 404
+1) Language-switch mapping in assets/js/shared-header.js contained legacy EN blog slugs that no longer exist in the repo.
+   - Example: /blog/tax-return-seattle-wa-russian.html (missing file) was used as EN target for RU article /ru/blog/nalogovaya-deklaraciya-seattle.html.
+   - Result: RU→EN switch could lead to GitHub Pages 404.
+2) Blog index pages used a separate static header implementation, while article pages used shared-header injection. This created inconsistent header behavior/targets across blog pages.
+3) Related links block was appended as a standalone section at the end of <main> (outside the article body container), creating layout inconsistency risk on some viewports.
+4) Shared header "Contact us" CTA pointed to locale #contact anchor instead of locale contact page URL.
 
-2) The global language switch logic in script.js was rule-based only (/X ↔ /ru/X) and had no awareness of pages whose
-   EN/RU slugs differ (e.g., /getting-started.html ↔ /ru/kak-nachat.html, and some blog slugs). That allowed the switch to
-   generate non-existent targets (e.g., /ru/getting-started.html), which can produce 404.
-
-WHAT WAS CHANGED (FILES)
+Files changed
 - assets/js/shared-header.js
-  - Replaced outdated EN↔RU blog mapping keys/values with the real existing slugs.
-  - Added an embedded set of existing site paths and an existence-gated fallback strategy so the switch never routes to a 404.
-  - Updated injected header markup to match the site’s standard "topbar" structure.
-  - Fixed "Contact us" button target to locale contact page (/contact/ or /ru/contact/), while keeping the "Contact" menu item
-    as an anchor to the locale main page contact section (/[#contact]).
+- styles.css
+- assets/js/shared-article-components.js
+- blog/index.html
+- ru/blog/index.html
 
-- script.js
-  - Added an embedded set of existing site paths (generated from the build) + an explicit EN↔RU mapping dictionary for pages
-    with different slugs across locales.
-  - Updated language switch link targets (.lang__link EN/RU) to be computed via:
-    explicit mapping → rule-based mapping → existence check → fallback (blog/services/home), guaranteeing no 404 from switching.
+Mapping table entries added/updated (EN↔RU)
+Updated explicit mapping dictionary in assets/js/shared-header.js:
+- /getting-started.html ↔ /ru/kak-nachat.html
+- /blog/seattle-quickbooks-bookkeeping.html ↔ /ru/blog/buhgalter-seattle-quickbooks.html
+- /blog/seattle-tax-return-guide.html ↔ /ru/blog/nalogovaya-deklaraciya-seattle.html
+- /blog/washington-bookkeeping-quickbooks.html ↔ /ru/blog/washington-bookkeeping-quickbooks.html
+- /blog/quickbooks-healthy-books.html ↔ /ru/blog/quickbooks-healthy-books.html
+- /blog/seattle-area-accountant-bookkeeper.html ↔ /ru/blog/seattle-area-accountant-bookkeeper.html
+- /blog/sales-tax-2026.html ↔ /ru/blog/sales-tax-2026.html
+- /blog/payroll-2026.html ↔ /ru/blog/payroll-2026.html
+- /blog/irs-2026-inflation-adjustments.html ↔ /ru/blog/irs-2026-inflation-adjustments.html
 
-MAPPING TABLE EN↔RU (ADDED/UPDATED)
-- /blog/seattle-quickbooks-bookkeeping.html  ↔  /ru/blog/buhgalter-seattle-quickbooks.html
-- /blog/seattle-tax-return-guide.html        ↔  /ru/blog/nalogovaya-deklaraciya-seattle.html
-- /getting-started.html                      ↔  /ru/kak-nachat.html
-(REMOVED: /blog/tax-return-seattle-wa-russian.html because the file does not exist.)
+Added safety behavior
+- Rule-based locale pairing for mirrored paths.
+- Existence-aware routing via known-path set.
+- Fallbacks when explicit/rule target is unavailable:
+  - blog article: /blog/ or /ru/blog/
+  - services: /#services or /ru/#services
+  - other pages: / or /ru/
 
-CONFIRMATION: 0 INTERNAL BROKEN LINKS AFTER SCAN
-Scan method (offline, on the ZIP contents):
-- Parsed every *.html file and validated local/internal references from:
-  a[href], link[href], script[src], img[src]
-  - Ignored external URLs (http/https), mailto/tel, and hash-only anchors.
-  - Resolved relative paths against each HTML file’s directory.
-  - For folder paths ending with "/", validated presence of index.html.
+Confirmation
+0 internal broken links after scan.
 
-Also validated:
-- sitemap.xml: every <loc> path resolves to an existing file in the build.
-- JS language mapping dictionaries: every explicit-map key/value resolves to an existing file path, and the switch logic is
-  existence-gated with deterministic fallbacks.
+How scan was performed
+Tool: Python 3 standard library script (html.parser + urllib.parse + pathlib), executed offline against the repo.
+What it checked:
+- All *.html files
+- Internal href/src references in <a>, <link>, <script>, <img>, <source>
+- Missing target files and index-folder routes
+- Main-page anchors existence for #services, #process, #faq, #contact on EN and RU homepages
 
-Result: 0 broken internal file references; EN↔RU switch is existence-gated (no generated 404 targets).
+Scan result:
+- missing_links: 0
+- anchor_issues: 0
