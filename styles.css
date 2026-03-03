@@ -1223,55 +1223,119 @@ a:hover{ text-decoration: underline; }
 /* =======================================================
 
 /* ==========================================================
-   Mobile layout normalization (v62)
-   Goal:
-   - Make blog/news header behave like the main-site header on mobile:
-     * Portrait: logo row + actions row (stable wrap)
-     * Landscape: keep everything on one row
-   - Keep footer layout symmetric (left brand / right links) while allowing safe wrapping.
-   - iOS Safari: disable aggressive text autosizing.
-   Safe: CSS-only; no JS, no copy, no integrations.
+   Header/Footer stabilization for mobile (v63)
+   Contract:
+   - Applies to ALL pages via shared CSS classes.
+   - Blog/news/article header (shared-header injected) must show:
+       * 4 nav items only: Home/Services/Process/FAQ
+       * No extra Contact item and no Contact CTA button in header.
+       * Mobile portrait/landscape: nav links must not disappear.
+   - Footer on mobile must remain symmetric:
+       Left: logo + ©
+       Right: Contact + policy links (wrap inside right column, no empty gap)
+   Safe: CSS-only layout rules + shared-header nav cleanup in JS.
    ========================================================== */
 
-/* Blog/news header (shared-header injected) */
+/* -------- Blog/news/article header (shared-header injected) -------- */
+
+/* Make nav visible on mobile (it was desktop-only). */
+.site-header .main-nav{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+/* Mobile: keep nav accessible. Prefer single-row with horizontal scroll if tight. */
+@media (max-width: 980px){
+  .site-header .main-nav{
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    padding: 2px 0;
+  }
+  .site-header .main-nav::-webkit-scrollbar{ display:none; }
+  .site-header .main-nav a{
+    flex: 0 0 auto;
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 999px;
+  }
+}
+
+/* Portrait: stable two-row header like home (logo row, then nav+lang row). */
 @media (max-width: 760px) and (orientation: portrait){
-  /* Two-row layout like home: logo row, then actions row */
-  .header-inner{ flex-wrap: wrap; justify-content: center; }
-  .logo{ width: 100%; display: flex; justify-content: center; }
-  .logo img{ height: 58px; }
-  .header-right{ width: 100%; flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .cta-btn{ padding: 10px 14px; font-size: 14px; }
+  .site-header .header-inner{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 12px;
+  }
+  .site-header .logo{
+    width: 100%;
+    display:flex;
+    justify-content:center;
+  }
+  .site-header .logo img{ height: 58px; }
+
+  /* Second row: nav (scrollable) + language */
+  .site-header .main-nav{
+    width: 100%;
+    justify-content: center;
+  }
+  .site-header .header-right{
+    width: 100%;
+    justify-content: center;
+  }
 }
 
+/* Landscape: keep compact one-row header; nav scrolls if needed (no disappearing). */
 @media (max-width: 900px) and (orientation: landscape){
-  /* One-row layout: keep everything on a single line in landscape */
-  .header-inner{ flex-wrap: nowrap; justify-content: space-between; padding: 8px 0; }
-  .logo{ width: auto; display: block; }
-  .logo img{ height: 46px; }
-  .header-right{ width: auto; flex-wrap: nowrap; justify-content: flex-end; gap: 10px; }
-  .lang-switch a{ min-width: 34px; height: 26px; padding: 0 10px; font-size: 12px; }
-  .cta-btn{ padding: 9px 12px; font-size: 13px; }
+  .site-header .header-inner{
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 8px 0;
+    gap: 10px;
+  }
+  .site-header .logo img{ height: 46px; }
+  .site-header .header-right{ flex-wrap: nowrap; gap: 10px; }
+  .site-header .lang-switch a{ min-width: 34px; height: 26px; padding: 0 10px; font-size: 12px; }
+  .site-header .main-nav{ max-width: 60vw; }
 }
 
-/* Footer: keep symmetric two-column layout, allow wrapping inside the right column */
+/* Prevent whole-page horizontal scroll caused by header. */
+.site-header .container{ overflow-x: hidden; }
+
+/* -------- Footer stabilization (mobile) -------- */
 @media (max-width: 760px){
   .footer__inner{
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 14px 16px;
+    gap: 12px;
   }
-  .footer__logo{ height: 48px; }
   .footer__left{ flex: 0 0 auto; }
-  .footer__right{ flex: 1 1 240px; min-width: 220px; }
-  .footer__link{ display: inline-block; margin-bottom: 6px; }
-  .footer__policy{ display: flex; flex-wrap: wrap; gap: 10px 12px; line-height: 1.35; }
-  .footer__sep{ display: none; }
+  .footer__right{
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: right;
+  }
+  .footer__link{ display:inline-block; margin-bottom: 6px; font-size: 14px; }
+  .footer__policy{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px 12px;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  .footer__sep{ display:none; }
 }
 
-/* Extra-tight screens */
+/* Extra-tight screens: slightly smaller typography for symmetry */
 @media (max-width: 420px){
-  .logo img{ height: 52px; }
-  .cta-btn{ padding: 9px 12px; font-size: 13px; }
+  .footer__link{ font-size: 13px; }
+  .footer__policy{ font-size: 12.5px; }
 }

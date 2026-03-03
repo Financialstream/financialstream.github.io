@@ -174,16 +174,14 @@
           <a href="${nav.services}">${lang === 'ru' ? 'Услуги' : 'Services'}</a>
           <a href="${nav.process}">${lang === 'ru' ? 'Процесс' : 'Process'}</a>
           <a href="${nav.faq}">${lang === 'ru' ? 'Вопросы' : 'FAQ'}</a>
-          <a href="${nav.contact}">${lang === 'ru' ? 'Контакты' : 'Contact'}</a>
-        </nav>
+</nav>
 
         <div class="header-right">
           <div class="lang-switch" role="group" aria-label="Language switch">
             <a class="${lang === 'en' ? 'active' : ''}" href="${enUrl}">EN</a>
             <a class="${lang === 'ru' ? 'active' : ''}" href="${ruUrl}">RU</a>
           </div>
-          <a class="cta-btn" href="${nav.contactPage}">${lang === 'ru' ? 'Связаться с нами' : 'Contact us'}</a>
-        </div>
+</div>
       </div>
     `;
     return header;
