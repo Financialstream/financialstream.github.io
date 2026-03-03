@@ -471,20 +471,154 @@ monthly: {
     return window.location.pathname.startsWith('/ru/') ? 'ru' : 'en';
   }
 
+  
+  // Language switch must NEVER route to a 404.
+  // We embed a list of existing paths from the build and use explicit EN↔RU mappings where slugs differ.
+  const FS_EXISTING_PATHS = new Set([
+    "/",
+    "/blog/",
+    "/blog/index.html",
+    "/blog/irs-2026-inflation-adjustments.html",
+    "/blog/payroll-2026.html",
+    "/blog/quickbooks-healthy-books.html",
+    "/blog/sales-tax-2026.html",
+    "/blog/seattle-area-accountant-bookkeeper.html",
+    "/blog/seattle-quickbooks-bookkeeping.html",
+    "/blog/seattle-tax-return-guide.html",
+    "/blog/washington-bookkeeping-quickbooks.html",
+    "/contact/",
+    "/contact/index.html",
+    "/getting-started.html",
+    "/googled57b0ab6edc65ff3.html",
+    "/index.html",
+    "/privacy-policy.html",
+    "/ru/",
+    "/ru/blog/",
+    "/ru/blog/buhgalter-seattle-quickbooks.html",
+    "/ru/blog/index.html",
+    "/ru/blog/irs-2026-inflation-adjustments.html",
+    "/ru/blog/nalogovaya-deklaraciya-seattle.html",
+    "/ru/blog/payroll-2026.html",
+    "/ru/blog/quickbooks-healthy-books.html",
+    "/ru/blog/sales-tax-2026.html",
+    "/ru/blog/seattle-area-accountant-bookkeeper.html",
+    "/ru/blog/washington-bookkeeping-quickbooks.html",
+    "/ru/contact/",
+    "/ru/contact/index.html",
+    "/ru/index.html",
+    "/ru/kak-nachat.html",
+    "/ru/privacy-policy.html",
+    "/ru/services/",
+    "/ru/services/company-formation.html",
+    "/ru/services/financial-consulting.html",
+    "/ru/services/index.html",
+    "/ru/services/payroll-li-quarterly.html",
+    "/ru/services/quickbooks-bookkeeping.html",
+    "/ru/services/sales-tax-dor-reporting.html",
+    "/ru/services/tax-returns.html",
+    "/ru/sms-consent.html",
+    "/ru/terms-and-conditions.html",
+    "/services/",
+    "/services/company-formation.html",
+    "/services/financial-consulting.html",
+    "/services/index.html",
+    "/services/payroll-li-quarterly.html",
+    "/services/quickbooks-bookkeeping.html",
+    "/services/sales-tax-dor-reporting.html",
+    "/services/tax-returns.html",
+    "/sms-consent.html",
+    "/terms-and-conditions.html"
+  ]);
+
+  const FS_EXPLICIT_LANG_MAP = {
+    "/blog/seattle-quickbooks-bookkeeping.html": "/ru/blog/buhgalter-seattle-quickbooks.html",
+    "/blog/seattle-tax-return-guide.html": "/ru/blog/nalogovaya-deklaraciya-seattle.html",
+    "/getting-started.html": "/ru/kak-nachat.html",
+    "/ru/blog/buhgalter-seattle-quickbooks.html": "/blog/seattle-quickbooks-bookkeeping.html",
+    "/ru/blog/nalogovaya-deklaraciya-seattle.html": "/blog/seattle-tax-return-guide.html",
+    "/ru/kak-nachat.html": "/getting-started.html"
+  };
+
+  function fsNormalizePath(pathname) {
+    try {
+      const u = new URL(pathname, window.location.origin);
+      pathname = u.pathname;
+    } catch (e) {}
+    if (!pathname.startsWith('/')) pathname = '/' + pathname;
+    pathname = pathname.replace(/\/{2,}/g, '/');
+    if (pathname === '/index.html') pathname = '/';
+    if (pathname === '/ru/index.html') pathname = '/ru/';
+    return pathname;
+  }
+
+  function fsExists(pathname) {
+    return FS_EXISTING_PATHS.has(fsNormalizePath(pathname));
+  }
+
+  function fsFallback(fromPath, targetLang) {
+    const from = fsNormalizePath(fromPath);
+    const isBlogArticle = /\/(ru\/)?blog\/.+\.html$/.test(from) && !/\/blog\/index\.html$/.test(from);
+    const isServicesArticle = /\/(ru\/)?services\/.+\.html$/.test(from);
+    if (targetLang === 'ru') {
+      if (isBlogArticle) return '/ru/blog/';
+      if (isServicesArticle) return '/ru/#services';
+      return '/ru/';
+    }
+    // EN
+    if (isBlogArticle) return '/blog/';
+    if (isServicesArticle) return '/#services';
+    return '/';
+  }
+
   function buildLangUrl(targetLang) {
-    const path = window.location.pathname || '/';
+    const path = fsNormalizePath(window.location.pathname || '/');
     const search = window.location.search || '';
     const hash = window.location.hash || '';
 
-    // Normalize home paths: prefer '/' (avoid creating duplicate /index.html URLs)
-    const isHome = (path === '/' || path === '' || path === '/index.html');
-    const normalized = isHome ? '/' : path;
+    const currentLang = path.startsWith('/ru/') ? 'ru' : 'en';
+    if (targetLang === currentLang) return path + search + hash;
 
-    if (targetLang === 'ru') {
-      if (normalized.startsWith('/ru/')) return normalized + search + hash;
-      if (normalized === '/') return '/ru/' + search + hash;
-      return '/ru' + normalized + search + hash;
+    // 1) Explicit mapping (both directions stored in FS_EXPLICIT_LANG_MAP)
+    if (FS_EXPLICIT_LANG_MAP[path]) {
+      const mapped = FS_EXPLICIT_LANG_MAP[path];
+      if (fsExists(mapped)) return mapped + search + hash;
     }
+
+    // 2) Rule-based prefix/unprefix
+    let cand;
+    if (targetLang === 'ru') {
+      if (path === '/') cand = '/ru/';
+      else cand = path.startsWith('/ru/') ? path : '/ru' + path;
+    } else {
+      if (path === '/ru/') cand = '/';
+      else cand = path.startsWith('/ru/') ? path.replace(/^\/ru/, '') : path;
+    }
+
+    // 3) Existence gate + fallback
+    if (fsExists(cand)) return cand + search + hash;
+    return fsFallback(path, targetLang) + search + hash;
+  }
+
+  // Expose for injected headers (blog articles) if needed
+  window.FS_buildLangUrl = buildLangUrl;
+
+  function updateLangLinks() {
+    const path = fsNormalizePath(window.location.pathname || '/');
+    const current = path.startsWith('/ru/') ? 'ru' : 'en';
+
+    document.querySelectorAll('.lang__link').forEach((a) => {
+      const label = (a.textContent || '').trim().toUpperCase();
+      if (label !== 'EN' && label !== 'RU') return;
+      const target = (label === 'RU') ? 'ru' : 'en';
+      a.setAttribute('href', buildLangUrl(target));
+      a.setAttribute('aria-current', target === current ? 'page' : 'false');
+      a.classList.toggle('is-active', target === current);
+    });
+  }
+
+  updateLangLinks();
+  // Re-run after DOM changes (e.g., injected header on blog articles)
+  document.addEventListener('DOMContentLoaded', updateLangLinks);
 
     // EN
     if (normalized.startsWith('/ru/')) {
