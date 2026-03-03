@@ -1217,3 +1217,29 @@ a:hover{ text-decoration: underline; }
 .hub-seo-block h2{margin:0 0 8px 0;font-size:16px;color:var(--text)}
 .hub-seo-block p{margin:0 0 10px 0}
 .hub-seo-block a{text-decoration:underline}
+
+/* =========================================================
+   Mobile layout hardening (v60)
+   Goal: prevent header/footer overflow on iOS Safari on blog/news pages.
+   Safe: only adds mobile media rules; no desktop changes.
+   ========================================================= */
+@media (max-width: 760px){
+  /* Header: allow wrapping and reduce visual overflow */
+  .header-inner{ flex-wrap: wrap; }
+  .logo img{ height: 56px; }
+  .header-right{ flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+  .cta-btn{ padding: 10px 14px; font-size: 14px; }
+
+  /* Footer: stack blocks and wrap policy links */
+  .footer__inner{ flex-direction: column; align-items: flex-start; }
+  .footer__logo{ height: 48px; }
+  .footer__policy{ line-height: 1.35; }
+  .footer__policy-link{ display: inline-block; margin: 6px 12px 0 0; }
+  .footer__sep{ display: none; }
+}
+
+@media (max-width: 420px){
+  /* Extra-tight screens */
+  .logo img{ height: 50px; }
+  .cta-btn{ padding: 9px 12px; font-size: 13px; }
+}
