@@ -1,4 +1,5 @@
 (() => {
+  try {
   const i18n = {
     en: {
       nav: {
@@ -452,8 +453,12 @@ monthly: {
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
-    // Store
-    localStorage.setItem('fs_lang', lang);
+    // Store (guarded for privacy modes where storage may be blocked)
+    try {
+      localStorage.setItem('fs_lang', lang);
+    } catch (_) {
+      // no-op
+    }
     document.documentElement.setAttribute('lang', lang);
 
     // Hidden language field for Formspree (optional)
@@ -645,7 +650,6 @@ function updateLangButtons() {
   });
 
   // Init language
-  const saved = localStorage.getItem('fs_lang');
   const initial = (window.location.pathname.startsWith('/ru/') ? 'ru' : 'en');
   setLanguage(initial);
 
@@ -663,23 +667,33 @@ function updateLangButtons() {
   } catch (_) {
     // no-op
   }
+  } catch (_) {
+    // Keep main site functional even if i18n logic fails on a specific page.
+  }
 
 })();
 
 // Chatbase widget loader (Financial Stream Assistant)
 (function(){
   try {
-    if(!window.chatbase || window.chatbase("getState") !== "initialized"){
-      window.chatbase=(...arguments)=>{ if(!window.chatbase.q){ window.chatbase.q=[] } window.chatbase.q.push(arguments) };
-      window.chatbase=new Proxy(window.chatbase,{get(target,prop){ if(prop==="q"){ return target.q } return (...args)=>target(prop,...args) }});
-    }
+    var CHATBOT_ID = "L9Rqcw-6NJyxiL2AcTbtP";
+    var CHATBASE_DOMAIN = "www.chatbase.co";
+
+    // Current Chatbase embed expects explicit config + chatbotId attribute.
+    window.embeddedChatbotConfig = {
+      chatbotId: CHATBOT_ID,
+      domain: CHATBASE_DOMAIN
+    };
+
     const onLoad=function(){
       // Avoid injecting twice
-      if(document.getElementById("L9Rqcw-6NJyxiL2AcTbtP")) return;
+      if(document.querySelector('script[data-chatbase-loader="1"]')) return;
       const script=document.createElement("script");
       script.src="https://www.chatbase.co/embed.min.js";
-      script.id="L9Rqcw-6NJyxiL2AcTbtP";
-      script.domain="www.chatbase.co";
+      script.setAttribute("chatbotId", CHATBOT_ID);
+      script.setAttribute("domain", CHATBASE_DOMAIN);
+      script.setAttribute("data-chatbase-loader", "1");
+      script.defer = true;
       document.body.appendChild(script);
     };
     if(document.readyState === "complete") onLoad();
