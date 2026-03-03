@@ -1345,3 +1345,33 @@ a:hover{ text-decoration: underline; }
   .footer__policy{ font-size: 12.5px; }
   .site-header .cta-btn{ padding: 9px 12px; font-size: 13px; }
 }
+
+/* ==========================================================
+   v66: Mobile footer stabilization (portrait)
+   Goal: keep footer symmetric like HOME across all pages.
+   - Left: logo + ©
+   - Right: Contact + policy links
+   Problem: on mobile portrait right block can drop too low / leave empty gap.
+   Fix: use 2-col grid in portrait; align content to top; keep wrapping inside right column.
+   ========================================================== */
+@media (max-width: 760px) and (orientation: portrait){
+  .footer__inner{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 16px;
+    row-gap: 10px;
+    align-items: start;
+  }
+  .footer__left{ align-self: start; }
+  .footer__right{
+    align-self: start;
+    justify-self: end;
+    min-width: 0;
+    text-align: right;
+  }
+  .footer__link{ margin-bottom: 6px; }
+  .footer__policy{
+    justify-content: flex-end;
+    gap: 8px 10px;
+  }
+}
