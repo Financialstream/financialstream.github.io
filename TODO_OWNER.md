@@ -1,9 +1,6 @@
-# TODO_OWNER (post-release)
+# TODO_OWNER.md
 
-1) Deploy `FinancialStreamNew_v56.zip` to GitHub Pages.
-2) Live smoke check:
-   - Open `/getting-started.html` and `/ru/kak-nachat.html`
-   - Confirm header shows full menu + EN/RU switch
-   - Confirm footer shows Contact + Privacy/Terms/SMS and is not stretched
-   - Confirm ChatBot appears (Network: `embed.min.js` 200)
-
+Items requiring owner access/approval (not part of this safe refactor):
+- Confirm Google Search Console is set up and sitemap submitted: https://financialstreamllc.com/sitemap.xml
+- If using Chatbase domain allowlist, confirm `financialstreamllc.com` is permitted.
+- Decide on adding external trust proofs (Google Business Profile, verified directories) and provide URLs.
