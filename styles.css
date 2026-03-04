@@ -1567,3 +1567,67 @@ a:hover{ text-decoration: underline; }
 @media (max-width: 420px) and (orientation: portrait){
   .footer__policy{ font-size: 12.5px; gap: 6px 10px; }
 }
+
+/* ==========================================================
+   v77: Mobile footer portrait — restore clean 2-column layout
+   Goal (portrait):
+   - Left column: logo + ©
+   - Right column: "Contact us / Связаться с нами" + policy links laid out cleanly (not a vertical mess)
+   - No overlap with logo; allow wrap; do NOT move chatbot.
+   ========================================================== */
+
+@media (max-width: 760px) and (orientation: portrait){
+  .footer__inner{
+    display: grid;
+    grid-template-columns: minmax(150px, auto) minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 8px;
+    align-items: start;
+  }
+  .footer__left{
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 150px;
+  }
+  .footer__logo{ max-width: 140px; height: auto; }
+  .footer__right{
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    min-width: 0;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding-right: 44px; /* modest safe-zone; chatbot not moved */
+    box-sizing: border-box;
+  }
+
+  /* Policy links: compact 2-column grid to avoid long vertical stacking */
+  .footer__policy{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+    column-gap: 12px;
+    row-gap: 6px;
+    align-items: start;
+    width: 100%;
+    line-height: 1.25;
+    font-size: 13px;
+  }
+  .footer__policy-link{
+    display:block;
+    white-space: normal;
+  }
+  .footer__sep{ display:none; }
+}
+
+/* Extra tight screens: 1 column + slightly smaller font */
+@media (max-width: 420px) and (orientation: portrait){
+  .footer__right{ padding-right: 36px; }
+  .footer__policy{
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+    font-size: 12.5px;
+  }
+}
