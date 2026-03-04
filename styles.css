@@ -1435,15 +1435,23 @@ a:hover{ text-decoration: underline; }
   }
 }
 
+.footer__policy{ justify-content: center; }
+}
+
 /* ==========================================================
-   v71: Footer right-column centering (mobile portrait) + safe zone
-   Goal: keep footer symmetric AND keep right-side link block centered within the RIGHT column,
-   not sliding under the logo, and not fully covered by the chat bubble.
+   v72: Footer mobile layout — Variant A (wider, like before)
+   Goal:
+   - Keep footer short in height (avoid "centered vertical column" look).
+   - Maintain 2-column structure:
+       Left: logo + ©
+       Right: Contact + policy links
+   - On mobile portrait: right block is LEFT-aligned within its column (not centered),
+     so RU long phrases look cleaner.
+   - Keep a modest right-edge safe zone so chat bubble doesn't fully cover links.
    Note: We do NOT move the chatbot.
    ========================================================== */
 
 @media (max-width: 760px) and (orientation: portrait){
-  /* Stable 2-column grid; pin left/right blocks to row 1 */
   .footer__inner{
     display: grid;
     grid-template-columns: auto 1fr;
@@ -1458,22 +1466,27 @@ a:hover{ text-decoration: underline; }
     min-width: 0;
     display:flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding-right: 72px;   /* safe zone for chat bubble */
-    padding-left: 12px;
+    align-items: flex-start;   /* Variant A: left align within right column */
+    text-align: left;
+    padding-right: 56px;       /* modest safe zone (chat bubble) */
+    padding-left: 8px;
     box-sizing: border-box;
+  }
+  .footer__link{
+    display:inline-block;
+    margin-bottom: 6px;
   }
   .footer__policy{
     width: 100%;
     display:flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 10px;
+    justify-content: flex-start;
+    gap: 8px 12px;
+    line-height: 1.3;
   }
 }
 
 @media (max-width: 900px) and (orientation: landscape){
-  .footer__right{ padding-right: 56px; box-sizing: border-box; }
-  .footer__policy{ justify-content: center; }
+  .footer__right{ padding-right: 44px; box-sizing: border-box; }
+  .footer__policy{ justify-content: flex-start; }
 }
