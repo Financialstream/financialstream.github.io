@@ -1434,3 +1434,33 @@ a:hover{ text-decoration: underline; }
     min-width: 0;
   }
 }
+
+/* ==========================================================
+   v70: Footer policy links alignment on mobile portrait
+   Goal: keep footer symmetric and readable:
+   - Left column: logo + ©
+   - Right column: "Contact us / Связаться с нами" + policy links centered within the RIGHT column,
+     never drifting under the logo block.
+   ========================================================== */
+
+@media (max-width: 760px) and (orientation: portrait){
+  /* Keep the right column content centered within its column */
+  .footer__right{
+    align-items: center;
+    text-align: center;
+    padding-left: 12px; /* prevents visual collision with left column */
+  }
+  .footer__policy{
+    justify-content: center;
+  }
+}
+
+/* Keep a small safe zone from the right edge so the chat bubble doesn't fully cover footer links */
+@media (max-width: 760px) and (orientation: portrait){
+  .footer__right{ padding-right: 72px; }
+  .footer__policy{ padding-right: 72px; }
+}
+@media (max-width: 900px) and (orientation: landscape){
+  .footer__right{ padding-right: 56px; }
+  .footer__policy{ padding-right: 56px; }
+}
