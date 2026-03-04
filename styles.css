@@ -1395,24 +1395,53 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ==========================================================
-   v74: Header/Footer Contracts (single source of truth)
-   Goal: stable header/footer across ALL pages (EN/RU), including future blog/articles.
-   Rules:
-   - Header (topbar + shared-header):
-     * Text nav: exactly 4 items (Home/Services/Process/FAQ) (RU equivalents)
-     * Blue CTA "Contact us / Связаться с нами" present everywhere
-     * Mobile portrait/landscape: nav must never disappear; if tight, scroll inside nav (no page overflow)
-   - Footer:
-     * Left: logo + ©
-     * Right: Contact + Privacy + Terms + SMS
-     * Mobile: stable two-column feel; allow wrapping; no "centered vertical column"
-   - No desktop layout changes intended.
+   v69: Mobile header/footer micro-stabilization (no business logic)
+   - Keep primary nav (4 links) always visible on mobile portrait+landscape.
+   - Keep CTA button present and avoid "thick" header via controlled wrapping.
+   - Footer remains symmetric; avoid right block dropping.
    ========================================================== */
 
-/* ------- Shared-header (blog/article) header contract ------- */
-.site-header .main-nav{ display:flex; gap:14px; align-items:center; }
+/* Primary header (topbar) */
+@media (max-width: 760px){
+  .topbar__inner{ flex-wrap: wrap; justify-content: center; }
+  .nav{ display:flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .nav a{ white-space: nowrap; }
+  .topbar__actions{ flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .topbar__actions .btn.btn-primary{ white-space: nowrap; }
+}
 
-/* Keep nav accessible on mobile: scroll within nav if needed */
+/* Blog/news/article injected header: ensure nav never disappears and CTA stays, without uncontrolled growth */
+@media (max-width: 760px){
+  .site-header .header-inner{ flex-wrap: wrap; justify-content: center; gap: 10px 12px; }
+  .site-header .logo{ width: 100%; display:flex; justify-content:center; }
+  .site-header .main-nav{ width: 100%; justify-content: center; overflow-x:auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+  .site-header .header-right{ width: 100%; justify-content: center; flex-wrap: wrap; gap: 10px; }
+  .site-header .cta-btn{ white-space: nowrap; }
+}
+
+/* Footer: keep symmetric two-column on mobile portrait (if supported by structure) */
+@media (max-width: 760px) and (orientation: portrait){
+  .footer__inner{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 16px;
+    row-gap: 10px;
+    align-items: start;
+  }
+  .footer__right{
+    justify-self: end;
+    text-align: right;
+    min-width: 0;
+  }
+}
+
+/* ==========================================================
+   v75: FINAL header/footer contracts (override-only, no refactor)
+   ========================================================== */
+
+/* Shared-header (blog/article) */
+.site-header .main-nav{ display:flex; gap:14px; align-items:center; }
+.site-header .cta-btn{ white-space: nowrap; }
 @media (max-width: 980px){
   .site-header .main-nav{
     overflow-x:auto;
@@ -1432,10 +1461,7 @@ a:hover{ text-decoration: underline; }
     border-radius: 999px;
     white-space: nowrap;
   }
-  .site-header .cta-btn{ white-space: nowrap; }
 }
-
-/* Portrait: allow two clean rows (logo row, then nav+actions row) */
 @media (max-width: 760px) and (orientation: portrait){
   .site-header .header-inner{ flex-wrap: wrap; justify-content: center; gap: 10px 12px; }
   .site-header .logo{ width:100%; display:flex; justify-content:center; }
@@ -1443,8 +1469,6 @@ a:hover{ text-decoration: underline; }
   .site-header .main-nav{ width:100%; justify-content:center; max-width: 100%; }
   .site-header .header-right{ width:100%; justify-content:center; flex-wrap: wrap; gap:10px; }
 }
-
-/* Landscape: compact one row; nav scrolls if needed */
 @media (max-width: 900px) and (orientation: landscape){
   .site-header .header-inner{ flex-wrap: nowrap; justify-content: space-between; padding: 8px 0; gap: 10px; }
   .site-header .logo img{ height: 46px; }
@@ -1453,11 +1477,9 @@ a:hover{ text-decoration: underline; }
   .site-header .cta-btn{ padding: 9px 12px; font-size: 13px; }
   .site-header .main-nav{ max-width: 54vw; }
 }
-
-/* Prevent whole-page horizontal scroll caused by header internals */
 .site-header .container{ overflow-x: hidden; }
 
-/* ------- Primary topbar header (most pages) mobile stability ------- */
+/* Primary topbar (most pages) */
 @media (max-width: 760px){
   .topbar__inner{ flex-wrap: wrap; justify-content: center; gap: 10px 12px; }
   .nav{ display:flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
@@ -1466,7 +1488,7 @@ a:hover{ text-decoration: underline; }
   .topbar__actions .btn.btn-primary{ white-space: nowrap; }
 }
 
-/* ------- Footer contract: wide/low, stable two-column feel ------- */
+/* Footer (mobile wide/low) */
 @media (max-width: 760px){
   .footer__inner{
     display:flex;

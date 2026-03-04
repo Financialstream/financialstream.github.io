@@ -1,4 +1,5 @@
 TODO_OWNER.md
 
-- Capture and store screenshots (mobile portrait+landscape) for acceptance pages listed in QA_REPORT_v74.md.
-- If any page still shows a text nav item 'Contact/Контакты', send exact URL for targeted removal.
+After deploy:
+- iPhone Safari: run QA_REPORT_v69.md checklist (portrait + landscape).
+- If any page still shows a text menu item 'Contact/Контакты', send the exact URL for targeted removal.
