@@ -1,7 +1,4 @@
 TODO_OWNER.md
 
-After deploy (iPhone Safari):
-- Test footer on RU blog post (portrait):
-  * Right block should read naturally (less vertical stacking), left-aligned within its column.
-  * Footer should be shorter in height than v71.
-- Test landscape quickly to ensure no overlap or weird wrapping.
+- Capture and store screenshots (mobile portrait+landscape) for acceptance pages listed in QA_REPORT_v74.md.
+- If any page still shows a text nav item 'Contact/Контакты', send exact URL for targeted removal.
