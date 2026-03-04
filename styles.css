@@ -1633,34 +1633,60 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ==========================================================
-   v78: RU footer portrait stabilization (keep right block out from under logo)
-   - Applies ONLY to RU pages (html[lang="ru"]) in mobile portrait.
-   - Goal: right policy links stay in the right column, right-aligned, readable (no overlap under logo).
-   - Does NOT move chatbot.
+   v79: RU footer portrait — readable layout (no letter-by-letter breaks)
+   Problem: RU policy links were breaking per-letter and looked worse.
+   Fix (RU-only, portrait-only):
+   - Keep 2-column footer (left brand / right links)
+   - Layout policy links as a compact 2-column grid
+   - Allow breaks at normal word boundaries (no "anywhere" letter-splitting)
+   - Slightly smaller font + tighter gaps for RU
+   Chatbot NOT moved.
    ========================================================== */
 @media (max-width: 760px) and (orientation: portrait){
   html[lang="ru"] .footer__inner{
-    column-gap: 18px;   /* a bit more space between columns */
+    display: grid;
+    grid-template-columns: minmax(140px, auto) minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 8px;
+    align-items: start;
   }
   html[lang="ru"] .footer__left{
-    min-width: 160px;   /* protect left block width */
+    min-width: 140px;
   }
   html[lang="ru"] .footer__right{
-    padding-right: 40px;   /* modest safe zone (chat bubble) */
+    justify-self: end;
+    min-width: 0;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding-right: 28px; /* modest safe zone; avoid shrinking too much */
+    box-sizing: border-box;
   }
+
   html[lang="ru"] .footer__policy{
-    /* keep links anchored to the right, prevent spanning under logo */
-    width: auto;
-    max-width: 240px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-items: end;
+    column-gap: 12px;
+    row-gap: 6px;
+    font-size: 12.5px;
+    line-height: 1.25;
   }
   html[lang="ru"] .footer__policy-link{
-    max-width: 240px;
-    overflow-wrap: anywhere; /* allow long RU words to break */
+    display:block;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word; /* break long words if needed, but not per-letter */
+    hyphens: auto;
   }
 }
 @media (max-width: 420px) and (orientation: portrait){
+  html[lang="ru"] .footer__right{ padding-right: 22px; }
   html[lang="ru"] .footer__policy{
-    max-width: 210px;
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+    font-size: 12.5px;
   }
 }
