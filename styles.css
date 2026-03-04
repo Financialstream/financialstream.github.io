@@ -1631,3 +1631,36 @@ a:hover{ text-decoration: underline; }
     font-size: 12.5px;
   }
 }
+
+/* ==========================================================
+   v78: RU footer portrait stabilization (keep right block out from under logo)
+   - Applies ONLY to RU pages (html[lang="ru"]) in mobile portrait.
+   - Goal: right policy links stay in the right column, right-aligned, readable (no overlap under logo).
+   - Does NOT move chatbot.
+   ========================================================== */
+@media (max-width: 760px) and (orientation: portrait){
+  html[lang="ru"] .footer__inner{
+    column-gap: 18px;   /* a bit more space between columns */
+  }
+  html[lang="ru"] .footer__left{
+    min-width: 160px;   /* protect left block width */
+  }
+  html[lang="ru"] .footer__right{
+    padding-right: 40px;   /* modest safe zone (chat bubble) */
+  }
+  html[lang="ru"] .footer__policy{
+    /* keep links anchored to the right, prevent spanning under logo */
+    width: auto;
+    max-width: 240px;
+    justify-items: end;
+  }
+  html[lang="ru"] .footer__policy-link{
+    max-width: 240px;
+    overflow-wrap: anywhere; /* allow long RU words to break */
+  }
+}
+@media (max-width: 420px) and (orientation: portrait){
+  html[lang="ru"] .footer__policy{
+    max-width: 210px;
+  }
+}
