@@ -1772,3 +1772,51 @@ a:hover{ text-decoration: underline; }
   }
   .footer__sep{ display:none !important; }
 }
+
+/* ==========================================================
+   v82: Mobile LANDSCAPE footer polish (keep single row, improve balance)
+   Target: landscape 844x390 and similar.
+   Fixes:
+   - Keep left and right blocks on the same row.
+   - Prevent left copyright from awkward wrapping.
+   - Make right policy links compact (2-column grid) and keep clear of chat bubble via modest padding.
+   Chatbot NOT moved.
+   ========================================================== */
+@media (max-width: 900px) and (orientation: landscape){
+  .footer__inner{
+    display:flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 14px !important;
+  }
+  .footer__left{
+    flex: 0 0 auto !important;
+    min-width: 220px !important;
+    max-width: 48% !important;
+  }
+  .footer__left .footer__copyright{
+    white-space: nowrap !important; /* keep © Financial Stream LLC on one line */
+  }
+  .footer__right{
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 52% !important;
+    padding-right: 56px !important; /* safe zone for chat bubble */
+    box-sizing: border-box !important;
+    align-items: flex-end !important;
+    text-align: right !important;
+  }
+  .footer__policy{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    justify-items: end !important;
+    column-gap: 12px !important;
+    row-gap: 6px !important;
+    font-size: 12.5px !important;
+    line-height: 1.2 !important;
+    max-width: 520px !important;
+  }
+  .footer__sep{ display:none !important; }
+}
