@@ -1436,31 +1436,44 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ==========================================================
-   v70: Footer policy links alignment on mobile portrait
-   Goal: keep footer symmetric and readable:
-   - Left column: logo + ©
-   - Right column: "Contact us / Связаться с нами" + policy links centered within the RIGHT column,
-     never drifting under the logo block.
+   v71: Footer right-column centering (mobile portrait) + safe zone
+   Goal: keep footer symmetric AND keep right-side link block centered within the RIGHT column,
+   not sliding under the logo, and not fully covered by the chat bubble.
+   Note: We do NOT move the chatbot.
    ========================================================== */
 
 @media (max-width: 760px) and (orientation: portrait){
-  /* Keep the right column content centered within its column */
+  /* Stable 2-column grid; pin left/right blocks to row 1 */
+  .footer__inner{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 16px;
+    row-gap: 10px;
+    align-items: start;
+  }
+  .footer__left{ grid-column: 1; grid-row: 1; }
   .footer__right{
+    grid-column: 2; grid-row: 1;
+    justify-self: stretch;
+    min-width: 0;
+    display:flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-left: 12px; /* prevents visual collision with left column */
+    padding-right: 72px;   /* safe zone for chat bubble */
+    padding-left: 12px;
+    box-sizing: border-box;
   }
   .footer__policy{
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 8px 10px;
   }
 }
 
-/* Keep a small safe zone from the right edge so the chat bubble doesn't fully cover footer links */
-@media (max-width: 760px) and (orientation: portrait){
-  .footer__right{ padding-right: 72px; }
-  .footer__policy{ padding-right: 72px; }
-}
 @media (max-width: 900px) and (orientation: landscape){
-  .footer__right{ padding-right: 56px; }
-  .footer__policy{ padding-right: 56px; }
+  .footer__right{ padding-right: 56px; box-sizing: border-box; }
+  .footer__policy{ justify-content: center; }
 }
