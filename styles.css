@@ -1820,3 +1820,26 @@ a:hover{ text-decoration: underline; }
   }
   .footer__sep{ display:none !important; }
 }
+
+/* ==========================================================
+   v85: Mobile landscape footer anti-stacking (targeted, minimal)
+   Fix: prevent footer right block from wrapping below left in mobile landscape (e.g. 844x390).
+   Desktop + portrait unaffected.
+   ========================================================== */
+@media (max-width: 900px) and (orientation: landscape){
+  .footer__inner{
+    display:flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 14px !important;
+  }
+  .footer__left{ flex: 0 0 auto !important; }
+  .footer__right{
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    align-items: flex-end !important;
+    text-align: right !important;
+  }
+}
