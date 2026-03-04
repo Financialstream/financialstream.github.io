@@ -1690,3 +1690,85 @@ a:hover{ text-decoration: underline; }
     font-size: 12.5px;
   }
 }
+
+/* ==========================================================
+   v80: Mobile portrait footer — Chrome-safe width + no letter-stacking
+   Issue: on some Chrome mobile builds the right footer column becomes too narrow,
+   causing RU words to break into near-letter stacks.
+   Fix:
+   - Give the right column more usable width by shrinking logo/left column.
+   - Remove extra right padding that steals width (chat bubble may overlap slightly).
+   - Force normal word wrapping (no per-letter breaks unless unavoidable).
+   Scope: mobile portrait only. Desktop + landscape untouched.
+   ========================================================== */
+@media (max-width: 760px) and (orientation: portrait){
+  .footer__inner{
+    display: grid !important;
+    grid-template-columns: 120px 1fr !important;
+    column-gap: 14px !important;
+    align-items: start !important;
+  }
+  .footer__logo{
+    max-width: 110px !important;
+    height: auto !important;
+  }
+  .footer__left{
+    min-width: 120px !important;
+  }
+  .footer__right{
+    padding-right: 0 !important;   /* do NOT steal width on portrait */
+    min-width: 0 !important;
+  }
+  .footer__policy{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    justify-items: end !important;
+    column-gap: 12px !important;
+    row-gap: 6px !important;
+  }
+  .footer__policy-link{
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: auto !important;
+  }
+}
+@media (max-width: 420px) and (orientation: portrait){
+  .footer__policy{ grid-template-columns: 1fr !important; }
+}
+
+/* ==========================================================
+   v81: Mobile LANDSCAPE footer alignment (fix right block dropping below left)
+   Observed on: /blog/seattle-tax-return-guide.html (844x390)
+   Fix: force a single-row footer container in mobile landscape and constrain right block wrapping.
+   Scope: max-width 900px + orientation landscape only. Desktop untouched.
+   ========================================================== */
+@media (max-width: 900px) and (orientation: landscape){
+  .footer__inner{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;       /* prevent right block from wrapping below */
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+  }
+  .footer__left{ flex: 0 0 auto !important; }
+  .footer__right{
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    text-align: right !important;
+  }
+  .footer__policy{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    gap: 6px 10px !important;
+    font-size: 12.5px !important;
+    line-height: 1.2 !important;
+    max-width: 460px !important;        /* keep within landscape width */
+  }
+  .footer__sep{ display:none !important; }
+}
