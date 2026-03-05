@@ -1843,7 +1843,3 @@ a:hover{ text-decoration: underline; }
     text-align: right !important;
   }
 }
-
-/* v91 blog intro */
-.blog-intro{padding:10px 0 0;}
-.blog-intro p{margin:0 0 10px;}
