@@ -64,6 +64,10 @@
     "/services/tax-returns.html",
     "/sms-consent.html",
     "/terms-and-conditions.html"
+    "/blog/us-tax-return-prep-remote-checklist.html",
+    "/blog/quickbooks-online-bookkeeping-monthly-close.html",
+    "/ru/blog/nalogovaya-deklaraciya-usa-udalenno-cheklist.html",
+    "/ru/blog/quickbooks-uchet-ssha-ezhemesyachnyy-cheklist.html",
   ]);
 
   // Explicit mappings for cases where slugs differ.
