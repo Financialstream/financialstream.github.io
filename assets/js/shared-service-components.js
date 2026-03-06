@@ -114,26 +114,28 @@
     if (!root || root.querySelector('.service-faq')) return;
 
     var faq = document.createElement('section');
-    faq.className = 'service-faq faq';
+    faq.className = 'service-faq';
     faq.innerHTML =
       '<h2 class="faq__title">' +
       t.faqTitle +
       '</h2>' +
-      '<div class="faq__item"><h3 class="faq__q">' +
+      '<div class="service-faq__list">' +
+      '<details class="faq__item"><summary class="faq__q">' +
       t.q1 +
-      '</h3><p class="faq__a">' +
+      '</summary><p class="faq__a">' +
       t.a1 +
-      '</p></div>' +
-      '<div class="faq__item"><h3 class="faq__q">' +
+      '</p></details>' +
+      '<details class="faq__item"><summary class="faq__q">' +
       t.q2 +
-      '</h3><p class="faq__a">' +
+      '</summary><p class="faq__a">' +
       t.a2 +
-      '</p></div>' +
-      '<div class="faq__item"><h3 class="faq__q">' +
+      '</p></details>' +
+      '<details class="faq__item"><summary class="faq__q">' +
       t.q3 +
-      '</h3><p class="faq__a">' +
+      '</summary><p class="faq__a">' +
       t.a3 +
-      '</p></div>';
+      '</p></details>' +
+      '</div>';
 
     var cta = root.querySelector('.policy__cta');
     if (cta) root.insertBefore(faq, cta);
