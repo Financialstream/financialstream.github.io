@@ -26,6 +26,14 @@
 
   // Related links mapping (keep small and high-signal: 2 items)
   var related = {
+    '/blog/us-bookkeeping-small-business.html': [
+      {href:'/blog/us-tax-return-preparation.html', text:'U.S. tax return preparation: what to gather'},
+      {href:'/services/quickbooks-bookkeeping.html', text:'QuickBooks bookkeeping service'}
+    ],
+    '/blog/us-tax-return-preparation.html': [
+      {href:'/blog/us-bookkeeping-small-business.html', text:'U.S. small business bookkeeping guide'},
+      {href:'/services/tax-returns.html', text:'Tax returns service'}
+    ],
     '/blog/seattle-quickbooks-bookkeeping.html': [
       {href:'/blog/seattle-tax-return-guide.html', text:'Tax return in Seattle (2026)'},
       {href:'/services/quickbooks-bookkeeping.html', text:'QuickBooks bookkeeping service'}
@@ -57,6 +65,15 @@
     '/blog/irs-2026-inflation-adjustments.html': [
       {href:'/blog/seattle-tax-return-guide.html', text:'Tax return guide (Seattle)'},
       {href:'/services/tax-returns.html', text:'Tax returns (business & personal)'}
+    ],
+
+    '/ru/blog/buhgalteriya-ssha-malogo-biznesa.html': [
+      {href:'/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html', text:'Подготовка налоговой декларации в США'},
+      {href:'/ru/services/quickbooks-bookkeeping.html', text:'Бухгалтерия в QuickBooks'}
+    ],
+    '/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html': [
+      {href:'/ru/blog/buhgalteriya-ssha-malogo-biznesa.html', text:'Бухгалтерия малого бизнеса в США'},
+      {href:'/ru/services/tax-returns.html', text:'Налоговые декларации'}
     ],
 
     // RU counterparts

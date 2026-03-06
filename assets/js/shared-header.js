@@ -22,6 +22,8 @@
     "/blog/seattle-quickbooks-bookkeeping.html",
     "/blog/seattle-tax-return-guide.html",
     "/blog/washington-bookkeeping-quickbooks.html",
+    "/blog/us-bookkeeping-small-business.html",
+    "/blog/us-tax-return-preparation.html",
     "/contact/",
     "/contact/index.html",
     "/getting-started.html",
@@ -39,6 +41,8 @@
     "/ru/blog/sales-tax-2026.html",
     "/ru/blog/seattle-area-accountant-bookkeeper.html",
     "/ru/blog/washington-bookkeeping-quickbooks.html",
+    "/ru/blog/buhgalteriya-ssha-malogo-biznesa.html",
+    "/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html",
     "/ru/contact/",
     "/ru/contact/index.html",
     "/ru/index.html",
@@ -71,8 +75,12 @@
     "/blog/seattle-quickbooks-bookkeeping.html": "/ru/blog/buhgalter-seattle-quickbooks.html",
     "/blog/seattle-tax-return-guide.html": "/ru/blog/nalogovaya-deklaraciya-seattle.html",
     "/getting-started.html": "/ru/kak-nachat.html",
+    "/blog/us-bookkeeping-small-business.html": "/ru/blog/buhgalteriya-ssha-malogo-biznesa.html",
+    "/blog/us-tax-return-preparation.html": "/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html",
     "/ru/blog/buhgalter-seattle-quickbooks.html": "/blog/seattle-quickbooks-bookkeeping.html",
     "/ru/blog/nalogovaya-deklaraciya-seattle.html": "/blog/seattle-tax-return-guide.html",
+    "/ru/blog/buhgalteriya-ssha-malogo-biznesa.html": "/blog/us-bookkeeping-small-business.html",
+    "/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html": "/blog/us-tax-return-preparation.html",
     "/ru/kak-nachat.html": "/getting-started.html"
   };
 
