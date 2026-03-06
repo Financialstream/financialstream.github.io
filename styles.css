@@ -1857,3 +1857,28 @@ a:hover{ text-decoration: underline; }
   text-decoration: underline;
 }
 .email-link{ cursor:pointer; }
+
+
+/* v95: article/footer/link visibility fixes */
+.related-section__list a,
+.policy__links a,
+.article ul a,
+.article ol a,
+.policy p a,
+.policy li a,
+.badge a{
+  color: var(--accent) !important;
+  text-decoration: none;
+}
+.related-section__list a:hover,
+.policy__links a:hover,
+.article ul a:hover,
+.article ol a:hover,
+.policy p a:hover,
+.policy li a:hover,
+.badge a:hover{
+  text-decoration: underline;
+}
+footer.footer{
+  width: 100%;
+}

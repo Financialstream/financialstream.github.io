@@ -158,6 +158,16 @@
     }
   }
 
+
+  function normalizeFooterPlacement(){
+    var article = document.querySelector('.article');
+    var main = document.querySelector('main');
+    if(!article || !main) return;
+    var footer = article.querySelector('footer.footer');
+    if(!footer) return;
+    main.insertAdjacentElement('afterend', footer);
+  }
+
   function injectRelated(){
     var article = document.querySelector('.article');
     if(!article) return;
