@@ -1843,3 +1843,17 @@ a:hover{ text-decoration: underline; }
     text-align: right !important;
   }
 }
+
+/* v94: clearer clickable links on services/article lists and reliable mail links */
+.policy__links a,
+.article ul a,
+.article ol a{
+  color: var(--accent);
+  text-decoration: none;
+}
+.policy__links a:hover,
+.article ul a:hover,
+.article ol a:hover{
+  text-decoration: underline;
+}
+.email-link{ cursor:pointer; }

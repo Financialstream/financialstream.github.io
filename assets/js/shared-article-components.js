@@ -186,8 +186,13 @@
       <h2 class="related-section__title">${t.relatedTitle}</h2>
       <ul class="related-section__list">${lis}</ul>`;
 
-    // Keep related links inside the same article container as body/CTA.
-    article.appendChild(block);
+    // Keep related links inside the same article container as body/CTA and before footer/scripts.
+    var anchor = article.querySelector('footer.footer, script[src*="/script.js"], script[src*="shared-header.js"], script[src*="shared-article-components.js"]');
+    if(anchor){
+      article.insertBefore(block, anchor);
+    }else{
+      article.appendChild(block);
+    }
   }
 
   ensureBacklink();
