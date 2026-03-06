@@ -8,6 +8,7 @@
   --shadow: 0 10px 30px rgba(10, 25, 44, .10);
   --primary: #2a6fb0;
   --primary-2: #1f5f9c;
+  --accent: #1f5f9c;
   --radius: 18px;
   --serif: "Playfair Display", ui-serif, Georgia, serif;
   --sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -1869,7 +1870,8 @@ a:hover{ text-decoration: underline; }
 .policy li a,
 .badge a{
   color: var(--accent) !important;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .related-section__list a:hover,
 .policy__links a:hover,
@@ -1880,7 +1882,7 @@ a:hover{ text-decoration: underline; }
 .policy p a:hover,
 .policy li a:hover,
 .badge a:hover{
-  color: var(--accent) !important;
+  color: var(--primary) !important;
   text-decoration: underline;
 }
 /* Preserve standard primary button appearance everywhere, including services and article CTA */
