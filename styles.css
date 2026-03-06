@@ -1165,6 +1165,27 @@ a:hover{ text-decoration: underline; }
   margin: 0;
   border-top: 1px solid var(--border);
 }
+.article-toc{
+  margin: 16px 0 20px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+}
+.article-toc__title{
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+.article-toc__list{
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+.article-toc__list a{
+  color: var(--primary);
+  text-decoration: underline;
+}
 .related-section__list a{
   overflow-wrap:anywhere;
 }
@@ -1181,7 +1202,8 @@ a:hover{ text-decoration: underline; }
 @media (max-width: 520px){
   .article{ max-width: 100%; }
   .article-cta{ padding: 14px; }
-  .article-cta__title{ font-size: 18px; }
+  .article-toc{ padding: 12px; }
+  .article-toc__title{ font-size: 17px; }
 }
 
 
