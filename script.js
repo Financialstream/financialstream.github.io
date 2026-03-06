@@ -481,10 +481,14 @@ monthly: {
     "/blog/irs-2026-inflation-adjustments.html",
     "/blog/payroll-2026.html",
     "/blog/quickbooks-healthy-books.html",
+    "/blog/quickbooks-online-bookkeeping-monthly-close.html",
     "/blog/sales-tax-2026.html",
     "/blog/seattle-area-accountant-bookkeeper.html",
     "/blog/seattle-quickbooks-bookkeeping.html",
     "/blog/seattle-tax-return-guide.html",
+    "/blog/us-bookkeeping-small-business.html",
+    "/blog/us-tax-return-preparation.html",
+    "/blog/us-tax-return-prep-remote-checklist.html",
     "/blog/washington-bookkeeping-quickbooks.html",
     "/contact/",
     "/contact/index.html",
@@ -494,12 +498,16 @@ monthly: {
     "/privacy-policy.html",
     "/ru/",
     "/ru/blog/",
+    "/ru/blog/buhgalteriya-ssha-malogo-biznesa.html",
     "/ru/blog/buhgalter-seattle-quickbooks.html",
     "/ru/blog/index.html",
     "/ru/blog/irs-2026-inflation-adjustments.html",
     "/ru/blog/nalogovaya-deklaraciya-seattle.html",
+    "/ru/blog/nalogovaya-deklaraciya-usa-udalenno-cheklist.html",
     "/ru/blog/payroll-2026.html",
+    "/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html",
     "/ru/blog/quickbooks-healthy-books.html",
+    "/ru/blog/quickbooks-uchet-ssha-ezhemesyachnyy-cheklist.html",
     "/ru/blog/sales-tax-2026.html",
     "/ru/blog/seattle-area-accountant-bookkeeper.html",
     "/ru/blog/washington-bookkeeping-quickbooks.html",
@@ -527,16 +535,24 @@ monthly: {
     "/services/sales-tax-dor-reporting.html",
     "/services/tax-returns.html",
     "/sms-consent.html",
-    "/terms-and-conditions.html"
+    "/terms-and-conditions.html",
   ]);
 
   const FS_EXPLICIT_LANG_MAP = {
     "/blog/seattle-quickbooks-bookkeeping.html": "/ru/blog/buhgalter-seattle-quickbooks.html",
     "/blog/seattle-tax-return-guide.html": "/ru/blog/nalogovaya-deklaraciya-seattle.html",
+    "/blog/us-bookkeeping-small-business.html": "/ru/blog/buhgalteriya-ssha-malogo-biznesa.html",
+    "/blog/us-tax-return-preparation.html": "/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html",
+    "/blog/quickbooks-online-bookkeeping-monthly-close.html": "/ru/blog/quickbooks-uchet-ssha-ezhemesyachnyy-cheklist.html",
+    "/blog/us-tax-return-prep-remote-checklist.html": "/ru/blog/nalogovaya-deklaraciya-usa-udalenno-cheklist.html",
     "/getting-started.html": "/ru/kak-nachat.html",
     "/ru/blog/buhgalter-seattle-quickbooks.html": "/blog/seattle-quickbooks-bookkeeping.html",
     "/ru/blog/nalogovaya-deklaraciya-seattle.html": "/blog/seattle-tax-return-guide.html",
-    "/ru/kak-nachat.html": "/getting-started.html"
+    "/ru/blog/buhgalteriya-ssha-malogo-biznesa.html": "/blog/us-bookkeeping-small-business.html",
+    "/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html": "/blog/us-tax-return-preparation.html",
+    "/ru/blog/quickbooks-uchet-ssha-ezhemesyachnyy-cheklist.html": "/blog/quickbooks-online-bookkeeping-monthly-close.html",
+    "/ru/blog/nalogovaya-deklaraciya-usa-udalenno-cheklist.html": "/blog/us-tax-return-prep-remote-checklist.html",
+    "/ru/kak-nachat.html": "/getting-started.html",
   };
 
   function fsNormalizePath(pathname) {
