@@ -251,8 +251,8 @@ a:hover{ text-decoration: underline; }
   content:'';
   position:absolute;
   inset:0;
-  /* Reduce veil ~20â€“30% so the background image is more visible */
-  /* Make the photo ~20â€“30% more visible while keeping text readable */
+  /* Reduce veil by ~20-30% so the background image is more visible */
+  /* Keep text readable while making the photo more visible */
   background: linear-gradient(90deg, rgba(255,255,255,.24) 0%, rgba(255,255,255,.42) 55%, rgba(255,255,255,.30) 100%);
 }
 
@@ -998,7 +998,7 @@ a:hover{ text-decoration: underline; }
   margin-top:auto;
 }
 
-/* Updates teaser in contact left (fills the â€œholeâ€) */
+/* Updates teaser in contact left (fills the "hole") */
 .updates-teaser{
   margin-top: 18px;
   padding-top: 14px;
@@ -1405,10 +1405,10 @@ a:hover{ text-decoration: underline; }
    Header/Footer stabilization for mobile (v64)
    Canonical contract (match HOME):
    Header order (ALL pages):
-     Logo + 4 nav links (Home/Services/Process/FAQ) + Language (EN/RU) + CTA "Contact us / Ð¡Ð²ÑÐ·Ð°Ñ‚ÑŒÑÑ Ñ Ð½Ð°Ð¼Ð¸"
+     Logo + 4 nav links (Home/Services/Process/FAQ) + Language (EN/RU) + CTA "Contact (RU)"
    Footer order (ALL pages):
-     Left: logo + Â© Financial Stream LLC
-     Right: "Contact us / Ð¡Ð²ÑÐ·Ð°Ñ‚ÑŒÑÑ Ñ Ð½Ð°Ð¼Ð¸" + (Privacy / Terms / SMS)
+     Left: logo + (c) Financial Stream LLC
+     Right: "Contact (RU)" + (Privacy / Terms / SMS)
    Mobile:
      - Portrait: header can wrap to 2 rows but never loses links; CTA must remain visible.
      - Landscape: keep compact one-row when possible; nav scrolls if tight (no disappearing links).
@@ -1528,7 +1528,7 @@ a:hover{ text-decoration: underline; }
 /* ==========================================================
    v66: Mobile footer stabilization (portrait)
    Goal: keep footer symmetric like HOME across all pages.
-   - Left: logo + Â©
+   - Left: logo + (c)
    - Right: Contact + policy links
    Problem: on mobile portrait right block can drop too low / leave empty gap.
    Fix: use 2-col grid in portrait; align content to top; keep wrapping inside right column.
@@ -1748,10 +1748,10 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ==========================================================
-   v77: Mobile footer portrait â€” restore clean 2-column layout
+   v77: Mobile footer portrait - restore clean 2-column layout
    Goal (portrait):
-   - Left column: logo + Â©
-   - Right column: "Contact us / Ð¡Ð²ÑÐ·Ð°Ñ‚ÑŒÑÑ Ñ Ð½Ð°Ð¼Ð¸" + policy links laid out cleanly (not a vertical mess)
+   - Left column: logo + (c)
+   - Right column: "Contact (RU)" + policy links laid out cleanly (not a vertical mess)
    - No overlap with logo; allow wrap; do NOT move chatbot.
    ========================================================== */
 
@@ -1812,7 +1812,7 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ==========================================================
-   v79: RU footer portrait â€” readable layout (no letter-by-letter breaks)
+   v79: RU footer portrait - readable layout (no letter-by-letter breaks)
    Problem: RU policy links were breaking per-letter and looked worse.
    Fix (RU-only, portrait-only):
    - Keep 2-column footer (left brand / right links)
@@ -1871,7 +1871,7 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ==========================================================
-   v80: Mobile portrait footer â€” Chrome-safe width + no letter-stacking
+   v80: Mobile footer portrait - Chrome-safe width + no letter-stacking
    Issue: on some Chrome mobile builds the right footer column becomes too narrow,
    causing RU words to break into near-letter stacks.
    Fix:
@@ -1976,7 +1976,7 @@ a:hover{ text-decoration: underline; }
     max-width: 48% !important;
   }
   .footer__left .footer__copyright{
-    white-space: nowrap !important; /* keep Â© Financial Stream LLC on one line */
+    white-space: nowrap !important; /* keep (c) Financial Stream LLC on one line */
   }
   .footer__right{
     flex: 1 1 auto !important;
