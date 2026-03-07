@@ -11,8 +11,8 @@
         contact: 'Contact',
       },
       cta: {
-        bookTop: 'Book a Free Consultation',
-        seeServices: 'See services',
+        bookTop: 'Free Consultation',
+        seeServices: 'View Services',
         ctaTitle: 'Ready to get started?',
         ctaText: 'Book a free consultation or send a request — we’ll reply shortly.',
         ctaButton: 'Request a Free Consultation',
@@ -23,8 +23,8 @@
       hero: {
         title1: 'Accounting & Bookkeeping',
         title2: 'for Small Businesses & Individuals',
-        subtitle: 'Leave your accounting and paperwork to professionals.',
-        body: 'Financial Stream LLC helps small businesses and individuals keep clean books, stay compliant, and feel confident in their numbers. We handle monthly bookkeeping in QuickBooks Online, support state revenue and labor agency matters when needed, and prepare and file business and personal tax returns. If you’re starting a business, catching up on backlog, or getting ready for year-end — we’ll organize everything and keep it simple. Most work is done remotely, so you don’t need to visit an office.',
+        subtitle: 'Bookkeeping, payroll, and tax preparation for U.S. small businesses.',
+        body: 'We handle QuickBooks Online bookkeeping, sales tax and state reporting, payroll filings, and tax returns for business owners and individuals. If you are launching, catching up, or cleaning up your books, we organize everything into a clear monthly process.',
         pillLang: 'Bilingual: English / Russian',
         chip1: 'Fast response',
         chip2: 'Clean monthly reports',
@@ -40,7 +40,7 @@
       },
       services: {
         title: 'Our Services',
-        subtitle: 'We offer a wide range of services at affordable prices.',
+        subtitle: 'Practical accounting services focused on compliance, clean books, and tax readiness.',
         more: 'Learn more',
         s1: { b1: 'Company registration / closure', b2: 'EIN application', b3: 'Business license', b4: 'Contractor license' },
         s2: { b1: 'Bookkeeping in QuickBooks (QB). Professional monthly categorization.' },
@@ -97,7 +97,7 @@
       },
       contact: {
         title: 'Contact',
-        subtitle: 'Tell us what you need — we’ll reply shortly.',
+        subtitle: 'Tell us your goal and timeline — we will reply with the next step.',
         formTitle: 'Book a free consultation or ask a question',
         formSub: 'We’ll review your situation, ask a few quick questions, and suggest the next step.',
         phone: 'Phone',
@@ -214,8 +214,8 @@
         contact: 'Контакты',
       },
       cta: {
-        bookTop: 'Бесплатная консультация',
-        seeServices: 'Смотреть услуги',
+        bookTop: '\u0411\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u0430\u044f \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044f',
+        seeServices: '\u0421\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0443\u0441\u043b\u0443\u0433\u0438',
         ctaTitle: 'Готовы начать?',
         ctaText: 'Запишитесь на бесплатную консультацию или отправьте запрос — мы ответим в ближайшее время.',
         ctaButton: 'Записаться на бесплатную консультацию',
@@ -226,8 +226,8 @@
       hero: {
         title1: 'Бухгалтерия и учёт',
         title2: 'для малого бизнеса и частных лиц',
-        subtitle: 'Доверьте учёт и бумажную рутину профессионалам.',
-        body: 'Financial Stream LLC помогает малому бизнесу и частным лицам держать финансы и документы под контролем. Мы ведём ежемесячный учёт в QuickBooks Online, помогаем по вопросам государственных департаментов (налоги с продаж, отчётность и т.п.), а также готовим и подаём налоговые декларации для бизнеса и физических лиц. Если вы открываете бизнес, нужно восстановить учёт за прошлые месяцы или подготовиться к концу года — мы всё структурируем и сделаем понятным. Большинство задач решаем онлайн или по телефону, поэтому приезжать в офис не нужно — работаем по всей США.',
+        subtitle: '\u0411\u0443\u0445\u0433\u0430\u043b\u0442\u0435\u0440, bookkeeping, payroll \u0438 \u043d\u0430\u043b\u043e\u0433\u0438 \u0434\u043b\u044f \u043c\u0430\u043b\u043e\u0433\u043e \u0431\u0438\u0437\u043d\u0435\u0441\u0430 \u0432 \u0421\u0428\u0410.',
+        body: '\u0412\u0435\u0434\u0451\u043c \u0443\u0447\u0451\u0442 \u0432 QuickBooks Online, \u043f\u043e\u043c\u043e\u0433\u0430\u0435\u043c \u0441 Sales Tax (\u043d\u0430\u043b\u043e\u0433 \u0441 \u043f\u0440\u043e\u0434\u0430\u0436) \u0438 \u043e\u0442\u0447\u0451\u0442\u043d\u043e\u0441\u0442\u044c\u044e \u0448\u0442\u0430\u0442\u0430, payroll (\u0437\u0430\u0440\u043f\u043b\u0430\u0442\u0430) \u0438 \u043d\u0430\u043b\u043e\u0433\u043e\u0432\u044b\u043c\u0438 \u0434\u0435\u043a\u043b\u0430\u0440\u0430\u0446\u0438\u044f\u043c\u0438 \u0434\u043b\u044f \u0431\u0438\u0437\u043d\u0435\u0441\u0430 \u0438 \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u0415\u0441\u043b\u0438 \u043d\u0443\u0436\u043d\u043e \u0437\u0430\u043f\u0443\u0441\u0442\u0438\u0442\u044c \u0443\u0447\u0451\u0442 \u0441 \u043d\u0443\u043b\u044f, \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u043f\u0440\u043e\u0448\u043b\u044b\u0435 \u043f\u0435\u0440\u0438\u043e\u0434\u044b \u0438\u043b\u0438 \u043d\u0430\u0432\u0435\u0441\u0442\u0438 \u043f\u043e\u0440\u044f\u0434\u043e\u043a \u043f\u0435\u0440\u0435\u0434 \u043f\u043e\u0434\u0430\u0447\u0435\u0439 \u043d\u0430\u043b\u043e\u0433\u043e\u0432, \u043c\u044b \u0432\u044b\u0441\u0442\u0440\u043e\u0438\u043c \u043f\u043e\u043d\u044f\u0442\u043d\u044b\u0439 \u043f\u0440\u043e\u0446\u0435\u0441\u0441.',
         pillLang: 'Двуязычно: английский / русский',
         chip1: 'Быстрый ответ',
         chip2: 'Чистые ежемесячные отчёты',
@@ -243,7 +243,7 @@
       },
       services: {
         title: 'Наши услуги',
-        subtitle: 'Предоставляем широкий спектр услуг по доступным ценам.',
+        subtitle: '\u041f\u0440\u0430\u043a\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0443\u0441\u043b\u0443\u0433\u0438 \u0434\u043b\u044f \u0431\u0438\u0437\u043d\u0435\u0441\u0430: \u0441\u043e\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435 \u0441\u0440\u043e\u043a\u043e\u0432, \u0447\u0438\u0441\u0442\u044b\u0439 \u0443\u0447\u0451\u0442 \u0438 \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0430 \u043a \u043d\u0430\u043b\u043e\u0433\u0430\u043c.',
         more: 'Подробнее',
         s1: { b1: 'Регистрация/ликвидация компании', b2: 'Получение EIN', b3: 'Оформление бизнесс лицензии', b4: 'Оформление лицензии контрактора' },
         s2: { b1: 'Ведение бухгалтерского учета в QB. Профессиональная ежемесячная категоризация.' },
@@ -301,7 +301,7 @@ monthly: {
       },
       contact: {
         title: 'Контакты',
-        subtitle: 'Напишите, что нужно — мы ответим в ближайшее время.',
+        subtitle: '\u041e\u043f\u0438\u0448\u0438\u0442\u0435 \u0432\u0430\u0448\u0443 \u0437\u0430\u0434\u0430\u0447\u0443 \u0438 \u0441\u0440\u043e\u043a\u0438 — \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0438\u043c \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0439 \u0448\u0430\u0433.',
         formTitle: 'Записаться на бесплатную консультацию или задать вопрос',
         formSub: 'Задать вопрос — мы ответим в ближайшее время.',
         phone: 'Телефон',
