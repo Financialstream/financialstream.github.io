@@ -28,12 +28,15 @@
 <link href="https://financialstreamllc.com/getting-started.html" hreflang="x-default" rel="alternate"/>
 <link href="/styles.css?v=41" rel="stylesheet"/>
 <style id="page-links-style">
-.page-links{margin-top:48px;padding-top:24px;border-top:1px solid rgba(20,30,60,.12);}
-.page-links__list{margin:12px 0 18px;padding-left:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;}
+.page-links{margin-top:40px;padding-top:20px;border-top:1px solid rgba(20,30,60,.12);}
+.page-links__list{margin:12px 0 14px;padding-left:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:8px 24px;}
 .page-links__list li{margin:0;}
-.page-links__cta{display:inline-flex;align-items:center;justify-content:center;margin-top:8px;}
+.page-links__actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:8px;}
+.page-links__cta{display:inline-flex;align-items:center;justify-content:center;}
+.page-links__home{font-weight:600;}
 @media (max-width:700px){
   .page-links__list{grid-template-columns:1fr;}
+  .page-links__actions{gap:10px;}
 }
 </style>
 
@@ -91,14 +94,14 @@
 <li><a href="/services/">Services</a></li>
 <li><a href="/getting-started.html">How we work</a></li>
 <li><a href="/#faq">FAQ</a></li>
-<li>
-</li>
 <li><a href="/privacy-policy.html">Privacy Policy</a></li>
 <li><a href="/terms-and-conditions.html">Terms &amp; Conditions</a></li>
 </ul>
+<div class="page-links__actions">
 <a class="btn btn-primary page-links__cta" href="/contact/">Contact us</a>
+<a class="page-links__home" href="/">Back to home</a>
+</div>
 </section>
-<p><a href="/">Back to home</a></p>
 </div>
 </section>
 </main>
