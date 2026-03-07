@@ -1202,6 +1202,18 @@ a:hover{ text-decoration: underline; }
   gap: 10px;
   flex-wrap: wrap;
 }
+.article-cta__trust{
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.article-cta__points{
+  margin: 8px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 4px;
+  color: var(--text);
+}
 .article-keypoints{
   margin: 16px 0 20px;
   padding: 14px 16px;

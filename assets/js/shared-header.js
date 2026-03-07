@@ -216,7 +216,7 @@
     header.innerHTML = `
       <div class="container header-inner">
         <a class="logo" href="${nav.home}" aria-label="Financial Stream">
-          <img src="/assets/logo-horizontal.png" alt="Financial Stream" />
+          <img src="/assets/logo-horizontal.png" alt="Financial Stream" width="595" height="195" decoding="async" fetchpriority="high" />
         </a>
 
         <nav class="main-nav" aria-label="Main navigation">
