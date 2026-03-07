@@ -97,8 +97,16 @@
 <div class="contact-hub-grid contact-hub-grid--top">
 <section class="section contact-hub-left">
 <div class="hub-card hub-card--primary" id="quick-form">
-<h2 class="hub-card__title">Отправить заявку (самый быстрый вариант)</h2>
-<p class="hub-card__desc">1–2 минуты. Мы ответим по email.</p>
+<h2 class="hub-card__title" data-i18n="contact.formTitle">Записаться на бесплатную консультацию или задать вопрос</h2>
+<p class="hub-card__desc" data-i18n="contact.formSub">Задать вопрос — мы ответим в ближайшее время.</p>
+<div class="panel__next">
+<p class="panel__next-title">Что будет дальше</p>
+<ul class="panel__next-list">
+<li>Отвечаем быстро (обычно в течение 1 рабочего дня)</li>
+<li>Уточняем объём работ, сроки и список документов</li>
+<li>Даём понятный план следующих шагов</li>
+</ul>
+</div>
 <form action="https://formspree.io/f/xwvqekla" class="stack" id="contactForm" method="POST">
 <div aria-live="polite" class="form-success" hidden="" id="formSuccess" role="status" style="display:none;"></div>
 <input name="_subject" type="hidden" value="Financial Stream — Заявка с сайта"/>
@@ -117,20 +125,20 @@
 <input autocomplete="email" class="field__input" name="email" placeholder="Email" required="" type="email"/>
 </label>
 <label class="field">
-<span class="field__label">Чем мы можем помочь?</span>
-<div class="field__hint field__hint--above">Чем больше деталей вы укажете (штат, тип бизнеса, QuickBooks да/нет), тем быстрее и точнее мы сможем ответить.</div>
-<textarea class="field__input field__textarea" name="message" placeholder="Пример: ваш штат, тип бизнеса, QuickBooks да/нет, с чем нужна помощь…" required="" rows="6"></textarea>
+<span class="field__label">Ваш вопрос</span>
+<div class="field__hint field__hint--above">Чем больше деталей вы укажете (штат, вид деятельности, QuickBooks да/нет), тем быстрее и точнее мы ответим.</div>
+<textarea class="field__input field__textarea" name="message" placeholder="Например: штат, вид бизнеса, QuickBooks да/нет, с чем нужна помощь…" required="" rows="6"></textarea>
 </label>
 <div class="field field--checkbox field--consent form-consent">
 <label class="checkbox">
 <input name="sms_consent" type="checkbox" value="yes"/>
 <span>
-<strong data-i18n="form.optional">SMS consent (optional):</strong>
-<span data-i18n="form.smsConsentLabel">I agree that Financial Stream LLC may text me about my inquiry or a missed call (service-related only). Сообщение frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.</span>
+<strong data-i18n="form.optional">Согласие на SMS (необязательно):</strong>
+<span data-i18n="form.smsConsentLabel">Я согласен(на), что Financial Stream LLC может отправить мне SMS по моему обращению или при пропущенном звонке (только по вопросам сервиса). Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.</span>
 </span>
 </label>
 <div class="field__hint" style="margin-top:8px;"><span data-i18n="form.details">Подробнее:</span> <a data-i18n="footer.smsConsent" href="/ru/sms-consent.html">Согласие на SMS</a> | <a href="/ru/privacy-policy.html">Политика конфиденциальности</a> | <a href="/ru/terms-and-conditions.html">Условия использования</a></div>
-<div class="field__hint"><span data-i18n="form.ackPrefix">By submitting, you acknowledge our</span> <a data-i18n="footer.privacy" href="/ru/privacy-policy.html">Политика конфиденциальности</a> <span data-i18n="form.ackAnd">and</span> <a data-i18n="footer.terms" href="/ru/terms-and-conditions.html">Условия использования</a>.</div>
+<div class="field__hint"><span data-i18n="form.ackPrefix">Отправляя форму, вы подтверждаете ознакомление с</span> <a data-i18n="footer.privacy" href="/ru/privacy-policy.html">Политика конфиденциальности</a> <span data-i18n="form.ackAnd">и</span> <a data-i18n="footer.terms" href="/ru/terms-and-conditions.html">Условия использования</a>.</div>
 </div>
 <button class="btn btn-primary" data-i18n="cta.sendRequest" type="submit">Отправить</button>
 </form>
@@ -139,7 +147,7 @@
 <aside class="section contact-hub-right">
 <div class="contact-hub-card">
 <h3>Записаться на бесплатный созвон 15 минут</h3>
-<p>Подходит для первичных вопросов и когда объём работ неясен. Слоты сейчас: 8–9 утра в будни.</p>
+<p>Подходит для первичных вопросов и когда объём работ неясен. Слоты на период сезона сдачи налоговой декларации доступны с 8 до 9 утра в будни (если нужно другое время, заполните форму для обратной связи, и мы перезвоним вам в удобное для вас время — укажите удобное время).</p>
 <a class="btn btn-primary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" rel="noopener" target="_blank">Записаться на 15 минут</a>
 </div>
 <div class="contact-hub-card">
