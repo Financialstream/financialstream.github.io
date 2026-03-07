@@ -251,8 +251,8 @@ a:hover{ text-decoration: underline; }
   content:'';
   position:absolute;
   inset:0;
-  /* Reduce veil ~20–30% so the background image is more visible */
-  /* Make the photo ~20–30% more visible while keeping text readable */
+  /* Reduce veil ~20â€“30% so the background image is more visible */
+  /* Make the photo ~20â€“30% more visible while keeping text readable */
   background: linear-gradient(90deg, rgba(255,255,255,.24) 0%, rgba(255,255,255,.42) 55%, rgba(255,255,255,.30) 100%);
 }
 
@@ -961,7 +961,7 @@ a:hover{ text-decoration: underline; }
   margin-top:auto;
 }
 
-/* Updates teaser in contact left (fills the “hole”) */
+/* Updates teaser in contact left (fills the â€œholeâ€) */
 .updates-teaser{
   margin-top: 18px;
   padding-top: 14px;
@@ -1202,6 +1202,23 @@ a:hover{ text-decoration: underline; }
   gap: 10px;
   flex-wrap: wrap;
 }
+.article-keypoints{
+  margin: 16px 0 20px;
+  padding: 14px 16px;
+  border: 1px solid rgba(42,111,176,.22);
+  border-radius: 14px;
+  background: rgba(42,111,176,.05);
+}
+.article-keypoints__title{
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+.article-keypoints__list{
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
 .related-section{
   /* Keep "Related" visually in the content area (not merged with footer) */
   padding: 28px 0 44px;
@@ -1242,11 +1259,58 @@ a:hover{ text-decoration: underline; }
   display: grid;
   gap: 8px;
 }
+.article-faq{
+  margin: 22px 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+}
+.article-faq__title{
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+.article-faq__list{
+  display: grid;
+  gap: 10px;
+}
+.article-faq__item{
+  border: 1px solid rgba(14,34,64,.12);
+  border-radius: 12px;
+  background: rgba(255,255,255,.95);
+}
+.article-faq__q{
+  display: block;
+  cursor: pointer;
+  margin: 0;
+  padding: 12px 14px;
+  font-weight: 800;
+  list-style: none;
+}
+.article-faq__q::-webkit-details-marker{ display: none; }
+.article-faq__q::marker{ content: ""; }
+.article-faq__q::after{
+  content: '+';
+  float: right;
+  color: var(--primary);
+  font-weight: 800;
+}
+.article-faq__item[open] .article-faq__q::after{ content: '-'; }
+.article-faq__a{
+  margin: 0;
+  padding: 0 14px 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
 @media (max-width: 520px){
   .article{ max-width: 100%; }
   .article-cta{ padding: 14px; }
+  .article-keypoints{ padding: 12px; }
+  .article-keypoints__title{ font-size: 17px; }
   .article-toc{ padding: 12px; }
   .article-toc__title{ font-size: 17px; }
+  .article-faq{ padding: 12px; }
+  .article-faq__title{ font-size: 19px; }
 }
 
 
@@ -1291,10 +1355,10 @@ a:hover{ text-decoration: underline; }
    Header/Footer stabilization for mobile (v64)
    Canonical contract (match HOME):
    Header order (ALL pages):
-     Logo + 4 nav links (Home/Services/Process/FAQ) + Language (EN/RU) + CTA "Contact us / Связаться с нами"
+     Logo + 4 nav links (Home/Services/Process/FAQ) + Language (EN/RU) + CTA "Contact us / Ð¡Ð²ÑÐ·Ð°Ñ‚ÑŒÑÑ Ñ Ð½Ð°Ð¼Ð¸"
    Footer order (ALL pages):
-     Left: logo + © Financial Stream LLC
-     Right: "Contact us / Связаться с нами" + (Privacy / Terms / SMS)
+     Left: logo + Â© Financial Stream LLC
+     Right: "Contact us / Ð¡Ð²ÑÐ·Ð°Ñ‚ÑŒÑÑ Ñ Ð½Ð°Ð¼Ð¸" + (Privacy / Terms / SMS)
    Mobile:
      - Portrait: header can wrap to 2 rows but never loses links; CTA must remain visible.
      - Landscape: keep compact one-row when possible; nav scrolls if tight (no disappearing links).
@@ -1414,7 +1478,7 @@ a:hover{ text-decoration: underline; }
 /* ==========================================================
    v66: Mobile footer stabilization (portrait)
    Goal: keep footer symmetric like HOME across all pages.
-   - Left: logo + ©
+   - Left: logo + Â©
    - Right: Contact + policy links
    Problem: on mobile portrait right block can drop too low / leave empty gap.
    Fix: use 2-col grid in portrait; align content to top; keep wrapping inside right column.
@@ -1634,10 +1698,10 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ==========================================================
-   v77: Mobile footer portrait — restore clean 2-column layout
+   v77: Mobile footer portrait â€” restore clean 2-column layout
    Goal (portrait):
-   - Left column: logo + ©
-   - Right column: "Contact us / Связаться с нами" + policy links laid out cleanly (not a vertical mess)
+   - Left column: logo + Â©
+   - Right column: "Contact us / Ð¡Ð²ÑÐ·Ð°Ñ‚ÑŒÑÑ Ñ Ð½Ð°Ð¼Ð¸" + policy links laid out cleanly (not a vertical mess)
    - No overlap with logo; allow wrap; do NOT move chatbot.
    ========================================================== */
 
@@ -1698,7 +1762,7 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ==========================================================
-   v79: RU footer portrait — readable layout (no letter-by-letter breaks)
+   v79: RU footer portrait â€” readable layout (no letter-by-letter breaks)
    Problem: RU policy links were breaking per-letter and looked worse.
    Fix (RU-only, portrait-only):
    - Keep 2-column footer (left brand / right links)
@@ -1757,7 +1821,7 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ==========================================================
-   v80: Mobile portrait footer — Chrome-safe width + no letter-stacking
+   v80: Mobile portrait footer â€” Chrome-safe width + no letter-stacking
    Issue: on some Chrome mobile builds the right footer column becomes too narrow,
    causing RU words to break into near-letter stacks.
    Fix:
@@ -1862,7 +1926,7 @@ a:hover{ text-decoration: underline; }
     max-width: 48% !important;
   }
   .footer__left .footer__copyright{
-    white-space: nowrap !important; /* keep © Financial Stream LLC on one line */
+    white-space: nowrap !important; /* keep Â© Financial Stream LLC on one line */
   }
   .footer__right{
     flex: 1 1 auto !important;
