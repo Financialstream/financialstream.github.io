@@ -45,11 +45,16 @@
 .contact-hub-left form .form-row{margin-bottom:10px;}
 .contact-hub-left form label{display:block;margin-bottom:4px;}
 .contact-hub-left form input, .contact-hub-left form textarea, .contact-hub-left form select{padding:9px 12px;}
-.contact-hub-left form textarea{min-height:84px;}
+.contact-hub-left form textarea{height:76px;min-height:76px;resize:vertical;}
 .contact-hub-left .stack{gap:7px;}
 .contact-hub-left .panel__next{margin:8px 0 10px;padding:12px 14px;}
 .contact-hub-left .panel__next-list{gap:6px;}
 .contact-hub-left .sms-consent, .contact-hub-left .consent, .contact-hub-left small{font-size:12px;line-height:1.35;opacity:.85;}
+.contact-hub-left .form-consent{max-width:96%;}
+.contact-hub-left .form-consent .checkbox,
+.contact-hub-left .form-consent .checkbox span,
+.contact-hub-left .form-consent .field__hint{font-size:10px;line-height:1.2;}
+.contact-hub-left .form-consent .field__hint{margin-top:4px;}
 /* Ensure buttons readable */
 .contact-hub-wrap .btn, .contact-hub-wrap a.btn{display:inline-flex;align-items:center;justify-content:center;}
 /* Mobile */
@@ -121,7 +126,7 @@
 <label class="field">
 <span class="field__label">How can we help?</span>
 <div class="field__hint field__hint--above">The more details you share (state, business type, QuickBooks yes/no), the faster and more accurate our reply.</div>
-<textarea class="field__input field__textarea" name="message" placeholder="Example: your state, business type, QuickBooks yes/no, what you need help with…" required="" rows="6"></textarea>
+<textarea class="field__input field__textarea" name="message" placeholder="Example: your state, business type, QuickBooks yes/no, what you need help with…" required="" rows="4"></textarea>
 </label>
 <div class="field field--checkbox field--consent form-consent">
 <label class="checkbox">
