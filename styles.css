@@ -409,6 +409,28 @@ a:hover{ text-decoration: underline; }
   max-width: 68ch;
 }
 
+/* Center key homepage section headers (desktop + mobile) */
+#services .section__head,
+#process .section__head,
+#reviews .section__head,
+#faq .section__head{
+  text-align: center;
+}
+#services .section__subtitle,
+#process .section__subtitle,
+#reviews .section__subtitle,
+#faq .section__subtitle{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+@media (min-width: 1024px){
+  #services .section__subtitle{
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
 .cards{
   display: grid;
   grid-template-columns: repeat(3, 1fr);

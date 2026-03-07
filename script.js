@@ -40,7 +40,7 @@
       },
       services: {
         title: 'Our Services',
-        subtitle: 'Practical accounting services focused on compliance, clean books, and tax readiness.',
+        subtitle: 'Practical accounting support for small businesses: on-time compliance, clean books, and stress-free tax readiness.',
         more: 'Learn more',
         s1: { b1: 'Company registration / closure', b2: 'EIN application', b3: 'Business license', b4: 'Contractor license' },
         s2: { b1: 'Bookkeeping in QuickBooks Online. Professional monthly categorization.' },
@@ -243,7 +243,7 @@
       },
       services: {
         title: 'Наши услуги',
-        subtitle: '\u041f\u0440\u0430\u043a\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0443\u0441\u043b\u0443\u0433\u0438 \u0434\u043b\u044f \u0431\u0438\u0437\u043d\u0435\u0441\u0430: \u0441\u043e\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435 \u0441\u0440\u043e\u043a\u043e\u0432, \u0447\u0438\u0441\u0442\u044b\u0439 \u0443\u0447\u0451\u0442 \u0438 \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0430 \u043a \u043d\u0430\u043b\u043e\u0433\u0430\u043c.',
+        subtitle: 'Практичная бухгалтерская поддержка для малого бизнеса: сроки под контролем, чистый учёт и спокойная подготовка к налогам.',
         more: 'Подробнее',
         s1: { b1: 'Регистрация/ликвидация компании', b2: 'Получение EIN', b3: 'Оформление бизнесс лицензии', b4: 'Оформление лицензии контрактора' },
         s2: { b1: 'Ведение бухгалтерского учета в QuickBooks. Профессиональная ежемесячная категоризация.' },
