@@ -754,3 +754,88 @@ function updateLangButtons() {
     // no-op
   }
 })();
+
+// FS_tracking_v1: lightweight conversion event hooks (GTM/GA4-ready)
+(function(){
+  try {
+    window.dataLayer = window.dataLayer || [];
+
+    function detectLang(){
+      try { return (window.location.pathname || '/').startsWith('/ru/') ? 'ru' : 'en'; }
+      catch(_) { return 'en'; }
+    }
+
+    function pushEvent(eventName, payload){
+      try {
+        window.dataLayer.push(Object.assign({
+          event: eventName,
+          event_source: 'site',
+          page_path: window.location.pathname || '/',
+          page_lang: detectLang(),
+          ts: Date.now()
+        }, payload || {}));
+      } catch(_) {
+        // no-op
+      }
+    }
+
+    window.FS_trackEvent = pushEvent;
+
+    // Form submit events
+    document.addEventListener('submit', function(e){
+      var form = e.target;
+      if(!(form instanceof HTMLFormElement)) return;
+      if((form.id || '') !== 'contactForm') return;
+      var action = (form.getAttribute('action') || '').toLowerCase();
+      pushEvent('lead_form_submit', {
+        form_id: form.id || null,
+        form_action: action,
+        form_provider: action.indexOf('formspree.io') !== -1 ? 'formspree' : 'unknown'
+      });
+    }, true);
+
+    // Click tracking for key conversion links
+    document.addEventListener('click', function(e){
+      var el = e.target && e.target.closest ? e.target.closest('a') : null;
+      if(!el) return;
+      var href = (el.getAttribute('href') || '').trim();
+      if(!href) return;
+
+      if(href.indexOf('calendar.app.google') !== -1){
+        pushEvent('booking_click', { href: href, cta_text: (el.textContent || '').trim().slice(0,120) });
+        return;
+      }
+
+      if(href.indexOf('mailto:') === 0){
+        pushEvent('email_click', { href: href });
+        return;
+      }
+
+      if(href.indexOf('tel:') === 0){
+        pushEvent('phone_click', { href: href });
+        return;
+      }
+    }, true);
+
+    // Chatbase load lifecycle
+    window.addEventListener('load', function(){
+      pushEvent('page_ready', {});
+      if(document.querySelector('script[data-chatbase-loader="1"]')){
+        pushEvent('chat_script_injected', { provider: 'chatbase' });
+      }
+    });
+
+    // Best-effort chat open click capture
+    document.addEventListener('click', function(e){
+      var n = e.target;
+      if(!n) return;
+      var node = n.closest ? n.closest('[id*="chatbase"],[class*="chatbase"],iframe[src*="chatbase.co"]') : null;
+      if(node){
+        pushEvent('chat_interaction_click', { provider: 'chatbase' });
+      }
+    }, true);
+
+  } catch(_) {
+    // no-op
+  }
+})();
