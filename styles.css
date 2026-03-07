@@ -418,7 +418,32 @@ a:hover{ text-decoration: underline; }
   flex-direction: column;
 }
 
-.card__icon{ font-size: 22px; }
+.card__icon{
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 12px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(31,95,156,.24);
+  background: linear-gradient(180deg, rgba(42,111,176,.14), rgba(42,111,176,.05));
+  color: var(--primary-2);
+  font-size: 0;
+  box-shadow: 0 8px 18px rgba(20, 57, 95, .12);
+}
+.cards .card .card__icon::before{
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .6px;
+}
+.cards .card:nth-child(1) .card__icon::before{ content: 'LLC'; }
+.cards .card:nth-child(2) .card__icon::before{ content: 'QB'; }
+.cards .card:nth-child(3) .card__icon::before{ content: 'DOR'; }
+.cards .card:nth-child(4) .card__icon::before{ content: 'PAY'; }
+.cards .card:nth-child(5) .card__icon::before{ content: 'TAX'; }
+.cards .card:nth-child(6) .card__icon::before{ content: 'CFO'; }
 .card__title{ margin: 10px 0 6px; font-size: 18px; }
 .card__text{ margin: 0; color: var(--muted); line-height: 1.55; }
 
@@ -543,6 +568,15 @@ a:hover{ text-decoration: underline; }
 
 
 
+/* RU home FAQ order: keep long questions in the bottom row */
+.faq.faq--ru-home .faq__item:nth-child(1){ order: 1; }
+.faq.faq--ru-home .faq__item:nth-child(2){ order: 2; }
+.faq.faq--ru-home .faq__item:nth-child(3){ order: 3; }
+.faq.faq--ru-home .faq__item:nth-child(5){ order: 4; }
+.faq.faq--ru-home .faq__item:nth-child(6){ order: 5; }
+.faq.faq--ru-home .faq__item:nth-child(8){ order: 6; }
+.faq.faq--ru-home .faq__item:nth-child(7){ order: 7; }
+.faq.faq--ru-home .faq__item:nth-child(4){ order: 8; }
 @media (min-width: 900px){
   .faq{
     grid-template-columns: 1fr 1fr;
@@ -1066,6 +1100,22 @@ a:hover{ text-decoration: underline; }
 
 /* Trust strip: QuickBooks badge */
 .qbo-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:#2db34a;color:#fff;font-weight:700;font-size:12px;letter-spacing:.5px;}
+.svc-list li[data-i18n="services.s2.b1"]::after{
+  content: 'QB';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+  border-radius: 999px;
+  background: #2db34a;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .4px;
+  vertical-align: middle;
+}
 
 
 /* --- v7 conversion polish --- */
