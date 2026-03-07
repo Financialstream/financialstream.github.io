@@ -839,3 +839,114 @@ function updateLangButtons() {
     // no-op
   }
 })();
+
+// FS_form_guard_v1: lightweight anti-spam protection for contact forms.
+(function(){
+  try {
+    var FORM_MIN_SECONDS = 4;
+    var FORM_COOLDOWN_MS = 45000;
+    var FORM_COOLDOWN_KEY = 'fs_contact_form_last_submit_at';
+
+    function nowMs() {
+      return Date.now();
+    }
+
+    function setGuardMessage(form, text) {
+      var box = form && form.querySelector ? form.querySelector('#formSuccess, .form-success') : null;
+      if (!box) return;
+      box.hidden = false;
+      box.style.display = 'block';
+      box.textContent = text;
+    }
+
+    function getSubmitButton(form) {
+      return form.querySelector('button[type="submit"], input[type="submit"]');
+    }
+
+    function setSubmitState(form, disabled, label) {
+      var btn = getSubmitButton(form);
+      if (!btn) return;
+      if (!btn.dataset.originalLabel) {
+        btn.dataset.originalLabel = ('value' in btn) ? (btn.value || '') : (btn.textContent || '');
+      }
+      btn.disabled = !!disabled;
+      btn.setAttribute('aria-disabled', disabled ? 'true' : 'false');
+      if (label) {
+        if ('value' in btn) btn.value = label;
+        else btn.textContent = label;
+      } else if (!disabled && btn.dataset.originalLabel) {
+        if ('value' in btn) btn.value = btn.dataset.originalLabel;
+        else btn.textContent = btn.dataset.originalLabel;
+      }
+    }
+
+    function appendHidden(form, name, value) {
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      input.value = value;
+      form.appendChild(input);
+      return input;
+    }
+
+    function initFormGuard(form) {
+      if (!form || form.dataset.fsGuardReady === '1') return;
+      form.dataset.fsGuardReady = '1';
+
+      var renderedAt = appendHidden(form, 'fs_rendered_at', String(Math.floor(nowMs() / 1000)));
+      appendHidden(form, 'fs_guard_version', 'v1');
+
+      form.addEventListener('submit', function(e) {
+        var submittedAt = nowMs();
+        var lastSubmitAt = 0;
+
+        try {
+          lastSubmitAt = parseInt(localStorage.getItem(FORM_COOLDOWN_KEY) || '0', 10) || 0;
+        } catch (_) {
+          lastSubmitAt = 0;
+        }
+
+        var formAgeMs = submittedAt - (parseInt(renderedAt.value || '0', 10) * 1000);
+        if (formAgeMs < FORM_MIN_SECONDS * 1000) {
+          e.preventDefault();
+          setGuardMessage(form, 'Please wait a few seconds and try again.');
+          setSubmitState(form, false);
+          return;
+        }
+
+        if (lastSubmitAt && (submittedAt - lastSubmitAt) < FORM_COOLDOWN_MS) {
+          e.preventDefault();
+          setGuardMessage(form, 'Please wait a moment before sending another request.');
+          setSubmitState(form, false);
+          return;
+        }
+
+        setSubmitState(form, true, 'Sending...');
+        try {
+          localStorage.setItem(FORM_COOLDOWN_KEY, String(submittedAt));
+        } catch (_) {
+          // no-op
+        }
+      }, true);
+    }
+
+    function initAllContactForms() {
+      var forms = document.querySelectorAll('form#contactForm[action*="formspree.io"]');
+      forms.forEach(initFormGuard);
+    }
+
+    window.addEventListener('pageshow', function() {
+      document.querySelectorAll('form#contactForm[action*="formspree.io"]').forEach(function(form) {
+        setSubmitState(form, false);
+      });
+    });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAllContactForms);
+    } else {
+      initAllContactForms();
+    }
+  } catch (_) {
+    // no-op
+  }
+})();
