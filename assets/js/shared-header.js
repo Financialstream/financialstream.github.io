@@ -30,8 +30,6 @@
     "/blog/washington-bookkeeping-quickbooks.html",
     "/contact/",
     "/contact/index.html",
-    "/getting-started/",
-    "/getting-started/index.html",
     "/getting-started.html",
     "/googled57b0ab6edc65ff3.html",
     "/index.html",
@@ -56,8 +54,6 @@
     "/ru/contact/",
     "/ru/contact/index.html",
     "/ru/index.html",
-    "/ru/kak-nachat/",
-    "/ru/kak-nachat/index.html",
     "/ru/kak-nachat.html",
     "/ru/privacy-policy.html",
     "/ru/services/",
@@ -224,10 +220,10 @@
         </a>
 
         <nav class="main-nav" aria-label="Main navigation">
-          <a href="${nav.home}">${lang === 'ru' ? 'Ð“Ð»Ð°Ð²Ð½Ð°Ñ' : 'Home'}</a>
-          <a href="${nav.services}">${lang === 'ru' ? 'Ð£ÑÐ»ÑƒÐ³Ð¸' : 'Services'}</a>
-          <a href="${nav.process}">${lang === 'ru' ? 'ÐŸÑ€Ð¾Ñ†ÐµÑÑ' : 'Process'}</a>
-          <a href="${nav.faq}">${lang === 'ru' ? 'Ð’Ð¾Ð¿Ñ€Ð¾ÑÑ‹' : 'FAQ'}</a>
+          <a href="${nav.home}">${lang === 'ru' ? 'Главная' : 'Home'}</a>
+          <a href="${nav.services}">${lang === 'ru' ? 'Услуги' : 'Services'}</a>
+          <a href="${nav.process}">${lang === 'ru' ? 'Процесс' : 'Process'}</a>
+          <a href="${nav.faq}">${lang === 'ru' ? 'Вопросы' : 'FAQ'}</a>
 </nav>
 
         <div class="header-right">
@@ -235,7 +231,7 @@
             <a class="${lang === 'en' ? 'active' : ''}" href="${enUrl}">EN</a>
             <a class="${lang === 'ru' ? 'active' : ''}" href="${ruUrl}">RU</a>
           </div>
-          <a class="cta-btn" href="${nav.contactPage}">${lang === 'ru' ? 'Ð¡Ð²ÑÐ·Ð°Ñ‚ÑŒÑÑ Ñ Ð½Ð°Ð¼Ð¸' : 'Contact us'}</a>
+          <a class="cta-btn" href="${nav.contactPage}">${lang === 'ru' ? 'Связаться с нами' : 'Contact us'}</a>
 
 </div>
       </div>
