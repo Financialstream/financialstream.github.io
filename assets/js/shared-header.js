@@ -22,9 +22,11 @@
     "/blog/seattle-area-accountant-bookkeeper.html",
     "/blog/seattle-quickbooks-bookkeeping.html",
     "/blog/seattle-tax-return-guide.html",
+    "/blog/seattle-small-business-bookkeeper-services.html",
     "/blog/us-bookkeeping-small-business.html",
     "/blog/us-tax-return-preparation.html",
     "/blog/us-tax-return-prep-remote-checklist.html",
+    "/blog/washington-tax-preparation-checklist-2026.html",
     "/blog/washington-bookkeeping-quickbooks.html",
     "/contact/",
     "/contact/index.html",
@@ -39,6 +41,7 @@
     "/ru/blog/index.html",
     "/ru/blog/irs-2026-inflation-adjustments.html",
     "/ru/blog/nalogovaya-deklaraciya-seattle.html",
+    "/ru/blog/nalogovaya-deklaraciya-ssha-cheklist-dokumentov-2026.html",
     "/ru/blog/nalogovaya-deklaraciya-usa-udalenno-cheklist.html",
     "/ru/blog/payroll-2026.html",
     "/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html",
@@ -46,6 +49,7 @@
     "/ru/blog/quickbooks-uchet-ssha-ezhemesyachnyy-cheklist.html",
     "/ru/blog/sales-tax-2026.html",
     "/ru/blog/seattle-area-accountant-bookkeeper.html",
+    "/ru/blog/russkogovoryashchiy-bukhgalter-v-ssha-seattle-washington.html",
     "/ru/blog/washington-bookkeeping-quickbooks.html",
     "/ru/contact/",
     "/ru/contact/index.html",
@@ -82,6 +86,8 @@
     "/blog/us-tax-return-preparation.html": "/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html",
     "/blog/quickbooks-online-bookkeeping-monthly-close.html": "/ru/blog/quickbooks-uchet-ssha-ezhemesyachnyy-cheklist.html",
     "/blog/us-tax-return-prep-remote-checklist.html": "/ru/blog/nalogovaya-deklaraciya-usa-udalenno-cheklist.html",
+    "/blog/seattle-small-business-bookkeeper-services.html": "/ru/blog/russkogovoryashchiy-bukhgalter-v-ssha-seattle-washington.html",
+    "/blog/washington-tax-preparation-checklist-2026.html": "/ru/blog/nalogovaya-deklaraciya-ssha-cheklist-dokumentov-2026.html",
     "/getting-started.html": "/ru/kak-nachat.html",
     "/ru/blog/buhgalter-seattle-quickbooks.html": "/blog/seattle-quickbooks-bookkeeping.html",
     "/ru/blog/nalogovaya-deklaraciya-seattle.html": "/blog/seattle-tax-return-guide.html",
@@ -89,6 +95,8 @@
     "/ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html": "/blog/us-tax-return-preparation.html",
     "/ru/blog/quickbooks-uchet-ssha-ezhemesyachnyy-cheklist.html": "/blog/quickbooks-online-bookkeeping-monthly-close.html",
     "/ru/blog/nalogovaya-deklaraciya-usa-udalenno-cheklist.html": "/blog/us-tax-return-prep-remote-checklist.html",
+    "/ru/blog/russkogovoryashchiy-bukhgalter-v-ssha-seattle-washington.html": "/blog/seattle-small-business-bookkeeper-services.html",
+    "/ru/blog/nalogovaya-deklaraciya-ssha-cheklist-dokumentov-2026.html": "/blog/washington-tax-preparation-checklist-2026.html",
     "/ru/kak-nachat.html": "/getting-started.html",
   };
 
@@ -130,6 +138,28 @@
     return '/';
   }
 
+  function findAlternatePath(targetLang) {
+    const selectors = targetLang === 'ru'
+      ? ['link[rel="alternate"][hreflang="ru"]']
+      : ['link[rel="alternate"][hreflang="en"]', 'link[rel="alternate"][hreflang="x-default"]'];
+
+    for (const sel of selectors) {
+      const link = document.querySelector(sel);
+      if (!link) continue;
+      const href = link.getAttribute('href');
+      if (!href) continue;
+      try {
+        const u = new URL(href, window.location.origin);
+        if (u.origin !== window.location.origin) continue;
+        const p = normalizePath(u.pathname);
+        if (exists(p)) return p;
+      } catch (_) {
+        // no-op
+      }
+    }
+    return null;
+  }
+
   function buildLangUrl(targetLang) {
     const path = normalizePath(window.location.pathname || '/');
     const search = window.location.search || '';
@@ -138,13 +168,17 @@
     const currentLang = isRu(path) ? 'ru' : 'en';
     if (targetLang === currentLang) return path + search + hash;
 
-    // 1) Explicit mapping
+    // 1) Page-declared alternate links (preferred)
+    const alt = findAlternatePath(targetLang);
+    if (alt) return alt + search + hash;
+
+    // 2) Explicit mapping
     if (FS_EXPLICIT_LANG_MAP[path]) {
       const mapped = FS_EXPLICIT_LANG_MAP[path];
       if (exists(mapped)) return mapped + search + hash;
     }
 
-    // 2) Rule-based prefix/unprefix
+    // 3) Rule-based prefix/unprefix
     let candidate;
     if (targetLang === 'ru') {
       candidate = (path === '/') ? '/ru/' : (path.startsWith('/ru/') ? path : '/ru' + path);
@@ -152,7 +186,7 @@
       candidate = (path === '/ru/') ? '/' : (path.startsWith('/ru/') ? path.replace(/^\/ru/, '') : path);
     }
 
-    // 3) Existence gate + fallback
+    // 4) Existence gate + fallback
     if (exists(candidate)) return candidate + search + hash;
     return fallback(path, targetLang) + search + hash;
   }
