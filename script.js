@@ -76,11 +76,11 @@
       reviews: {
         title: 'Client reviews',
         subtitle: 'Clients across the U.S. — here are a few short notes.',
-        r1: { text: '“Clear, fast, and accurate. We finally have clean monthly reports.”', name: 'Alex' },
-        r2: { text: '“Great communication and everything is organized. Highly recommend.”', name: 'Olga' },
-        r3: { text: '“They helped me fix issues from the previous bookkeeper and set everything up correctly.”', name: 'Svetlana' },
-        r4: { text: '“Professional service and quick answers — exactly what a small business needs.”', name: 'Viktor' },
-        r5: { text: '“Very attentive approach. Everything is on time and stress‑free.”', name: 'Tetiana' },
+        r1: { text: '"We came in with messy books and no clear monthly process. They cleaned everything up, explained the reports in plain language, and now we actually trust our numbers."', name: 'Alex' },
+        r2: { text: '"Communication is excellent. I always know what is pending, what was completed, and what documents are needed next. That alone removed a lot of stress."', name: 'Olga' },
+        r3: { text: '"They fixed categorization mistakes from our previous setup and aligned QuickBooks with our tax workflow. Filing season felt much smoother this year."', name: 'Svetlana' },
+        r4: { text: '"Professional, responsive, and very practical. We get clear monthly reports, fast answers, and no last-minute surprises with payroll or sales tax."', name: 'Viktor' },
+        r5: { text: '"As a U.S. small business owner, I needed reliable support I could trust. They are consistent, detail-oriented, and easy to work with every month."', name: 'Steve' },
       },
       faq: {
         title: 'FAQ',
@@ -271,11 +271,11 @@
       reviews: {
         title: 'Отзывы клиентов',
         subtitle: 'Нам доверяют сотни клиентов — вот несколько коротких отзывов.',
-        r1: { text: '“Четко, быстро и аккуратно. Наконец-то есть нормальные ежемесячные отчеты.”', name: 'Алексей' },
-        r2: { text: '“Отличная коммуникация, все разложили по полочкам. Рекомендую.”', name: 'Ольга' },
-        r3: { text: '“Помогли исправить ошибки прошлого бухгалтера и настроили учет правильно.”', name: 'Светлана' },
-        r4: { text: '“Профессионально и быстро отвечают — именно то, что нужно малому бизнесу.”', name: 'Виктор' },
-        r5: { text: '“Очень внимательный подход. Все вовремя и без стресса.”', name: 'Татьяна' },
+        r1: { text: '"Пришли с запущенным учетом и непонятными цифрами. Команда все аккуратно восстановила, объяснила отчеты простым языком и выстроила понятный ежемесячный процесс."', name: 'Алексей' },
+        r2: { text: '"Очень сильная коммуникация: всегда понятно, что уже сделано, что в работе и какие документы нужны дальше. За счет этого стало гораздо спокойнее управлять бизнесом."', name: 'Ольга' },
+        r3: { text: '"Исправили ошибки после предыдущего бухгалтера, правильно настроили QuickBooks и связали учет с налоговой подготовкой. В сезон подачи стало намного проще."', name: 'Светлана' },
+        r4: { text: '"Профессиональный подход и быстрые ответы по делу. Ежемесячные отчеты теперь чистые, а вопросы по payroll и sales tax закрываются без хаоса и спешки."', name: 'Виктор' },
+        r5: { text: '"Как владельцу бизнеса в США, мне была важна надежность и предсказуемость. Работают стабильно, внимательно к деталям и действительно держат процесс под контролем."', name: 'Стив' },
       },
 monthly: {
       title: 'Что вы получаете каждый месяц',
