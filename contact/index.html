@@ -30,21 +30,25 @@
 
 <style>
 
-/* Contact hub layout fixes (v41 contact) */
-.contact-hub-wrap{padding:28px 0;}
-.contact-hub-title, .contact-hub-subtitle, .contact-hub-seo{ text-align:center; }
-.contact-hub-subtitle{max-width:820px;margin:10px auto 22px;}
-.contact-hub-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:start;}
+/* Contact hub layout fixes (v42 contact sync) */
+.contact-hub-wrap{padding:14px 0 8px;}
+.contact-hub-title, .contact-hub-subtitle{ text-align:center; }
+.contact-hub-subtitle{max-width:820px;margin:8px auto 14px;}
+.contact-hub-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;align-items:start;}
+.contact-hub-left.section, .contact-hub-right.section, .contact-hub-bottom.section{padding:0;margin:0;}
 .contact-hub-left, .contact-hub-card{border-radius:16px;}
-.contact-hub-right{display:flex;flex-direction:column;gap:12px;}
+.contact-hub-right{display:flex;flex-direction:column;gap:10px;}
 .contact-hub-card{padding:14px 16px;}
 .contact-hub-card h3{margin:0 0 8px;}
 .contact-hub-card p{margin:0 0 10px;}
 /* Make the embedded form more compact */
 .contact-hub-left form .form-row{margin-bottom:10px;}
-.contact-hub-left form label{display:block;margin-bottom:6px;}
-.contact-hub-left form input, .contact-hub-left form textarea, .contact-hub-left form select{padding:10px 12px;}
-.contact-hub-left form textarea{min-height:92px;}
+.contact-hub-left form label{display:block;margin-bottom:4px;}
+.contact-hub-left form input, .contact-hub-left form textarea, .contact-hub-left form select{padding:9px 12px;}
+.contact-hub-left form textarea{min-height:84px;}
+.contact-hub-left .stack{gap:7px;}
+.contact-hub-left .panel__next{margin:8px 0 10px;padding:12px 14px;}
+.contact-hub-left .panel__next-list{gap:6px;}
 .contact-hub-left .sms-consent, .contact-hub-left .consent, .contact-hub-left small{font-size:12px;line-height:1.35;opacity:.85;}
 /* Ensure buttons readable */
 .contact-hub-wrap .btn, .contact-hub-wrap a.btn{display:inline-flex;align-items:center;justify-content:center;}
@@ -53,22 +57,28 @@
   .contact-hub-grid{grid-template-columns:1fr;}
   .contact-hub-right{order:2;}
 }
+@media (max-width: 640px){
+  .contact-hub-wrap{padding:10px 0 4px;}
+  .contact-hub-subtitle{margin:6px auto 10px;}
+  .contact-hub-grid{gap:10px;}
+  .contact-hub-right{gap:8px;}
+  .contact-hub-card{padding:12px 14px;}
+  .contact-hub-bottom{margin-top:8px;}
+  .contact-hub-left .panel__next{margin:6px 0 8px;padding:10px 12px;}
+}
 /* Ensure anchor offset */
 :root{scroll-padding-top:84px;}
 
-.contact-hub-bottom{margin-top:24px;}
+.contact-hub-bottom{margin-top:12px;}
 .contact-hub-bottom .hub-seo-block{max-width:1100px;margin:0 auto;}
 .hub-seo-block ul{display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:center;margin:0;padding:0;list-style:none;}
 .hub-seo-block li{margin:0;}
 
-.contact-hub-bottom .hub-seo{max-width:1100px;margin:0 auto;}
-
 /* Make the bottom SEO section full-width (not split columns) and centered */
 .contact-hub-bottom{display:block;}
-.contact-hub-bottom .hub-seo-block,
-.contact-hub-bottom .hub-seo{width:100%;text-align:center;}
-.contact-hub-bottom .hub-seo h2,
-.contact-hub-bottom .hub-seo p{text-align:center;}
+.contact-hub-bottom .hub-seo-block{width:100%;text-align:center;}
+.contact-hub-bottom .hub-seo-block h2{font-size:22px;line-height:1.25;margin-bottom:10px;}
+.contact-hub-bottom .hub-seo-block p{text-align:center;}
 </style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://financialstreamllc.com/contact/#webpage","url":"https://financialstreamllc.com/contact/","name":"Choose the easiest way to reach us","description":"Choose the easiest way to contact Financial Stream LLC: request form, free 15‑minute call, or longer session request.","inLanguage":"en"},{"@type":"Organization","@id":"https://financialstreamllc.com/#organization","name":"Financial Stream LLC","url":"https://financialstreamllc.com/","logo":"https://financialstreamllc.com/assets/logo-horizontal.png"},{"@type":"LocalBusiness","@id":"https://financialstreamllc.com/#localbusiness","name":"Financial Stream LLC","url":"https://financialstreamllc.com/","image":"https://financialstreamllc.com/assets/hero-bg.jpg","telephone":"+12064303464","email":"financialstreamllc@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Federal Way","addressRegion":"WA","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"availableLanguage":["en","ru"]}]}</script>
@@ -81,8 +91,16 @@
 <div class="contact-hub-grid contact-hub-grid--top">
 <section class="section contact-hub-left">
 <div class="hub-card hub-card--primary" id="quick-form">
-<h2 class="hub-card__title">Send a request (fastest)</h2>
-<p class="hub-card__desc">1–2 minutes. We’ll reply by email.</p>
+<h2 class="hub-card__title" data-i18n="contact.formTitle">Book a free consultation or ask a question</h2>
+<p class="hub-card__desc" data-i18n="contact.formSub">We will review your situation, ask a few quick questions, and suggest the next step.</p>
+<div class="panel__next">
+<p class="panel__next-title">What happens next</p>
+<ul class="panel__next-list">
+<li>We reply quickly (usually within 1 business day)</li>
+<li>We confirm scope, timeline, and documents</li>
+<li>You get a clear next-step plan</li>
+</ul>
+</div>
 <form action="https://formspree.io/f/xwvqekla" class="stack" id="contactForm" method="POST">
 <div aria-live="polite" class="form-success" hidden="" id="formSuccess" role="status" style="display:none;"></div>
 <input name="_subject" type="hidden" value="Financial Stream — Website request"/>
@@ -123,7 +141,7 @@
 <aside class="section contact-hub-right">
 <div class="contact-hub-card">
 <h3>Book a free 15-minute consultation</h3>
-<p>Best for first-time questions or unclear scope. Current slots: 8–9am weekdays.</p>
+<p>Best for first-time questions or unclear scope. During tax filing season, available calendar slots are typically 8:00–9:00 AM on weekdays (if you need another time, submit the contact form and we will call you back to confirm a time that works for you).</p>
 <a class="btn btn-primary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" rel="noopener" target="_blank">Book 15-min consult</a>
 </div>
 <div class="contact-hub-card">
@@ -134,14 +152,14 @@
 <div class="contact-hub-card">
 <h3>Email (documents / questions)</h3>
 <p>If you prefer, email us documents and a short description. Please do not send SSNs, passwords, or any login credentials.</p>
-<a class="btn btn-ghost" class="email-link" href="mailto:financialstreamllc@gmail.com" onclick="window.location.href='mailto:financialstreamllc@gmail.com'; return false;">financialstreamllc@gmail.com</a>
+<a class="btn btn-ghost email-link" href="mailto:financialstreamllc@gmail.com" onclick="window.location.href='mailto:financialstreamllc@gmail.com'; return false;">financialstreamllc@gmail.com</a>
 </div>
-</aside>
+<div class="contact-hub-card hub-seo">
+<h3>We help with</h3>
+<p><a href="/services/tax-returns.html">tax returns</a>, <a href="/services/quickbooks-bookkeeping.html">QuickBooks bookkeeping</a>, <a href="/services/sales-tax-dor-reporting.html">sales tax reporting</a>, <a href="/services/payroll-li-quarterly.html">payroll &amp; quarterly reports</a>, and <a href="/services/company-formation.html">business formation</a>.</p>
+</div></aside>
 </div>
 <section class="section contact-hub-bottom">
-<div class="hub-seo">
-<p>We help with <a href="/services/tax-returns.html">tax returns</a>, <a href="/services/quickbooks-bookkeeping.html">QuickBooks bookkeeping</a>, <a href="/services/sales-tax-dor-reporting.html">sales tax reporting</a>, <a href="/services/payroll-li-quarterly.html">payroll &amp; quarterly reports</a>, and <a href="/services/company-formation.html">business formation</a>.</p>
-</div>
 <div class="hub-seo-block">
 <h2>Accounting and tax support in the U.S. (remote-first)</h2>
 <p>Financial Stream LLC provides accounting and bookkeeping support for individuals and small businesses across the U.S., primarily in a remote-first format. If you’re looking for an accountant or bookkeeper to help organize records and confirm next steps, start with a quick request or a free 15‑minute consultation to confirm scope.</p>
