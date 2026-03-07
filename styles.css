@@ -380,6 +380,12 @@ a:hover{ text-decoration: underline; }
 .section{
   padding: 60px 0;
 }
+/* Speed: delay heavy below-the-fold sections until they are near viewport */
+.section--defer{
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
+}
+
 .section--alt{
   background: linear-gradient(180deg, rgba(244,248,255,.9), rgba(255,255,255,1));
   border-top: 1px solid rgba(14,34,64,.08);
