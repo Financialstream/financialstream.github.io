@@ -1555,277 +1555,102 @@ a:hover{ text-decoration: underline; }
 /* Landscape: compact header; nav scrolls if needed; CTA stays */
 @media (max-width: 900px) and (orientation: landscape){
   .site-header .header-inner{
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    padding: 8px 0;
-    gap: 10px;
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 0 !important;
   }
-  .site-header .logo img{ height: 46px; }
-  .site-header .header-right{ flex-wrap: nowrap; gap: 10px; }
-  .site-header .lang-switch a{ min-width: 38px; height: 30px; padding: 0 10px; font-size: 12px; }
-  .site-header .cta-btn{ padding: 9px 12px; font-size: 13px; white-space: nowrap; }
-  .site-header .main-nav{ max-width: 52vw; }
-}
-
-/* Prevent whole-page horizontal scroll caused by header internals */
-.site-header .container{ overflow-x: hidden; }
-
-/* Footer stabilization (mobile): keep symmetric left/right, wrap inside right only */
-@media (max-width: 760px){
-  .footer__inner{
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px 16px;
+  .site-header .logo{
+    width: auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    justify-content: flex-start !important;
   }
-  .footer__logo{ height: 48px; }
-  .footer__left{ flex: 0 0 auto; }
-  .footer__right{
-    flex: 1 1 240px;
-    min-width: 220px;
-    display:flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+  .site-header .logo img{
+    height: 40px !important;
+    width: auto !important;
+    max-width: 100% !important;
   }
-  .footer__link{ display:inline-block; margin-bottom: 6px; font-size: 14px; }
-  .footer__policy{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 8px 12px;
-    font-size: 13px;
-    line-height: 1.3;
-  }
-  .footer__sep{ display:none; }
-}
-
-/* Extra-tight screens */
-@media (max-width: 420px){
-  .footer__link{ font-size: 13px; }
-  .footer__policy{ font-size: 12.5px; }
-  .site-header .cta-btn{ padding: 9px 12px; font-size: 13px; }
-}
-
-/* ==========================================================
-   v66: Mobile footer stabilization (portrait)
-   Goal: keep footer symmetric like HOME across all pages.
-   - Left: logo + (c)
-   - Right: Contact + policy links
-   Problem: on mobile portrait right block can drop too low / leave empty gap.
-   Fix: use 2-col grid in portrait; align content to top; keep wrapping inside right column.
-   ========================================================== */
-@media (max-width: 760px) and (orientation: portrait){
-  .footer__inner{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 16px;
-    row-gap: 10px;
-    align-items: start;
-  }
-  .footer__left{ align-self: start; }
-  .footer__right{
-    align-self: start;
-    justify-self: end;
-    min-width: 0;
-    text-align: right;
-  }
-  .footer__link{ margin-bottom: 6px; }
-  .footer__policy{
-    justify-content: flex-end;
-    gap: 8px 10px;
-  }
-}
-
-/* ==========================================================
-   v68: Footer text safe-zone on mobile (do NOT move chatbot)
-   Goal: prevent footer right-side labels/links from being covered by the fixed Chatbase bubble.
-   Strategy: add right padding to the footer's right column on mobile so text sits more center/left.
-   No changes to chatbot position or JS.
-   ========================================================== */
-
-@media (max-width: 760px) and (orientation: portrait){
-  /* Reserve space on the right edge where the chat bubble sits */
-  .footer__right{ padding-right: 88px; }
-  .footer__policy{ padding-right: 88px; }
-}
-
-@media (max-width: 900px) and (orientation: landscape){
-  .footer__right{ padding-right: 72px; }
-  .footer__policy{ padding-right: 72px; }
-}
-
-/* ==========================================================
-   v69: Mobile header/footer micro-stabilization (no business logic)
-   - Keep primary nav (4 links) always visible on mobile portrait+landscape.
-   - Keep CTA button present and avoid "thick" header via controlled wrapping.
-   - Footer remains symmetric; avoid right block dropping.
-   ========================================================== */
-
-/* Primary header (topbar) */
-@media (max-width: 760px){
-  .topbar__inner{ flex-wrap: wrap; justify-content: center; }
-  .nav{ display:flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-  .nav a{ white-space: nowrap; }
-  .topbar__actions{ flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .topbar__actions .btn.btn-primary{ white-space: nowrap; }
-}
-
-/* Blog/news/article injected header: ensure nav never disappears and CTA stays, without uncontrolled growth */
-@media (max-width: 760px){
-  .site-header .header-inner{ flex-wrap: wrap; justify-content: center; gap: 10px 12px; }
-  .site-header .logo{ width: 100%; display:flex; justify-content:center; }
-  .site-header .main-nav{ width: 100%; justify-content: center; overflow-x:auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
-  .site-header .header-right{ width: 100%; justify-content: center; flex-wrap: wrap; gap: 10px; }
-  .site-header .cta-btn{ white-space: nowrap; }
-}
-
-/* Footer: keep symmetric two-column on mobile portrait (if supported by structure) */
-@media (max-width: 760px) and (orientation: portrait){
-  .footer__inner{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 16px;
-    row-gap: 10px;
-    align-items: start;
-  }
-  .footer__right{
-    justify-self: end;
-    text-align: right;
-    min-width: 0;
-  }
-}
-
-/* ==========================================================
-   v75: FINAL header/footer contracts (override-only, no refactor)
-   ========================================================== */
-
-/* Shared-header (blog/article) */
-.site-header .main-nav{ display:flex; gap:14px; align-items:center; }
-.site-header .cta-btn{ white-space: nowrap; }
-@media (max-width: 980px){
   .site-header .main-nav{
-    overflow-x:auto;
-    overflow-y:hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    padding: 2px 0;
-    max-width: 62vw;
+    max-width: none !important;
+    min-width: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
   }
-  .site-header .main-nav::-webkit-scrollbar{ display:none; }
   .site-header .main-nav a{
-    flex: 0 0 auto;
-    font-size: 13px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    white-space: nowrap;
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+    padding: 5px 6px !important;
+    white-space: nowrap !important;
   }
-}
-@media (max-width: 760px) and (orientation: portrait){
-  .site-header .header-inner{ flex-wrap: wrap; justify-content: center; gap: 10px 12px; }
-  .site-header .logo{ width:100%; display:flex; justify-content:center; }
-  .site-header .logo img{ height: 58px; }
-  .site-header .main-nav{ width:100%; justify-content:center; max-width: 100%; }
-  .site-header .header-right{ width:100%; justify-content:center; flex-wrap: wrap; gap:10px; }
-}
-@media (max-width: 900px) and (orientation: landscape){
-  .site-header .header-inner{ flex-wrap: nowrap; justify-content: space-between; padding: 8px 0; gap: 10px; }
-  .site-header .logo img{ height: 46px; }
-  .site-header .header-right{ flex-wrap: nowrap; gap: 10px; }
-  .site-header .lang-switch a{ min-width: 38px; height: 30px; padding: 0 10px; font-size: 12px; }
-  .site-header .cta-btn{ padding: 9px 12px; font-size: 13px; }
-  .site-header .main-nav{ max-width: 54vw; }
-}
-.site-header .container{ overflow-x: hidden; }
+  .site-header .header-right{
+    width: auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+  }
+  .site-header .lang-switch{
+    flex: 0 0 auto !important;
+    padding: 1px !important;
+    gap: 1px !important;
+  }
+  .site-header .lang-switch a{
+    min-width: 32px !important;
+    height: 28px !important;
+    padding: 0 7px !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+  }
+  .site-header .cta-btn{
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+  }
 
-/* Primary topbar (most pages) */
-@media (max-width: 760px){
-  .topbar__inner{ flex-wrap: wrap; justify-content: center; gap: 10px 12px; }
-  .nav{ display:flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-  .nav a{ white-space: nowrap; }
-  .topbar__actions{ flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .topbar__actions .btn.btn-primary{ white-space: nowrap; }
-}
-
-/* Footer (mobile wide/low) */
-@media (max-width: 760px){
   .footer__inner{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px 14px;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 14px !important;
   }
-  .footer__left{ flex: 0 0 auto; }
+  .footer__logo{
+    max-width: 132px !important;
+    height: auto !important;
+  }
+  .footer__left{ flex: 0 0 auto !important; }
   .footer__right{
-    flex: 1 1 240px;
-    min-width: 200px;
-    display:flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    text-align: right !important;
+    gap: 4px !important;
   }
-  .footer__link{ display:inline-block; margin-bottom: 6px; }
-  .footer__policy{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 8px 12px;
-    line-height: 1.3;
-    font-size: 13px;
-  }
-  .footer__sep{ display:none; }
-}
-@media (max-width: 420px){
-  .footer__policy{ font-size: 12.5px; gap: 6px 10px; }
-}
-
-/* ==========================================================
-   v76: Mobile footer portrait fix (2-column contract)
-   Scope: ONLY mobile portrait footer. Desktop untouched. Landscape preserved.
-   Fix: prevent right block from dropping under left by using a 2-column grid in portrait.
-   ========================================================== */
-
-@media (max-width: 760px) and (orientation: portrait){
-  .footer__inner{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 16px;
-    row-gap: 10px;
-    align-items: start;
-  }
-  .footer__left{
-    grid-column: 1;
-    grid-row: 1;
-    align-self: start;
-  }
-  .footer__right{
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
-    align-self: start;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+  .footer__link{
+    margin-bottom: 0 !important;
+    font-size: 13px !important;
   }
   .footer__policy{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 8px 12px;
-    line-height: 1.3;
-    font-size: 13px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    gap: 4px 10px !important;
+    line-height: 1.15 !important;
   }
-  .footer__sep{ display:none; }
 }
-
-/* Extra-tight RU readability (portrait): slightly smaller policy text */
 @media (max-width: 420px) and (orientation: portrait){
   .footer__policy{ font-size: 12.5px; gap: 6px 10px; }
 }
