@@ -5335,3 +5335,35 @@ body:lang(ru) .contact-hub-card.hub-seo{
     min-height: 0;
   }
 }
+
+/* Contact EN baseline final micro-pass */
+body:lang(en) .contact-hub-left .hub-card__title{
+  max-width: 14ch;
+  font-size: clamp(1.42rem, 1.82vw, 1.88rem);
+  line-height: .98;
+}
+body:lang(en) .contact-hub-left .hub-card__desc{
+  font-size: .9rem;
+  line-height: 1.32;
+}
+body:lang(en) .contact-hub-left .panel__next{
+  margin: 5px 0 8px;
+  padding: 8px 10px;
+}
+body:lang(en) .contact-hub-left .panel__next-list li{
+  font-size: .82rem;
+  line-height: 1.24;
+}
+body:lang(en) .contact-hub-left .field__textarea{
+  min-height: 58px;
+}
+body:lang(en) .contact-hub-left .form-consent{
+  padding: 7px 10px;
+}
+body:lang(en) .contact-hub-left .btn.btn-primary{
+  min-height: 46px;
+}
+body:lang(en) .contact-hub-card.hub-seo{
+  min-height: 338px;
+  justify-content: flex-start;
+}
