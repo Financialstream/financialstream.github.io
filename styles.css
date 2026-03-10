@@ -4493,3 +4493,72 @@ body:lang(ru) #reviews .review__name::after{
     margin-bottom: 0 !important;
   }
 }
+
+/* Homepage correction pass v119 */
+@media (min-width: 900px){
+  #contact .contact{
+    grid-template-columns: minmax(0, 1.03fr) minmax(408px, .97fr);
+    align-items: stretch;
+  }
+  #contact .contact__right{
+    display: flex !important;
+    align-items: stretch;
+    min-height: 100%;
+    height: 100%;
+  }
+  #contact .panel{
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100% !important;
+    height: 100% !important;
+    padding: 20px 20px 12px !important;
+  }
+  #contact .panel__title{
+    font-size: clamp(21px, 2.05vw, 25px);
+    line-height: 1.08;
+    max-width: 24ch;
+  }
+  #contact .panel__subtitle{
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  #contact .field__label{
+    font-size: 13px;
+    line-height: 1.25;
+  }
+  #contact .field__input{
+    min-height: 48px;
+  }
+  #contact .field__textarea{
+    min-height: 96px;
+  }
+  #contact .form-consent{
+    padding: 12px 14px;
+  }
+  #contact .field__hint{
+    font-size: 11.5px;
+    line-height: 1.32;
+  }
+  #contact .stack{
+    gap: 8px;
+  }
+  #contact button.btn.btn-primary{
+    margin-top: auto !important;
+    margin-bottom: 0 !important;
+    min-height: 50px;
+    font-size: 15px;
+  }
+  #contact .contact-card--email .contact-card__v,
+  #contact .contact-card--email .contact-card__v a{
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -.03em;
+  }
+  #contact .contact-card--website .contact-card__v,
+  #contact .contact-card--website .contact-card__v a{
+    font-size: 17px;
+    line-height: 1.2;
+    letter-spacing: -.025em;
+  }
+}
