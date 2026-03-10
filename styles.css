@@ -4097,3 +4097,111 @@ body:lang(ru) #reviews .review__name::after{
     order: initial !important;
   }
 }
+
+/* Homepage correction pass v114 */
+.hero__copy{
+  max-width: min(1100px, 67vw);
+}
+.trust-strip{
+  max-width: min(1360px, 82vw);
+  padding: 10px 12px;
+}
+.trust-strip__grid{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.trust-item{
+  min-height: 58px;
+  padding: 8px 12px;
+}
+.trust-item__text{
+  font-size: 13px;
+  line-height: 1.32;
+}
+#contact .contact{
+  align-items: stretch;
+}
+@media (min-width: 900px){
+  #contact .contact{
+    grid-template-columns: minmax(0, 1.02fr) minmax(390px, .98fr);
+  }
+  #contact .contact__left,
+  #contact .contact__right{
+    min-height: 100%;
+    height: 100%;
+  }
+  #contact .contact__left{
+    display: flex !important;
+    flex-direction: column;
+  }
+  #contact .contact__left > .updates-teaser{
+    order: 1 !important;
+    margin-bottom: 18px;
+  }
+  #contact .contact__left > .section__title{
+    order: 2 !important;
+    margin: 0 0 4px;
+  }
+  #contact .contact__left > .section__subtitle{
+    order: 3 !important;
+    margin: 0 0 12px;
+  }
+  #contact .contact__left > .contact__grid{
+    order: 4 !important;
+    margin-top: auto;
+  }
+}
+#contact .contact__grid{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "phone email"
+    "location website";
+  gap: 12px;
+}
+#contact .contact-card{
+  min-height: 164px;
+}
+#contact .contact-card__v{
+  font-size: 15px;
+  line-height: 1.46;
+}
+#contact .contact-card.contact-card--location .contact-card__v{
+  font-size: 14px;
+}
+#contact .panel{
+  padding: 18px 18px 16px;
+}
+#contact .panel__title{
+  max-width: 24ch;
+  font-size: clamp(20px, 1.95vw, 25px);
+  line-height: 1.04;
+}
+#contact .panel__subtitle{
+  font-size: 13px;
+}
+#contact .panel__next{
+  margin: 10px 0 10px;
+}
+#contact .field__textarea{
+  min-height: 110px;
+}
+@media (max-width: 760px){
+  .trust-strip{
+    max-width: none;
+    padding: 10px;
+  }
+  .trust-strip__grid{
+    grid-template-columns: 1fr;
+  }
+  #contact .contact__grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "phone"
+      "email"
+      "location"
+      "website";
+  }
+  #contact .contact-card{
+    min-height: 0;
+  }
+}
