@@ -4615,3 +4615,38 @@ body:lang(ru) #contact .panel{
   margin-right: auto;
   text-align: center;
 }
+
+/* Homepage correction pass v123 */
+#reviews .section__title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#reviews .section__title::before{
+  content: '';
+  display: block;
+  width: 76px;
+  height: 6px;
+  margin: 0 auto 16px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(73,136,203,.9), rgba(153,215,245,.7));
+  box-shadow: 0 10px 24px rgba(73,136,203,.18);
+}
+@media (min-width: 900px){
+  .trust-strip{
+    max-width: min(1500px, 92vw);
+    padding: 10px 12px;
+  }
+  .trust-strip__grid{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .trust-item{
+    min-height: 54px;
+    padding: 8px 14px;
+  }
+  .trust-item__text{
+    font-size: 13px;
+    line-height: 1.26;
+  }
+}
