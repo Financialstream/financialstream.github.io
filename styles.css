@@ -4261,3 +4261,51 @@ body:lang(ru) #reviews .review__name::after{
     margin-top: auto;
   }
 }
+
+/* Homepage correction pass v116 */
+@media (min-width: 900px){
+  #contact .contact{
+    grid-template-columns: minmax(0, 1fr) minmax(405px, .97fr);
+    align-items: stretch;
+  }
+  #contact .contact__left > .contact__grid{
+    width: min(100%, 94%);
+    margin-top: auto;
+    margin-right: auto;
+    padding-bottom: 0;
+  }
+  #contact .contact__grid{
+    gap: 10px;
+  }
+  #contact .contact-card{
+    padding: 16px 18px;
+    border-radius: 26px;
+  }
+  #contact .contact-card--phone,
+  #contact .contact-card--email{
+    min-height: 120px;
+  }
+  #contact .contact-card--location,
+  #contact .contact-card--website{
+    min-height: 138px;
+  }
+  #contact .contact-card__k{
+    margin-bottom: 8px;
+  }
+  #contact .contact-card__v{
+    font-size: 14px;
+    line-height: 1.38;
+  }
+  #contact .contact-card--location .contact-card__v,
+  #contact .contact-card--website .contact-card__v{
+    font-size: 13px;
+    line-height: 1.34;
+  }
+  #contact .panel{
+    padding-bottom: 12px;
+  }
+  #contact button.btn.btn-primary{
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+}
