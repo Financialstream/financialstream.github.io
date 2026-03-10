@@ -713,12 +713,16 @@ function updateLangButtons() {
   const initial = (window.location.pathname.startsWith('/ru/') ? 'ru' : 'en');
   setLanguage(initial);
 
-  // Simple success message based on URL param (?sent=1)
+  // Simple success message based on URL param (?success=1)
   try {
     const params = new URLSearchParams(window.location.search);
     if (params.get('success') === '1') {
       const t = document.getElementById('formSuccess');
-      if (t) t.style.display = 'block';
+      if (t) {
+        t.hidden = false;
+        t.style.display = 'block';
+        t.textContent = ((i18n[initial] || {}).form || {}).success || 'Thank you \u2014 your request was sent.';
+      }
       // Remove the param from URL (optional, no reload)
       params.delete('success');
       const clean = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}${window.location.hash || ''}`;
@@ -867,6 +871,31 @@ function updateLangButtons() {
       return Date.now();
     }
 
+    function detectGuardLang() {
+      try {
+        return (window.location.pathname || '/').startsWith('/ru/') ? 'ru' : 'en';
+      } catch (_) {
+        return 'en';
+      }
+    }
+
+    function getGuardText(key) {
+      var lang = detectGuardLang();
+      var messages = {
+        en: {
+          tooFast: 'Please wait a few seconds and try again.',
+          cooldown: 'Please wait a moment before sending another request.',
+          sending: 'Sending...'
+        },
+        ru: {
+          tooFast: '\u041f\u043e\u0434\u043e\u0436\u0434\u0438\u0442\u0435 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0441\u0435\u043a\u0443\u043d\u0434 \u0438 \u043f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u0441\u043d\u043e\u0432\u0430.',
+          cooldown: '\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043d\u0435\u043c\u043d\u043e\u0433\u043e \u043f\u043e\u0434\u043e\u0436\u0434\u0438\u0442\u0435 \u043f\u0435\u0440\u0435\u0434 \u043f\u043e\u0432\u0442\u043e\u0440\u043d\u043e\u0439 \u043e\u0442\u043f\u0440\u0430\u0432\u043a\u043e\u0439.',
+          sending: '\u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430...'
+        }
+      };
+      return (messages[lang] && messages[lang][key]) || messages.en[key] || '';
+    }
+
     function setGuardMessage(form, text) {
       var box = form && form.querySelector ? form.querySelector('#formSuccess, .form-success') : null;
       if (!box) return;
@@ -874,7 +903,6 @@ function updateLangButtons() {
       box.style.display = 'block';
       box.textContent = text;
     }
-
     function getSubmitButton(form) {
       return form.querySelector('button[type="submit"], input[type="submit"]');
     }
@@ -925,19 +953,19 @@ function updateLangButtons() {
         var formAgeMs = submittedAt - (parseInt(renderedAt.value || '0', 10) * 1000);
         if (formAgeMs < FORM_MIN_SECONDS * 1000) {
           e.preventDefault();
-          setGuardMessage(form, 'Please wait a few seconds and try again.');
+          setGuardMessage(form, getGuardText('tooFast'));
           setSubmitState(form, false);
           return;
         }
 
         if (lastSubmitAt && (submittedAt - lastSubmitAt) < FORM_COOLDOWN_MS) {
           e.preventDefault();
-          setGuardMessage(form, 'Please wait a moment before sending another request.');
+          setGuardMessage(form, getGuardText('cooldown'));
           setSubmitState(form, false);
           return;
         }
 
-        setSubmitState(form, true, 'Sending...');
+        setSubmitState(form, true, getGuardText('sending'));
         try {
           localStorage.setItem(FORM_COOLDOWN_KEY, String(submittedAt));
         } catch (_) {
