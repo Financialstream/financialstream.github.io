@@ -4309,3 +4309,75 @@ body:lang(ru) #reviews .review__name::after{
     margin-bottom: 0;
   }
 }
+
+/* Homepage correction pass v117 */
+@media (min-width: 900px){
+  #contact .contact{
+    grid-template-columns: minmax(0, 1.02fr) minmax(400px, .98fr);
+  }
+  #contact .contact__left > .contact__grid{
+    width: min(100%, 98%);
+    margin-right: 0;
+    padding-bottom: 0;
+  }
+  #contact .contact__grid{
+    grid-template-columns: minmax(0, .98fr) minmax(0, .98fr);
+    gap: 12px;
+  }
+  #contact .contact-card{
+    padding: 18px 20px;
+    border-radius: 28px;
+  }
+  #contact .contact-card--phone,
+  #contact .contact-card--email{
+    min-height: 114px;
+  }
+  #contact .contact-card--location,
+  #contact .contact-card--website{
+    min-height: 132px;
+  }
+  #contact .contact-card__k{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.2;
+    color: rgba(33,79,130,.96);
+  }
+  #contact .contact-card__k .icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+    color: rgba(66,119,201,.96);
+    opacity: 1;
+  }
+  #contact .contact-card__k .icon svg{
+    width: 19px;
+    height: 19px;
+    stroke-width: 2.2;
+  }
+  #contact .contact-card__v,
+  #contact .contact-card__v a{
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: 800;
+    color: rgba(23,44,72,.88);
+  }
+  #contact .contact-card--phone .contact-card__v,
+  #contact .contact-card--email .contact-card__v,
+  #contact .contact-card--website .contact-card__v{
+    letter-spacing: -.02em;
+  }
+  #contact .contact-card--location .contact-card__v{
+    font-size: 13px;
+    line-height: 1.36;
+    font-weight: 800;
+  }
+  #contact .panel{
+    padding-bottom: 8px;
+  }
+}
