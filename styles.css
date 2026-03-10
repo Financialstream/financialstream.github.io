@@ -4569,3 +4569,48 @@ body:lang(ru) #contact .panel{
     height: 56px;
   }
 }
+
+/* Service pages premium pass */
+.policy__inner > p > a[href='/'],
+.policy__inner > p > a[href='/ru/'],
+.policy__inner > p > a[href*='index.html#top']{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(40,96,160,.14);
+  background: rgba(240,247,255,.82);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  color: rgba(27,71,120,.96);
+  text-decoration: none !important;
+}
+.policy__inner > p > a[href='/']:hover,
+.policy__inner > p > a[href='/ru/']:hover,
+.policy__inner > p > a[href*='index.html#top']:hover{
+  background: rgba(232,243,255,.96);
+  color: rgba(19,55,94,1);
+}
+.policy__links{
+  margin-top: 6px;
+  gap: 10px;
+}
+.policy__links li{
+  padding: 10px 14px;
+  border: 1px solid rgba(37,89,147,.10);
+  border-radius: 16px;
+  background: rgba(248,251,255,.86);
+  list-style: none;
+}
+.policy__links li::marker{
+  content: '';
+}
+.policy__links a{
+  font-weight: 700;
+}
+.policy__cta{
+  margin-top: 32px;
+}
+.policy__cta .btn.btn-primary{
+  min-width: 220px;
+}
