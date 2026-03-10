@@ -4209,13 +4209,7 @@ body:lang(ru) #reviews .review__name::after{
   line-height: 1;
 }
 .hero__copy{
-  max-width: min(980px, 61vw);
-}
-.hero__title{
-  max-width: 13.5ch;
-}
-.hero__subtitle{
-  max-width: 24ch;
+  max-width: min(1100px, 67vw);
 }
 .trust-strip{
   max-width: min(1500px, 92vw);
@@ -5692,5 +5686,4 @@ body:lang(ru) .contact-hub-card.hub-seo p{
     transform: scale(1.005);
   }
 }
-
 
