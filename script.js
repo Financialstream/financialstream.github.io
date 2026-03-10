@@ -426,15 +426,18 @@ monthly: {
       if (typeof value === 'string') {
         const icon = el.querySelector('.icon');
         if (icon) {
-          const existingLabel = el.querySelector('.i18n-label');
-          if (existingLabel) {
-            existingLabel.textContent = value;
-          } else {
-            const label = document.createElement('span');
+          Array.from(el.childNodes).forEach((node) => {
+            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+              node.textContent = '';
+            }
+          });
+          let label = el.querySelector('.i18n-label');
+          if (!label) {
+            label = document.createElement('span');
             label.className = 'i18n-label';
-            label.textContent = value;
             el.appendChild(label);
           }
+          label.textContent = value;
         } else {
           el.textContent = value;
         }
@@ -963,5 +966,6 @@ function updateLangButtons() {
     // no-op
   }
 })();
+
 
 

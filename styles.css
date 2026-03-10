@@ -4650,3 +4650,25 @@ body:lang(ru) #contact .panel{
     line-height: 1.26;
   }
 }
+
+/* Homepage correction pass v124 */
+#faq .faq__q{
+  position: relative;
+  padding-right: 56px;
+}
+#faq .faq__q::after{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  float: none;
+  line-height: 1;
+}
+@media (max-width: 760px){
+  #faq .faq__q{
+    padding-right: 48px;
+  }
+  #faq .faq__q::after{
+    right: 16px;
+  }
+}
