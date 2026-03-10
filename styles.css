@@ -5543,3 +5543,22 @@ body:lang(ru) .contact-hub-left .btn.btn-primary{
 body:lang(ru) .contact-hub-left .hub-card--primary{
   padding-bottom: 8px !important;
 }
+
+/* Contact RU right column trim */
+body:lang(ru) .contact-hub-card.hub-seo{
+  min-height: 168px !important;
+  padding-top: 16px !important;
+  padding-bottom: 14px !important;
+}
+body:lang(ru) .contact-hub-card.hub-seo h3{
+  margin-bottom: 8px !important;
+}
+body:lang(ru) .contact-hub-card.hub-seo p{
+  font-size: .9rem !important;
+  line-height: 1.38 !important;
+}
+@media (max-width: 980px){
+  body:lang(ru) .contact-hub-card.hub-seo{
+    min-height: 0 !important;
+  }
+}
