@@ -224,19 +224,19 @@
         </a>
 
         <nav class="main-nav" aria-label="Main navigation">
-          <a href="${nav.home}">${lang === 'ru' ? 'Главная' : 'Home'}</a>
-          <a href="${nav.services}">${lang === 'ru' ? 'Услуги' : 'Services'}</a>
-          <a href="${nav.process}">${lang === 'ru' ? 'Процесс' : 'Process'}</a>
-          <a href="${nav.faq}">${lang === 'ru' ? 'Вопросы' : 'FAQ'}</a>
-</nav>
+          <a href="${nav.home}">${lang === 'ru' ? '\u0413\u043b\u0430\u0432\u043d\u0430\u044f' : 'Home'}</a>
+          <a href="${nav.services}">${lang === 'ru' ? '\u0423\u0441\u043b\u0443\u0433\u0438' : 'Services'}</a>
+          <a href="${nav.process}">${lang === 'ru' ? '\u041f\u0440\u043e\u0446\u0435\u0441\u0441' : 'Process'}</a>
+          <a href="${nav.faq}">${lang === 'ru' ? '\u0412\u043e\u043f\u0440\u043e\u0441\u044b' : 'FAQ'}</a>
+        </nav>
 
         <div class="header-right">
           <div class="lang-switch" role="group" aria-label="Language switch">
             <a class="${lang === 'en' ? 'active' : ''}" href="${enUrl}">EN</a>
             <a class="${lang === 'ru' ? 'active' : ''}" href="${ruUrl}">RU</a>
           </div>
-          <a class="cta-btn" href="${nav.contactPage}">${lang === 'ru' ? 'Связаться с нами' : 'Contact us'}</a>
-
+          <a class="cta-btn" href="${nav.contactPage}">${lang === 'ru' ? '\u0421\u0432\u044f\u0437\u0430\u0442\u044c\u0441\u044f \u0441 \u043d\u0430\u043c\u0438' : 'Contact us'}</a>
+        </div>
 </div>
       </div>
     `;
