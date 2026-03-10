@@ -5466,3 +5466,36 @@ body:lang(en) .contact-hub-left .hub-card__desc{
     max-width: none;
   }
 }
+
+/* Contact equal split and two-line title */
+.contact-hub-grid,
+body:lang(en) .contact-hub-grid,
+body:lang(ru) .contact-hub-grid{
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 18px !important;
+}
+body:lang(en) .contact-hub-left .hub-card__title{
+  max-width: 18ch !important;
+  font-size: clamp(1.18rem, 1.42vw, 1.42rem) !important;
+  line-height: .98 !important;
+}
+body:lang(ru) .contact-hub-left .hub-card__title{
+  max-width: 18ch !important;
+  font-size: clamp(1.02rem, 1.18vw, 1.18rem) !important;
+  line-height: .98 !important;
+}
+body:lang(en) .contact-hub-left .hub-card__desc,
+body:lang(ru) .contact-hub-left .hub-card__desc{
+  margin-bottom: 6px !important;
+}
+@media (max-width: 980px){
+  .contact-hub-grid,
+  body:lang(en) .contact-hub-grid,
+  body:lang(ru) .contact-hub-grid{
+    grid-template-columns: 1fr !important;
+  }
+  body:lang(en) .contact-hub-left .hub-card__title,
+  body:lang(ru) .contact-hub-left .hub-card__title{
+    max-width: none !important;
+  }
+}
