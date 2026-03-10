@@ -5367,3 +5367,102 @@ body:lang(en) .contact-hub-card.hub-seo{
   min-height: 338px;
   justify-content: flex-start;
 }
+
+/* Contact desktop millimeter pass */
+.contact-hub-card{
+  padding: 20px 22px 20px;
+}
+.contact-hub-card:nth-of-type(-n+3){
+  min-height: 186px;
+}
+.contact-hub-card.hub-seo{
+  min-height: 212px;
+  justify-content: flex-start;
+}
+.contact-hub-card.hub-seo h3{
+  margin-bottom: 10px;
+}
+.contact-hub-card.hub-seo p{
+  font-size: .95rem;
+  line-height: 1.52;
+}
+.contact-hub-left .hub-card__title{
+  max-width: 13ch;
+  font-size: clamp(1.34rem, 1.7vw, 1.72rem);
+  line-height: .98;
+}
+.contact-hub-left .hub-card__desc{
+  margin-bottom: 6px;
+  font-size: .88rem;
+  line-height: 1.28;
+}
+.contact-hub-left .panel__next{
+  margin: 4px 0 7px;
+  padding: 8px 10px;
+}
+.contact-hub-left .panel__next-title{
+  font-size: .84rem;
+}
+.contact-hub-left .panel__next-list li{
+  font-size: .8rem;
+  line-height: 1.2;
+}
+.contact-hub-left .field__label{
+  font-size: .68rem;
+}
+.contact-hub-left .field__input{
+  min-height: 40px;
+}
+.contact-hub-left .field__textarea{
+  min-height: 56px;
+}
+.contact-hub-left .form-consent{
+  padding: 7px 9px;
+}
+.contact-hub-left .form-consent .checkbox,
+.contact-hub-left .form-consent .checkbox span,
+.contact-hub-left .form-consent .field__hint{
+  font-size: 9.6px;
+  line-height: 1.14;
+}
+.contact-hub-left .btn.btn-primary{
+  min-height: 44px;
+}
+body:lang(ru) .contact-hub-left .hub-card__title{
+  max-width: 17.5ch;
+  font-size: clamp(1.08rem, 1.32vw, 1.34rem);
+  line-height: .98;
+}
+body:lang(ru) .contact-hub-left .hub-card__desc{
+  font-size: .86rem;
+  line-height: 1.22;
+}
+body:lang(ru) .contact-hub-left .panel__next-list li{
+  font-size: .78rem;
+}
+body:lang(en) .contact-hub-card:nth-of-type(-n+3){
+  min-height: 198px;
+}
+body:lang(en) .contact-hub-card.hub-seo{
+  min-height: 196px;
+}
+body:lang(en) .contact-hub-left .hub-card__title{
+  max-width: 12ch;
+  font-size: clamp(1.26rem, 1.54vw, 1.56rem);
+}
+body:lang(en) .contact-hub-left .hub-card__desc{
+  font-size: .86rem;
+}
+@media (max-width: 980px){
+  .contact-hub-card:nth-of-type(-n+3),
+  .contact-hub-card.hub-seo,
+  body:lang(en) .contact-hub-card:nth-of-type(-n+3),
+  body:lang(en) .contact-hub-card.hub-seo{
+    min-height: 0;
+  }
+  .contact-hub-left .hub-card__title,
+  body:lang(ru) .contact-hub-left .hub-card__title,
+  body:lang(en) .contact-hub-left .hub-card__title{
+    max-width: none;
+  }
+}
