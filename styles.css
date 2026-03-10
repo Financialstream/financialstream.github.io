@@ -3924,3 +3924,176 @@ body:lang(ru) #reviews .review__name::after{
     grid-template-columns: 1fr;
   }
 }
+
+/* Homepage correction pass v112 */
+.trust-strip{
+  max-width: min(1180px, 74vw);
+}
+.trust-strip__grid{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.trust-item{
+  min-height: 66px;
+  padding: 10px 14px;
+}
+#contact .contact__left{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+#contact .contact__left > .updates-teaser{
+  order: 1;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+#contact .contact__left > .section__title{
+  order: 2;
+  margin-top: 0;
+}
+#contact .contact__left > .section__subtitle{
+  order: 3;
+  margin-bottom: 10px;
+}
+#contact .contact__left > .contact__grid{
+  order: 4;
+  margin-top: auto;
+}
+#contact .updates-teaser::before{
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(79,145,212,.9), rgba(165,221,245,.6));
+}
+#contact .updates-teaser__title{
+  font-size: clamp(24px, 2.2vw, 30px);
+  line-height: 1.08;
+}
+#contact .updates-teaser__subtitle{
+  font-size: 14px;
+  line-height: 1.48;
+}
+#contact .updates-teaser__grid{
+  grid-template-columns: 1fr 1fr;
+}
+#contact .contact__grid{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas: "phone email website location";
+  gap: 12px;
+  margin-top: 12px;
+}
+#contact .contact-card{
+  min-height: 132px;
+  padding: 14px 14px 12px;
+}
+#contact .contact-card__v{
+  font-size: 14px;
+  line-height: 1.45;
+}
+#contact .contact-card.contact-card--location .contact-card__v{
+  font-size: 13px;
+  line-height: 1.42;
+}
+#contact .panel{
+  min-height: 100%;
+}
+@media (max-width: 1200px){
+  #contact .contact__grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "phone email"
+      "website location";
+  }
+}
+@media (max-width: 1100px){
+  .trust-strip{
+    max-width: none;
+  }
+}
+@media (max-width: 900px){
+  #contact .contact__left > .updates-teaser{
+    order: 3;
+    margin-bottom: 0;
+  }
+  #contact .contact__left > .section__title{
+    order: 1;
+  }
+  #contact .contact__left > .section__subtitle{
+    order: 2;
+  }
+  #contact .contact__left > .contact__grid{
+    order: 4;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 760px){
+  .trust-strip{
+    max-width: none;
+  }
+  .trust-strip__grid{
+    grid-template-columns: 1fr;
+  }
+  #contact .contact__grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "phone"
+      "email"
+      "website"
+      "location";
+  }
+  #contact .contact-card{
+    min-height: 0;
+  }
+}
+
+/* Homepage correction pass v113 */
+#contact .contact__left{
+  display: grid !important;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
+}
+#contact .contact__left > .updates-teaser{
+  order: initial !important;
+  grid-row: 1;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+#contact .contact__left > .section__title{
+  grid-row: 2;
+  margin: 0 0 4px;
+}
+#contact .contact__left > .section__subtitle{
+  grid-row: 3;
+  margin: 0 0 12px;
+}
+#contact .contact__left > .contact__grid{
+  order: initial !important;
+  grid-row: 4;
+  margin-top: 0;
+}
+#contact .updates-teaser,
+#contact .panel{
+  margin-top: 0;
+}
+#contact .updates-teaser,
+#contact .panel,
+#contact .contact__grid{
+  align-self: start;
+}
+#contact .contact__grid{
+  margin-bottom: 0;
+}
+@media (max-width: 900px){
+  #contact .contact__left{
+    display: flex !important;
+    flex-direction: column;
+  }
+  #contact .contact__left > .section__title,
+  #contact .contact__left > .section__subtitle,
+  #contact .contact__left > .updates-teaser,
+  #contact .contact__left > .contact__grid{
+    order: initial !important;
+  }
+}
