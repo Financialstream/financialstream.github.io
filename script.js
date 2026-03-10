@@ -424,7 +424,20 @@ monthly: {
       const key = el.getAttribute('data-i18n');
       const value = getNested(i18n[lang], key);
       if (typeof value === 'string') {
-        el.textContent = value;
+        const icon = el.querySelector('.icon');
+        if (icon) {
+          const existingLabel = el.querySelector('.i18n-label');
+          if (existingLabel) {
+            existingLabel.textContent = value;
+          } else {
+            const label = document.createElement('span');
+            label.className = 'i18n-label';
+            label.textContent = value;
+            el.appendChild(label);
+          }
+        } else {
+          el.textContent = value;
+        }
       }
     });
 
@@ -950,3 +963,5 @@ function updateLangButtons() {
     // no-op
   }
 })();
+
+

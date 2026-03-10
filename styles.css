@@ -4562,3 +4562,17 @@ body:lang(ru) #reviews .review__name::after{
     letter-spacing: -.025em;
   }
 }
+
+/* Homepage correction pass v120 */
+@media (min-width: 900px){
+  #contact .contact-card__k .i18n-label{
+    display: inline-flex;
+    align-items: center;
+  }
+}
+body:lang(en) #contact .panel{
+  padding-bottom: 16px !important;
+}
+body:lang(en) #contact button.btn.btn-primary{
+  min-height: 52px;
+}
