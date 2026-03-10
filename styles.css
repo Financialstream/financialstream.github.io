@@ -4576,3 +4576,33 @@ body:lang(en) #contact .panel{
 body:lang(en) #contact button.btn.btn-primary{
   min-height: 52px;
 }
+
+/* Homepage correction pass v121 */
+#services .svc-list{
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0;
+}
+#services .svc-list li{
+  list-style: none !important;
+  padding-left: 18px;
+}
+#services .svc-list li::marker,
+#services .svc-list li::-webkit-details-marker{
+  content: '';
+  display: none;
+}
+#services .svc-list li::before{
+  top: .62em;
+  transform: translateY(-50%);
+}
+#services .card .btn.btn-primary{
+  align-self: center;
+  text-align: center;
+}
+body:lang(en) #contact .panel{
+  padding-bottom: 17px !important;
+}
+body:lang(ru) #contact .panel{
+  padding-bottom: 15px !important;
+}
