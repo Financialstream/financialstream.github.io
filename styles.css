@@ -5499,3 +5499,31 @@ body:lang(ru) .contact-hub-left .hub-card__desc{
     max-width: none !important;
   }
 }
+
+/* Contact RU two-line title parity */
+body:lang(ru) .contact-hub-left .hub-card__title{
+  max-width: 24ch !important;
+  font-size: clamp(.94rem, 1.02vw, 1.04rem) !important;
+  line-height: .96 !important;
+}
+body:lang(ru) .contact-hub-left .hub-card__desc{
+  font-size: .84rem !important;
+  line-height: 1.18 !important;
+}
+body:lang(ru) .contact-hub-left .panel__next{
+  margin: 4px 0 7px !important;
+  padding: 7px 9px !important;
+}
+body:lang(ru) .contact-hub-left .panel__next-list li{
+  font-size: .75rem !important;
+  line-height: 1.14 !important;
+}
+body:lang(ru) .contact-hub-left .field__textarea{
+  min-height: 52px !important;
+}
+body:lang(ru) .contact-hub-left .form-consent{
+  padding: 6px 8px !important;
+}
+body:lang(ru) .contact-hub-left .btn.btn-primary{
+  min-height: 42px !important;
+}
