@@ -5677,20 +5677,28 @@ body:lang(ru) .contact-hub-card.hub-seo p{
 /* Desktop hero stability on very wide viewports */
 @media (min-width: 1440px){
   .hero{
-    max-width: none;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    --hero-frame-x: max(20px, calc((100vw - 1120px) / 2));
   }
   .hero__bg{
-    background-position: 70% center;
-    transform: scale(1);
+    left: var(--hero-frame-x);
+    right: var(--hero-frame-x);
+    border-radius: 0 0 26px 26px;
+    background-position: 64% center;
+    transform: scale(1.01);
+  }
+  .hero::after{
+    left: var(--hero-frame-x);
+    right: var(--hero-frame-x);
+    border-radius: 0 0 26px 26px;
+  }
+  .hero__copy{
+    max-width: min(1080px, 63vw);
   }
   .trust-strip{
-    max-width: min(1320px, 84vw);
+    max-width: min(1240px, 78vw);
   }
   .trust-item{
-    min-height: 58px;
+    min-height: 56px;
     padding: 9px 12px;
   }
   .trust-item__text{
@@ -5698,5 +5706,3 @@ body:lang(ru) .contact-hub-card.hub-seo p{
     line-height: 1.22;
   }
 }
-
-
