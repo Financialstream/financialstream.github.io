@@ -5527,3 +5527,19 @@ body:lang(ru) .contact-hub-left .form-consent{
 body:lang(ru) .contact-hub-left .btn.btn-primary{
   min-height: 42px !important;
 }
+
+/* Contact RU bottom compactness */
+body:lang(ru) .contact-hub-left .stack{
+  gap: 4px !important;
+}
+body:lang(ru) .contact-hub-left .form-consent{
+  margin-bottom: 4px !important;
+  padding-bottom: 5px !important;
+}
+body:lang(ru) .contact-hub-left .btn.btn-primary{
+  margin-top: 0 !important;
+  min-height: 40px !important;
+}
+body:lang(ru) .contact-hub-left .hub-card--primary{
+  padding-bottom: 8px !important;
+}
