@@ -4606,3 +4606,12 @@ body:lang(en) #contact .panel{
 body:lang(ru) #contact .panel{
   padding-bottom: 15px !important;
 }
+
+/* Homepage correction pass v122 */
+#services .section__subtitle{
+  white-space: normal !important;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
