@@ -237,7 +237,6 @@
           </div>
           <a class="cta-btn" href="${nav.contactPage}">${lang === 'ru' ? '\u0421\u0432\u044f\u0437\u0430\u0442\u044c\u0441\u044f \u0441 \u043d\u0430\u043c\u0438' : 'Contact us'}</a>
         </div>
-</div>
       </div>
     `;
     return header;
