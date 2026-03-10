@@ -5677,13 +5677,26 @@ body:lang(ru) .contact-hub-card.hub-seo p{
 /* Desktop hero stability on very wide viewports */
 @media (min-width: 1440px){
   .hero{
-    max-width: 1600px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
   .hero__bg{
-    background-position: 58% center;
-    transform: scale(1.005);
+    background-position: 70% center;
+    transform: scale(1);
+  }
+  .trust-strip{
+    max-width: min(1320px, 84vw);
+  }
+  .trust-item{
+    min-height: 58px;
+    padding: 9px 12px;
+  }
+  .trust-item__text{
+    font-size: 12.5px;
+    line-height: 1.22;
   }
 }
+
 
