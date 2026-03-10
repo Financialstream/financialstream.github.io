@@ -3550,3 +3550,146 @@ body:lang(ru) #reviews .review__name::after{
     inset: auto 14px 0;
   }
 }
+
+/* Homepage correction pass v109 */
+#services.section,
+#process.section,
+#reviews.section,
+#faq.section,
+#contact.section{
+  padding-top: clamp(60px, 7vw, 84px);
+  padding-bottom: clamp(60px, 7vw, 84px);
+}
+.hero__grid{
+  min-height: 560px;
+  align-items: center;
+}
+.hero__copy{
+  max-width: min(980px, 62vw);
+  padding: 12px 0 10px;
+}
+.hero__copy::after{
+  display: none;
+}
+.hero__title{
+  max-width: 16ch;
+  font-size: clamp(58px, 7vw, 86px);
+  line-height: .94;
+}
+.hero__subtitle{
+  max-width: 34ch;
+  font-size: clamp(17px, 1.7vw, 20px);
+}
+.hero__body{
+  max-width: 46ch;
+  font-size: 15px;
+  line-height: 1.72;
+}
+.trust-strip{
+  margin-top: 18px;
+  padding: 14px;
+}
+.trust-item{
+  min-height: 74px;
+  padding: 12px 14px;
+}
+#contact .contact{
+  gap: 22px;
+}
+@media (min-width: 900px){
+  #contact .contact{
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+    align-items: start;
+  }
+  #contact .contact__left{
+    height: auto;
+    min-height: 0;
+  }
+}
+#contact .updates-teaser{
+  margin-top: 18px;
+}
+#contact .panel{
+  padding: 22px 22px 18px;
+}
+#contact .panel__title{
+  max-width: none;
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.06;
+}
+#contact .panel__subtitle{
+  max-width: none;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+#contact .panel__next{
+  margin: 14px 0 12px;
+  padding: 14px 16px;
+}
+#contact .panel__next-list{
+  font-size: 14px;
+  line-height: 1.45;
+}
+#contact .stack{
+  gap: 10px;
+}
+#contact .field{
+  gap: 6px;
+}
+#contact .field__label{
+  font-size: 11px;
+}
+#contact .field__hint--above{
+  padding: 8px 10px;
+  font-size: 12px;
+}
+#contact .field__input{
+  min-height: 48px;
+  padding: 12px 14px;
+  font-size: 15px;
+}
+#contact .field__textarea{
+  min-height: 118px;
+}
+#contact .form-consent{
+  margin-top: 2px;
+  padding: 10px 12px;
+}
+#contact .form-consent .field__hint,
+#contact .field__hint,
+#contact .form-consent span{
+  font-size: 12px;
+  line-height: 1.35;
+}
+#contact button.btn.btn-primary{
+  min-height: 48px;
+  font-size: 15px;
+}
+@media (max-width: 760px){
+  #services.section,
+  #process.section,
+  #reviews.section,
+  #faq.section,
+  #contact.section{
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .hero__grid{
+    min-height: 0;
+  }
+  .hero__copy{
+    max-width: none;
+    padding: 10px 0 8px;
+  }
+  .hero__title{
+    max-width: 11ch;
+    font-size: clamp(42px, 12vw, 58px);
+  }
+  .hero__body{
+    max-width: none;
+  }
+  #contact .panel{
+    padding: 18px 16px 16px;
+  }
+}
