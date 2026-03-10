@@ -6196,3 +6196,79 @@ body:lang(ru) .contact-hub-card.hub-seo p{
     border-radius: 18px;
   }
 }
+
+/* Stage 6: stronger blog hero treatment */
+.blog-hero-band{
+  padding: 28px 28px 24px;
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(248,251,255,.98) 0%, rgba(238,245,255,.92) 100%),
+    radial-gradient(460px 180px at 100% 0%, rgba(122,186,232,.18), transparent 72%);
+  box-shadow: 0 24px 48px rgba(18,53,91,.1);
+}
+.blog-hero-band::after{
+  inset: 0 0 auto 0;
+  height: 4px;
+  border-radius: 28px 28px 0 0;
+  background: linear-gradient(90deg, rgba(52,111,183,.96), rgba(137,198,239,.78), rgba(52,111,183,.22));
+}
+.blog-hero-band__eyebrow{
+  box-shadow: 0 8px 18px rgba(33,79,128,.08);
+}
+.blog-hero-band h1{
+  position: relative;
+  z-index: 1;
+  max-width: 14ch;
+  margin-bottom: 14px;
+}
+.blog-hero-band__lead{
+  position: relative;
+  z-index: 1;
+  font-size: clamp(18px, 2vw, 20px);
+  line-height: 1.72;
+}
+.blog-hero-band__panel{
+  padding: 18px 18px 16px;
+  border-radius: 22px;
+  border-color: rgba(49,103,168,.16);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.96), rgba(239,247,255,.92)),
+    radial-gradient(180px 90px at 100% 0%, rgba(122,186,232,.12), transparent 72%);
+  box-shadow: 0 18px 32px rgba(17,48,82,.08), inset 0 1px 0 rgba(255,255,255,.78);
+}
+.blog-hero-band__panel::before{
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(52,111,183,.96), rgba(137,198,239,.72));
+}
+.blog-hero-band__panel-label{
+  margin-bottom: 12px;
+}
+.blog-hero-band__topic{
+  box-shadow: 0 8px 16px rgba(33,79,128,.05);
+}
+@media (max-width: 900px){
+  .blog-hero-band h1{
+    max-width: none;
+  }
+}
+@media (max-width: 760px){
+  .blog-hero-band{
+    padding: 22px 18px 18px;
+    border-radius: 24px;
+  }
+  .blog-hero-band::after{
+    border-radius: 24px 24px 0 0;
+  }
+  .blog-hero-band__lead{
+    font-size: 17px;
+  }
+  .blog-hero-band__panel{
+    padding: 16px 14px 14px;
+    border-radius: 18px;
+  }
+}
