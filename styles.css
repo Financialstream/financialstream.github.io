@@ -5313,3 +5313,25 @@ body:lang(ru) .contact-hub-left .panel__next-list li{
     min-height: 0;
   }
 }
+
+/* Contact column baseline micro-tuning */
+body:lang(en) .contact-hub-card{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+body:lang(en) .contact-hub-card.hub-seo{
+  min-height: 286px;
+}
+body:lang(ru) .contact-hub-card{
+  padding-top: 19px;
+  padding-bottom: 19px;
+}
+body:lang(ru) .contact-hub-card.hub-seo{
+  min-height: 264px;
+}
+@media (max-width: 980px){
+  body:lang(en) .contact-hub-card.hub-seo,
+  body:lang(ru) .contact-hub-card.hub-seo{
+    min-height: 0;
+  }
+}
