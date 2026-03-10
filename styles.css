@@ -4943,3 +4943,130 @@ body:lang(ru) #contact .panel{
     flex-direction: column;
   }
 }
+
+/* Contact hub final compact pass */
+.contact-hub-grid{
+  grid-template-columns: minmax(0, 1.04fr) minmax(320px, .96fr);
+  gap: 18px;
+  align-items: start;
+}
+.contact-hub-left .hub-card--primary{
+  position: relative;
+  overflow: hidden;
+  padding: 22px 24px 18px;
+  border-radius: 28px;
+}
+.contact-hub-left .hub-card--primary::before{
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, rgba(113,155,224,.96), rgba(205,229,255,.84));
+}
+.contact-hub-left .hub-card--primary::after{
+  content: "";
+  position: absolute;
+  inset: auto -10% -18% auto;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(177,211,255,.18), transparent 68%);
+  pointer-events: none;
+}
+.contact-hub-left .hub-card__title{
+  position: relative;
+  z-index: 1;
+  max-width: 16.5ch;
+  margin-bottom: 8px;
+  font-size: clamp(1.72rem, 2.35vw, 2.38rem);
+  line-height: 1.01;
+}
+.contact-hub-left .hub-card__desc{
+  position: relative;
+  z-index: 1;
+  max-width: 56ch;
+  margin-bottom: 12px;
+  font-size: .99rem;
+  line-height: 1.5;
+}
+.contact-hub-left .panel__next{
+  margin: 10px 0 12px;
+  padding: 13px 14px;
+  border-radius: 18px;
+}
+.contact-hub-left .panel__next-title{
+  font-size: .94rem;
+}
+.contact-hub-left .panel__next-list{
+  gap: 6px;
+}
+.contact-hub-left .panel__next-list li{
+  font-size: .93rem;
+  line-height: 1.42;
+}
+.contact-hub-left .stack{
+  gap: 6px;
+}
+.contact-hub-left .field__label{
+  font-size: .76rem;
+}
+.contact-hub-left .field__hint--above{
+  margin-bottom: 6px;
+  font-size: .8rem;
+  line-height: 1.38;
+}
+.contact-hub-left .field__input{
+  min-height: 46px;
+  padding: 10px 12px;
+}
+.contact-hub-left .field__textarea{
+  min-height: 84px;
+}
+.contact-hub-left .form-consent{
+  max-width: 100%;
+  padding: 10px 12px;
+}
+.contact-hub-left .form-consent .checkbox,
+.contact-hub-left .form-consent .checkbox span,
+.contact-hub-left .form-consent .field__hint{
+  font-size: 10.5px;
+  line-height: 1.22;
+}
+.contact-hub-left .btn.btn-primary{
+  min-height: 54px;
+  margin-top: 2px;
+}
+.contact-hub-card{
+  padding: 18px 18px 16px;
+}
+.contact-hub-card h3{
+  font-size: 1.03rem;
+  margin-bottom: 6px;
+}
+.contact-hub-card p{
+  margin-bottom: 8px;
+  font-size: .95rem;
+  line-height: 1.54;
+}
+body:lang(ru) .contact-hub-left .hub-card__title{
+  max-width: 23ch;
+  font-size: clamp(1.48rem, 1.9vw, 1.96rem);
+  line-height: 1.04;
+}
+body:lang(ru) .contact-hub-left .hub-card__desc{
+  max-width: 60ch;
+  font-size: .96rem;
+}
+body:lang(ru) .contact-hub-left .panel__next-list li{
+  font-size: .9rem;
+}
+@media (max-width: 980px){
+  .contact-hub-grid{
+    grid-template-columns: 1fr;
+  }
+  .contact-hub-left .hub-card__title,
+  body:lang(ru) .contact-hub-left .hub-card__title{
+    max-width: none;
+  }
+}
