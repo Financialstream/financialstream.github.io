@@ -3317,3 +3317,106 @@ body:lang(ru) #reviews .review__name::after{
     min-height: 0;
   }
 }
+
+/* Homepage composition pass v107 */
+#services.section,
+#process.section,
+#reviews.section,
+#faq.section,
+#contact.section{
+  padding-top: clamp(72px, 9vw, 104px);
+  padding-bottom: clamp(72px, 9vw, 104px);
+}
+#services .section__head,
+#process .section__head,
+#reviews .section__head,
+#faq .section__head{
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#process .steps{
+  position: relative;
+  gap: 20px;
+}
+#process .steps::before{
+  content: '';
+  position: absolute;
+  inset: 14px auto 14px 24px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(88,152,219,.22), rgba(88,152,219,.04));
+}
+#process .step{
+  position: relative;
+  overflow: hidden;
+  padding-right: 22px;
+}
+#process .step::after{
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 36px;
+  background: linear-gradient(180deg, rgba(219,236,252,.18), rgba(255,255,255,0));
+  pointer-events: none;
+}
+#process .step__num{
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 8px rgba(94,159,223,.1), 0 12px 22px rgba(27,74,126,.14);
+}
+#process .step__title{
+  color: rgba(17,37,63,.9);
+  font-weight: 800;
+}
+#process .step__text{
+  max-width: 56ch;
+}
+#faq .faq{
+  gap: 18px 20px;
+}
+#faq .faq__item{
+  box-shadow: 0 16px 30px rgba(16,49,83,.05);
+}
+#faq .faq__item:nth-child(2n){
+  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(242,248,255,.92));
+}
+#faq .faq__q{
+  font-weight: 700;
+}
+#faq .faq__a p{
+  margin: 0;
+}
+#faq .faq__a p + p{
+  margin-top: 12px;
+}
+#contact .updates-teaser,
+#contact .panel,
+#services .card,
+#reviews .review,
+#process .step,
+#faq .faq__item{
+  border-color: rgba(27,63,108,.09);
+}
+.btn-primary{
+  background: linear-gradient(180deg, rgba(90,155,222,1), rgba(52,113,181,1));
+  box-shadow: 0 12px 24px rgba(31,95,156,.18);
+}
+.btn-primary:hover{
+  box-shadow: 0 18px 32px rgba(31,95,156,.22);
+}
+@media (max-width: 760px){
+  #services.section,
+  #process.section,
+  #reviews.section,
+  #faq.section,
+  #contact.section{
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  #process .steps::before{
+    left: 19px;
+  }
+  #process .step{
+    padding-right: 16px;
+  }
+}
