@@ -3065,3 +3065,142 @@ footer.footer{
     padding: 22px 18px;
   }
 }
+
+/* Homepage composition pass v105 */
+#services .card,
+#reviews .review,
+#contact .contact-card,
+#contact .panel,
+#contact .updates-teaser{
+  backdrop-filter: blur(16px);
+}
+#services .card:hover,
+#reviews .review:hover,
+#contact .contact-card:hover,
+#contact .update-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 22px 40px rgba(16,49,83,.09);
+}
+#services .card,
+#reviews .review,
+#contact .contact-card,
+#contact .update-card{
+  transition: transform .18s ease, box-shadow .22s ease, border-color .22s ease;
+}
+#services .svc-list{
+  display: grid;
+  gap: 10px;
+}
+#services .svc-list li{
+  position: relative;
+  padding-left: 18px;
+}
+#services .svc-list li::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .7em;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #70b7e7, #3f7fc8);
+  box-shadow: 0 0 0 5px rgba(86,152,218,.12);
+}
+#services .svc-benefit{
+  margin-top: auto;
+}
+#reviews .section__subtitle{
+  max-width: 56ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+#reviews .reviews__grid{
+  gap: 20px;
+}
+#reviews .review{
+  min-height: 100%;
+  padding: 28px 24px 22px;
+}
+#reviews .review__text{
+  position: relative;
+  z-index: 1;
+  min-height: 7.5em;
+  padding-top: 8px;
+}
+#reviews .review__name{
+  margin-top: auto;
+}
+#reviews .review__name::after{
+  content: 'Client';
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(232,242,252,.85);
+  color: rgba(55,102,156,.76);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+html[lang="ru"] #reviews .review__name::after,
+body:lang(ru) #reviews .review__name::after{
+  content: 'Клиент';
+}
+#reviews .review:nth-child(2n){
+  background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(238,246,255,.92));
+}
+#reviews .review:nth-child(3n){
+  background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(244,248,255,.94));
+}
+#contact .contact-card{
+  position: relative;
+  overflow: hidden;
+}
+#contact .contact-card::before{
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(79,145,212,.84), rgba(79,145,212,0));
+}
+#contact .contact-card__k{
+  color: rgba(33,79,130,.9);
+  font-weight: 800;
+}
+#contact .contact-card__v a,
+#contact .contact-card__v{
+  color: rgba(23,44,72,.82);
+}
+#contact .updates-teaser__head{
+  align-items: end;
+}
+#contact .update-card{
+  border: 1px solid rgba(24,57,100,.08);
+  background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(243,248,255,.9));
+}
+#contact .panel__next-title{
+  color: rgba(31,74,120,.92);
+  font-weight: 800;
+}
+#contact .field__hint,
+#contact .form-consent .field__hint{
+  color: rgba(38,63,98,.64);
+}
+#contact .checkbox input{
+  margin-top: 4px;
+}
+#contact button.btn.btn-primary{
+  box-shadow: 0 16px 28px rgba(31,95,156,.18);
+}
+@media (max-width: 760px){
+  #reviews .review{
+    padding: 22px 18px 18px;
+  }
+  #reviews .review__text{
+    min-height: 0;
+  }
+  #reviews .review__name::after{
+    margin-left: 8px;
+    padding: 4px 8px;
+  }
+}
