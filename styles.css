@@ -3165,6 +3165,75 @@ body:lang(ru) #services .card__title{
   }
 }
 
+.services-routing{
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) auto;
+  gap: 24px;
+  align-items: center;
+  margin-top: 28px;
+  padding: 24px 26px;
+  border: 1px solid rgba(70,118,181,.12);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(247,250,255,.96), rgba(239,246,255,.9));
+  box-shadow: 0 24px 50px rgba(31,57,97,.08);
+}
+.services-routing__intro{
+  max-width: 780px;
+}
+.services-routing__eyebrow{
+  margin: 0 0 10px;
+  color: rgba(41,84,136,.84);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.services-routing__title{
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 36px);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+}
+.services-routing__text{
+  margin: 14px 0 0;
+  max-width: 62ch;
+  color: var(--text-soft);
+  font-size: 17px;
+}
+.services-routing__actions{
+  display: grid;
+  gap: 12px;
+  justify-items: stretch;
+  min-width: 250px;
+}
+.services-routing__actions .btn{
+  width: 100%;
+  justify-content: center;
+}
+body:lang(ru) .services-routing__title{
+  font-size: clamp(24px, 2.45vw, 30px);
+  line-height: 1.08;
+}
+@media (max-width: 760px){
+  .services-routing{
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 22px;
+    padding: 20px 18px;
+    border-radius: 24px;
+  }
+  .services-routing__title,
+  body:lang(ru) .services-routing__title{
+    font-size: 26px;
+  }
+  .services-routing__text{
+    font-size: 16px;
+  }
+  .services-routing__actions{
+    min-width: 0;
+  }
+}
 #reviews .section__subtitle{
   max-width: 56ch;
   margin-left: auto;
