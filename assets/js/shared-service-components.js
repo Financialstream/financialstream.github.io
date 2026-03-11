@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   function isRu() {
     return window.location.pathname.startsWith('/ru/');
   }
@@ -13,9 +13,12 @@
   var t = ru
     ? {
         relatedTitle: '\u0421\u0432\u044f\u0437\u0430\u043d\u043d\u044b\u0435 \u0441\u0442\u0430\u0442\u044c\u0438',
-        faqTitle: '\u0427\u0430\u0441\u0442\u044b\u0435 \u0432\u043e\u043f\u0440\u043e\u0441\u044b',
-        snapshotTitle: '\u041a\u043e\u0440\u043e\u0442\u043a\u043e \u043e\u0431 \u0443\u0441\u043b\u0443\u0433\u0435',
-        q1: '\u041c\u043e\u0436\u043d\u043e \u043b\u0438 \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c \u0443\u0434\u0430\u043b\u0435\u043d\u043d\u043e \u043f\u043e \u0421\u0428\u0410?',
+        faqTitle: '\u0427\u0430\u0441\u0442\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B',
+        snapshotTitle: '\u041A\u043E\u0440\u043E\u0442\u043A\u043E \u043E\u0431 \u0443\u0441\u043B\u0443\u0433\u0435',
+        nextStepTitle: '\u0421 \u0447\u0435\u0433\u043E \u043B\u0443\u0447\u0448\u0435 \u043D\u0430\u0447\u0430\u0442\u044C',
+        nextStepButton: '\u0411\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u044F',
+        nextStepSecondary: '\u041A\u0430\u043A \u043C\u044B \u043D\u0430\u0447\u0438\u043D\u0430\u0435\u043C \u0440\u0430\u0431\u043E\u0442\u0443',
+        q1: '\u041C\u043E\u0436\u043D\u043E \u043B\u0438 \u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C \u0443\u0434\u0430\u043B\u0435\u043D\u043D\u043E \u043F\u043E \u0421\u0428\u0410?',
         a1: '\u0414\u0430, \u0431\u043e\u043b\u044c\u0448\u0438\u043d\u0441\u0442\u0432\u043e \u0437\u0430\u0434\u0430\u0447 \u0432\u0435\u0434\u0435\u043c \u043e\u043d\u043b\u0430\u0439\u043d \u043f\u043e \u0432\u0441\u0435\u043c \u0448\u0442\u0430\u0442\u0430\u043c \u0421\u0428\u0410.',
         q2: '\u0427\u0442\u043e \u043d\u0443\u0436\u043d\u043e \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u0438\u0442\u044c \u043f\u0435\u0440\u0435\u0434 \u0441\u0442\u0430\u0440\u0442\u043e\u043c?',
         a2: '\u041f\u043e\u0441\u043b\u0435 \u0437\u0430\u043f\u0440\u043e\u0441\u0430 \u043c\u044b \u043e\u0442\u043f\u0440\u0430\u0432\u0438\u043c \u043a\u043e\u0440\u043e\u0442\u043a\u0438\u0439 \u0447\u0435\u043a\u043b\u0438\u0441\u0442 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u043f\u043e\u0434 \u0432\u0430\u0448\u0443 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044e.',
@@ -26,6 +29,9 @@
         relatedTitle: 'Related articles',
         faqTitle: 'Frequently asked questions',
         snapshotTitle: 'Service snapshot',
+        nextStepTitle: 'Best next step',
+        nextStepButton: 'Request a free consultation',
+        nextStepSecondary: 'How onboarding works',
         q1: 'Can this service be delivered remotely across the U.S.?',
         a1: 'Yes. Most work is handled remotely across states with secure document exchange and clear next steps.',
         q2: 'What should I prepare before we start?',
@@ -159,6 +165,104 @@
       ]
     }
   };
+  var nextStepGuides = {
+    '/services/company-formation.html': {
+      intro: 'Start here if you are opening a new LLC, fixing the setup after formation, or making sure EIN, licensing, and bookkeeping are aligned from day one.',
+      points: [
+        'Best for new businesses that want a clean start instead of fixing paperwork later',
+        'Useful when you are unsure which setup step comes first',
+        'Often paired with QuickBooks setup and early tax-readiness support'
+      ]
+    },
+    '/services/quickbooks-bookkeeping.html': {
+      intro: 'Start here if your books are behind, reports feel unreliable, or you want a stable monthly close without rebuilding the file every tax season.',
+      points: [
+        'Best for monthly support, catch-up work, or QuickBooks cleanup',
+        'Useful when payroll, sales tax, or owner transactions are creating noise',
+        'Usually the right first move before tax filing if the books are not fully ready'
+      ]
+    },
+    '/services/sales-tax-dor-reporting.html': {
+      intro: 'Start here if sales tax is already being collected but the filing process feels unclear, inconsistent, or disconnected from bookkeeping.',
+      points: [
+        'Best for Washington DOR filing and ongoing sales-tax support',
+        'Useful when platform reports do not clearly match the books',
+        'Usually works best after a quick review of bookkeeping and filing cadence'
+      ]
+    },
+    '/services/payroll-li-quarterly.html': {
+      intro: 'Start here if payroll is running but quarterly reporting, reconciliations, or worker records are starting to feel messy or too manual.',
+      points: [
+        'Best for businesses with active payroll and recurring filing deadlines',
+        'Useful when payroll reports no longer feel easy to verify',
+        'Often paired with monthly bookkeeping for cleaner year-round reporting'
+      ]
+    },
+    '/services/tax-returns.html': {
+      intro: 'Start here if tax season is approaching and you need a clean document process, clearer scope, and fewer last-minute corrections before filing.',
+      points: [
+        'Best for business returns, personal returns, or both together',
+        'Useful when documents are scattered or bookkeeping is not fully tax-ready',
+        'Often starts with a quick review to confirm what should be gathered first'
+      ]
+    },
+    '/services/financial-consulting.html': {
+      intro: 'Start here if you need financial clarity before making a decision, fixing a reporting issue, or choosing the right accounting next step.',
+      points: [
+        'Best when reports exist but are not yet helping with real decisions',
+        'Useful before pricing changes, tax planning, cleanup, or growth steps',
+        'Often turns unclear numbers into a simpler action plan'
+      ]
+    },
+    '/ru/services/company-formation.html': {
+      intro: '\u042d\u0442\u0430 \u0443\u0441\u043b\u0443\u0433\u0430 \u043f\u043e\u0434\u0445\u043e\u0434\u0438\u0442, \u0435\u0441\u043b\u0438 \u0432\u044b \u0437\u0430\u043f\u0443\u0441\u043a\u0430\u0435\u0442\u0435 LLC, \u0445\u043e\u0442\u0438\u0442\u0435 \u0441\u0440\u0430\u0437\u0443 \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e \u043e\u0444\u043e\u0440\u043c\u0438\u0442\u044c EIN \u0438 \u043b\u0438\u0446\u0435\u043d\u0437\u0438\u0438 \u0438 \u043d\u0435 \u0447\u0438\u043d\u0438\u0442\u044c \u0441\u0442\u0430\u0440\u0442 \u0431\u0438\u0437\u043d\u0435\u0441\u0430 \u043f\u043e\u0442\u043e\u043c.',
+      points: [
+        '\u041b\u0443\u0447\u0448\u0438\u0439 \u0432\u0445\u043e\u0434 \u0434\u043b\u044f \u043d\u043e\u0432\u043e\u0433\u043e \u0431\u0438\u0437\u043d\u0435\u0441\u0430 \u0431\u0435\u0437 \u0431\u0443\u043c\u0430\u0436\u043d\u043e\u0433\u043e \u0445\u0430\u043e\u0441\u0430',
+        '\u041f\u043e\u043b\u0435\u0437\u043d\u043e, \u0435\u0441\u043b\u0438 \u043d\u0435\u044f\u0441\u043d\u043e, \u043a\u0430\u043a\u0438\u0435 \u0448\u0430\u0433\u0438 \u0438\u0434\u0443\u0442 \u043f\u0435\u0440\u0432\u044b\u043c\u0438',
+        '\u0427\u0430\u0441\u0442\u043e \u0438\u0434\u0435\u0442 \u0432\u043c\u0435\u0441\u0442\u0435 \u0441 \u0437\u0430\u043f\u0443\u0441\u043a\u043e\u043c QuickBooks \u0438 \u0443\u0447\u0435\u0442\u0430'
+      ]
+    },
+    '/ru/services/quickbooks-bookkeeping.html': {
+      intro: '\u042d\u0442\u0430 \u0443\u0441\u043b\u0443\u0433\u0430 \u043f\u043e\u0434\u0445\u043e\u0434\u0438\u0442, \u0435\u0441\u043b\u0438 \u0443\u0447\u0435\u0442 \u043e\u0442\u0441\u0442\u0430\u0435\u0442, \u043e\u0442\u0447\u0435\u0442\u044b \u043d\u0435 \u0432\u044b\u0437\u044b\u0432\u0430\u044e\u0442 \u0434\u043e\u0432\u0435\u0440\u0438\u044f \u0438\u043b\u0438 \u0432\u044b \u0445\u043e\u0442\u0438\u0442\u0435 \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u044b\u0439 monthly close \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u0431\u043e\u0440\u043a\u0438 \u043a\u043d\u0438\u0433 \u043f\u0435\u0440\u0435\u0434 \u043d\u0430\u043b\u043e\u0433\u0430\u043c\u0438.',
+      points: [
+        '\u041f\u043e\u0434\u0445\u043e\u0434\u0438\u0442 \u0434\u043b\u044f monthly support, catch-up \u0438 cleanup',
+        '\u041f\u043e\u043b\u0435\u0437\u043d\u043e, \u043a\u043e\u0433\u0434\u0430 payroll, sales tax \u0438 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0438 owner \u0443\u0436\u0435 \u043c\u0435\u0448\u0430\u044e\u0442 \u0447\u0438\u0442\u0430\u0442\u044c \u0446\u0438\u0444\u0440\u044b',
+        '\u0427\u0430\u0441\u0442\u043e \u044d\u0442\u043e \u043f\u0435\u0440\u0432\u044b\u0439 \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u0448\u0430\u0433 \u043f\u0435\u0440\u0435\u0434 \u043d\u0430\u043b\u043e\u0433\u043e\u0432\u043e\u0439 \u043f\u043e\u0434\u0430\u0447\u0435\u0439'
+      ]
+    },
+    '/ru/services/sales-tax-dor-reporting.html': {
+      intro: '\u042d\u0442\u0430 \u0443\u0441\u043b\u0443\u0433\u0430 \u043f\u043e\u0434\u0445\u043e\u0434\u0438\u0442, \u0435\u0441\u043b\u0438 sales tax \u0443\u0436\u0435 \u0441\u043e\u0431\u0438\u0440\u0430\u0435\u0442\u0441\u044f, \u043d\u043e \u0441\u0430\u043c \u043f\u0440\u043e\u0446\u0435\u0441\u0441 filing \u0438 \u0441\u0432\u0435\u0440\u043a\u0438 \u043f\u043e\u043a\u0430 \u0432\u044b\u0433\u043b\u044f\u0434\u0438\u0442 \u043d\u0435\u043d\u0430\u0434\u0435\u0436\u043d\u043e.',
+      points: [
+        '\u041b\u0443\u0447\u0448\u0438\u0439 \u0432\u0430\u0440\u0438\u0430\u043d\u0442 \u0434\u043b\u044f Washington DOR \u0438 regular filing',
+        '\u041f\u043e\u043b\u0435\u0437\u043d\u043e, \u0435\u0441\u043b\u0438 reports \u0438\u0437 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c \u043d\u0435 \u0441\u0445\u043e\u0434\u044f\u0442\u0441\u044f \u0441 \u0443\u0447\u0435\u0442\u043e\u043c',
+        '\u041e\u0431\u044b\u0447\u043d\u043e \u043d\u0430\u0447\u0438\u043d\u0430\u0435\u0442\u0441\u044f \u0441 \u043a\u043e\u0440\u043e\u0442\u043a\u043e\u0439 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438 cadence \u0438 source data'
+      ]
+    },
+    '/ru/services/payroll-li-quarterly.html': {
+      intro: '\u042d\u0442\u0430 \u0443\u0441\u043b\u0443\u0433\u0430 \u043f\u043e\u0434\u0445\u043e\u0434\u0438\u0442, \u0435\u0441\u043b\u0438 payroll \u0443\u0436\u0435 \u0435\u0441\u0442\u044c, \u043d\u043e quarterly reporting, \u0441\u0432\u0435\u0440\u043a\u0438 \u0438 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0442 \u0437\u0430\u0431\u0438\u0440\u0430\u0442\u044c \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u043c\u043d\u043e\u0433\u043e \u0440\u0443\u0447\u043d\u043e\u0433\u043e \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044f.',
+      points: [
+        '\u041b\u0443\u0447\u0448\u0435 \u0432\u0441\u0435\u0433\u043e \u0434\u043b\u044f \u0431\u0438\u0437\u043d\u0435\u0441\u0430 \u0441 \u0430\u043a\u0442\u0438\u0432\u043d\u044b\u043c payroll \u0438 recurring deadlines',
+        '\u041f\u043e\u043b\u0435\u0437\u043d\u043e, \u043a\u043e\u0433\u0434\u0430 payroll reports \u0441\u0442\u0430\u043b\u0438 \u0442\u0440\u0443\u0434\u043d\u0435\u0435 \u043f\u0440\u043e\u0432\u0435\u0440\u044f\u0442\u044c',
+        '\u0427\u0430\u0441\u0442\u043e \u0438\u0434\u0435\u0442 \u0432\u043c\u0435\u0441\u0442\u0435 \u0441 \u0435\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u043e\u0439 \u0431\u0443\u0445\u0433\u0430\u043b\u0442\u0435\u0440\u0438\u0435\u0439'
+      ]
+    },
+    '/ru/services/tax-returns.html': {
+      intro: '\u042d\u0442\u0430 \u0443\u0441\u043b\u0443\u0433\u0430 \u043f\u043e\u0434\u0445\u043e\u0434\u0438\u0442, \u0435\u0441\u043b\u0438 \u043d\u0430\u043b\u043e\u0433\u043e\u0432\u044b\u0439 \u0441\u0435\u0437\u043e\u043d \u0431\u043b\u0438\u0437\u043a\u043e, \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u0435\u0449\u0435 \u043d\u0435 \u0441\u043e\u0431\u0440\u0430\u043d\u044b \u0438\u043b\u0438 \u043d\u0443\u0436\u043d\u043e \u043f\u043e\u043d\u044f\u0442\u044c, \u0447\u0442\u043e \u0438\u043c\u0435\u043d\u043d\u043e \u0433\u043e\u0442\u043e\u0432\u0438\u0442\u044c \u0434\u043e filing.',
+      points: [
+        '\u041f\u043e\u0434\u0445\u043e\u0434\u0438\u0442 \u0434\u043b\u044f business returns, personal returns \u0438 \u043e\u0431\u043e\u0438\u0445 \u0432\u043c\u0435\u0441\u0442\u0435',
+        '\u041f\u043e\u043b\u0435\u0437\u043d\u043e, \u043a\u043e\u0433\u0434\u0430 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u0440\u0430\u0437\u0440\u043e\u0437\u043d\u0435\u043d\u044b \u0438\u043b\u0438 bookkeeping \u0435\u0449\u0435 \u043d\u0435 tax-ready',
+        '\u0427\u0430\u0441\u0442\u043e \u043d\u0430\u0447\u0438\u043d\u0430\u0435\u0442\u0441\u044f \u0441 \u043a\u043e\u0440\u043e\u0442\u043a\u043e\u0439 \u043e\u0446\u0435\u043d\u043a\u0438 \u0438 \u0441\u043f\u0438\u0441\u043a\u0430, \u0447\u0442\u043e \u0434\u043e\u0441\u043e\u0431\u0440\u0430\u0442\u044c'
+      ]
+    },
+    '/ru/services/financial-consulting.html': {
+      intro: '\u042d\u0442\u0430 \u0443\u0441\u043b\u0443\u0433\u0430 \u043f\u043e\u0434\u0445\u043e\u0434\u0438\u0442, \u0435\u0441\u043b\u0438 \u043d\u0443\u0436\u043d\u0430 \u044f\u0441\u043d\u043e\u0441\u0442\u044c \u043f\u043e \u0446\u0438\u0444\u0440\u0430\u043c \u0434\u043e \u0440\u0435\u0448\u0435\u043d\u0438\u044f, cleanup \u0438\u043b\u0438 \u043d\u0430\u043b\u043e\u0433\u043e\u0432\u043e\u0439 \u043f\u043e\u0434\u0430\u0447\u0438.',
+      points: [
+        '\u041b\u0443\u0447\u0448\u0435 \u0432\u0441\u0435\u0433\u043e, \u043a\u043e\u0433\u0434\u0430 \u043e\u0442\u0447\u0435\u0442\u044b \u0443\u0436\u0435 \u0435\u0441\u0442\u044c, \u043d\u043e \u043e\u043d\u0438 \u043d\u0435 \u0434\u0430\u044e\u0442 \u043f\u043e\u043d\u044f\u0442\u043d\u043e\u0433\u043e \u0432\u044b\u0432\u043e\u0434\u0430',
+        '\u041f\u043e\u043b\u0435\u0437\u043d\u043e \u043f\u0435\u0440\u0435\u0434 pricing, filing, cleanup \u0438\u043b\u0438 growth-\u0448\u0430\u0433\u0430\u043c\u0438',
+        '\u0424\u043e\u043a\u0443\u0441 \u043d\u0430 \u043f\u0440\u0430\u043a\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u043c \u043f\u043b\u0430\u043d\u0435, \u0430 \u043d\u0435 \u043d\u0430 \u0442\u0435\u043e\u0440\u0438\u0438'
+      ]
+    }
+  };
 
   function injectSnapshot() {
     var root = document.querySelector('.policy__inner');
@@ -232,7 +336,34 @@
     }
   }
 
+  function injectNextStep() {
+    var root = document.querySelector('.policy__inner');
+    if (!root || root.querySelector('.service-next-step')) return;
+
+    var guide = nextStepGuides[path];
+    if (!guide) return;
+
+    var block = document.createElement('section');
+    block.className = 'service-next-step';
+    block.innerHTML =
+      '<div class="service-next-step__copy">' +
+        '<h2 class="service-next-step__title">' + t.nextStepTitle + '</h2>' +
+        '<p class="service-next-step__intro">' + guide.intro + '</p>' +
+        '<ul class="service-next-step__list">' +
+          guide.points.map(function (item) { return '<li>' + item + '</li>'; }).join('') +
+        '</ul>' +
+      '</div>' +
+      '<div class="service-next-step__actions">' +
+        '<a class="btn btn-primary" href="' + (ru ? '/ru/contact/' : '/contact/') + '">' + t.nextStepButton + '</a>' +
+        '<a class="btn btn-ghost" href="' + (ru ? '/ru/kak-nachat.html' : '/getting-started.html') + '">' + t.nextStepSecondary + '</a>' +
+      '</div>';
+
+    var cta = root.querySelector('.policy__cta');
+    if (cta) root.insertBefore(block, cta);
+    else root.appendChild(block);
+  }
   injectSnapshot();
   injectRelatedArticles();
   injectFaq();
+  injectNextStep();
 })();
