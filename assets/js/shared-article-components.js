@@ -206,8 +206,38 @@
     else article.appendChild(box);
   }
 
+
+function hasManualRelated(article) {
+  // Explicit manual blocks (if present) always win.
+  if (article.querySelector('.manual-related, .related-manual')) return true;
+
+  // Narrow detection: only treat as "manual related" when the heading matches known markers.
+  var markersEn = ['related services', 'helpful reads', 'related articles'];
+  var markersRu = ['похожие статьи', 'полезные материалы', 'связанные статьи', 'по теме'];
+
+  function normalize(s) {
+    return (s || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  }
+
+  // "H2 (or section heading)" — keep this strict to avoid false positives.
+  var headings = article.querySelectorAll('h2, h3');
+  for (var i = 0; i < headings.length; i++) {
+    var ttxt = normalize(headings[i].textContent || '');
+    if (!ttxt) continue;
+
+    var list = markersEn.concat(markersRu);
+    for (var j = 0; j < list.length; j++) {
+      if (ttxt.indexOf(list[j]) !== -1) return true;
+    }
+  }
+
+  return false;
+}
+
   function injectRelated(article) {
     if (article.querySelector('.related-section')) return;
+
+    if (hasManualRelated(article)) return;
 
     var items = ru
       ? [
