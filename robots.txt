@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://financialstreamllc.com/sitemap.xml
+
+Sitemap: https://proaiexpert.github.io/sitemap.xml
