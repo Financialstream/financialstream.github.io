@@ -201,8 +201,9 @@
       home: lang === 'ru' ? '/ru/' : '/',
       services: `${prefix}/#services`,
       process: `${prefix}/#process`,
+      resources: `${prefix}/blog/`,
       faq: `${prefix}/#faq`,
-      contact: `${prefix}/#contact`, // must remain an anchor to the main page
+      contact: `${prefix}/contact/`,
       contactPage: `${prefix}/contact/`
     };
   }
@@ -227,7 +228,9 @@
           <a href="${nav.home}">${lang === 'ru' ? '\u0413\u043b\u0430\u0432\u043d\u0430\u044f' : 'Home'}</a>
           <a href="${nav.services}">${lang === 'ru' ? '\u0423\u0441\u043b\u0443\u0433\u0438' : 'Services'}</a>
           <a href="${nav.process}">${lang === 'ru' ? '\u041f\u0440\u043e\u0446\u0435\u0441\u0441' : 'Process'}</a>
+          <a href="${nav.resources}">${lang === 'ru' ? '\u041c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b' : 'Resources'}</a>
           <a href="${nav.faq}">${lang === 'ru' ? '\u0412\u043e\u043f\u0440\u043e\u0441\u044b' : 'FAQ'}</a>
+          <a href="${nav.contact}">${lang === 'ru' ? '\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b' : 'Contact'}</a>
         </nav>
 
         <div class="header-right">
