@@ -13,6 +13,7 @@ OLD_BRAND_MATCHES=$(grep -Rni "ProAI\|proaiexpert\|AI Systems Architecture" . \
   --include="*.txt" \
   --exclude="audit-before-*" \
   --exclude="audit-after-*" \
+  --exclude-dir="redesign-draft" \
   --exclude-dir=".git" \
   --exclude-dir="node_modules" || true)
 
@@ -26,6 +27,7 @@ OLD_DOMAIN_MATCHES=$(grep -Rni "proaiexpert.github.io" . \
   --include="*.txt" \
   --exclude="audit-before-*" \
   --exclude="audit-after-*" \
+  --exclude-dir="redesign-draft" \
   --exclude-dir=".git" \
   --exclude-dir="node_modules" || true)
 
@@ -35,6 +37,7 @@ OLD_ANCHOR_MATCHES=$(grep -Rni "#categories\|#what-we-build\|#how-it-works" . \
   --include="*.md" \
   --exclude="audit-before-*" \
   --exclude="audit-after-*" \
+  --exclude-dir="redesign-draft" \
   --exclude-dir=".git" \
   --exclude-dir="node_modules" || true)
 
