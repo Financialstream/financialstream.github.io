@@ -1,0 +1,48 @@
+﻿cases/enterprise.html:42: <a class="nav-link" href="/#categories">Markets</a>
+cases/enterprise.html:43: <a class="nav-link" href="/#what-we-build">What We Build</a>
+cases/enterprise.html:44: <a class="nav-link" href="/#how-it-works">Process</a>
+cases/enterprise.html:58: <div class="breadcrumbs"><a href="/">Home</a> <span class="sep">·</span> <a href="/#categories">Markets</a> <span class="sep">·</span> Enterprise & Corporate Operations</div>
+cases/healthcare.html:42: <a class="nav-link" href="/#categories">Markets</a>
+cases/healthcare.html:43: <a class="nav-link" href="/#what-we-build">What We Build</a>
+cases/healthcare.html:44: <a class="nav-link" href="/#how-it-works">Process</a>
+cases/healthcare.html:58: <div class="breadcrumbs"><a href="/">Home</a> <span class="sep">·</span> <a href="/#categories">Markets</a> <span class="sep">·</span> Healthcare & Clinics</div>
+cases/high-volume.html:42: <a class="nav-link" href="/#categories">Markets</a>
+cases/high-volume.html:43: <a class="nav-link" href="/#what-we-build">What We Build</a>
+cases/high-volume.html:44: <a class="nav-link" href="/#how-it-works">Process</a>
+cases/high-volume.html:58: <div class="breadcrumbs"><a href="/">Home</a> <span class="sep">·</span> <a href="/#categories">Markets</a> <span class="sep">·</span> High-Volume Service Businesses</div>
+cases/professional-services.html:39: <a class="nav-link" href="/#categories">Markets</a>
+cases/professional-services.html:40: <a class="nav-link" href="/#what-we-build">What We Build</a>
+cases/professional-services.html:41: <a class="nav-link" href="/#how-it-works">Process</a>
+cases/professional-services.html:53: <div class="breadcrumbs"><a href="/">Home</a> <span class="sep">·</span> <a href="/#categories">Markets</a> <span class="sep">·</span> Professional &amp; Financial Services</div>
+news/ai-human-handoff-guardrails.html:20: <a class="nav-link" href="/#categories">Markets</a>
+news/ai-intake-system-service-smbs.html:37: <a class="nav-link" href="/#categories">Markets</a>
+news/ai-lead-routing-control-room.html:20: <a class="nav-link" href="/#categories">Markets</a>
+news/ai-sop-automation-rollout-checklist.html:20: <a class="nav-link" href="/#categories">Markets</a>
+news/index.html:23: <a class="nav-link" href="/#categories">Markets</a>
+ru/cases/enterprise.html:42: <a class="nav-link" href="/ru/#categories">Отрасли</a>
+ru/cases/enterprise.html:43: <a class="nav-link" href="/ru/#what-we-build">Что мы строим</a>
+ru/cases/enterprise.html:44: <a class="nav-link" href="/ru/#how-it-works">Процесс</a>
+ru/cases/enterprise.html:58: <div class="breadcrumbs"><a href="/ru/">Главная</a> <span class="sep">·</span> <a href="/ru/#categories">Отрасли</a> <span class="sep">·</span> Корпоративные операции</div>
+ru/cases/healthcare.html:42: <a class="nav-link" href="/ru/#categories">Отрасли</a>
+ru/cases/healthcare.html:43: <a class="nav-link" href="/ru/#what-we-build">Что мы строим</a>
+ru/cases/healthcare.html:44: <a class="nav-link" href="/ru/#how-it-works">Процесс</a>
+ru/cases/healthcare.html:58: <div class="breadcrumbs"><a href="/ru/">Главная</a> <span class="sep">·</span> <a href="/ru/#categories">Отрасли</a> <span class="sep">·</span> Клиники и медицина</div>
+ru/cases/high-volume.html:42: <a class="nav-link" href="/ru/#categories">Отрасли</a>
+ru/cases/high-volume.html:43: <a class="nav-link" href="/ru/#what-we-build">Что мы строим</a>
+ru/cases/high-volume.html:44: <a class="nav-link" href="/ru/#how-it-works">Процесс</a>
+ru/cases/high-volume.html:58: <div class="breadcrumbs"><a href="/ru/">Главная</a> <span class="sep">·</span> <a href="/ru/#categories">Отрасли</a> <span class="sep">·</span> Бизнес с потоком заявок</div>
+ru/cases/professional-services.html:39: <a class="nav-link" href="/ru/#categories">Отрасли</a>
+ru/cases/professional-services.html:40: <a class="nav-link" href="/ru/#what-we-build">Что мы строим</a>
+ru/cases/professional-services.html:41: <a class="nav-link" href="/ru/#how-it-works">Процесс</a>
+ru/cases/professional-services.html:53: <div class="breadcrumbs"><a href="/ru/">Главная</a> <span class="sep">·</span> <a href="/ru/#categories">Отрасли</a> <span class="sep">·</span> Профессиональные и финансовые услуги</div>
+ru/news/ai-marshrutizaciya-lidov-control-room.html:20: <a class="nav-link" href="/ru/#categories">Отрасли</a>
+ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html:37: <a class="nav-link" href="/ru/#categories">Отрасли</a>
+ru/news/checklist-zapuska-ai-sop.html:20: <a class="nav-link" href="/ru/#categories">Отрасли</a>
+ru/news/guardrails-i-human-handoff-ai.html:20: <a class="nav-link" href="/ru/#categories">Отрасли</a>
+ru/news/index.html:23: <a class="nav-link" href="/ru/#categories">Отрасли</a>
+ru/solutions/client-intake-automation.html:40: <a class="nav-link" href="/ru/#categories">Отрасли</a>
+ru/solutions/client-intake-automation.html:41: <a class="nav-link" href="/ru/#what-we-build">Что мы строим</a>
+ru/solutions/client-intake-automation.html:42: <a class="nav-link" href="/ru/#how-it-works">Процесс</a>
+solutions/client-intake-automation.html:40: <a class="nav-link" href="/#categories">Markets</a>
+solutions/client-intake-automation.html:41: <a class="nav-link" href="/#what-we-build">What We Build</a>
+solutions/client-intake-automation.html:42: <a class="nav-link" href="/#how-it-works">Process</a>

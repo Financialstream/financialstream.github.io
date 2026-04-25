@@ -1,0 +1,168 @@
+﻿cases/enterprise.html:7: <link rel="canonical" href="https://proaiexpert.github.io/cases/enterprise.html" />
+cases/enterprise.html:8: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/cases/enterprise.html" />
+cases/enterprise.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/cases/enterprise.html" />
+cases/enterprise.html:14: <meta property="og:url" content="https://proaiexpert.github.io/cases/enterprise.html" />
+cases/enterprise.html:15: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png" />
+cases/enterprise.html:19: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png" />
+cases/enterprise.html:21: <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ProAI Expert", "url": "https://proaiexpert.github.io/", "email": "proai.expert2026@gmail.com", "telephone": "+1 253 722 7909", "address": {"@type": "PostalAddress", "addressRegion": "Washington", "addressCountry": "US"}}</script>
+cases/financial.html:10: <link rel="canonical" href="https://proaiexpert.github.io/cases/professional-services.html" />
+cases/financial.html:11: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/cases/professional-services.html" />
+cases/financial.html:12: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/cases/professional-services.html" />
+cases/financial.html:13: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/cases/professional-services.html" />
+cases/healthcare.html:7: <link rel="canonical" href="https://proaiexpert.github.io/cases/healthcare.html" />
+cases/healthcare.html:8: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/cases/healthcare.html" />
+cases/healthcare.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/cases/healthcare.html" />
+cases/healthcare.html:14: <meta property="og:url" content="https://proaiexpert.github.io/cases/healthcare.html" />
+cases/healthcare.html:15: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png" />
+cases/healthcare.html:19: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png" />
+cases/healthcare.html:21: <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ProAI Expert", "url": "https://proaiexpert.github.io/", "email": "proai.expert2026@gmail.com", "telephone": "+1 253 722 7909", "address": {"@type": "PostalAddress", "addressRegion": "Washington", "addressCountry": "US"}}</script>
+cases/high-volume.html:7: <link rel="canonical" href="https://proaiexpert.github.io/cases/high-volume.html" />
+cases/high-volume.html:8: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/cases/high-volume.html" />
+cases/high-volume.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/cases/high-volume.html" />
+cases/high-volume.html:14: <meta property="og:url" content="https://proaiexpert.github.io/cases/high-volume.html" />
+cases/high-volume.html:15: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png" />
+cases/high-volume.html:19: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png" />
+cases/high-volume.html:21: <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ProAI Expert", "url": "https://proaiexpert.github.io/", "email": "proai.expert2026@gmail.com", "telephone": "+1 253 722 7909", "address": {"@type": "PostalAddress", "addressRegion": "Washington", "addressCountry": "US"}}</script>
+cases/professional-services.html:8: <link href="https://proaiexpert.github.io/cases/professional-services.html" rel="canonical"/>
+cases/professional-services.html:9: <link href="https://proaiexpert.github.io/cases/professional-services.html" hreflang="en" rel="alternate"/>
+cases/professional-services.html:10: <link href="https://proaiexpert.github.io/ru/cases/professional-services.html" hreflang="ru" rel="alternate"/>
+cases/professional-services.html:15: <meta content="https://proaiexpert.github.io/cases/professional-services.html" property="og:url"/>
+cases/professional-services.html:16: <meta content="https://proaiexpert.github.io/assets/logo.png" property="og:image"/>
+cases/professional-services.html:20: <meta content="https://proaiexpert.github.io/assets/logo.png" name="twitter:image"/>
+cases/professional-services.html:22: <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ProAI Expert", "url": "https://proaiexpert.github.io/", "email": "proai.expert2026@gmail.com", "telephone": "+1 253 722 7909", "address": {"@type": "PostalAddress", "addressRegion": "Washington", "addressCountry": "US"}}</script>
+news/ai-agents-workflow-patterns.html:9: <link rel="canonical" href="https://proaiexpert.github.io/news/ai-agents-workflow-patterns.html"/>
+news/ai-agents-workflow-patterns.html:10: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-agents-workflow-patterns.html"/>
+news/ai-agents-workflow-patterns.html:11: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/ai-agenty-patternty-i-oshibki.html"/>
+news/ai-agents-workflow-patterns.html:12: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/news/ai-agents-workflow-patterns.html"/>
+news/ai-agents-workflow-patterns.html:18: <meta property="og:url" content="https://proaiexpert.github.io/news/ai-agents-workflow-patterns.html"/>
+news/ai-agents-workflow-patterns.html:19: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+news/ai-agents-workflow-patterns.html:24: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+news/ai-human-handoff-guardrails.html:8: <link rel="canonical" href="https://proaiexpert.github.io/news/ai-human-handoff-guardrails.html"/>
+news/ai-human-handoff-guardrails.html:9: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-human-handoff-guardrails.html"/>
+news/ai-human-handoff-guardrails.html:10: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/guardrails-i-human-handoff-ai.html"/>
+news/ai-intake-system-service-smbs.html:9: <link rel="canonical" href="https://proaiexpert.github.io/news/ai-intake-system-service-smbs.html"/>
+news/ai-intake-system-service-smbs.html:10: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-intake-system-service-smbs.html"/>
+news/ai-intake-system-service-smbs.html:11: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html"/>
+news/ai-intake-system-service-smbs.html:12: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/news/ai-intake-system-service-smbs.html"/>
+news/ai-intake-system-service-smbs.html:18: <meta property="og:url" content="https://proaiexpert.github.io/news/ai-intake-system-service-smbs.html"/>
+news/ai-intake-system-service-smbs.html:19: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+news/ai-intake-system-service-smbs.html:24: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+news/ai-lead-routing-control-room.html:8: <link rel="canonical" href="https://proaiexpert.github.io/news/ai-lead-routing-control-room.html"/>
+news/ai-lead-routing-control-room.html:9: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-lead-routing-control-room.html"/>
+news/ai-lead-routing-control-room.html:10: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/ai-marshrutizaciya-lidov-control-room.html"/>
+news/ai-sop-automation-rollout-checklist.html:8: <link rel="canonical" href="https://proaiexpert.github.io/news/ai-sop-automation-rollout-checklist.html"/>
+news/ai-sop-automation-rollout-checklist.html:9: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-sop-automation-rollout-checklist.html"/>
+news/ai-sop-automation-rollout-checklist.html:10: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/checklist-zapuska-ai-sop.html"/>
+news/ai-sops-operations-system.html:9: <link rel="canonical" href="https://proaiexpert.github.io/news/ai-sops-operations-system.html"/>
+news/ai-sops-operations-system.html:10: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-sops-operations-system.html"/>
+news/ai-sops-operations-system.html:11: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/sop-operatsionnye-sistemy-ai.html"/>
+news/ai-sops-operations-system.html:12: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/news/ai-sops-operations-system.html"/>
+news/ai-sops-operations-system.html:18: <meta property="og:url" content="https://proaiexpert.github.io/news/ai-sops-operations-system.html"/>
+news/ai-sops-operations-system.html:19: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+news/ai-sops-operations-system.html:24: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+news/index.html:8: <link rel="canonical" href="https://proaiexpert.github.io/news/" />
+news/index.html:9: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/" />
+news/index.html:10: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/" />
+news/index.html:11: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/news/" />
+patterns/guardrail-handoff-pattern.html:8: <link rel="canonical" href="https://proaiexpert.github.io/patterns/guardrail-handoff-pattern.html" />
+patterns/guardrail-handoff-pattern.html:9: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/patterns/guardrail-handoff-pattern.html" />
+patterns/guardrail-handoff-pattern.html:10: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/patterns/guardrail-handoff-pattern.html" />
+patterns/guardrail-handoff-pattern.html:11: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/patterns/guardrail-handoff-pattern.html" />
+patterns/intake-control-pattern.html:8: <link rel="canonical" href="https://proaiexpert.github.io/patterns/intake-control-pattern.html" />
+patterns/intake-control-pattern.html:9: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/patterns/intake-control-pattern.html" />
+patterns/intake-control-pattern.html:10: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/patterns/intake-control-pattern.html" />
+patterns/intake-control-pattern.html:11: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/patterns/intake-control-pattern.html" />
+patterns/sop-agent-pattern.html:8: <link rel="canonical" href="https://proaiexpert.github.io/patterns/sop-agent-pattern.html" />
+patterns/sop-agent-pattern.html:9: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/patterns/sop-agent-pattern.html" />
+patterns/sop-agent-pattern.html:10: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/patterns/sop-agent-pattern.html" />
+patterns/sop-agent-pattern.html:11: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/patterns/sop-agent-pattern.html" />
+ru/cases/enterprise.html:7: <link rel="canonical" href="https://proaiexpert.github.io/ru/cases/enterprise.html" />
+ru/cases/enterprise.html:8: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/cases/enterprise.html" />
+ru/cases/enterprise.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/cases/enterprise.html" />
+ru/cases/enterprise.html:14: <meta property="og:url" content="https://proaiexpert.github.io/ru/cases/enterprise.html" />
+ru/cases/enterprise.html:15: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png" />
+ru/cases/enterprise.html:19: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png" />
+ru/cases/enterprise.html:21: <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ProAI Expert", "url": "https://proaiexpert.github.io/", "email": "proai.expert2026@gmail.com", "telephone": "+1 253 722 7909", "address": {"@type": "PostalAddress", "addressRegion": "Washington", "addressCountry": "US"}}</script>
+ru/cases/financial.html:10: <link rel="canonical" href="https://proaiexpert.github.io/ru/cases/professional-services.html" />
+ru/cases/financial.html:11: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/cases/professional-services.html" />
+ru/cases/financial.html:12: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/cases/professional-services.html" />
+ru/cases/financial.html:13: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/cases/professional-services.html" />
+ru/cases/healthcare.html:7: <link rel="canonical" href="https://proaiexpert.github.io/ru/cases/healthcare.html" />
+ru/cases/healthcare.html:8: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/cases/healthcare.html" />
+ru/cases/healthcare.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/cases/healthcare.html" />
+ru/cases/healthcare.html:14: <meta property="og:url" content="https://proaiexpert.github.io/ru/cases/healthcare.html" />
+ru/cases/healthcare.html:15: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png" />
+ru/cases/healthcare.html:19: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png" />
+ru/cases/healthcare.html:21: <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ProAI Expert", "url": "https://proaiexpert.github.io/", "email": "proai.expert2026@gmail.com", "telephone": "+1 253 722 7909", "address": {"@type": "PostalAddress", "addressRegion": "Washington", "addressCountry": "US"}}</script>
+ru/cases/high-volume.html:7: <link rel="canonical" href="https://proaiexpert.github.io/ru/cases/high-volume.html" />
+ru/cases/high-volume.html:8: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/cases/high-volume.html" />
+ru/cases/high-volume.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/cases/high-volume.html" />
+ru/cases/high-volume.html:14: <meta property="og:url" content="https://proaiexpert.github.io/ru/cases/high-volume.html" />
+ru/cases/high-volume.html:15: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png" />
+ru/cases/high-volume.html:19: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png" />
+ru/cases/high-volume.html:21: <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ProAI Expert", "url": "https://proaiexpert.github.io/", "email": "proai.expert2026@gmail.com", "telephone": "+1 253 722 7909", "address": {"@type": "PostalAddress", "addressRegion": "Washington", "addressCountry": "US"}}</script>
+ru/cases/professional-services.html:8: <link href="https://proaiexpert.github.io/ru/cases/professional-services.html" rel="canonical"/>
+ru/cases/professional-services.html:9: <link href="https://proaiexpert.github.io/cases/professional-services.html" hreflang="en" rel="alternate"/>
+ru/cases/professional-services.html:10: <link href="https://proaiexpert.github.io/ru/cases/professional-services.html" hreflang="ru" rel="alternate"/>
+ru/cases/professional-services.html:15: <meta content="https://proaiexpert.github.io/ru/cases/professional-services.html" property="og:url"/>
+ru/cases/professional-services.html:16: <meta content="https://proaiexpert.github.io/assets/logo.png" property="og:image"/>
+ru/cases/professional-services.html:20: <meta content="https://proaiexpert.github.io/assets/logo.png" name="twitter:image"/>
+ru/cases/professional-services.html:22: <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ProAI Expert", "url": "https://proaiexpert.github.io/", "email": "proai.expert2026@gmail.com", "telephone": "+1 253 722 7909", "address": {"@type": "PostalAddress", "addressRegion": "Washington", "addressCountry": "US"}}</script>
+ru/news/ai-agenty-patternty-i-oshibki.html:9: <link rel="canonical" href="https://proaiexpert.github.io/ru/news/ai-agenty-patternty-i-oshibki.html"/>
+ru/news/ai-agenty-patternty-i-oshibki.html:10: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/ai-agenty-patternty-i-oshibki.html"/>
+ru/news/ai-agenty-patternty-i-oshibki.html:11: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-agents-workflow-patterns.html"/>
+ru/news/ai-agenty-patternty-i-oshibki.html:12: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/news/ai-agents-workflow-patterns.html"/>
+ru/news/ai-agenty-patternty-i-oshibki.html:18: <meta property="og:url" content="https://proaiexpert.github.io/ru/news/ai-agenty-patternty-i-oshibki.html"/>
+ru/news/ai-agenty-patternty-i-oshibki.html:19: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+ru/news/ai-agenty-patternty-i-oshibki.html:24: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+ru/news/ai-marshrutizaciya-lidov-control-room.html:8: <link rel="canonical" href="https://proaiexpert.github.io/ru/news/ai-marshrutizaciya-lidov-control-room.html"/>
+ru/news/ai-marshrutizaciya-lidov-control-room.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/ai-marshrutizaciya-lidov-control-room.html"/>
+ru/news/ai-marshrutizaciya-lidov-control-room.html:10: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-lead-routing-control-room.html"/>
+ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html:9: <link rel="canonical" href="https://proaiexpert.github.io/ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html"/>
+ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html:10: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html"/>
+ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html:11: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-intake-system-service-smbs.html"/>
+ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html:12: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/news/ai-intake-system-service-smbs.html"/>
+ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html:18: <meta property="og:url" content="https://proaiexpert.github.io/ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html"/>
+ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html:19: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+ru/news/ai-sistema-pervichnogo-obshcheniya-servis.html:24: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+ru/news/checklist-zapuska-ai-sop.html:8: <link rel="canonical" href="https://proaiexpert.github.io/ru/news/checklist-zapuska-ai-sop.html"/>
+ru/news/checklist-zapuska-ai-sop.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/checklist-zapuska-ai-sop.html"/>
+ru/news/checklist-zapuska-ai-sop.html:10: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-sop-automation-rollout-checklist.html"/>
+ru/news/guardrails-i-human-handoff-ai.html:8: <link rel="canonical" href="https://proaiexpert.github.io/ru/news/guardrails-i-human-handoff-ai.html"/>
+ru/news/guardrails-i-human-handoff-ai.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/guardrails-i-human-handoff-ai.html"/>
+ru/news/guardrails-i-human-handoff-ai.html:10: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-human-handoff-guardrails.html"/>
+ru/news/index.html:8: <link rel="canonical" href="https://proaiexpert.github.io/ru/news/" />
+ru/news/index.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/" />
+ru/news/index.html:10: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/" />
+ru/news/index.html:11: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/news/" />
+ru/news/sop-operatsionnye-sistemy-ai.html:9: <link rel="canonical" href="https://proaiexpert.github.io/ru/news/sop-operatsionnye-sistemy-ai.html"/>
+ru/news/sop-operatsionnye-sistemy-ai.html:10: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/news/sop-operatsionnye-sistemy-ai.html"/>
+ru/news/sop-operatsionnye-sistemy-ai.html:11: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/news/ai-sops-operations-system.html"/>
+ru/news/sop-operatsionnye-sistemy-ai.html:12: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/news/ai-sops-operations-system.html"/>
+ru/news/sop-operatsionnye-sistemy-ai.html:18: <meta property="og:url" content="https://proaiexpert.github.io/ru/news/sop-operatsionnye-sistemy-ai.html"/>
+ru/news/sop-operatsionnye-sistemy-ai.html:19: <meta property="og:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+ru/news/sop-operatsionnye-sistemy-ai.html:24: <meta name="twitter:image" content="https://proaiexpert.github.io/assets/logo.png"/>
+ru/patterns/guardrail-handoff-pattern.html:8: <link rel="canonical" href="https://proaiexpert.github.io/ru/patterns/guardrail-handoff-pattern.html" />
+ru/patterns/guardrail-handoff-pattern.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/patterns/guardrail-handoff-pattern.html" />
+ru/patterns/guardrail-handoff-pattern.html:10: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/patterns/guardrail-handoff-pattern.html" />
+ru/patterns/guardrail-handoff-pattern.html:11: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/patterns/guardrail-handoff-pattern.html" />
+ru/patterns/intake-control-pattern.html:8: <link rel="canonical" href="https://proaiexpert.github.io/ru/patterns/intake-control-pattern.html" />
+ru/patterns/intake-control-pattern.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/patterns/intake-control-pattern.html" />
+ru/patterns/intake-control-pattern.html:10: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/patterns/intake-control-pattern.html" />
+ru/patterns/intake-control-pattern.html:11: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/patterns/intake-control-pattern.html" />
+ru/patterns/sop-agent-pattern.html:8: <link rel="canonical" href="https://proaiexpert.github.io/ru/patterns/sop-agent-pattern.html" />
+ru/patterns/sop-agent-pattern.html:9: <link rel="alternate" hreflang="ru" href="https://proaiexpert.github.io/ru/patterns/sop-agent-pattern.html" />
+ru/patterns/sop-agent-pattern.html:10: <link rel="alternate" hreflang="en" href="https://proaiexpert.github.io/patterns/sop-agent-pattern.html" />
+ru/patterns/sop-agent-pattern.html:11: <link rel="alternate" hreflang="x-default" href="https://proaiexpert.github.io/patterns/sop-agent-pattern.html" />
+ru/solutions/client-intake-automation.html:8: <link href="https://proaiexpert.github.io/ru/solutions/client-intake-automation.html" rel="canonical"/>
+ru/solutions/client-intake-automation.html:15: <meta content="https://proaiexpert.github.io/ru/solutions/client-intake-automation.html" property="og:url"/>
+ru/solutions/client-intake-automation.html:16: <meta content="https://proaiexpert.github.io/assets/logo.png" property="og:image"/>
+ru/solutions/client-intake-automation.html:20: <meta content="https://proaiexpert.github.io/assets/logo.png" name="twitter:image"/>
+ru/solutions/client-intake-automation.html:22: <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ProAI Expert", "url": "https://proaiexpert.github.io/", "email": "proai.expert2026@gmail.com", "telephone": "+1 253 722 7909", "address": {"@type": "PostalAddress", "addressRegion": "Washington", "addressCountry": "US"}}</script>
+ru/solutions/client-intake-automation.html:30: <link href="https://proaiexpert.github.io/solutions/client-intake-automation.html" hreflang="en" rel="alternate"/><link href="https://proaiexpert.github.io/ru/solutions/client-intake-automation.html" hreflang="ru" rel="alternate"/></head>
+solutions/client-intake-automation.html:8: <link href="https://proaiexpert.github.io/solutions/client-intake-automation.html" rel="canonical"/>
+solutions/client-intake-automation.html:15: <meta content="https://proaiexpert.github.io/solutions/client-intake-automation.html" property="og:url"/>
+solutions/client-intake-automation.html:16: <meta content="https://proaiexpert.github.io/assets/logo.png" property="og:image"/>
+solutions/client-intake-automation.html:20: <meta content="https://proaiexpert.github.io/assets/logo.png" name="twitter:image"/>
+solutions/client-intake-automation.html:22: <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ProAI Expert", "url": "https://proaiexpert.github.io/", "email": "proai.expert2026@gmail.com", "telephone": "+1 253 722 7909", "address": {"@type": "PostalAddress", "addressRegion": "Washington", "addressCountry": "US"}}</script>
+solutions/client-intake-automation.html:30: <link href="https://proaiexpert.github.io/solutions/client-intake-automation.html" hreflang="en" rel="alternate"/><link href="https://proaiexpert.github.io/ru/solutions/client-intake-automation.html" hreflang="ru" rel="alternate"/></head>
