@@ -4,6 +4,16 @@
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const mobilePanel = header ? header.querySelector('.site-header__panel') : null;
 
+  function syncHeaderState() {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 18);
+  }
+
+  if (header) {
+    syncHeaderState();
+    window.addEventListener('scroll', syncHeaderState, { passive: true });
+  }
+
   if (header && menuToggle) {
     if (mobilePanel) {
       mobilePanel.hidden = true;
@@ -12,9 +22,21 @@
     menuToggle.addEventListener('click', function () {
       const open = header.classList.toggle('is-open');
       menuToggle.setAttribute('aria-expanded', String(open));
-      if (mobilePanel) {
-        mobilePanel.hidden = !open;
-      }
+        if (mobilePanel) {
+          mobilePanel.hidden = !open;
+        }
+      });
+
+    header.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 960 && header.classList.contains('is-open')) {
+          header.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          if (mobilePanel) {
+            mobilePanel.hidden = true;
+          }
+        }
+      });
     });
   }
 
@@ -92,7 +114,7 @@
     }
 
     function update() {
-      const gap = itemsPerView() === 1 ? 18 : 18;
+      const gap = window.innerWidth <= 960 ? 0 : 18;
       const cardWidth = cards[0].getBoundingClientRect().width + gap;
       const safeIndex = Math.min(index, maxIndex());
       index = safeIndex;
@@ -119,6 +141,29 @@
         update();
       });
     }
+
+    carousel.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft') {
+        index = Math.max(0, index - 1);
+        update();
+      }
+      if (event.key === 'ArrowRight') {
+        index = Math.min(maxIndex(), index + 1);
+        update();
+      }
+    });
+
+    let touchStartX = 0;
+    track.addEventListener('touchstart', function (event) {
+      touchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', function (event) {
+      const diff = touchStartX - event.changedTouches[0].clientX;
+      if (Math.abs(diff) > 42) {
+        index = diff > 0 ? Math.min(maxIndex(), index + 1) : Math.max(0, index - 1);
+        update();
+      }
+    }, { passive: true });
 
     rebuildDots();
     window.addEventListener('resize', function () {
