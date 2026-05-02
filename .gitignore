@@ -1,0 +1,10 @@
+.edge*/
+.edge-*
+**/.edge*/
+*.log
+.DS_Store
+Thumbs.db
+redesign-draft/_screenshots/
+*.tmp
+*.bak
+*.orig
