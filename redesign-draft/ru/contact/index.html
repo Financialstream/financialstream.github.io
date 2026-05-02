@@ -39,12 +39,12 @@
     CONTACT_LOCATION_RU: "штат Washington, США",
     CALENDAR_URL: "https://calendar.app.google/xWh5kEQBoJvy9ien8",
     GOOGLE_FORM_URL: "https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor",
-    FORM_ENDPOINT: "",
+    FORM_ENDPOINT: "https://formspree.io/f/xwvqekla",
     CONTACT_PAGE_EN: "/contact/",
     CONTACT_PAGE_RU: "/ru/contact/",
-    PRIVACY_URL: "/privacy-policy.html",
-    TERMS_URL: "/terms-and-conditions.html",
-    SMS_CONSENT_URL: "/sms-consent.html",
+    PRIVACY_URL: "/ru/privacy-policy.html",
+    TERMS_URL: "/ru/terms-and-conditions.html",
+    SMS_CONSENT_URL: "/ru/sms-consent.html",
     BLOG_PAGE_EN: "/blog/",
     BLOG_PAGE_RU: "/ru/blog/"
   };
@@ -52,7 +52,7 @@
 
 <header class="site-header" data-proto-header>
   <div class="container site-header__inner">
-    <a class="logo-wrap" href="../" aria-label="Financial Stream главная">
+    <a class="logo-wrap" href="/ru/" aria-label="Financial Stream главная">
       <picture class="brand-logo-picture"><source srcset="/assets/brand/financial-stream/logo-primary-web.webp" type="image/webp"><img class="logo-image" src="/assets/brand/financial-stream/logo-primary-web.png" alt="Financial Stream LLC" width="640" height="203" decoding="async"></picture>
     </a>
     <nav class="site-nav" aria-label="Основная навигация">
@@ -167,9 +167,11 @@
         </div>
       </div>
 
-      <form class="contact-form-card" data-contact-form data-form-endpoint="" novalidate>
+      <form class="contact-form-card" action="https://formspree.io/f/xwvqekla" method="POST" data-contact-form data-form-endpoint="https://formspree.io/f/xwvqekla" novalidate>
         <div class="form-status" data-form-status role="status" aria-live="polite"></div>
-        <input class="hp-field" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input name="_subject" type="hidden" value="Financial Stream - Website request">
+        <input id="formLang" name="site_lang" type="hidden" value="ru">
+        <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <label class="contact-field" for="contact-name">
           <span>Имя</span>
@@ -226,7 +228,7 @@
             <input name="sms_consent" type="checkbox" value="yes">
             <span><strong>Согласие на SMS (необязательно):</strong> Я согласен(на), что Financial Stream LLC может отправить мне SMS по моему обращению или при пропущенном звонке (только по вопросам сервиса). Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.</span>
           </label>
-          <p class="contact-legal-note">Отправляя форму, вы подтверждаете ознакомление с <a href="/privacy-policy.html">Политикой конфиденциальности</a> и <a href="/terms-and-conditions.html">Условиями использования</a>. <a href="/sms-consent.html">Согласие на SMS</a></p>
+          <p class="contact-legal-note">Отправляя форму, вы подтверждаете ознакомление с <a href="/ru/privacy-policy.html">Политикой конфиденциальности</a> и <a href="/ru/terms-and-conditions.html">Условиями использования</a>. <a href="/ru/sms-consent.html">Согласие на SMS</a></p>
         </div>
 
         <button class="btn btn-primary contact-submit" type="submit">Отправить сообщение</button>
@@ -324,12 +326,12 @@
     <div class="footer-bottom">
       <p>&copy; 2026 Financial Stream LLC. Все права защищены.</p>
       <nav class="footer-legal" aria-label="Юридические ссылки">
-        <a href="/privacy-policy.html">Политика конфиденциальности</a>
-        <a href="/terms-and-conditions.html">Условия использования</a>
-        <a href="/sms-consent.html">Согласие на SMS</a>
+        <a href="/ru/privacy-policy.html">Политика конфиденциальности</a>
+        <a href="/ru/terms-and-conditions.html">Условия использования</a>
+        <a href="/ru/sms-consent.html">Согласие на SMS</a>
         <a href="../../contact/">EN</a>
       </nav>
-      <a class="footer-credit" href="https://proai-expert.com/" target="_blank" rel="noopener nofollow">Сайт разработан <span>ProAI Expert</span></a>
+      <a class="footer-credit footer-credit--proai" href="https://proai-expert.com/ru/" target="_blank" rel="noopener nofollow" aria-label="Сайт разработан ProAI Expert"><span class="footer-credit__label">Сайт разработан</span><span class="footer-credit__brand"><span class="footer-credit__cube" aria-hidden="true"><svg viewBox="0 0 48 48" class="footer-credit__cube-svg" focusable="false"><path d="M24 3 42 13.5v21L24 45 6 34.5v-21L24 3Z" /><path d="M24 3v21l18 10.5" /><path d="M24 24 6 13.5" /><path d="M6 34.5 24 24l18-10.5" /></svg></span><span class="footer-credit__pro">PROAI</span><span class="footer-credit__expert">EXPERT</span></span></a>
     </div>
   </div>
 </footer>

@@ -39,7 +39,7 @@
     CONTACT_LOCATION_RU: "штат Washington, США",
     CALENDAR_URL: "https://calendar.app.google/xWh5kEQBoJvy9ien8",
     GOOGLE_FORM_URL: "https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor",
-    FORM_ENDPOINT: "",
+    FORM_ENDPOINT: "https://formspree.io/f/xwvqekla",
     CONTACT_PAGE_EN: "/contact/",
     CONTACT_PAGE_RU: "/ru/contact/",
     PRIVACY_URL: "/privacy-policy.html",
@@ -52,14 +52,14 @@
 
 <header class="site-header" data-proto-header>
   <div class="container site-header__inner">
-    <a class="logo-wrap" href="../" aria-label="Financial Stream home">
+    <a class="logo-wrap" href="/" aria-label="Financial Stream home">
       <picture class="brand-logo-picture"><source srcset="/assets/brand/financial-stream/logo-primary-web.webp" type="image/webp"><img class="logo-image" src="/assets/brand/financial-stream/logo-primary-web.png" alt="Financial Stream LLC logo" width="640" height="203" decoding="async"></picture>
     </a>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="../#services">Services</a>
       <a href="../#how-we-work">How we work</a>
       <a href="../#reporting-filing">Reporting</a>
-      <a href="/blog/">Resources</a>
+      <a href="/blog/">Materials</a>
       <a href="../#faq">FAQ</a>
       <a href="./" aria-current="page">Contact</a>
     </nav>
@@ -68,7 +68,7 @@
         <a href="../ru/contact/">RU</a>
       </div>
       <a class="btn btn-primary" href="./">Book a consultation</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu" data-menu-toggle>
         <span aria-hidden="true">Menu</span>
       </button>
     </div>
@@ -78,12 +78,12 @@
       <a href="../#services">Services</a>
       <a href="../#how-we-work">How we work</a>
       <a href="../#reporting-filing">Reporting</a>
-      <a href="/blog/">Resources</a>
+      <a href="/blog/">Materials</a>
       <a href="../#faq">FAQ</a>
       <a href="./" aria-current="page">Contact</a>
     </nav>
     <div class="header-actions">
-      <div class="lang-switch" role="group" aria-label="Language switch mobile">
+      <div class="lang-switch" role="group" aria-label="Language switch on mobile">
         <a href="../ru/contact/">RU</a>
       </div>
       <a class="btn btn-primary" href="#consultation">Book a consultation</a>
@@ -167,9 +167,11 @@
         </div>
       </div>
 
-      <form class="contact-form-card" data-contact-form data-form-endpoint="" novalidate>
+      <form class="contact-form-card" action="https://formspree.io/f/xwvqekla" method="POST" data-contact-form data-form-endpoint="https://formspree.io/f/xwvqekla" novalidate>
         <div class="form-status" data-form-status role="status" aria-live="polite"></div>
-        <input class="hp-field" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input name="_subject" type="hidden" value="Financial Stream - Website request">
+        <input id="formLang" name="site_lang" type="hidden" value="en">
+        <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <label class="contact-field" for="contact-name">
           <span>Name</span>
@@ -301,11 +303,11 @@
         </ul>
       </nav>
       <nav aria-label="Footer navigation">
-        <h3 class="footer-title">Start / Resources</h3>
+        <h3 class="footer-title">Start / Materials</h3>
         <ul class="footer-links">
           <li><a href="../#how-we-work">How we work</a></li>
           <li><a href="../#reporting-filing">Reporting &amp; documents</a></li>
-          <li><a href="/blog/">Guides &amp; Insights</a></li>
+          <li><a href="/blog/">Materials</a></li>
           <li><a href="../#faq">Questions before we start</a></li>
           <li><a href="./">Contact</a></li>
         </ul>
@@ -329,7 +331,7 @@
         <a href="/sms-consent.html">SMS Consent</a>
         <a href="../ru/contact/">RU</a>
       </nav>
-      <a class="footer-credit" href="https://proai-expert.com/" target="_blank" rel="noopener nofollow">Website by <span>ProAI Expert</span></a>
+      <a class="footer-credit footer-credit--proai" href="https://proai-expert.com/" target="_blank" rel="noopener nofollow" aria-label="Website by ProAI Expert"><span class="footer-credit__label">Website by</span><span class="footer-credit__brand"><span class="footer-credit__cube" aria-hidden="true"><svg viewBox="0 0 48 48" class="footer-credit__cube-svg" focusable="false"><path d="M24 3 42 13.5v21L24 45 6 34.5v-21L24 3Z" /><path d="M24 3v21l18 10.5" /><path d="M24 24 6 13.5" /><path d="M6 34.5 24 24l18-10.5" /></svg></span><span class="footer-credit__pro">PROAI</span><span class="footer-credit__expert">EXPERT</span></span></a>
     </div>
   </div>
 </footer>
