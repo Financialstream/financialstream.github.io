@@ -14968,3 +14968,38 @@ html[lang="ru"] :is(.service-page--payroll-hero, .service-page--tax-returns-hero
     max-width: 7em;
   }
 }
+
+@media (max-width: 1024px) {
+  .site-header.is-open .site-header__panel {
+    align-items: stretch;
+  }
+
+  .site-header__panel .header-actions,
+  .article-page .site-header__panel .header-actions,
+  .service-page .site-header__panel .header-actions {
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 0;
+    gap: 12px;
+  }
+
+  .site-header__panel .header-actions .lang-switch,
+  .article-page .site-header__panel .header-actions .lang-switch,
+  .service-page .site-header__panel .header-actions .lang-switch {
+    display: none;
+    position: static;
+  }
+
+  .site-header__panel .header-actions .btn-primary {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+  }
+}
