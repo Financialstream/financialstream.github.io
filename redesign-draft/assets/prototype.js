@@ -844,11 +844,17 @@
 
       const submit = form.querySelector('[type="submit"]');
       if (submit) submit.disabled = true;
+      const formData = new FormData(form);
+      const emailField = form.querySelector('input[type="email"]');
+      if (emailField && emailField.value) formData.set('_replyto', emailField.value.trim());
 
       fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-        body: new URLSearchParams(new FormData(form)).toString()
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: new URLSearchParams(formData).toString()
       }).then(function (response) {
         if (!response.ok) throw new Error('Form submit failed');
         form.reset();
