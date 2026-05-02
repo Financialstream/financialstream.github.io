@@ -55,6 +55,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 18px);
+  overflow-x: clip;
 }
 
 body {
@@ -106,6 +107,8 @@ body.proto-page {
 .proto-bg {
   position: fixed;
   inset: 0;
+  width: 100%;
+  max-width: 100%;
   z-index: -1;
   background:
     radial-gradient(circle at top right, rgba(47, 167, 160, 0.12), transparent 32%),
@@ -10227,9 +10230,7 @@ html[lang="ru"] .final-cta-copy h2 {
   }
 
   .trust-marquee {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
     padding-bottom: 12px;
     -webkit-mask-image: linear-gradient(90deg, #000, #000 88%, transparent);
     mask-image: linear-gradient(90deg, #000, #000 88%, transparent);
@@ -11011,10 +11012,14 @@ html[lang="ru"] .contact-hero h1 {
 }
 
 .hp-field {
-  position: absolute;
-  left: -9999px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 1px;
   opacity: 0;
   pointer-events: none;
+  clip-path: inset(50%);
 }
 
 .contact-submit {
