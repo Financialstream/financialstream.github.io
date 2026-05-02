@@ -1,217 +1,340 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
-<!-- FS: canonicalize /ru/index.html to /ru/ -->
-
-<script>
-      (function() {
-        try {
-          var path = window.location.pathname || "";
-          // If user lands on /ru/index.html, redirect to /ru/ preserving hash.
-          if (path.toLowerCase().endsWith("/ru/index.html")) {
-            var target = "/ru/" + (window.location.hash || "");
-            // Use replace to avoid polluting history.
-            window.location.replace(target);
-          }
-        } catch (e) {}
-      })();
-    </script>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Связаться с нами — Financial Stream LLC</title>
-<meta content="Выберите удобный способ связи с Financial Stream LLC: заявка, бесплатный 15‑мин созвон или запрос на длительную сессию." name="description"/>
-<link href="/assets/favicon.png?v=16" rel="icon" type="image/png"/>
-<link href="/assets/favicon.png?v=16" rel="shortcut icon" type="image/png"/>
-<link href="/assets/favicon.png?v=16" rel="apple-touch-icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://financialstreamllc.com/ru/contact/" rel="canonical"/>
-<meta property="og:site_name" content="Financial Stream LLC"/>
-<meta property="og:title" content="Связаться с нами — Financial Stream LLC"/>
-<meta property="og:description" content="Выберите удобный способ связи с Financial Stream LLC: заявка, бесплатный 15‑мин созвон или запрос на длительную сессию."/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://financialstreamllc.com/ru/contact/"/>
-<meta property="og:image" content="https://financialstreamllc.com/assets/hero-bg.jpg"/>
-<meta property="og:image:alt" content="Financial Stream LLC"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Связаться с нами — Financial Stream LLC"/>
-<meta name="twitter:description" content="Выберите удобный способ связи с Financial Stream LLC: заявка, бесплатный 15‑мин созвон или запрос на длительную сессию."/>
-<meta name="twitter:image" content="https://financialstreamllc.com/assets/hero-bg.jpg"/>
-<link href="https://financialstreamllc.com/contact/" hreflang="en" rel="alternate"/>
-<link href="https://financialstreamllc.com/ru/contact/" hreflang="ru" rel="alternate"/>
-<link href="https://financialstreamllc.com/contact/" hreflang="x-default" rel="alternate"/>
-<script>(function(){if(location.pathname.endsWith("/index.html")){location.replace("/ru/contact/");}})();</script>
-<link href="/styles.css?v=41" rel="stylesheet"/>
-
-<style>
-
-/* Contact hub layout fixes (v41 contact) */
-.contact-hub-wrap{padding:14px 0 8px;}
-.contact-hub-title, .contact-hub-subtitle{ text-align:center; }
-.contact-hub-subtitle{max-width:820px;margin:8px auto 14px;}
-.contact-hub-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;align-items:start;}
-.contact-hub-left.section, .contact-hub-right.section, .contact-hub-bottom.section{padding:0;margin:0;}
-.contact-hub-left, .contact-hub-card{border-radius:16px;}
-.contact-hub-right{display:flex;flex-direction:column;gap:10px;}
-.contact-hub-card{padding:14px 16px;}
-.contact-hub-card h3{margin:0 0 8px;}
-.contact-hub-card p{margin:0 0 10px;}
-/* Make the embedded form more compact */
-.contact-hub-left form .form-row{margin-bottom:10px;}
-.contact-hub-left form label{display:block;margin-bottom:4px;}
-.contact-hub-left form input, .contact-hub-left form textarea, .contact-hub-left form select{padding:9px 12px;}
-.contact-hub-left form textarea{height:76px;min-height:76px;resize:vertical;}
-.contact-hub-left .stack{gap:7px;}
-.contact-hub-left .panel__next{margin:8px 0 10px;padding:12px 14px;}
-.contact-hub-left .panel__next-list{gap:6px;}
-.contact-hub-left .sms-consent, .contact-hub-left .consent, .contact-hub-left small{font-size:12px;line-height:1.35;opacity:.85;}
-.contact-hub-left .form-consent{max-width:96%;}
-.contact-hub-left .form-consent .checkbox,
-.contact-hub-left .form-consent .checkbox span,
-.contact-hub-left .form-consent .field__hint{font-size:10px;line-height:1.2;}
-.contact-hub-left .form-consent .field__hint{margin-top:4px;}
-/* Ensure buttons readable */
-.contact-hub-wrap .btn, .contact-hub-wrap a.btn{display:inline-flex;align-items:center;justify-content:center;}
-/* Mobile */
-@media (max-width: 980px){
-  .contact-hub-grid{grid-template-columns:1fr;}
-  .contact-hub-right{order:2;}
-}
-@media (max-width: 640px){
-  .contact-hub-wrap{padding:10px 0 4px;}
-  .contact-hub-subtitle{margin:6px auto 10px;}
-  .contact-hub-grid{gap:10px;}
-  .contact-hub-right{gap:8px;}
-  .contact-hub-card{padding:12px 14px;}
-  .contact-hub-bottom{margin-top:8px;}
-  .contact-hub-left .panel__next{margin:6px 0 8px;padding:10px 12px;}
-}
-/* Ensure anchor offset */
-:root{scroll-padding-top:84px;}
-
-.contact-hub-bottom{margin-top:12px;}
-.contact-hub-bottom .hub-seo-block{max-width:1100px;margin:0 auto;}
-.hub-seo-block ul{display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:center;margin:0;padding:0;list-style:none;}
-.hub-seo-block li{margin:0;}
-
-
-
-/* Make the bottom SEO section full-width (not split columns) and centered */
-.contact-hub-bottom{display:block;}
-.contact-hub-bottom .hub-seo-block{width:100%;text-align:center;}
-.contact-hub-bottom .hub-seo-block h2{font-size:22px;line-height:1.25;margin-bottom:10px;}
-.contact-hub-bottom .hub-seo-block p{text-align:center;}
-</style>
-
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://financialstreamllc.com/ru/contact/#webpage","url":"https://financialstreamllc.com/ru/contact/","name":"Выберите удобный способ связи","description":"Выберите удобный способ связи с Financial Stream LLC: заявка, бесплатный 15‑мин созвон или запрос на длительную сессию.","inLanguage":"ru"},{"@type":"Organization","@id":"https://financialstreamllc.com/#organization","name":"Financial Stream LLC","url":"https://financialstreamllc.com/","logo":"https://financialstreamllc.com/assets/logo-horizontal.png"},{"@type":"LocalBusiness","@id":"https://financialstreamllc.com/#localbusiness","name":"Financial Stream LLC","url":"https://financialstreamllc.com/","image":"https://financialstreamllc.com/assets/hero-bg.jpg","telephone":"+12064303464","email":"financialstreamllc@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Federal Way","addressRegion":"WA","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"availableLanguage":["en","ru"]}]}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакты Financial Stream LLC | Бухгалтерская и налоговая поддержка</title>
+<meta name="description" content="Свяжитесь с Financial Stream LLC по вопросам учёта, sales tax, payroll, налоговой подготовки, регистрации бизнеса и финансового разбора.">
+<link rel="canonical" href="https://financialstreamllc.com/ru/contact/">
+<link rel="alternate" hreflang="en" href="https://financialstreamllc.com/contact/">
+<link rel="alternate" hreflang="ru" href="https://financialstreamllc.com/ru/contact/">
+<link rel="alternate" hreflang="x-default" href="https://financialstreamllc.com/contact/">
+<meta property="og:site_name" content="Financial Stream LLC">
+<meta property="og:title" content="Контакты Financial Stream LLC | Бухгалтерская и налоговая поддержка">
+<meta property="og:description" content="Свяжитесь с Financial Stream LLC по вопросам учёта, sales tax, payroll, налоговой подготовки, регистрации бизнеса и финансового разбора.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://financialstreamllc.com/ru/contact/">
+<meta property="og:image" content="https://financialstreamllc.com/assets/brand/financial-stream/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Контакты Financial Stream LLC | Бухгалтерская и налоговая поддержка">
+<meta name="twitter:description" content="Свяжитесь с Financial Stream LLC по вопросам учёта, sales tax, payroll, налоговой подготовки, регистрации бизнеса и финансового разбора.">
+<meta name="twitter:image" content="https://financialstreamllc.com/assets/brand/financial-stream/og-image.svg">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="icon" href="../../assets/brand/financial-stream/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../../assets/brand/financial-stream/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/brand/financial-stream/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/prototype.css">
 </head>
-<body>
-<div data-shared-header=""></div>
-<main id="top"><div class="container contact-hub-wrap">
-<h1 class="contact-hub-title">Выберите удобный способ связи</h1>
-<p class="contact-hub-subtitle">Мы работаем удалённо по всей территории США. Выберите вариант, который вам удобнее.</p>
-<div class="contact-hub-grid contact-hub-grid--top">
-<section class="section contact-hub-left">
-<div class="hub-card hub-card--primary" id="quick-form">
-<h2 class="hub-card__title" data-i18n="contact.formTitle">Записаться на бесплатную консультацию или задать вопрос</h2>
-<p class="hub-card__desc" data-i18n="contact.formSub">Задать вопрос — мы ответим в ближайшее время.</p>
-<div class="panel__next">
-<p class="panel__next-title">Что будет дальше</p>
-<ul class="panel__next-list">
-<li>Отвечаем быстро (обычно в течение 1 рабочего дня)</li>
-<li>Уточняем объём работ, сроки и список документов</li>
-<li>Даём понятный план следующих шагов</li>
-</ul>
-</div>
-<form action="https://formspree.io/f/xwvqekla" class="stack" id="contactForm" method="POST">
-<div aria-live="polite" class="form-success" hidden="" id="formSuccess" role="status" style="display:none;"></div>
-<input name="_subject" type="hidden" value="Financial Stream — Заявка с сайта"/>
-<input name="_next" type="hidden" value="https://financialstreamllc.com/ru/contact/?success=1"/>
-<input id="formLang" name="site_lang" type="hidden" value="ru"/>
-<input name="_gotcha" type="text" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;pointer-events:none;" aria-hidden="true"/>
-<label class="field">
-<span class="field__label">Ваше имя</span>
-<input autocomplete="name" class="field__input" name="name" placeholder="Ваше имя" required="" type="text"/>
-</label>
-<label class="field">
-<span class="field__label">Телефон (необязательно)</span>
-<input autocomplete="tel" class="field__input" name="phone" placeholder="Телефон (необязательно)" type="tel"/>
-</label>
-<label class="field">
-<span class="field__label">Email</span>
-<input autocomplete="email" class="field__input" name="email" placeholder="Email" required="" type="email"/>
-</label>
-<label class="field">
-<span class="field__label">Ваш вопрос</span>
-<div class="field__hint field__hint--above">Чем больше деталей вы укажете (штат, вид деятельности, QuickBooks да/нет), тем быстрее и точнее мы ответим.</div>
-<textarea class="field__input field__textarea" name="message" placeholder="Например: штат, вид бизнеса, QuickBooks да/нет, с чем нужна помощь…" required="" rows="4"></textarea>
-</label>
-<div class="field field--checkbox field--consent form-consent">
-<label class="checkbox">
-<input name="sms_consent" type="checkbox" value="yes"/>
-<span>
-<strong data-i18n="form.optional">Согласие на SMS (необязательно):</strong>
-<span data-i18n="form.smsConsentLabel">Я согласен(на), что Financial Stream LLC может отправить мне SMS по моему обращению или при пропущенном звонке (только по вопросам сервиса). Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.</span>
-</span>
-</label>
-<div class="field__hint" style="margin-top:8px;"><span data-i18n="form.details">Подробнее:</span> <a data-i18n="footer.smsConsent" href="/ru/sms-consent.html">Согласие на SMS</a> | <a href="/ru/privacy-policy.html">Политика конфиденциальности</a> | <a href="/ru/terms-and-conditions.html">Условия использования</a></div>
-<div class="field__hint"><span data-i18n="form.ackPrefix">Отправляя форму, вы подтверждаете ознакомление с</span> <a data-i18n="footer.privacy" href="/ru/privacy-policy.html">Политика конфиденциальности</a> <span data-i18n="form.ackAnd">и</span> <a data-i18n="footer.terms" href="/ru/terms-and-conditions.html">Условия использования</a>.</div>
-</div>
-<button class="btn btn-primary" data-i18n="cta.sendRequest" type="submit">Отправить</button>
-</form>
-</div>
-</section>
-<aside class="section contact-hub-right">
-<div class="contact-hub-card">
-<h3>Записаться на бесплатный созвон 15 минут</h3>
-<p>Подходит для первичных вопросов и когда объём работ неясен. Слоты на период сезона сдачи налоговой декларации доступны с 8 до 9 утра в будни (если нужно другое время, заполните форму для обратной связи, и мы перезвоним вам в удобное для вас время — укажите удобное время).</p>
-<a class="btn btn-primary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" rel="noopener" target="_blank">Записаться на 15 минут</a>
-</div>
-<div class="contact-hub-card">
-<h3>Запросить длительную сессию (налоги / сложные кейсы)</h3>
-<p>Длительные сессии назначаем после предварительного просмотра информации. Заполните форму — мы свяжемся с вами.</p>
-<a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor" rel="noopener" target="_blank">Заполнить подробную форму</a>
-</div>
-<div class="contact-hub-card">
-<h3>Email (документы / вопросы)</h3>
-<p>Если удобно — отправьте письмо и документы по email. Пожалуйста, не отправляйте SSN, пароли и логины/доступы.</p>
-<a class="btn btn-ghost email-link" href="mailto:financialstreamllc@gmail.com" onclick="window.location.href='mailto:financialstreamllc@gmail.com'; return false;">financialstreamllc@gmail.com</a>
-</div>
-<div class="contact-hub-card hub-seo">
-<h3>Мы помогаем с</h3>
-<p><a href="/ru/services/tax-returns.html">налоговыми декларациями</a>, <a href="/ru/services/quickbooks-bookkeeping.html">учётом в QuickBooks</a>, <a href="/ru/services/sales-tax-dor-reporting.html">Sales Tax отчётностью</a>, <a href="/ru/services/payroll-li-quarterly.html">Payroll и квартальными отчётами</a>, и <a href="/ru/services/company-formation.html">регистрацией/закрытием бизнеса</a>.</p>
-</div>
-</aside>
-</div>
-<section class="section contact-hub-bottom">
-<div class="hub-seo-block">
-<h2>Бухгалтерия и налоги в США (удалённо)</h2>
-<p>Financial Stream LLC помогает частным лицам и малому бизнесу в США с бухгалтерией и налоговой подготовкой — в большинстве случаев полностью онлайн. Если вы ищете бухгалтера, который сможет навести порядок в документах, настроить учёт и подсказать следующий шаг, начните с короткой заявки или 15‑минутной консультации, чтобы уточнить объём работ.</p>
-<p>Основные направления: ведение учёта в QuickBooks Online (ежемесячно + catch‑up/cleanup), подготовка и подача налоговых деклараций для бизнеса и частных лиц, поддержка по Sales Tax и отчётности штата, payroll и квартальные отчёты (включая L&amp;I), а также помощь с организационными вопросами (EIN и базовые шаги по лицензированию).</p>
-<p>Мы находимся в районе Seattle, Washington, но работаем с клиентами по всей территории США. Полезные страницы: <a href="/ru/services/tax-returns.html">Налоговые декларации</a> и <a href="/ru/services/quickbooks-bookkeeping.html">Бухгалтерия в QuickBooks</a>.</p>
-</div>
-</section>
-</div></main>
-<footer class="footer">
-<div class="container footer__inner">
-<div class="footer__left">
-<img alt="Financial Stream LLC" class="footer__logo" src="/assets/logo-horizontal.png" width="595" height="195" loading="lazy" decoding="async"/>
-<div class="footer__small">© <span id="year"></span> Financial Stream LLC</div>
-</div>
-<div class="footer__right">
-<a class="footer__link" href="/ru/contact/">Связаться с нами</a>
-<div class="footer__policy">
-<a class="footer__policy-link" data-i18n="footer.privacy" href="/ru/privacy-policy.html">Политика конфиденциальности</a>
-<span class="footer__sep">|</span>
-<a class="footer__policy-link" data-i18n="footer.terms" href="/ru/terms-and-conditions.html">Условия использования</a>
-<span class="footer__sep">|</span>
-<a class="footer__policy-link" data-i18n="footer.sms" href="/ru/sms-consent.html">Согласие на SMS</a>
-</div>
-</div>
-</div>
+<body class="proto-body proto-page contact-page">
+<div class="proto-bg" aria-hidden="true"></div>
+<script>
+  window.FS_CONTACT_CONFIG = {
+    CONTACT_EMAIL: "financialstreamllc@gmail.com",
+    CONTACT_PHONE: "+12064303464",
+    CONTACT_PHONE_DISPLAY: "+1 (206) 430-3464",
+    CONTACT_LOCATION_EN: "Washington State, U.S.",
+    CONTACT_LOCATION_RU: "штат Washington, США",
+    CALENDAR_URL: "https://calendar.app.google/xWh5kEQBoJvy9ien8",
+    GOOGLE_FORM_URL: "https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor",
+    FORM_ENDPOINT: "https://formspree.io/f/xwvqekla",
+    CONTACT_PAGE_EN: "/contact/",
+    CONTACT_PAGE_RU: "/ru/contact/",
+    PRIVACY_URL: "/ru/privacy-policy.html",
+    TERMS_URL: "/ru/terms-and-conditions.html",
+    SMS_CONSENT_URL: "/ru/sms-consent.html",
+    BLOG_PAGE_EN: "/blog/",
+    BLOG_PAGE_RU: "/ru/blog/"
+  };
+</script>
+
+<header class="site-header" data-proto-header>
+  <div class="container site-header__inner">
+    <a class="logo-wrap" href="/ru/" aria-label="Financial Stream главная">
+      <picture class="brand-logo-picture"><source srcset="/assets/brand/financial-stream/logo-primary-web.webp" type="image/webp"><img class="logo-image" src="/assets/brand/financial-stream/logo-primary-web.png" alt="Financial Stream LLC" width="640" height="203" decoding="async"></picture>
+    </a>
+    <nav class="site-nav" aria-label="Основная навигация">
+      <a href="../#services">Услуги</a>
+      <a href="../#how-we-work">Как мы работаем</a>
+      <a href="../#reporting-filing">Отчётность</a>
+      <a href="/ru/blog/">Материалы</a>
+      <a href="../#faq">Вопросы</a>
+      <a href="./" aria-current="page">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Переключение языка">
+        <a href="../../contact/">EN</a>
+      </div>
+      <a class="btn btn-primary" href="./">Записаться на консультацию</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
+        <span aria-hidden="true">Меню</span>
+      </button>
+    </div>
+  </div>
+  <div class="container site-header__panel" id="mobile-nav">
+    <nav class="site-nav" aria-label="Мобильная навигация">
+      <a href="../#services">Услуги</a>
+      <a href="../#how-we-work">Как мы работаем</a>
+      <a href="../#reporting-filing">Отчётность</a>
+      <a href="/ru/blog/">Материалы</a>
+      <a href="../#faq">Вопросы</a>
+      <a href="./" aria-current="page">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Переключение языка mobile">
+        <a href="../../contact/">EN</a>
+      </div>
+      <a class="btn btn-primary" href="#consultation">Записаться на консультацию</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="contact-hero section">
+    <div class="container contact-hero__grid">
+      <div class="contact-hero__copy fade-in">
+        <div class="eyebrow">Контакты</div>
+        <h1>Выберите удобный способ связи.</h1>
+        <p class="lead">Можно отправить короткий вопрос, заполнить форму, открыть подробную форму запроса или записаться на консультацию. Мы поможем понять ближайший практичный шаг по учёту, отчётности, налоговой подготовке или бизнес-задаче.</p>
+        <p class="contact-hero__microcopy">Онлайн по США &middot; QuickBooks Online &middot; Русский / English</p>
+      </div>
+
+      <aside class="contact-summary-card fade-in" aria-labelledby="contact-summary-title">
+        <div class="contact-summary-card__watermark" aria-hidden="true">FS</div>
+        <h2 id="contact-summary-title">Контактная информация</h2>
+        <ul class="contact-summary-list">
+          <li><span>Email</span><a href="mailto:financialstreamllc@gmail.com">financialstreamllc@gmail.com</a></li>
+          <li><span>Телефон</span><a href="tel:+12064303464">+1 (206) 430-3464</a></li>
+          <li><span>Локация</span><strong>штат Washington, США</strong></li>
+          <li><span>Формат работы</span><strong>Онлайн по США</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section contact-options-section fade-in" aria-labelledby="contact-options-title">
+    <div class="container">
+      <div class="section-heading contact-section-heading">
+        <div class="eyebrow">Способы связи</div>
+        <h2 id="contact-options-title">Выберите самый удобный вариант для вашего обращения.</h2>
+      </div>
+      <div class="contact-options-grid">
+        <article class="contact-option-card contact-option-card--email">
+          <span class="contact-option-icon" aria-hidden="true"></span>
+          <h3>Короткий вопрос по email</h3>
+          <p>Для ситуации, которую можно описать в нескольких предложениях.</p>
+          <a class="contact-card-link" href="mailto:financialstreamllc@gmail.com">Написать email <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="contact-option-card contact-option-card--form">
+          <span class="contact-option-icon" aria-hidden="true"></span>
+          <h3>Форма на сайте</h3>
+          <p>Для короткого сообщения прямо с сайта.</p>
+          <a class="contact-card-link" href="#contact-form">Заполнить форму <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="contact-option-card contact-option-card--detailed">
+          <span class="contact-option-icon" aria-hidden="true"></span>
+          <h3>Подробная форма запроса</h3>
+          <p>Если нужно указать больше информации или прикрепить документы.</p>
+          <a class="contact-card-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor" target="_blank" rel="noopener">Открыть подробную форму <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="contact-option-card contact-option-card--calendar">
+          <span class="contact-option-icon" aria-hidden="true"></span>
+          <h3>Записаться на консультацию</h3>
+          <p>Выберите удобное время, чтобы обсудить вашу ситуацию.</p>
+          <a class="contact-card-link" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" target="_blank" rel="noopener">Открыть календарь <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="contact-option-card contact-option-card--phone">
+          <span class="contact-option-icon" aria-hidden="true"></span>
+          <h3>Телефон</h3>
+          <p>Для прямого контакта, если телефон удобнее.</p>
+          <a class="contact-card-link" href="tel:+12064303464">Позвонить <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft contact-form-section fade-in" id="contact-form" aria-labelledby="contact-form-title">
+    <div class="container contact-form-layout">
+      <div class="contact-form-copy">
+        <div class="eyebrow">Короткая форма</div>
+        <h2 id="contact-form-title">Отправить короткое сообщение</h2>
+        <p class="lead">Используйте эту форму для короткого вопроса или первичного обращения. Пожалуйста, не отправляйте SSN, пароли, логины, доступы или чувствительные документы через эту форму.</p>
+        <div class="contact-note-card">
+          <h3>Что помогает ответить точнее</h3>
+          <p>Укажите штат, тип бизнеса, сроки и используете ли вы QuickBooks, если это относится к вашей ситуации.</p>
+        </div>
+      </div>
+
+      <form class="contact-form-card" action="https://formspree.io/f/xwvqekla" method="POST" data-contact-form data-form-endpoint="https://formspree.io/f/xwvqekla" novalidate>
+        <div class="form-status" data-form-status role="status" aria-live="polite"></div>
+        <input name="_subject" type="hidden" value="Financial Stream - Website request">
+        <input id="formLang" name="site_lang" type="hidden" value="ru">
+        <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <label class="contact-field" for="contact-name">
+          <span>Имя</span>
+          <input id="contact-name" name="name" type="text" autocomplete="name" required data-error="Укажите имя.">
+          <small class="field-error" id="contact-name-error"></small>
+        </label>
+
+        <label class="contact-field" for="contact-email">
+          <span>Email</span>
+          <input id="contact-email" name="email" type="email" autocomplete="email" required data-error="Укажите корректный email.">
+          <small class="field-error" id="contact-email-error"></small>
+        </label>
+
+        <label class="contact-field" for="contact-phone">
+          <span>Телефон, необязательно</span>
+          <input id="contact-phone" name="phone" type="tel" autocomplete="tel">
+          <small class="field-error" id="contact-phone-error"></small>
+        </label>
+
+        <label class="contact-field" for="contact-method">
+          <span>Удобный способ связи</span>
+          <select id="contact-method" name="preferred_contact_method">
+            <option value="">Выберите вариант</option>
+            <option>Email</option>
+            <option>Телефон</option>
+            <option>Любой вариант</option>
+          </select>
+          <small class="field-error" id="contact-method-error"></small>
+        </label>
+
+        <label class="contact-field" for="contact-topic">
+          <span>Тема обращения</span>
+          <select id="contact-topic" name="topic" required data-error="Выберите тему обращения.">
+            <option value="">Выберите тему</option>
+            <option>Бухгалтерия / QuickBooks</option>
+            <option>Sales tax</option>
+            <option>Payroll</option>
+            <option>Налоговая декларация</option>
+            <option>Регистрация бизнеса</option>
+            <option>Финансовый разбор</option>
+            <option>Пока не уверен(а)</option>
+          </select>
+          <small class="field-error" id="contact-topic-error"></small>
+        </label>
+
+        <label class="contact-field contact-field--full" for="contact-message">
+          <span>Сообщение</span>
+          <textarea id="contact-message" name="message" rows="6" required minlength="12" data-error="Добавьте сообщение минимум из 12 символов."></textarea>
+          <small class="field-error" id="contact-message-error"></small>
+        </label>
+
+        <div class="contact-field contact-field--full contact-consent">
+          <label class="contact-checkbox">
+            <input name="sms_consent" type="checkbox" value="yes">
+            <span><strong>Согласие на SMS (необязательно):</strong> Я согласен(на), что Financial Stream LLC может отправить мне SMS по моему обращению или при пропущенном звонке (только по вопросам сервиса). Частота сообщений зависит от ситуации. Могут применяться тарифы оператора. STOP — отказ, HELP — помощь.</span>
+          </label>
+          <p class="contact-legal-note">Отправляя форму, вы подтверждаете ознакомление с <a href="/ru/privacy-policy.html">Политикой конфиденциальности</a> и <a href="/ru/terms-and-conditions.html">Условиями использования</a>. <a href="/ru/sms-consent.html">Согласие на SMS</a></p>
+        </div>
+
+        <button class="btn btn-primary contact-submit" type="submit">Отправить сообщение</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section contact-next-section fade-in" aria-labelledby="contact-next-title">
+    <div class="container contact-next-grid">
+      <article class="contact-next-card" aria-labelledby="detailed-title">
+        <span class="contact-next-icon" aria-hidden="true"></span>
+        <div>
+          <h2 id="detailed-title">Нужно отправить больше информации?</h2>
+          <p>Используйте подробную форму, если нужно указать больше деталей, прикрепить документы или описать ситуацию для налоговой подготовки.</p>
+          <a class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSeGVohbKaOOEevQnt3kPCTz7LuKFYxtgVx2o3trXWTPL7pIxw/viewform?usp=publish-editor" target="_blank" rel="noopener">Открыть подробную форму</a>
+        </div>
+      </article>
+
+      <article class="contact-next-card" id="consultation" aria-labelledby="consultation-title">
+        <span class="contact-next-icon" aria-hidden="true"></span>
+        <div>
+          <h2 id="consultation-title">Записаться на консультацию</h2>
+          <p>Выберите удобное время, чтобы обсудить ситуацию и понять ближайший следующий шаг.</p>
+          <a class="btn btn-secondary" href="https://calendar.app.google/xWh5kEQBoJvy9ien8" target="_blank" rel="noopener">Открыть календарь</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--compact contact-mini-faq fade-in" aria-labelledby="contact-notes-title">
+    <div class="container contact-notes-grid">
+      <div>
+        <div class="eyebrow">Заметки перед обращением</div>
+        <h2 id="contact-notes-title">Достаточно коротко описать ситуацию.</h2>
+      </div>
+      <div class="contact-note-list">
+        <article>
+          <h3>Что указать в первом сообщении?</h3>
+          <p>Краткое описание, штат, тип бизнеса, сроки и направление, которое кажется самым близким.</p>
+        </article>
+        <article>
+          <h3>Можно ли отправить документы?</h3>
+          <p>Да. Если нужно прикрепить документы или дать больше деталей, используйте подробную форму запроса.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer footer--premium fade-in" id="footer">
+  <div class="container footer-shell">
+    <div class="footer-watermark" aria-hidden="true">FS</div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <picture class="brand-logo-picture"><source srcset="/assets/brand/financial-stream/logo-primary-web.webp" type="image/webp"><img class="footer-logo" src="/assets/brand/financial-stream/logo-primary-web.png" alt="Financial Stream LLC" width="640" height="203" decoding="async"></picture>
+        <p class="footer-note">Бухгалтерская и налоговая поддержка для малого бизнеса и частных клиентов в США. Помогаем с учётом, отчётностью, налоговой подготовкой и понятными следующими шагами.</p>
+        <div class="footer-notes" aria-label="Заметки о работе">
+          <span>Онлайн по США</span>
+          <span>Русский / English</span>
+          <span>QuickBooks Online</span>
+        </div>
+      </div>
+      <nav aria-label="Услуги в футере">
+        <h3 class="footer-title">Услуги</h3>
+        <ul class="footer-links">
+          <li><a href="/ru/services/company-formation.html">Регистрация бизнеса</a></li>
+          <li><a href="/ru/services/quickbooks-bookkeeping.html">Бухгалтерия в QuickBooks</a></li>
+          <li><a href="/ru/services/sales-tax-dor-reporting.html">Sales tax и отчётность</a></li>
+          <li><a href="/ru/services/payroll-li-quarterly.html">Payroll и квартальные отчёты</a></li>
+          <li><a href="/ru/services/tax-returns.html">Налоговые декларации</a></li>
+          <li><a href="/ru/services/financial-consulting.html">Финансовый разбор</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Навигация в футере">
+        <h3 class="footer-title">Навигация</h3>
+        <ul class="footer-links">
+          <li><a href="../#how-we-work">Как мы работаем</a></li>
+          <li><a href="../#reporting-filing">Отчётность и документы</a></li>
+          <li><a href="/ru/blog/">Материалы и разборы</a></li>
+          <li><a href="../#faq">Вопросы перед началом</a></li>
+          <li><a href="./">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <h3 class="footer-title">Контакты</h3>
+        <ul class="footer-links footer-contact-list">
+          <li data-contact-icon="phone"><a href="tel:+12064303464">+1 (206) 430-3464</a></li>
+          <li data-contact-icon="email"><a href="mailto:financialstreamllc@gmail.com">financialstreamllc@gmail.com</a></li>
+          <li data-contact-icon="location">штат Washington, США</li>
+          <li data-contact-icon="remote">Онлайн по США</li>
+        </ul>
+        <a class="footer-contact-cta" href="./">Записаться на консультацию</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Financial Stream LLC. Все права защищены.</p>
+      <nav class="footer-legal" aria-label="Юридические ссылки">
+        <a href="/ru/privacy-policy.html">Политика конфиденциальности</a>
+        <a href="/ru/terms-and-conditions.html">Условия использования</a>
+        <a href="/ru/sms-consent.html">Согласие на SMS</a>
+        <a href="../../contact/">EN</a>
+      </nav>
+      <a class="footer-credit footer-credit--proai" href="https://proai-expert.com/ru/" target="_blank" rel="noopener nofollow" aria-label="Сайт разработан ProAI Expert"><span class="footer-credit__label">Сайт разработан</span><span class="footer-credit__brand"><span class="footer-credit__cube" aria-hidden="true"><svg viewBox="0 0 48 48" class="footer-credit__cube-svg" focusable="false"><path d="M24 3 42 13.5v21L24 45 6 34.5v-21L24 3Z" /><path d="M24 3v21l18 10.5" /><path d="M24 24 6 13.5" /><path d="M6 34.5 24 24l18-10.5" /></svg></span><span class="footer-credit__pro">PROAI</span><span class="footer-credit__expert">EXPERT</span></span></a>
+    </div>
+  </div>
 </footer>
-<script src="/script.js?v=41" defer></script>
-<script src="/assets/js/shared-header.js?v=2" defer></script>
+<script src="../../assets/prototype.js"></script>
 </body>
 </html>
