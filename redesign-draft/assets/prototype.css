@@ -14608,6 +14608,27 @@ html[lang="ru"] .legal-hero h1 {
   transform: none;
 }
 
+@media (max-width: 760px) {
+  .legal-hero__grid,
+  .legal-layout,
+  .legal-support-strip {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .legal-hero__copy,
+  .legal-side {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .legal-visual-card--image {
+    width: 100%;
+    max-width: 520px;
+    justify-self: center;
+    aspect-ratio: 5 / 4;
+  }
+}
+
 @keyframes legal-silver-blink {
   0%,
   68%,
@@ -14931,5 +14952,19 @@ html[lang="ru"] :is(.service-page--payroll-hero, .service-page--tax-returns-hero
     opacity: 1 !important;
     transform: none !important;
     transition: opacity 180ms ease !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-hero h1,
+  html[lang="ru"] .legal-hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.35rem, 10vw, 2.75rem);
+    line-height: 1.04;
+    overflow-wrap: break-word;
+  }
+
+  .legal-page--terms .legal-hero h1 {
+    max-width: 7em;
   }
 }
