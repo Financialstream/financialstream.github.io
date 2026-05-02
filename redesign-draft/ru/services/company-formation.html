@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/prototype.css">
 </head>
-<body class="proto-body proto-page service-page service-page--champagne">
+<body class="proto-body proto-page service-page service-page--champagne service-page--registration-hero">
 <div class="proto-bg" aria-hidden="true"></div>
 
 <header class="site-header" data-proto-header>
@@ -84,24 +84,23 @@
           <a class="btn btn-secondary" href="/ru/contact/#consultation">Записаться на консультацию</a>
         </div>
       </div>
-      <aside class="service-hero__visual fade-in" aria-label="Регистрация бизнеса visual">
-        
-        <div class="service-dossier-visual service-dossier-visual--formation" aria-hidden="true">
-          <span class="service-visual-glow"></span>
-          <span class="service-folder"></span>
-          <span class="service-doc service-doc--back"></span>
-          <span class="service-doc service-doc--front">
-            <span class="service-doc-label">EIN</span>
-            <span class="service-doc-line service-doc-line--one"></span>
-            <span class="service-doc-line service-doc-line--two"></span>
-            <span class="service-doc-line service-doc-line--three"></span>
-            <span class="service-doc-check service-doc-check--one"></span>
-            <span class="service-doc-check service-doc-check--two"></span>
-          </span>
-          
-          <span class="service-floating-note"></span>
-          <span class="service-mini-card"></span>
-          <span class="service-lens"></span>
+      <aside class="service-hero__visual service-hero__visual--image fade-in" aria-label="Визуал регистрации бизнеса">
+        <div class="service-hero-image-wrap service-hero-image-wrap--setup">
+          <picture>
+            <source
+              srcset="/assets/hero/services/registration-business/01-registration-business-ru-web.webp"
+              type="image/webp"
+            >
+            <img
+              class="service-hero-image"
+              src="/assets/hero/services/registration-business/01-registration-business-ru-hq.png"
+              width="2048"
+              height="1700"
+              alt="Визуал регистрации бизнеса с LLC, EIN, лицензиями и первыми шагами"
+              decoding="async"
+              fetchpriority="high"
+            >
+          </picture>
         </div>
       </aside>
     </div>
