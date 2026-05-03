@@ -101,7 +101,8 @@ button {
 }
 
 body.proto-page {
-  overflow-x: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .proto-bg {
@@ -2039,7 +2040,7 @@ html[lang="ru"] .article-hero__copy h1 {
   box-shadow: 0 10px 26px rgba(7, 29, 47, 0.08);
 }
 
-@media (max-width: 1024px), (pointer: coarse) {
+@media (max-width: 768px) {
   .site-header.is-hidden-mobile:not(.is-open) {
     transform: translateY(-100%);
   }

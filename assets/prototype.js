@@ -3,7 +3,7 @@
   const header = document.querySelector('[data-proto-header]');
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const mobilePanel = header ? header.querySelector('.site-header__panel') : null;
-  const coarsePointerQuery = window.matchMedia('(pointer: coarse)');
+  const mobileHeaderQuery = window.matchMedia('(max-width: 768px)');
   let lastHeaderScrollY = window.scrollY;
 
   function syncHeaderState() {
@@ -11,16 +11,16 @@
     const currentScrollY = window.scrollY;
     const isScrolled = header.classList.contains('is-scrolled');
     const shouldCompact = isScrolled ? currentScrollY > 8 : currentScrollY > 32;
-    const shouldAutoHide = window.innerWidth <= 1024 || coarsePointerQuery.matches;
+    const shouldAutoHide = mobileHeaderQuery.matches;
     const scrollDelta = currentScrollY - lastHeaderScrollY;
 
     header.classList.toggle('is-scrolled', shouldCompact);
 
     if (!shouldAutoHide || header.classList.contains('is-open') || currentScrollY < 20) {
       header.classList.remove('is-hidden-mobile');
-    } else if (scrollDelta > 10) {
+    } else if (scrollDelta > 8 && currentScrollY > 96) {
       header.classList.add('is-hidden-mobile');
-    } else if (scrollDelta < -10) {
+    } else if (scrollDelta < -4) {
       header.classList.remove('is-hidden-mobile');
     }
 
@@ -40,6 +40,8 @@
 
     menuToggle.addEventListener('click', function () {
       const open = header.classList.toggle('is-open');
+      header.classList.remove('is-hidden-mobile');
+      lastHeaderScrollY = Math.max(window.scrollY, 0);
       menuToggle.setAttribute('aria-expanded', String(open));
         if (mobilePanel) {
           mobilePanel.hidden = !open;
