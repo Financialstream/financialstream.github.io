@@ -7382,12 +7382,17 @@ html[lang="ru"] .final-cta-copy h2 {
 }
 
 .fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js-enabled .fade-in {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 420ms ease, transform 420ms ease;
 }
 
-.fade-in.is-visible {
+.js-enabled .fade-in.is-visible {
   opacity: 1;
   transform: translateY(0);
 }

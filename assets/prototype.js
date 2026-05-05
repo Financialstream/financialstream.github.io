@@ -1,5 +1,8 @@
 (function () {
   const body = document.body;
+  if (body) {
+    body.classList.add('js-enabled');
+  }
   const header = document.querySelector('[data-proto-header]');
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const mobilePanel = header ? header.querySelector('.site-header__panel') : null;
