@@ -7417,6 +7417,11 @@ html[lang="ru"] .final-cta-copy h2 {
   transform: translateY(0);
 }
 
+body.article-page.js-enabled .fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .proto-ready .hero-copy.fade-in.is-visible > .eyebrow,
 .proto-ready .hero-copy.fade-in.is-visible > .hero-title-premium,
 .proto-ready .hero-copy.fade-in.is-visible > .lead,
