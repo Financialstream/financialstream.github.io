@@ -1436,6 +1436,25 @@ html[lang="ru"] .article-hero__copy h1 {
   gap: 12px;
 }
 
+.article-content .article-contact-actions .btn-primary,
+.article-content .article-contact-actions .btn-primary:visited,
+.article-contact-strip .article-contact-actions .btn-primary,
+.article-contact-strip .article-contact-actions .btn-primary:visited {
+  color: #ffffff;
+  text-decoration: none;
+  text-decoration-color: transparent;
+}
+
+.article-content .article-contact-actions .btn-primary:hover,
+.article-content .article-contact-actions .btn-primary:focus-visible,
+.article-content .article-contact-actions .btn-primary:active,
+.article-contact-strip .article-contact-actions .btn-primary:hover,
+.article-contact-strip .article-contact-actions .btn-primary:focus-visible,
+.article-contact-strip .article-contact-actions .btn-primary:active {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 @media (max-width: 1180px) {
   .service-hero__grid,
   .service-related-layout,
