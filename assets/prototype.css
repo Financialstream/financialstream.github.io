@@ -11580,16 +11580,6 @@ html[lang="ru"] .blog-hero__copy h1 {
   box-shadow: 0 12px 22px rgba(13, 34, 53, 0.08);
 }
 
-.blog-doc-visual--image {
-  object-fit: cover;
-  object-position: center;
-}
-
-.blog-doc-visual--image::before,
-.blog-doc-visual--image::after {
-  display: none;
-}
-
 .blog-doc-visual::before,
 .blog-doc-visual::after {
   content: "";
