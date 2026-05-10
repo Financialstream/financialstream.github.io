@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://financialstreamllc.com/sitemap.xml

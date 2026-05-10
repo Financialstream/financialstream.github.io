@@ -13,7 +13,6 @@ OLD_BRAND_MATCHES=$(grep -Rni "ProAI\|proaiexpert\|AI Systems Architecture" . \
   --include="*.txt" \
   --exclude="audit-before-*" \
   --exclude="audit-after-*" \
-  --exclude-dir="redesign-draft" \
   --exclude-dir=".git" \
   --exclude-dir="node_modules" || true)
 
@@ -27,7 +26,6 @@ OLD_DOMAIN_MATCHES=$(grep -Rni "proaiexpert.github.io" . \
   --include="*.txt" \
   --exclude="audit-before-*" \
   --exclude="audit-after-*" \
-  --exclude-dir="redesign-draft" \
   --exclude-dir=".git" \
   --exclude-dir="node_modules" || true)
 
@@ -37,7 +35,6 @@ OLD_ANCHOR_MATCHES=$(grep -Rni "#categories\|#what-we-build\|#how-it-works" . \
   --include="*.md" \
   --exclude="audit-before-*" \
   --exclude="audit-after-*" \
-  --exclude-dir="redesign-draft" \
   --exclude-dir=".git" \
   --exclude-dir="node_modules" || true)
 
@@ -115,10 +112,8 @@ check_js_file() {
 check_js_file "script.js"
 check_js_file "shared-header.js"
 check_js_file "shared-service-components.js"
-check_js_file "shared-article-components.js"
 check_js_file "assets/js/shared-header.js"
 check_js_file "assets/js/shared-service-components.js"
-check_js_file "assets/js/shared-article-components.js"
 check_js_file "assets/js/main.js"
 
 echo "Stage 1 audit passed."
