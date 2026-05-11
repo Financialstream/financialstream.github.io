@@ -12417,7 +12417,7 @@ html[lang="ru"] .blog-hero__copy h1 {
   .container,
   .service-page .container,
   .article-page .container {
-    width: min(100%, calc(100vw - 36px));
+    width: min(100%, calc(100% - 36px));
   }
 
   .site-header__inner {
@@ -12429,7 +12429,7 @@ html[lang="ru"] .blog-hero__copy h1 {
   }
 
   .hero > .container {
-    width: min(100%, calc(100vw - 32px));
+    width: min(100%, calc(100% - 32px));
   }
 
   .hero-title-premium,
