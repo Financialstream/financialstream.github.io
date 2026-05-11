@@ -6,7 +6,7 @@ This is a static website intended for GitHub Pages.
 https://financialstreamllc.com
 
 ## Bilingual (EN/RU)
-Language switch is in the header. Text is controlled in `script.js` (`i18n` object).
+Language switching is handled by static EN/RU page pairs through header links, canonical tags, and hreflang alternates. Active shared behavior lives in `assets/js/site.js`; active styling lives in `assets/css/site.css`.
 
 ## Form submissions (email delivery)
 GitHub Pages is static — it **cannot** send emails by itself.
@@ -18,7 +18,7 @@ Right now the forms use a safe fallback:
 Pick **one** option:
 1) **Formspree** (easy):
    - Create a Formspree form endpoint
-   - Replace `action="#"` in both forms with your Formspree URL
+   - Keep the existing Formspree endpoint in the contact forms unless intentionally rotating providers
    - Remove the JS `hookMailto(...)` calls (or keep, but it will conflict)
 
 2) **Netlify Forms**:

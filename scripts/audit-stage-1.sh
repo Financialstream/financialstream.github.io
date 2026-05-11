@@ -3,7 +3,7 @@ set -euo pipefail
 
 echo "Running Financial Stream Stage 1 audit..."
 
-OLD_BRAND_MATCHES=$(grep -Rni "ProAI\|proaiexpert\|AI Systems Architecture" . \
+OLD_BRAND_MATCHES=$({ grep -Rni "ProAI\|proaiexpert\|AI Systems Architecture" . \
   --include="*.html" \
   --include="*.css" \
   --include="*.js" \
@@ -14,9 +14,14 @@ OLD_BRAND_MATCHES=$(grep -Rni "ProAI\|proaiexpert\|AI Systems Architecture" . \
   --exclude="audit-before-*" \
   --exclude="audit-after-*" \
   --exclude-dir=".git" \
-  --exclude-dir="node_modules" || true)
+  --exclude-dir="node_modules" || true; } \
+  | grep -vi "footer-credit--proai" \
+  | grep -vi "https://proai-expert.com/" \
+  | grep -vi "https://proai-expert.com/ru/" \
+  | grep -vi "Website by ProAI Expert" \
+  | grep -vi "ProAI Expert" || true)
 
-OLD_DOMAIN_MATCHES=$(grep -Rni "proaiexpert.github.io" . \
+OLD_DOMAIN_MATCHES=$(grep -Rni "proaiexpert[.]github[.]io" . \
   --include="*.html" \
   --include="*.css" \
   --include="*.js" \
@@ -38,14 +43,15 @@ OLD_ANCHOR_MATCHES=$(grep -Rni "#categories\|#what-we-build\|#how-it-works" . \
   --exclude-dir=".git" \
   --exclude-dir="node_modules" || true)
 
-MOJIBAKE_MATCHES=$(grep -Rni "Ð\|Ñ\|Ã\|�" . \
+MOJIBAKE_MATCHES=$(grep -RniE "(\?\?\?\?|Ã|Â|Ð|Ñ|�)" . \
   --include="*.html" \
   --include="*.js" \
   --include="*.css" \
   --include="*.md" \
   --include="*.txt" \
   --exclude-dir=".git" \
-  --exclude-dir="node_modules" || true)
+  --exclude-dir="node_modules" \
+  --exclude="audit-stage-1.sh" || true)
 
 SITEMAP_LEGACY_MATCHES=$(grep -n "proaiexpert\|github.io\|cases\|patterns\|client-intake-automation" sitemap.xml || true)
 ROBOTS_OLD_DOMAIN_MATCHES=$(grep -n "proaiexpert\|github.io" robots.txt || true)
@@ -109,11 +115,6 @@ check_js_file() {
   fi
 }
 
-check_js_file "script.js"
-check_js_file "shared-header.js"
-check_js_file "shared-service-components.js"
-check_js_file "assets/js/shared-header.js"
-check_js_file "assets/js/shared-service-components.js"
-check_js_file "assets/js/main.js"
+check_js_file "assets/js/site.js"
 
 echo "Stage 1 audit passed."

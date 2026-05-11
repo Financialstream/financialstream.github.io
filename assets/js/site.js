@@ -872,6 +872,18 @@
     });
   });
 
+  document.querySelectorAll('.trust-marquee__track').forEach(function (track) {
+    const group = track.querySelector('.trust-marquee__group');
+    if (!group || track.querySelector('.trust-marquee__group[aria-hidden="true"]')) return;
+
+    const clone = group.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    clone.querySelectorAll('a, button, input, select, textarea, [tabindex]').forEach(function (node) {
+      node.setAttribute('tabindex', '-1');
+    });
+    track.appendChild(clone);
+  });
+
   document.querySelectorAll('[data-blog-library]').forEach(function (library) {
     const filters = Array.from(library.querySelectorAll('[data-blog-filter]'));
     const cards = Array.from(library.querySelectorAll('.blog-article-card[data-topic]'));
