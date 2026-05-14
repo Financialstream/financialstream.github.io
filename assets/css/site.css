@@ -2376,17 +2376,72 @@ html[lang="ru"] .hero-title-premium {
 }
 
 .hero-support-lines {
-  margin-top: 12px;
-  display: grid;
-  gap: 6px;
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 620px;
 }
 
-.hero-support-lines p {
-  color: #5c6b7a;
-  font-size: clamp(0.875rem, 0.95vw, 0.94rem);
-  line-height: 1.45;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+.hero-support-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 7px 12px 7px 11px;
+  border: 1px solid rgba(184, 202, 214, 0.72);
+  border-radius: 999px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(238, 246, 251, 0.6)),
+    rgba(255, 255, 255, 0.7);
+  color: #405c78;
+  box-shadow:
+    0 8px 18px rgba(13, 34, 53, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  font-size: clamp(0.78rem, 0.85vw, 0.88rem);
+  line-height: 1.15;
+  font-weight: 760;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  max-width: 100%;
+  backdrop-filter: blur(10px) saturate(1.02);
+  -webkit-backdrop-filter: blur(10px) saturate(1.02);
+}
+
+.hero-support-chip::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  border-radius: 5px;
+  border: 1px solid rgba(47, 95, 145, 0.28);
+  background:
+    linear-gradient(135deg, transparent 42%, rgba(47, 95, 145, 0.58) 43% 57%, transparent 58%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(224, 239, 247, 0.62));
+}
+
+.hero-support-chip[data-chip="books"]::before {
+  border-radius: 4px;
+  background:
+    linear-gradient(90deg, transparent 47%, rgba(47, 95, 145, 0.56) 48% 54%, transparent 55%),
+    linear-gradient(180deg, rgba(47, 95, 145, 0.5) 0 2px, transparent 2px 6px, rgba(95, 130, 168, 0.38) 6px 8px, transparent 8px),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(224, 239, 247, 0.62));
+}
+
+.hero-support-chip[data-chip="agency"]::before {
+  border-radius: 4px 4px 7px 7px;
+  background:
+    linear-gradient(180deg, rgba(47, 95, 145, 0.55) 0 3px, transparent 3px),
+    repeating-linear-gradient(180deg, transparent 0 4px, rgba(95, 130, 168, 0.36) 4px 5px),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(224, 239, 247, 0.62));
+}
+
+.hero-support-chip[data-chip="language"]::before {
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent 0 34%, rgba(47, 95, 145, 0.55) 35% 44%, transparent 45% 55%, rgba(47, 95, 145, 0.55) 56% 65%, transparent 66%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(224, 239, 247, 0.62));
 }
 
 .proof-strip {
@@ -2423,8 +2478,8 @@ html[lang="ru"] .hero-title-premium {
 
 .proof-card {
   position: relative;
-  min-height: 168px;
-  padding: 28px 24px 24px;
+  min-height: 184px;
+  padding: 26px 24px 24px;
   border-radius: 30px;
   border: 1px solid rgba(184, 202, 214, 0.58);
   background:
@@ -2460,22 +2515,12 @@ html[lang="ru"] .hero-title-premium {
 }
 
 .proof-card::after {
-  content: "01";
+  content: "";
   position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(95, 130, 168, 0.28);
-  border-radius: 14px;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(238, 246, 251, 0.46));
-  color: rgba(47, 95, 145, 0.72);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.06em;
+  inset: auto 24px 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(47, 95, 145, 0.2), rgba(47, 167, 160, 0.2), transparent);
+  pointer-events: none;
 }
 
 .proof-card:nth-child(1) {
@@ -2490,18 +2535,10 @@ html[lang="ru"] .hero-title-premium {
     linear-gradient(156deg, rgba(255, 255, 255, 0.95) 0%, rgba(238, 245, 250, 0.72) 50%, rgba(223, 235, 244, 0.54) 100%);
 }
 
-.proof-card:nth-child(2)::after {
-  content: "02";
-}
-
 .proof-card:nth-child(3) {
   background:
     radial-gradient(circle at 86% 10%, rgba(241, 244, 248, 0.9), transparent 26%),
     linear-gradient(156deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 247, 249, 0.74) 48%, rgba(232, 236, 241, 0.58) 100%);
-}
-
-.proof-card:nth-child(3)::after {
-  content: "03";
 }
 
 .proof-card:hover {
@@ -2522,11 +2559,50 @@ html[lang="ru"] .hero-title-premium {
 }
 
 .proof-value {
+  position: relative;
+  z-index: 1;
   font-size: clamp(1.9rem, 2.45vw, 2.18rem);
   line-height: 1.08;
   letter-spacing: -0.038em;
   color: var(--text-strong);
   font-weight: 800;
+}
+
+.proof-icon {
+  position: relative;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  display: inline-grid;
+  place-items: center;
+  margin-bottom: 16px;
+  border: 1px solid rgba(95, 130, 168, 0.34);
+  border-radius: 15px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(224, 239, 247, 0.64)),
+    rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 10px 22px rgba(13, 34, 53, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #2f5f91;
+}
+
+.proof-icon svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.proof-icon--filings {
+  color: #416f9c;
+}
+
+.proof-icon--remote {
+  color: #2e7f86;
 }
 
 .proof-value [data-proof-value] {
@@ -7736,7 +7812,7 @@ body.article-page.js-enabled .fade-in {
     max-width: 100%;
   }
 
-  .hero-support-lines p {
+  .hero-support-chip {
     font-size: 0.88rem;
   }
 
@@ -7924,8 +8000,9 @@ body.article-page.js-enabled .fade-in {
     line-height: 1.38;
   }
 
-  .hero-support-lines p {
+  .hero-support-chip {
     font-size: 0.84rem;
+    white-space: normal;
   }
 
   .hero-visual-shell {
@@ -12019,43 +12096,6 @@ html[lang="ru"] .blog-hero__copy h1 {
 
 .proof-card .proof-value {
   position: relative;
-  padding-top: 38px;
-}
-
-.proof-card .proof-value::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 30px;
-  height: 30px;
-  border: 1px solid rgba(95, 130, 168, 0.34);
-  border-radius: 12px;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(238, 245, 247, 0.58));
-  box-shadow: 0 8px 18px rgba(13, 34, 53, 0.055);
-}
-
-.proof-card:nth-child(1) .proof-value::before {
-  background:
-    linear-gradient(90deg, transparent 44%, rgba(47, 95, 145, 0.58) 44% 56%, transparent 56%),
-    linear-gradient(180deg, transparent 44%, rgba(47, 95, 145, 0.58) 44% 56%, transparent 56%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(226, 244, 251, 0.62));
-}
-
-.proof-card:nth-child(2) .proof-value::before {
-  border-radius: 10px 10px 14px 14px;
-  background:
-    linear-gradient(180deg, rgba(47, 95, 145, 0.58) 0 4px, transparent 4px),
-    repeating-linear-gradient(180deg, transparent 0 7px, rgba(95, 130, 168, 0.38) 7px 9px),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(223, 235, 244, 0.66));
-}
-
-.proof-card:nth-child(3) .proof-value::before {
-  border-radius: 999px;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(47, 95, 145, 0.58) 0 4px, transparent 5px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.88), rgba(238, 245, 247, 0.62));
 }
 
 .proof-card:hover,
@@ -12068,9 +12108,9 @@ html[lang="ru"] .blog-hero__copy h1 {
     inset 0 1px 0 rgba(255, 255, 255, 0.96);
 }
 
-.proto-ready .proof-strip[data-proof-strip].is-visible .proof-card:nth-child(1) { transition-delay: 120ms; }
-.proto-ready .proof-strip[data-proof-strip].is-visible .proof-card:nth-child(2) { transition-delay: 260ms; }
-.proto-ready .proof-strip[data-proof-strip].is-visible .proof-card:nth-child(3) { transition-delay: 400ms; }
+.proto-ready .proof-strip[data-proof-strip].is-visible .proof-card:nth-child(1) { transition-delay: 0ms; }
+.proto-ready .proof-strip[data-proof-strip].is-visible .proof-card:nth-child(2) { transition-delay: 150ms; }
+.proto-ready .proof-strip[data-proof-strip].is-visible .proof-card:nth-child(3) { transition-delay: 300ms; }
 
 .service-hero {
   position: relative;
@@ -12464,7 +12504,7 @@ html[lang="ru"] .blog-hero__copy h1 {
     overflow-wrap: anywhere;
   }
 
-  .hero-support-lines p,
+  .hero-support-chip,
   .article-meta-row span,
   .blog-card-meta,
   .contact-summary-list a,

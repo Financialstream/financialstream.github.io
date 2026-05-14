@@ -618,7 +618,7 @@
       const target = Number(node.getAttribute('data-proof-value'));
       if (!Number.isFinite(target)) return;
 
-      const duration = 980;
+      const duration = 1700;
       const startTime = performance.now();
 
       function frame(now) {
