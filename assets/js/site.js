@@ -500,6 +500,117 @@
     });
   })();
 
+  (function setupSituationDiagnostic() {
+    const roots = document.querySelectorAll('[data-situation-diagnostic]');
+    if (!roots.length) return;
+
+    const mobileQuery = window.matchMedia('(max-width: 980px)');
+
+    roots.forEach(function (root) {
+      const diagnostic = root.querySelector('.situation-diagnostic');
+      const preview = root.querySelector('[data-situation-preview]');
+      const triggers = Array.from(root.querySelectorAll('[data-situation-trigger]'));
+      const panels = Array.from(root.querySelectorAll('[data-situation-panel]'));
+      let activeIndex = 0;
+
+      if (!diagnostic || !preview || !triggers.length || !panels.length) return;
+
+      diagnostic.classList.add('is-enhanced');
+
+      function getPanel(trigger) {
+        const id = trigger.getAttribute('data-target');
+        return id ? root.querySelector('#' + id) : null;
+      }
+
+      function placePanel(panel, trigger) {
+        if (!panel) return;
+
+        if (mobileQuery.matches) {
+          const item = trigger.closest('.situation-diagnostic__item');
+          const slot = item ? item.querySelector('.situation-diagnostic__mobile-slot') : null;
+          if (slot && panel.parentNode !== slot) {
+            slot.appendChild(panel);
+          }
+          return;
+        }
+
+        if (panel.parentNode !== preview) {
+          preview.appendChild(panel);
+        }
+      }
+
+      function setActive(index, shouldFocus) {
+        const trigger = triggers[index] || triggers[0];
+        const panel = getPanel(trigger);
+
+        if (!trigger || !panel) return;
+
+        activeIndex = index;
+        triggers.forEach(function (item, itemIndex) {
+          const active = itemIndex === activeIndex;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-expanded', active ? 'true' : 'false');
+        });
+
+        panels.forEach(function (item) {
+          item.classList.toggle('is-active', item === panel);
+          item.hidden = item !== panel;
+        });
+
+        placePanel(panel, trigger);
+
+        if (shouldFocus) {
+          trigger.focus();
+        }
+      }
+
+      triggers.forEach(function (trigger, index) {
+        trigger.addEventListener('click', function () {
+          setActive(index, false);
+        });
+
+        trigger.addEventListener('mouseenter', function () {
+          if (!mobileQuery.matches) {
+            setActive(index, false);
+          }
+        });
+
+        trigger.addEventListener('keydown', function (event) {
+          const keys = ['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Home', 'End'];
+          if (keys.indexOf(event.key) === -1) return;
+
+          event.preventDefault();
+
+          if (event.key === 'Home') {
+            setActive(0, true);
+            return;
+          }
+
+          if (event.key === 'End') {
+            setActive(triggers.length - 1, true);
+            return;
+          }
+
+          const direction = event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1 : -1;
+          const nextIndex = (index + direction + triggers.length) % triggers.length;
+          setActive(nextIndex, true);
+        });
+      });
+
+      if (typeof mobileQuery.addEventListener === 'function') {
+        mobileQuery.addEventListener('change', function () {
+          setActive(activeIndex, false);
+        });
+      } else if (typeof mobileQuery.addListener === 'function') {
+        mobileQuery.addListener(function () {
+          setActive(activeIndex, false);
+        });
+      }
+
+      setActive(0, false);
+    });
+  })();
+
   if (body) {
     body.classList.add('proto-ready');
   }

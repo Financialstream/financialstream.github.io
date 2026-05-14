@@ -195,7 +195,7 @@
     </div>
   </section>
 
-  <section class="section section--soft situation-clarity situation-clarity--compact fade-in" data-situation-clarity>
+  <section class="section section--soft situation-clarity fade-in" data-situation-diagnostic>
     <div class="container">
       <div class="section-heading situation-clarity__heading">
         <div class="eyebrow">Find the right next step</div>
@@ -203,36 +203,165 @@
         <p class="lead" style="margin-top: 18px;">Not sure which service you need? Start with the situation. Financial Stream LLC can help route the next step after reviewing the details.</p>
       </div>
 
-      <div class="situation-clarity__layout">
-        <div class="situation-selector situation-selector--links" aria-label="Choose your current situation">
-          <a class="situation-card" href="/services/company-formation.html">
-            <span class="situation-card__number">01</span>
-            <span class="situation-card__body"><span class="situation-card__title">Starting a business</span><span class="situation-card__text">You need help with setup, EIN, license steps, or first bookkeeping structure.</span><span class="situation-card__link">Review setup <span aria-hidden="true">→</span></span></span>
-          </a>
-          <a class="situation-card" href="/services/quickbooks-bookkeeping.html">
-            <span class="situation-card__number">02</span>
-            <span class="situation-card__body"><span class="situation-card__title">Bookkeeping / QuickBooks</span><span class="situation-card__text">You need monthly records, reconciliations, reports, or QuickBooks support.</span><span class="situation-card__link">Organize books <span aria-hidden="true">→</span></span></span>
-          </a>
-          <a class="situation-card" href="/services/quickbooks-bookkeeping.html">
-            <span class="situation-card__number">03</span>
-            <span class="situation-card__body"><span class="situation-card__title">Cleanup / catch-up</span><span class="situation-card__text">Your books are behind, messy, or not reliable enough for review.</span><span class="situation-card__link">Plan cleanup <span aria-hidden="true">→</span></span></span>
-          </a>
-          <a class="situation-card" href="/services/payroll-li-quarterly.html">
-            <span class="situation-card__number">04</span>
-            <span class="situation-card__body"><span class="situation-card__title">Payroll / L&amp;I</span><span class="situation-card__text">You need payroll records, quarterly reporting support, or L&amp;I-related document review.</span><span class="situation-card__link">Review payroll <span aria-hidden="true">→</span></span></span>
-          </a>
-          <a class="situation-card" href="/services/sales-tax-dor-reporting.html">
-            <span class="situation-card__number">05</span>
-            <span class="situation-card__body"><span class="situation-card__title">Sales Tax / DOR</span><span class="situation-card__text">You need help organizing Sales Tax, DOR reports, payment confirmations, or notices.</span><span class="situation-card__link">Review reporting <span aria-hidden="true">→</span></span></span>
-          </a>
-          <a class="situation-card" href="/services/tax-returns.html">
-            <span class="situation-card__number">06</span>
-            <span class="situation-card__body"><span class="situation-card__title">Tax return preparation</span><span class="situation-card__text">You need personal or business tax return preparation and document review.</span><span class="situation-card__link">Prepare documents <span aria-hidden="true">→</span></span></span>
-          </a>
-          <a class="situation-card" href="/contact/#structured-request">
-            <span class="situation-card__number">07</span>
-            <span class="situation-card__body"><span class="situation-card__title">Not sure what you need?</span><span class="situation-card__text">Send a structured request and we will help identify the right starting point.</span><span class="situation-card__link">Start request <span aria-hidden="true">→</span></span></span>
-          </a>
+      <div class="situation-diagnostic">
+        <div class="situation-diagnostic__selector" aria-label="Choose your current situation">
+          <div class="situation-diagnostic__item">
+            <button class="situation-diagnostic__trigger is-active" type="button" data-situation-trigger data-target="situation-en-start" aria-expanded="true" aria-controls="situation-en-start">
+              <span>01</span>
+              <strong>Starting a business</strong>
+            </button>
+            <div class="situation-diagnostic__mobile-slot"></div>
+          </div>
+          <div class="situation-diagnostic__item">
+            <button class="situation-diagnostic__trigger" type="button" data-situation-trigger data-target="situation-en-books" aria-expanded="false" aria-controls="situation-en-books">
+              <span>02</span>
+              <strong>Bookkeeping / QuickBooks</strong>
+            </button>
+            <div class="situation-diagnostic__mobile-slot"></div>
+          </div>
+          <div class="situation-diagnostic__item">
+            <button class="situation-diagnostic__trigger" type="button" data-situation-trigger data-target="situation-en-cleanup" aria-expanded="false" aria-controls="situation-en-cleanup">
+              <span>03</span>
+              <strong>Cleanup / catch-up</strong>
+            </button>
+            <div class="situation-diagnostic__mobile-slot"></div>
+          </div>
+          <div class="situation-diagnostic__item">
+            <button class="situation-diagnostic__trigger" type="button" data-situation-trigger data-target="situation-en-payroll" aria-expanded="false" aria-controls="situation-en-payroll">
+              <span>04</span>
+              <strong>Payroll / L&amp;I</strong>
+            </button>
+            <div class="situation-diagnostic__mobile-slot"></div>
+          </div>
+          <div class="situation-diagnostic__item">
+            <button class="situation-diagnostic__trigger" type="button" data-situation-trigger data-target="situation-en-sales" aria-expanded="false" aria-controls="situation-en-sales">
+              <span>05</span>
+              <strong>Sales Tax / DOR</strong>
+            </button>
+            <div class="situation-diagnostic__mobile-slot"></div>
+          </div>
+          <div class="situation-diagnostic__item">
+            <button class="situation-diagnostic__trigger" type="button" data-situation-trigger data-target="situation-en-tax" aria-expanded="false" aria-controls="situation-en-tax">
+              <span>06</span>
+              <strong>Tax return</strong>
+            </button>
+            <div class="situation-diagnostic__mobile-slot"></div>
+          </div>
+          <div class="situation-diagnostic__item">
+            <button class="situation-diagnostic__trigger" type="button" data-situation-trigger data-target="situation-en-unsure" aria-expanded="false" aria-controls="situation-en-unsure">
+              <span>07</span>
+              <strong>Not sure</strong>
+            </button>
+            <div class="situation-diagnostic__mobile-slot"></div>
+          </div>
+        </div>
+
+        <div class="situation-diagnostic__preview" data-situation-preview>
+          <article class="situation-diagnostic__panel is-active" id="situation-en-start" data-situation-panel aria-labelledby="situation-en-start-title">
+            <div class="situation-diagnostic__panel-head">
+              <span class="situation-diagnostic__kicker">Closest starting point</span>
+              <h3 id="situation-en-start-title">Starting a business</h3>
+              <p>You are forming a company, setting up an LLC, applying for an EIN, or trying to organize the first bookkeeping steps correctly.</p>
+            </div>
+            <div class="situation-diagnostic__grid">
+              <div><h4>Usually this means</h4><ul><li>Business setup and entity documents</li><li>EIN, license, and state registration questions</li><li>First bookkeeping structure</li></ul></div>
+              <div><h4>What to prepare</h4><ul><li>Business name and state</li><li>Entity type if already formed</li><li>EIN or registration details if available</li></ul></div>
+            </div>
+            <div class="situation-diagnostic__actions">
+              <a class="situation-diagnostic__service" href="/services/company-formation.html">Business Formation &amp; Company Setup</a>
+              <a class="btn btn-primary" href="/contact/#structured-request">Start a structured request</a>
+            </div>
+          </article>
+          <article class="situation-diagnostic__panel" id="situation-en-books" data-situation-panel aria-labelledby="situation-en-books-title">
+            <div class="situation-diagnostic__panel-head">
+              <span class="situation-diagnostic__kicker">Closest starting point</span>
+              <h3 id="situation-en-books-title">Monthly bookkeeping / QuickBooks</h3>
+              <p>You need ongoing bookkeeping, QuickBooks organization, reconciliations, reports, or cleaner records for tax preparation.</p>
+            </div>
+            <div class="situation-diagnostic__grid">
+              <div><h4>Usually this means</h4><ul><li>Monthly bookkeeping support</li><li>QuickBooks organization</li><li>Reports and reconciliations</li></ul></div>
+              <div><h4>What to prepare</h4><ul><li>QuickBooks access or current bookkeeping status</li><li>Bank and credit card statements</li><li>Known issues or missing months</li></ul></div>
+            </div>
+            <div class="situation-diagnostic__actions">
+              <a class="situation-diagnostic__service" href="/services/quickbooks-bookkeeping.html">QuickBooks Bookkeeping</a>
+              <a class="btn btn-primary" href="/contact/#structured-request">Start a structured request</a>
+            </div>
+          </article>
+          <article class="situation-diagnostic__panel" id="situation-en-cleanup" data-situation-panel aria-labelledby="situation-en-cleanup-title">
+            <div class="situation-diagnostic__panel-head">
+              <span class="situation-diagnostic__kicker">Closest starting point</span>
+              <h3 id="situation-en-cleanup-title">Cleanup / catch-up bookkeeping</h3>
+              <p>Your books are behind, QuickBooks is messy, accounts are not reconciled, or the reports are not reliable enough for review or tax preparation.</p>
+            </div>
+            <div class="situation-diagnostic__grid">
+              <div><h4>Usually this means</h4><ul><li>Missing or messy months</li><li>Uncategorized transactions</li><li>Old balances or unreconciled accounts</li></ul></div>
+              <div><h4>What to prepare</h4><ul><li>QuickBooks access</li><li>Bank and credit card statements</li><li>List of months or accounts that look wrong</li></ul></div>
+            </div>
+            <div class="situation-diagnostic__actions">
+              <a class="situation-diagnostic__service" href="/services/quickbooks-bookkeeping.html">QuickBooks Bookkeeping</a>
+              <a class="btn btn-primary" href="/contact/#structured-request">Start a structured request</a>
+            </div>
+          </article>
+          <article class="situation-diagnostic__panel" id="situation-en-payroll" data-situation-panel aria-labelledby="situation-en-payroll-title">
+            <div class="situation-diagnostic__panel-head">
+              <span class="situation-diagnostic__kicker">Closest starting point</span>
+              <h3 id="situation-en-payroll-title">Payroll / L&amp;I reporting</h3>
+              <p>You need help organizing payroll records, quarterly filing documents, L&amp;I-related information, or payroll-linked bookkeeping records.</p>
+            </div>
+            <div class="situation-diagnostic__grid">
+              <div><h4>Usually this means</h4><ul><li>Payroll records and reports</li><li>Quarterly filing documents</li><li>L&amp;I-related information</li></ul></div>
+              <div><h4>What to prepare</h4><ul><li>Payroll records</li><li>Employee or contractor information</li><li>Prior filings, notices, or L&amp;I documents</li></ul></div>
+            </div>
+            <div class="situation-diagnostic__actions">
+              <a class="situation-diagnostic__service" href="/services/payroll-li-quarterly.html">Payroll &amp; L&amp;I Reporting</a>
+              <a class="btn btn-primary" href="/contact/#structured-request">Start a structured request</a>
+            </div>
+          </article>
+          <article class="situation-diagnostic__panel" id="situation-en-sales" data-situation-panel aria-labelledby="situation-en-sales-title">
+            <div class="situation-diagnostic__panel-head">
+              <span class="situation-diagnostic__kicker">Closest starting point</span>
+              <h3 id="situation-en-sales-title">Sales Tax / Washington DOR</h3>
+              <p>You collect sales tax, file Washington DOR reports, need to organize payment confirmations, or received a DOR notice.</p>
+            </div>
+            <div class="situation-diagnostic__grid">
+              <div><h4>Usually this means</h4><ul><li>Sales Tax records</li><li>Washington DOR reports</li><li>Payment confirmations or notices</li></ul></div>
+              <div><h4>What to prepare</h4><ul><li>Sales records</li><li>DOR reports or login status</li><li>Notices, confirmations, and bookkeeping reports</li></ul></div>
+            </div>
+            <div class="situation-diagnostic__actions">
+              <a class="situation-diagnostic__service" href="/services/sales-tax-dor-reporting.html">Sales Tax &amp; DOR Reporting</a>
+              <a class="btn btn-primary" href="/contact/#structured-request">Start a structured request</a>
+            </div>
+          </article>
+          <article class="situation-diagnostic__panel" id="situation-en-tax" data-situation-panel aria-labelledby="situation-en-tax-title">
+            <div class="situation-diagnostic__panel-head">
+              <span class="situation-diagnostic__kicker">Closest starting point</span>
+              <h3 id="situation-en-tax-title">Tax return preparation</h3>
+              <p>You need personal or business tax return preparation and want to understand what documents, records, and prior information are needed before filing.</p>
+            </div>
+            <div class="situation-diagnostic__grid">
+              <div><h4>Usually this means</h4><ul><li>Personal or business tax return</li><li>Income and expense documents</li><li>Prior returns or notices</li></ul></div>
+              <div><h4>What to prepare</h4><ul><li>Prior-year tax return if available</li><li>Income documents and expenses</li><li>QuickBooks reports, payroll records, or notices</li></ul></div>
+            </div>
+            <div class="situation-diagnostic__actions">
+              <a class="situation-diagnostic__service" href="/services/tax-returns.html">Tax Return Preparation</a>
+              <a class="btn btn-primary" href="/contact/#structured-request">Start a structured request</a>
+            </div>
+          </article>
+          <article class="situation-diagnostic__panel" id="situation-en-unsure" data-situation-panel aria-labelledby="situation-en-unsure-title">
+            <div class="situation-diagnostic__panel-head">
+              <span class="situation-diagnostic__kicker">Closest starting point</span>
+              <h3 id="situation-en-unsure-title">Not sure where to start?</h3>
+              <p>If you are not sure whether you need bookkeeping, cleanup, tax preparation, payroll, Sales Tax / DOR, or document review, start with a structured request.</p>
+            </div>
+            <div class="situation-diagnostic__grid">
+              <div><h4>Usually this means</h4><ul><li>The situation needs review before choosing a service</li><li>Documents or context may be missing</li><li>The next step should be clarified first</li></ul></div>
+              <div><h4>What to prepare</h4><ul><li>Short summary of the situation</li><li>Any notices, documents, or deadlines</li><li>What feels unclear right now</li></ul></div>
+            </div>
+            <div class="situation-diagnostic__actions">
+              <a class="situation-diagnostic__service" href="/contact/#structured-request">Start with a structured request</a>
+              <a class="btn btn-primary" href="/contact/#structured-request">Start a structured request</a>
+            </div>
+          </article>
         </div>
       </div>
     </div>
