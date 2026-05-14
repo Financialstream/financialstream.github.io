@@ -2471,22 +2471,32 @@ html[lang="ru"] .hero-title-premium {
   align-items: stretch;
 }
 
-.proof-strip__label {
+.proof-strip__heading {
   position: relative;
   z-index: 1;
-  width: fit-content;
-  margin: 0 auto 16px;
-  padding: 7px 13px;
-  border: 1px solid rgba(184, 202, 214, 0.62);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  color: #4f6d86;
-  box-shadow: 0 10px 24px rgba(13, 34, 53, 0.045), inset 0 1px 0 rgba(255, 255, 255, 0.88);
-  font-size: 0.84rem;
-  font-weight: 780;
-  letter-spacing: 0.08em;
-  line-height: 1.1;
-  text-transform: uppercase;
+  max-width: 680px;
+  margin: 0 auto 22px;
+  text-align: center;
+}
+
+.proof-strip__title {
+  margin: 0;
+  color: #0d2235;
+  font-size: clamp(1.82rem, 2.9vw, 2.7rem);
+  font-weight: 820;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.proof-strip__subtitle {
+  max-width: 620px;
+  margin: 10px auto 0;
+  color: #5f7387;
+  font-size: clamp(0.98rem, 1.12vw, 1.08rem);
+  font-weight: 520;
+  line-height: 1.5;
+  text-wrap: balance;
 }
 
 .proof-card {
@@ -7830,7 +7840,8 @@ body.article-page.js-enabled .fade-in {
   }
 
   .proof-strip {
-    padding-bottom: 34px;
+    padding-top: 28px;
+    padding-bottom: 36px;
   }
 
   .proof-strip__grid {
@@ -7842,6 +7853,10 @@ body.article-page.js-enabled .fade-in {
     min-height: 128px;
     padding: 22px 20px;
     border-radius: 20px;
+  }
+
+  .proof-strip__heading {
+    margin-bottom: 18px;
   }
 
   .proof-value {
@@ -7980,7 +7995,8 @@ body.article-page.js-enabled .fade-in {
   }
 
   .proof-strip {
-    padding-bottom: 28px;
+    padding-top: 24px;
+    padding-bottom: 30px;
   }
 
   .proof-strip::before {
@@ -7998,6 +8014,20 @@ body.article-page.js-enabled .fade-in {
     min-height: auto;
     padding: 20px 18px;
     border-radius: 18px;
+  }
+
+  .proof-strip__heading {
+    margin-bottom: 16px;
+  }
+
+  .proof-strip__title {
+    font-size: clamp(1.7rem, 8vw, 2.05rem);
+    line-height: 1.08;
+  }
+
+  .proof-strip__subtitle {
+    font-size: 0.94rem;
+    line-height: 1.45;
   }
 
   .proof-strip__grid .proof-card:last-child {
@@ -12083,7 +12113,7 @@ html[lang="ru"] .blog-hero__copy h1 {
 .proto-ready .hero-copy.fade-in.is-visible > .hero-support-lines { animation-delay: 560ms; }
 
 .proof-strip {
-  padding-top: 16px;
+  padding-top: 28px;
 }
 
 .proof-strip__grid {
@@ -12145,8 +12175,17 @@ html[lang="ru"] .blog-hero__copy h1 {
   padding-bottom: 58px;
 }
 
-.proof-strip__label {
+.proof-strip__heading {
   display: block;
+  margin-bottom: clamp(18px, 2.2vw, 28px);
+}
+
+.proof-strip__title {
+  font-size: clamp(1.86rem, 2.7vw, 2.72rem);
+}
+
+.proof-strip__subtitle {
+  color: rgba(76, 96, 115, 0.88);
 }
 
 .service-hero {
