@@ -552,12 +552,12 @@
           item.setAttribute('aria-expanded', active ? 'true' : 'false');
         });
 
+        placePanel(panel, trigger);
+
         panels.forEach(function (item) {
           item.classList.toggle('is-active', item === panel);
           item.hidden = item !== panel;
         });
-
-        placePanel(panel, trigger);
 
         if (shouldFocus) {
           trigger.focus();
