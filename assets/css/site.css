@@ -4799,11 +4799,11 @@ html[lang="ru"] .hero-title-premium {
 }
 
 .service-bucket__head h3 {
-  color: #52677f;
-  font-size: 0.78rem;
+  color: #607287;
+  font-size: 0.72rem;
   font-weight: 900;
   line-height: 1.25;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -4823,9 +4823,9 @@ html[lang="ru"] .hero-title-premium {
 .service-row {
   position: relative;
   min-width: 0;
-  padding: 17px 16px 18px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.32);
+  padding: 17px 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.2);
   transition: background-color 180ms ease, box-shadow 180ms ease;
 }
 
@@ -4848,8 +4848,8 @@ html[lang="ru"] .hero-title-premium {
 
 .service-row:hover,
 .service-row:focus-within {
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: inset 0 0 0 1px rgba(184, 202, 220, 0.32);
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow: inset 0 0 0 1px rgba(184, 202, 220, 0.24);
 }
 
 .service-row:hover::before,
@@ -4870,9 +4870,10 @@ html[lang="ru"] .hero-title-premium {
 }
 
 .service-row__title::after {
-  content: "->";
-  color: #5f82a8;
-  font-size: 0.9em;
+  content: "\2192";
+  color: rgba(95, 130, 168, 0.58);
+  font-size: 0.78em;
+  font-weight: 800;
   transition: transform 180ms ease, color 180ms ease;
 }
 
@@ -4887,7 +4888,7 @@ html[lang="ru"] .hero-title-premium {
 
 .service-row__title:hover::after,
 .service-row__title:focus-visible::after {
-  color: #2f5f91;
+  color: rgba(47, 95, 145, 0.9);
   transform: translateX(3px);
 }
 
