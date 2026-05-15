@@ -17515,3 +17515,143 @@ html[lang="ru"] :is(.service-page--payroll-hero, .service-page--tax-returns-hero
     transition: none;
   }
 }
+
+/* Package 4C-5A: homepage Proof testimonials duplicate-loop audit polish. */
+.trust-marquee {
+  padding: 4px 0 16px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.trust-marquee__track {
+  gap: 18px;
+  animation-duration: 96s;
+}
+
+.trust-marquee__group {
+  gap: 18px;
+}
+
+.trust-card {
+  flex-basis: clamp(360px, 28vw, 410px);
+  min-height: 318px;
+  padding: 28px;
+  border-color: rgba(168, 190, 212, 0.56);
+  border-radius: 24px;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.94), rgba(241, 247, 250, 0.72)),
+    rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 16px 38px rgba(17, 28, 47, 0.072),
+    0 6px 14px rgba(47, 95, 145, 0.026),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.trust-card--base,
+.trust-card--champagne,
+.trust-card--platinum,
+.trust-card--proof,
+.trust-card--metallic {
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.94), rgba(241, 247, 250, 0.72)),
+    rgba(255, 255, 255, 0.82);
+}
+
+.trust-card:hover,
+.trust-card:focus-within {
+  transform: translateY(-2px);
+  border-color: rgba(95, 130, 168, 0.54);
+  box-shadow:
+    0 20px 44px rgba(17, 28, 47, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.trust-tag {
+  min-height: 0;
+  padding: 0 0 7px;
+  border: 0;
+  border-bottom: 1px solid rgba(95, 130, 168, 0.32);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(47, 95, 145, 0.76);
+  font-size: 0.67rem;
+  letter-spacing: 0.12em;
+}
+
+.trust-tag[data-glyph]::before {
+  display: none;
+}
+
+.trust-card:hover .trust-tag {
+  border-color: rgba(47, 95, 145, 0.42);
+  color: rgba(36, 76, 118, 0.84);
+}
+
+.trust-quote {
+  right: 22px;
+  top: 8px;
+  color: rgba(151, 176, 203, 0.16);
+  font-size: 4.8rem;
+}
+
+.trust-card:hover .trust-quote {
+  color: rgba(95, 130, 168, 0.22);
+}
+
+.trust-card blockquote {
+  margin: 24px 0 26px;
+  font-size: clamp(1rem, 1vw, 1.06rem);
+  line-height: 1.7;
+  font-weight: 520;
+}
+
+.trust-author {
+  color: #5a6c81;
+  font-size: 0.92rem;
+  font-weight: 760;
+}
+
+.trust-author span,
+.trust-card:hover .trust-author span {
+  box-shadow:
+    0 0 0 4px rgba(95, 130, 168, 0.08),
+    0 6px 10px rgba(17, 28, 47, 0.08);
+}
+
+.trust-card--metallic {
+  border-color: rgba(95, 130, 168, 0.5);
+  box-shadow:
+    0 18px 42px rgba(17, 28, 47, 0.08),
+    0 7px 16px rgba(47, 95, 145, 0.032),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.trust-card--metallic::after {
+  opacity: 0.62;
+}
+
+@media (max-width: 680px) {
+  .trust-card {
+    flex-basis: min(86vw, 350px);
+    min-height: 304px;
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .trust-card blockquote {
+    margin-top: 20px;
+    font-size: 0.96rem;
+  }
+
+  .trust-quote {
+    right: 18px;
+    font-size: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-marquee__track {
+    animation: none !important;
+  }
+}

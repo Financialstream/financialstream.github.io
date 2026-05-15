@@ -989,6 +989,7 @@
 
     const clone = group.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
+    clone.setAttribute('inert', '');
     clone.querySelectorAll('a, button, input, select, textarea, [tabindex]').forEach(function (node) {
       node.setAttribute('tabindex', '-1');
     });
