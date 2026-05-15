@@ -16865,3 +16865,323 @@ html[lang="ru"] :is(.service-page--payroll-hero, .service-page--tax-returns-hero
     transition: none;
   }
 }
+
+/* Package 4C-4A: homepage Process as a premium sticky workflow stack. */
+.process-section {
+  overflow: visible;
+  background:
+    radial-gradient(circle at 82% 10%, rgba(95, 130, 168, 0.12), transparent 32%),
+    radial-gradient(ellipse at 14% 72%, rgba(238, 246, 251, 0.7), transparent 46%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(246, 250, 252, 0.78) 54%, rgba(255, 255, 255, 0.9));
+}
+
+.process-heading {
+  max-width: 780px;
+  margin-bottom: clamp(38px, 5vw, 68px);
+}
+
+.process-heading h2 {
+  max-width: 16ch;
+  letter-spacing: -0.035em;
+}
+
+.process-text-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 22px;
+  color: var(--process-blue);
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 95, 145, 0.26);
+  text-underline-offset: 5px;
+  transition: color 180ms ease, text-decoration-color 180ms ease, transform 180ms ease;
+}
+
+.process-text-cta:hover,
+.process-text-cta:focus-visible {
+  color: var(--process-navy);
+  text-decoration-color: rgba(47, 95, 145, 0.58);
+  transform: translateX(2px);
+}
+
+.process-workflow {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin-left: auto;
+}
+
+.process-stack {
+  --process-card-height: clamp(216px, 24vw, 278px);
+  position: relative;
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0 0 clamp(108px, 14vw, 176px);
+  list-style: none;
+}
+
+.process-stack::before {
+  content: "";
+  position: absolute;
+  left: clamp(24px, 4vw, 44px);
+  top: 40px;
+  bottom: clamp(120px, 16vw, 190px);
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(47, 95, 145, 0.28), rgba(95, 130, 168, 0.2), transparent);
+  pointer-events: none;
+}
+
+.process-card {
+  --stack-top: calc(var(--header-height) + 22px + ((var(--process-index) - 1) * 16px));
+  position: sticky;
+  top: var(--stack-top);
+  z-index: var(--process-index);
+  min-height: var(--process-card-height);
+  display: grid;
+  grid-template-columns: minmax(86px, 0.26fr) minmax(0, 1fr);
+  grid-template-areas:
+    "number title"
+    "number copy";
+  column-gap: clamp(22px, 4vw, 48px);
+  align-content: center;
+  margin-bottom: clamp(-92px, -7vw, -56px);
+  padding: clamp(26px, 4vw, 46px);
+  border: 1px solid rgba(184, 202, 220, 0.62);
+  border-radius: clamp(24px, 3vw, 34px);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(239, 247, 251, 0.78)),
+    rgba(255, 255, 255, 0.86);
+  box-shadow:
+    0 22px 48px rgba(17, 28, 47, 0.085),
+    0 7px 18px rgba(47, 95, 145, 0.035),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94);
+  overflow: hidden;
+}
+
+.process-card:last-child {
+  margin-bottom: 0;
+}
+
+.process-card::before,
+.process-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.process-card::before {
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.48), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(47, 167, 160, 0.09), transparent 28%);
+}
+
+.process-card::after {
+  left: clamp(26px, 4vw, 46px);
+  right: clamp(26px, 4vw, 46px);
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(47, 95, 145, 0.2), rgba(47, 167, 160, 0.16), transparent);
+}
+
+.process-card__number,
+.process-card h3,
+.process-card p {
+  position: relative;
+  z-index: 1;
+}
+
+.process-card__number {
+  grid-area: number;
+  align-self: start;
+  color: rgba(95, 130, 168, 0.58);
+  font-size: clamp(3.35rem, 7vw, 5.8rem);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 0.86;
+  font-variant-numeric: tabular-nums;
+}
+
+.process-card h3 {
+  grid-area: title;
+  align-self: end;
+  max-width: 18ch;
+  color: var(--process-navy);
+  font-size: clamp(1.7rem, 3vw, 2.55rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.process-card p {
+  grid-area: copy;
+  max-width: 58ch;
+  margin-top: 14px;
+  color: #5d6e82;
+  font-size: clamp(1.02rem, 1.35vw, 1.15rem);
+  line-height: 1.62;
+}
+
+.process-card:nth-child(2) {
+  transform: translateX(10px);
+}
+
+.process-card:nth-child(3) {
+  transform: translateX(20px);
+}
+
+.process-card:nth-child(4) {
+  transform: translateX(30px);
+}
+
+.process-card:nth-child(5) {
+  transform: translateX(40px);
+}
+
+.proto-ready .process-section .process-workflow,
+.proto-ready .process-section .process-card,
+.proto-ready .process-section .process-text-cta {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.proto-ready .process-section.is-visible .process-workflow,
+.proto-ready .process-section.is-visible .process-card,
+.proto-ready .process-section.is-visible .process-text-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 460ms ease, transform 460ms ease;
+}
+
+.proto-ready .process-section.is-visible .process-card:nth-child(2) {
+  transform: translateX(10px);
+}
+
+.proto-ready .process-section.is-visible .process-card:nth-child(3) {
+  transform: translateX(20px);
+}
+
+.proto-ready .process-section.is-visible .process-card:nth-child(4) {
+  transform: translateX(30px);
+}
+
+.proto-ready .process-section.is-visible .process-card:nth-child(5) {
+  transform: translateX(40px);
+}
+
+.proto-ready .process-section.is-visible .process-text-cta { transition-delay: 170ms; }
+.proto-ready .process-section.is-visible .process-workflow { transition-delay: 220ms; }
+.proto-ready .process-section.is-visible .process-card:nth-child(1) { transition-delay: 260ms; }
+.proto-ready .process-section.is-visible .process-card:nth-child(2) { transition-delay: 320ms; }
+.proto-ready .process-section.is-visible .process-card:nth-child(3) { transition-delay: 380ms; }
+.proto-ready .process-section.is-visible .process-card:nth-child(4) { transition-delay: 440ms; }
+.proto-ready .process-section.is-visible .process-card:nth-child(5) { transition-delay: 500ms; }
+
+@media (max-width: 900px), (max-height: 600px) {
+  .process-workflow {
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .process-stack {
+    gap: 14px;
+    padding-bottom: 0;
+  }
+
+  .process-stack::before {
+    left: 24px;
+    top: 18px;
+    bottom: 18px;
+  }
+
+  .process-card,
+  .process-card:nth-child(n),
+  .proto-ready .process-section.is-visible .process-card:nth-child(n) {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    grid-template-columns: 54px minmax(0, 1fr);
+    column-gap: 16px;
+    margin-bottom: 0;
+    padding: 22px 20px;
+    transform: none;
+  }
+
+  .process-card__number {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    color: var(--process-blue);
+  }
+
+  .process-card h3 {
+    max-width: none;
+    font-size: clamp(1.22rem, 4.6vw, 1.6rem);
+    line-height: 1.12;
+  }
+
+  .process-card p {
+    margin-top: 8px;
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 520px) {
+  .process-heading {
+    margin-bottom: 30px;
+  }
+
+  .process-text-cta {
+    font-size: 0.92rem;
+  }
+
+  .process-stack::before {
+    left: 20px;
+  }
+
+  .process-card,
+  .process-card:nth-child(n),
+  .proto-ready .process-section.is-visible .process-card:nth-child(n) {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 10px 14px;
+    padding: 20px 16px;
+    border-radius: 22px;
+  }
+
+  .process-card h3 {
+    font-size: 1.22rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-card,
+  .process-card:nth-child(n),
+  .proto-ready .process-section.is-visible .process-card:nth-child(n) {
+    position: relative;
+    top: auto;
+    margin-bottom: 14px;
+    transform: none;
+  }
+
+  .process-stack {
+    padding-bottom: 0;
+  }
+
+  .process-text-cta,
+  .process-workflow,
+  .process-card,
+  .proto-ready .process-section .process-workflow,
+  .proto-ready .process-section .process-card,
+  .proto-ready .process-section .process-text-cta,
+  .proto-ready .process-section.is-visible .process-workflow,
+  .proto-ready .process-section.is-visible .process-card,
+  .proto-ready .process-section.is-visible .process-text-cta {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
