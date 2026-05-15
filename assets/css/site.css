@@ -4907,6 +4907,34 @@ html[lang="ru"] .hero-title-premium {
   line-height: 1.48;
 }
 
+@media (min-width: 901px) {
+  .service-map--hybrid {
+    align-items: stretch;
+  }
+
+  .service-bucket {
+    grid-template-rows: minmax(96px, auto) 1fr;
+  }
+
+  .service-bucket__head {
+    min-height: 96px;
+  }
+
+  .service-bucket__rows {
+    grid-template-rows: minmax(232px, auto) minmax(232px, auto);
+  }
+
+  .service-row {
+    display: flex;
+    flex-direction: column;
+    min-height: 232px;
+  }
+
+  .service-row + .service-row {
+    margin-top: 0;
+  }
+}
+
 .proto-ready #services .services-overview__intro .eyebrow,
 .proto-ready #services .services-overview__intro h2,
 .proto-ready #services .services-overview__intro .lead,
