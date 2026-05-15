@@ -502,73 +502,53 @@
   </section>
 
   <section class="section filing-section fade-in" id="reporting-filing">
-    <div class="container filing-layout">
-      <div class="section-heading filing-heading">
+    <div class="container filing-layout filing-layout--dossier">
+      <div class="section-heading filing-heading filing-heading--dossier">
         <div class="eyebrow">Подготовка документов</div>
-        <h2>Что подготовить перед обращением</h2>
-        <p class="lead" style="margin-top: 18px;">Структурированный запрос работает лучше, когда в нём есть базовый контекст. Не нужно готовить всё идеально до обращения, но эти данные помогут быстрее понять следующий шаг.</p>
-        <p class="filing-note">Отправьте то, что уже есть. Недостающие документы можно уточнить после первичного разбора.</p>
-      </div>
-
-      <div class="filing-map-panel" aria-label="Карта отчётности и подачи документов">
-        <div class="filing-rhythm" aria-label="Ритм отчётности">
-          <span class="filing-rhythm__title">Ритм отчётности</span>
-          <div class="filing-rhythm__rail" aria-hidden="true">
-            <span>Ежемесячно / квартально</span>
-            <span>Квартально</span>
-            <span>Ежегодно</span>
-            <span>Конец года</span>
-          </div>
+        <h2>Что полезно подготовить</h2>
+        <p class="lead" style="margin-top: 18px;">Не обязательно иметь всё готовым до обращения. Отправьте то, что уже есть, а недостающую информацию можно уточнить после запроса.</p>
+        <p class="filing-note filing-note--privacy">Не отправляйте пароли, полные Social Security numbers или чувствительные логины через незащищённые сообщения. Если понадобятся чувствительные документы, подходящий способ передачи можно уточнить после запроса.</p>
+        <div class="filing-cta">
+          <p>Готовы отправить то, что уже есть?</p>
+          <a class="filing-text-link" href="/ru/contact/#structured-request">Оставить структурированный запрос &rarr;</a>
+          <a class="filing-secondary-link" href="/ru/services/">Посмотреть услуги</a>
         </div>
-        <div class="filing-connector" aria-hidden="true"></div>
-        <article class="filing-card filing-card--sales">
-          <div class="filing-card__top">
-            <span class="filing-period">Контекст бизнеса</span>
-            <div class="filing-visual" aria-hidden="true"><span></span><span></span><span></span></div>
-          </div>
-          <h3>Базовые данные бизнеса</h3>
-          <p>Начните со штата, типа бизнеса, названия компании, типа компании и короткого описания, что сейчас непонятно.</p>
-          <div class="filing-needed">Полезно подготовить:</div>
-          <div class="filing-data"><span>Штат</span><span>Тип бизнеса</span><span>Компания</span><span>Вопрос</span></div>
-        </article>
-
-        <article class="filing-card filing-card--payroll">
-          <div class="filing-card__top">
-            <span class="filing-period">Бухгалтерия</span>
-            <div class="filing-visual" aria-hidden="true"><span></span><span></span><span></span></div>
-          </div>
-          <h3>Учёт и cleanup / наведение порядка</h3>
-          <p>Доступ к QuickBooks, текущее состояние бухгалтерского учёта / bookkeeping, банковские выписки или выписки по кредитным картам помогают понять объём cleanup / наведения порядка в учёте.</p>
-          <div class="filing-needed">Полезно подготовить:</div>
-          <div class="filing-data"><span>QuickBooks</span><span>Выписки</span><span>cleanup / наведение порядка</span><span>Отчёты</span></div>
-        </article>
-
-        <article class="filing-card filing-card--tax">
-          <div class="filing-card__top">
-            <span class="filing-period">Документы ведомств</span>
-            <div class="filing-visual" aria-hidden="true"><span></span><span></span><span></span></div>
-          </div>
-          <h3>Уведомления и отчётные документы</h3>
-          <p>Уведомления IRS, DOR или L&amp;I, документы по зарплате, зарплатные отчёты / payroll, документы по налогу с продаж / Sales Tax и DOR помогают связать данные с задачей.</p>
-          <div class="filing-needed">Полезно подготовить:</div>
-          <div class="filing-data"><span>IRS</span><span>DOR</span><span>L&amp;I</span><span>Налог с продаж / Sales Tax</span></div>
-        </article>
-
-        <article class="filing-card filing-card--year">
-          <div class="filing-card__top">
-            <span class="filing-period">Налоговый год</span>
-            <div class="filing-visual" aria-hidden="true"><span></span><span></span><span></span></div>
-          </div>
-          <h3>Декларации и сроки</h3>
-          <p>Прошлые налоговые декларации, срочные сроки или важные даты помогают понять, как правильно направить запрос.</p>
-          <div class="filing-needed">Полезно подготовить:</div>
-          <div class="filing-data"><span>Декларации</span><span>Сроки</span><span>Tax year</span><span>Контекст</span></div>
-        </article>
       </div>
-      <div class="process-cta-strip">
-        <p>Готовы отправить контекст, который уже есть?</p>
-        <a class="btn btn-primary" href="/ru/contact/#structured-request">Оставить структурированный запрос</a>
-        <a class="btn btn-secondary" href="#services">Посмотреть услуги</a>
+
+      <div class="filing-dossier" aria-label="Досье подготовки документов">
+        <div class="filing-dossier__label" aria-hidden="true">Досье запроса</div>
+        <article class="filing-record">
+          <div class="filing-record__index">01</div>
+          <div class="filing-record__body">
+            <h3>Базовые данные бизнеса</h3>
+            <p>Основные данные компании помогают понять контекст и правильно направить запрос.</p>
+            <div class="filing-markers">LLC | EIN | штат | главный вопрос</div>
+          </div>
+        </article>
+        <article class="filing-record">
+          <div class="filing-record__index">02</div>
+          <div class="filing-record__body">
+            <h3>Учёт и cleanup</h3>
+            <p>Состояние учёта, QuickBooks и доступные записи помогают понять, нужен ли cleanup, catch-up или текущая поддержка.</p>
+            <div class="filing-markers">QuickBooks | выписки | cleanup | отчёты</div>
+          </div>
+        </article>
+        <article class="filing-record">
+          <div class="filing-record__index">03</div>
+          <div class="filing-record__body">
+            <h3>Уведомления и отчётность</h3>
+            <p>Документы IRS, DOR, L&amp;I, payroll или Sales Tax помогают определить следующий шаг.</p>
+            <div class="filing-markers">IRS | DOR | L&amp;I | Sales Tax</div>
+          </div>
+        </article>
+        <article class="filing-record">
+          <div class="filing-record__index">04</div>
+          <div class="filing-record__body">
+            <h3>Декларации и сроки</h3>
+            <p>Прошлые декларации, сроки, налоговый год и срочность помогают понять налоговый контекст.</p>
+            <div class="filing-markers">декларации | сроки | налоговый год | контекст</div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
