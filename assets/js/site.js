@@ -504,7 +504,7 @@
     const roots = document.querySelectorAll('[data-situation-diagnostic]');
     if (!roots.length) return;
 
-    const mobileQuery = window.matchMedia('(max-width: 980px)');
+    const mobileQuery = window.matchMedia('(max-width: 980px), (max-height: 500px)');
 
     roots.forEach(function (root) {
       const diagnostic = root.querySelector('.situation-diagnostic');
