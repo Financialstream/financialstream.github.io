@@ -18203,3 +18203,187 @@ html[lang="ru"] .final-cta-copy h2 {
     white-space: normal;
   }
 }
+
+/* Package 4C-6C: closing visual anchor polish. */
+.trust-card--testimonial {
+  position: relative;
+  border-color: rgba(184, 202, 220, 0.32);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(250, 252, 252, 0.78)),
+    rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 12px 30px rgba(17, 28, 47, 0.052),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.trust-card--testimonial::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 76px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(151, 176, 203, 0.16), rgba(95, 130, 168, 0.34), rgba(151, 176, 203, 0));
+}
+
+.trust-card--testimonial:hover,
+.trust-card--testimonial:focus-within {
+  border-color: rgba(151, 176, 203, 0.42);
+  box-shadow:
+    0 16px 36px rgba(17, 28, 47, 0.068),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94);
+}
+
+.trust-card--testimonial .trust-tag {
+  color: rgba(82, 101, 122, 0.82);
+  border-bottom-color: rgba(184, 202, 220, 0.44);
+}
+
+.trust-card--testimonial .trust-quote {
+  top: 18px;
+  right: 28px;
+  color: rgba(95, 130, 168, 0.1);
+  font-size: 3.9rem;
+}
+
+.trust-card--testimonial blockquote {
+  color: #17233a;
+  font-size: clamp(1rem, 0.98vw, 1.06rem);
+  line-height: 1.76;
+  font-weight: 500;
+}
+
+.trust-card--proof.trust-card--metallic {
+  border-color: rgba(95, 130, 168, 0.52);
+  background:
+    radial-gradient(circle at 92% 12%, rgba(255, 255, 255, 0.72), transparent 34%),
+    linear-gradient(150deg, rgba(231, 240, 247, 0.96), rgba(215, 229, 239, 0.88)),
+    rgba(229, 239, 247, 0.92);
+  box-shadow:
+    0 20px 46px rgba(17, 28, 47, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94);
+}
+
+.trust-card--proof.trust-card--metallic h3 {
+  color: #10243a;
+  line-height: 1.18;
+}
+
+.trust-card--proof .trust-tag {
+  color: #244c76;
+  border-bottom-color: rgba(47, 95, 145, 0.34);
+}
+
+.trust-card--proof .trust-metrics {
+  gap: 8px;
+}
+
+.trust-card--proof .trust-metrics p {
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+.trust-card--proof .trust-metrics strong {
+  color: #10243a;
+  letter-spacing: -0.02em;
+}
+
+.trust-card--proof .trust-proof-copy {
+  color: #4f647b;
+}
+
+.final-cta-section {
+  background:
+    radial-gradient(circle at 18% 2%, rgba(95, 130, 168, 0.22), transparent 34%),
+    linear-gradient(180deg, rgba(246, 250, 253, 0.86) 0%, #17233a 42%, #111c2f 100%);
+}
+
+.final-cta-card {
+  border-color: rgba(184, 202, 220, 0.2);
+  background:
+    radial-gradient(circle at 96% 4%, rgba(151, 176, 203, 0.2), transparent 34%),
+    linear-gradient(145deg, rgba(28, 45, 70, 0.98), rgba(15, 35, 56, 0.98));
+  box-shadow:
+    0 32px 84px rgba(17, 28, 47, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -24px 54px rgba(4, 14, 24, 0.16);
+}
+
+.final-cta-card::before {
+  background: linear-gradient(90deg, rgba(151, 176, 203, 0.1), rgba(232, 242, 249, 0.46), rgba(151, 176, 203, 0.12));
+}
+
+.final-cta-watermark {
+  color: rgba(255, 255, 255, 0.055);
+}
+
+.final-cta-copy .eyebrow {
+  color: rgba(232, 242, 249, 0.78);
+}
+
+.final-cta-copy h2 {
+  color: #f7fbfd;
+}
+
+.final-cta-copy > p:not(.final-cta-microcopy) {
+  color: rgba(232, 242, 249, 0.78);
+}
+
+.final-cta-microcopy {
+  color: rgba(232, 242, 249, 0.84);
+}
+
+.final-cta-actions--focused .btn-primary {
+  background: linear-gradient(135deg, #f7fbfd 0%, #e4eef6 100%);
+  color: #0f2d49;
+  box-shadow:
+    0 18px 34px rgba(4, 14, 24, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.final-cta-actions--focused .btn-primary:hover,
+.final-cta-actions--focused .btn-primary:focus-visible {
+  background: linear-gradient(135deg, #ffffff 0%, #edf5fa 100%);
+  color: #0b2740;
+  box-shadow:
+    0 22px 40px rgba(4, 14, 24, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.final-cta-secondary-link {
+  color: rgba(232, 242, 249, 0.82);
+}
+
+.final-cta-secondary-link:hover,
+.final-cta-secondary-link:focus-visible {
+  color: #ffffff;
+}
+
+@media (max-width: 680px) {
+  .trust-card--testimonial::before {
+    left: 22px;
+    right: 22px;
+    bottom: 66px;
+  }
+
+  .trust-card--testimonial .trust-quote {
+    right: 22px;
+    font-size: 3.3rem;
+  }
+
+  .trust-card--proof .trust-metrics p {
+    gap: 4px;
+    padding: 12px;
+  }
+
+  .final-cta-section {
+    padding-bottom: 76px;
+  }
+
+  .final-cta-card {
+    border-radius: 24px;
+  }
+}
