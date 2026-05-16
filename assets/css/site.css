@@ -16403,6 +16403,64 @@ html[lang="ru"] :is(.service-page--payroll-hero, .service-page--tax-returns-hero
   }
 }
 
+/* Final regression QA: prevent mobile hero/header horizontal overflow. */
+@media (max-width: 520px) {
+  .hero {
+    overflow-x: clip;
+  }
+
+  .site-header__inner {
+    min-width: 0;
+  }
+
+  .site-header__inner .logo-wrap {
+    flex: 1 1 auto;
+  }
+
+  .site-header__inner .logo-image {
+    max-width: min(176px, 48vw);
+    height: auto;
+    max-height: 52px;
+  }
+
+  .site-header__inner .header-actions {
+    flex: 0 0 auto;
+    gap: 8px;
+  }
+
+  .hero-copy .eyebrow {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    line-height: 1.45;
+    white-space: normal;
+  }
+
+  .hero-copy .eyebrow::before {
+    flex: 0 0 28px;
+  }
+
+  .hero-copy::after {
+    right: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header__inner .logo-image {
+    max-width: min(152px, 46vw);
+  }
+
+  .site-header__inner .lang-switch a {
+    padding-inline: 10px;
+  }
+
+  .site-header__inner .menu-toggle {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+  }
+}
+
 .situation-diagnostic__affordance {
   display: inline-flex;
   align-items: center;
