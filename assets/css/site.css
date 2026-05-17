@@ -1243,6 +1243,17 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
   }
 }
 
+@media (max-width: 360px) {
+  .service-page--quickbooks-hero .service-hero__copy .btn-group {
+    padding-right: 72px;
+  }
+
+  .service-page--quickbooks-hero .service-hero__copy .btn-group .btn-primary {
+    width: 100%;
+    padding-inline: 16px;
+  }
+}
+
 .article-page {
   --article-accent: #1e6f9f;
   --article-accent-soft: rgba(30, 111, 159, 0.12);
