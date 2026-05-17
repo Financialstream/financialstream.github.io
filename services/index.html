@@ -75,181 +75,182 @@
   </div>
 </header>
 
-<main>
-  <section class="service-hero section">
-    <div class="container service-hero__grid">
-      <div class="service-hero__copy fade-in">
+<main class="services-hub-main">
+  <section class="section services-hub-hero">
+    <div class="container services-hub-hero__grid">
+      <div class="services-hub-hero__copy fade-in">
         <div class="eyebrow">Services hub</div>
-        <h1>Find the right financial support for your next step</h1>
-        <p class="lead">Not every request starts with the same service. Use this page to choose between bookkeeping, cleanup, tax preparation, payroll, Sales Tax / DOR, business setup, or document review &mdash; then start with a structured request.</p>
-        <div class="btn-group">
+        <h1>Services that support your next step</h1>
+        <p class="lead">Use this hub to choose the service path that fits your current business, bookkeeping, payroll, tax, or document question. Each path leads to a focused service page, and the primary next step is a structured request.</p>
+        <div class="services-hub-hero__actions">
           <a class="btn btn-primary" href="/contact/#structured-request">Start a structured request</a>
-          <a class="btn btn-secondary" href="#choose-by-situation">Choose by situation</a>
+          <a class="btn btn-secondary" href="#service-architecture">View service areas</a>
+        </div>
+        <div class="services-hub-chips" aria-label="Service areas">
+          <span>QuickBooks</span>
+          <span>Tax returns</span>
+          <span>Payroll / L&amp;I</span>
+          <span>Sales Tax / DOR</span>
         </div>
       </div>
-      <aside class="service-hero__visual fade-in" aria-label="Services overview">
-        <div class="service-context-strip__inner" style="flex-direction: column; align-items: stretch;">
-          <span>127+ companies supported</span>
-          <span>About 300 tax filings and declarations prepared</span>
-          <span>QuickBooks + tax preparation</span>
-          <span>Washington + nationwide support</span>
+      <aside class="services-hub-dossier fade-in" aria-label="Service architecture preview">
+        <div class="services-hub-dossier__tab">Service map</div>
+        <div class="services-hub-dossier__sheet">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="services-hub-dossier__rows">
+          <span>Foundation &amp; documents</span>
+          <span>Books &amp; payroll</span>
+          <span>Tax &amp; reporting</span>
         </div>
       </aside>
     </div>
   </section>
 
-  <section class="section service-detail-section fade-in" id="service-groups">
+  <section class="section services-architecture-section fade-in" id="service-architecture">
     <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow">Service groups</div>
-        <h2>Choose the service area closest to your current task.</h2>
+      <div class="section-heading services-hub-heading">
+        <div class="eyebrow">Service architecture</div>
+        <h2>Six service areas, grouped by the work they support.</h2>
+        <p>Start with the bucket that feels closest. You can still send one structured request if your situation crosses more than one area.</p>
       </div>
-      <div class="service-detail-grid">
-        <article class="service-panel">
-          <div class="eyebrow">Business foundation</div>
-          <h3>Starting a business</h3>
-          <p>Get help with company setup steps, EIN, business license direction, and the first bookkeeping structure.</p>
-          <p><strong>Best for:</strong> New businesses, new LLCs, and owners unsure what to do after registration.</p>
-          <p><strong>What to prepare:</strong> Business name, state, owners, EIN if available, and business activity.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/services/company-formation.html">View service <span aria-hidden="true">&rarr;</span></a></div>
+      <div class="services-map-grid">
+        <article class="services-map-bucket services-map-bucket--foundation">
+          <div class="services-map-bucket__head">
+            <div class="services-map-motif services-map-motif--folder" aria-hidden="true"><span></span></div>
+            <div>
+              <span class="eyebrow">Bucket 01</span>
+              <h3>Foundation &amp; documents</h3>
+            </div>
+          </div>
+          <div class="services-map-list">
+            <a class="services-map-row" href="/services/company-formation.html">
+              <strong>Business Formation</strong>
+              <span>Entity setup direction, EIN context, licenses, and first bookkeeping structure.</span>
+              <em>View service details <span aria-hidden="true">&rarr;</span></em>
+            </a>
+            <a class="services-map-row" href="/services/financial-consulting.html">
+              <strong>Financial Consulting / Document Review</strong>
+              <span>Review notices, unclear records, prior filings, or documents before choosing the next step.</span>
+              <em>View service details <span aria-hidden="true">&rarr;</span></em>
+            </a>
+          </div>
         </article>
-        <article class="service-panel">
-          <div class="eyebrow">Monthly records</div>
-          <h3>Monthly bookkeeping / QuickBooks</h3>
-          <p>Keep records organized with QuickBooks bookkeeping, reconciliations, categorization, and monthly reports.</p>
-          <p><strong>Best for:</strong> Active businesses that need clean books and tax-ready records.</p>
-          <p><strong>What to prepare:</strong> QuickBooks access, bank statements, credit cards, current reports, and known issues.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/services/quickbooks-bookkeeping.html">View service <span aria-hidden="true">&rarr;</span></a></div>
+
+        <article class="services-map-bucket services-map-bucket--books">
+          <div class="services-map-bucket__head">
+            <div class="services-map-motif services-map-motif--ledger" aria-hidden="true"><span></span></div>
+            <div>
+              <span class="eyebrow">Bucket 02</span>
+              <h3>Books &amp; payroll</h3>
+            </div>
+          </div>
+          <div class="services-map-list">
+            <a class="services-map-row" href="/services/quickbooks-bookkeeping.html">
+              <strong>QuickBooks Bookkeeping</strong>
+              <span>Monthly books, reconciliations, categorization, cleanup, and tax-ready reports.</span>
+              <em>View service details <span aria-hidden="true">&rarr;</span></em>
+            </a>
+            <a class="services-map-row" href="/services/payroll-li-quarterly.html">
+              <strong>Payroll / L&amp;I Reporting</strong>
+              <span>Payroll records, quarterly reporting context, and L&amp;I-related documentation.</span>
+              <em>View service details <span aria-hidden="true">&rarr;</span></em>
+            </a>
+          </div>
         </article>
-        <article class="service-panel">
-          <div class="eyebrow">Tax season</div>
-          <h3>Tax preparation and reporting</h3>
-          <p>Organize documents for personal or business tax returns and clarify what is needed before filing.</p>
-          <p><strong>Best for:</strong> Individuals and business owners preparing for tax season or document review.</p>
-          <p><strong>What to prepare:</strong> Prior returns, income documents, expenses, QuickBooks reports, notices, and deadlines.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/services/tax-returns.html">View service <span aria-hidden="true">&rarr;</span></a></div>
-        </article>
-        <article class="service-panel">
-          <div class="eyebrow">Catch-up</div>
-          <h3>Cleanup / catch-up bookkeeping</h3>
-          <p>Bring books back into order when QuickBooks is messy, months are missing, or reports cannot be trusted.</p>
-          <p><strong>Best for:</strong> Businesses with uncategorized transactions, unreconciled accounts, or missing months.</p>
-          <p><strong>What to prepare:</strong> QuickBooks access, bank statements, credit card statements, missing periods, and known problems.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/services/quickbooks-bookkeeping.html">View service <span aria-hidden="true">&rarr;</span></a></div>
-        </article>
-        <article class="service-panel">
-          <div class="eyebrow">Payroll records</div>
-          <h3>Payroll / L&amp;I</h3>
-          <p>Organize payroll records, quarterly filing documents, and L&amp;I-related information so reporting and bookkeeping stay connected.</p>
-          <p><strong>Best for:</strong> Businesses with employees, payroll reports, L&amp;I documents, or quarterly reporting needs.</p>
-          <p><strong>What to prepare:</strong> Payroll records, payroll reports, employee information, L&amp;I documents, prior filings, and notices.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/services/payroll-li-quarterly.html">View service <span aria-hidden="true">&rarr;</span></a></div>
-        </article>
-        <article class="service-panel">
-          <div class="eyebrow">State reporting</div>
-          <h3>Sales Tax / DOR</h3>
-          <p>Organize Sales Tax records, Washington Department of Revenue reports, payment confirmations, and notices.</p>
-          <p><strong>Best for:</strong> Washington businesses that collect sales tax or file DOR reports.</p>
-          <p><strong>What to prepare:</strong> Sales records, DOR reports, payment confirmations, notices, and bookkeeping reports.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/services/sales-tax-dor-reporting.html">View service <span aria-hidden="true">&rarr;</span></a></div>
-        </article>
-        <article class="service-panel service-panel--wide">
-          <div class="eyebrow">Document review</div>
-          <h3>Documents / IRS / DOR / L&amp;I notices</h3>
-          <p>Review agency notices, document requests, prior filings, and unclear records before deciding the next step.</p>
-          <p><strong>Best for:</strong> Clients who received IRS, DOR, L&amp;I, or state notices and are unsure how to respond.</p>
-          <p><strong>What to prepare:</strong> Notice copy, agency name, deadline, prior filings, and related records.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/services/financial-consulting.html">View service <span aria-hidden="true">&rarr;</span></a></div>
+
+        <article class="services-map-bucket services-map-bucket--tax">
+          <div class="services-map-bucket__head">
+            <div class="services-map-motif services-map-motif--report" aria-hidden="true"><span></span></div>
+            <div>
+              <span class="eyebrow">Bucket 03</span>
+              <h3>Tax &amp; reporting</h3>
+            </div>
+          </div>
+          <div class="services-map-list">
+            <a class="services-map-row" href="/services/tax-returns.html">
+              <strong>Tax Return Preparation</strong>
+              <span>Personal and business tax document organization, review, and filing preparation.</span>
+              <em>View service details <span aria-hidden="true">&rarr;</span></em>
+            </a>
+            <a class="services-map-row" href="/services/sales-tax-dor-reporting.html">
+              <strong>Sales Tax / DOR Reporting</strong>
+              <span>Washington Sales Tax, DOR reports, payment confirmations, notices, and records.</span>
+              <em>View service details <span aria-hidden="true">&rarr;</span></em>
+            </a>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section section--soft service-related-section fade-in" id="choose-by-situation">
-    <div class="container service-related-layout">
+  <section class="section section--soft services-router-section fade-in" id="choose-by-situation">
+    <div class="container services-router-layout">
+      <div class="services-router-copy">
+        <div class="eyebrow">Choose by situation</div>
+        <h2>Not sure where your request belongs?</h2>
+        <p>Pick the closest starting point. The service page can help you confirm whether that path fits before you send details.</p>
+      </div>
+      <div class="services-router-grid">
+        <a href="/services/quickbooks-bookkeeping.html">I need to fix QuickBooks <span aria-hidden="true">&rarr;</span></a>
+        <a href="/services/tax-returns.html">I need tax return help <span aria-hidden="true">&rarr;</span></a>
+        <a href="/services/financial-consulting.html">I received an IRS/DOR/L&amp;I notice <span aria-hidden="true">&rarr;</span></a>
+        <a href="/services/payroll-li-quarterly.html">I need payroll or L&amp;I support <span aria-hidden="true">&rarr;</span></a>
+        <a href="/services/company-formation.html">I am starting a business <span aria-hidden="true">&rarr;</span></a>
+        <a href="/contact/#structured-request">I am not sure where to start <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-prep-section fade-in" id="what-to-gather">
+    <div class="container services-prep-card">
       <div>
-        <div class="eyebrow">Decision path</div>
-        <h2>Choose by situation</h2>
-        <p class="lead">If you are not sure which service fits, start with the situation. These paths help narrow the next step before you send a request.</p>
+        <div class="eyebrow">What to gather</div>
+        <h2>A few details help route the request.</h2>
+        <p>You do not need everything ready before reaching out. Start with what you already have, then Financial Stream can clarify what is useful next.</p>
       </div>
-      <div class="service-related-grid">
-        <a class="service-related-card" href="/services/company-formation.html"><span>Setup</span><strong>I am starting a business</strong><small>Open service <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/services/quickbooks-bookkeeping.html"><span>Cleanup</span><strong>My QuickBooks is messy</strong><small>Open service <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/services/tax-returns.html"><span>Taxes</span><strong>I need tax preparation</strong><small>Open service <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/services/payroll-li-quarterly.html"><span>Payroll</span><strong>I have payroll or L&amp;I questions</strong><small>Open service <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/services/sales-tax-dor-reporting.html"><span>DOR</span><strong>I need Sales Tax / DOR help</strong><small>Open service <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/services/financial-consulting.html"><span>Documents</span><strong>I received an IRS, DOR, or L&amp;I notice</strong><small>Open service <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/contact/#structured-request"><span>Not sure</span><strong>I am not sure where to start</strong><small>Start request <span aria-hidden="true">&rarr;</span></small></a>
+      <div class="services-prep-grid">
+        <article>
+          <h3>Entity or business details</h3>
+          <p>Business name, state, entity type, owners, EIN if available, and a short activity summary.</p>
+        </article>
+        <article>
+          <h3>Financial access or records</h3>
+          <p>QuickBooks status, recent reports, bank statements, payroll records, or Sales Tax / DOR records.</p>
+        </article>
+        <article>
+          <h3>Recent notices or tax documents</h3>
+          <p>IRS, DOR, or L&amp;I notices, prior returns, deadlines, and document requests.</p>
+        </article>
       </div>
+      <p class="services-prep-note">Do not send sensitive passwords or full SSNs through unsecured messages.</p>
     </div>
   </section>
 
-  <section class="section service-detail-section fade-in" id="what-to-prepare">
-    <div class="container service-detail-grid">
-      <article class="service-panel service-panel--wide">
-        <div class="eyebrow">Before you contact us</div>
-        <h2>What to prepare before you send a request</h2>
-        <p>You do not need to have everything perfect before contacting us, but a few details help us understand the next step faster.</p>
-        <ul class="service-check-grid">
-          <li>state and business type</li>
-          <li>business name and entity type</li>
-          <li>QuickBooks access or bookkeeping status</li>
-          <li>bank or credit card statements if cleanup is needed</li>
-          <li>IRS, DOR, or L&amp;I notices</li>
-          <li>payroll records or payroll reports</li>
-          <li>Sales Tax / DOR documents</li>
-          <li>prior tax returns</li>
-          <li>deadlines or urgent timing</li>
-          <li>a short explanation of what feels unclear</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section section--soft service-process-section fade-in" id="request-process">
-    <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow">Request process</div>
-        <h2>How the request process works</h2>
-      </div>
-      <ol class="service-process-list">
-        <li><span>01</span><strong>Send a structured request</strong></li>
-        <li><span>02</span><strong>We review the context</strong></li>
-        <li><span>03</span><strong>Documents or access are clarified</strong></li>
-        <li><span>04</span><strong>Scope and next step are defined</strong></li>
-        <li><span>05</span><strong>Work begins with a clear path</strong></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section service-related-section fade-in" id="related-materials">
-    <div class="container service-related-layout">
+  <section class="section services-materials-section fade-in" id="related-materials">
+    <div class="container services-materials-layout">
       <div>
-        <div class="eyebrow">Materials</div>
-        <h2>Helpful materials before you start</h2>
+        <div class="eyebrow">Related materials</div>
+        <h2>Useful reading before you start</h2>
       </div>
-      <div class="service-related-grid">
-        <a class="service-related-card" href="/blog/us-tax-return-prep-remote-checklist.html"><span>Tax documents</span><strong>Remote Tax Return Preparation Checklist</strong><small>Read material <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/blog/quickbooks-healthy-books.html"><span>QuickBooks</span><strong>QuickBooks Healthy Books</strong><small>Read material <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/blog/seattle-area-accountant-bookkeeper.html"><span>Service triage</span><strong>Bookkeeper or Accountant: Where to Start</strong><small>Read material <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/blog/irs-2026-inflation-adjustments.html"><span>IRS update</span><strong>IRS 2026 Inflation Adjustments</strong><small>Read material <span aria-hidden="true">&rarr;</span></small></a>
-      </div>
-      <div class="service-final-actions">
-        <a class="btn btn-secondary" href="/blog/">View all materials</a>
+      <div class="services-material-links">
+        <a href="/blog/us-tax-return-prep-remote-checklist.html">Remote Tax Return Preparation Checklist <span aria-hidden="true">&rarr;</span></a>
+        <a href="/blog/quickbooks-healthy-books.html">QuickBooks Healthy Books <span aria-hidden="true">&rarr;</span></a>
+        <a href="/blog/irs-2026-inflation-adjustments.html">IRS 2026 Inflation Adjustments <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
 
-  <section class="section service-final-cta-section fade-in">
-    <div class="container service-final-cta">
+  <section class="section services-hub-final-section fade-in">
+    <div class="container services-hub-final">
       <div>
         <div class="eyebrow">Next step</div>
-        <h2>Not sure which service fits?</h2>
-        <p>Start with a structured request. Share what you need help with, what documents you have, and what feels unclear. This helps identify the right next step.</p>
+        <h2>Start with the service path that fits your situation</h2>
+        <p>Choose a service, send the context you already have, and Financial Stream can help clarify the next practical step.</p>
       </div>
-      <div class="service-final-actions">
+      <div class="services-hub-final__actions">
         <a class="btn btn-primary" href="/contact/#structured-request">Start a structured request</a>
-        <a class="btn btn-secondary" href="/contact/#consultation">Schedule a consultation</a>
+        <a class="btn btn-secondary" href="#service-architecture">View all services</a>
       </div>
     </div>
   </section>

@@ -75,181 +75,182 @@
   </div>
 </header>
 
-<main>
-  <section class="service-hero section">
-    <div class="container service-hero__grid">
-      <div class="service-hero__copy fade-in">
+<main class="services-hub-main">
+  <section class="section services-hub-hero">
+    <div class="container services-hub-hero__grid">
+      <div class="services-hub-hero__copy fade-in">
         <div class="eyebrow">Услуги</div>
-        <h1>Найдите правильное направление финансовой поддержки</h1>
-        <p class="lead">Не каждый запрос начинается с одной и той же услуги. Эта страница помогает выбрать между бухгалтерским учётом / bookkeeping, cleanup / наведением порядка в учёте, налоговой декларацией, зарплатными отчётами / payroll, налогом с продаж / Sales Tax, DOR, регистрацией бизнеса и разбором документов &mdash; а затем оставить структурированный запрос.</p>
-        <div class="btn-group">
+        <h1>Услуги для вашего следующего шага</h1>
+        <p class="lead">Эта страница помогает выбрать направление для бизнеса, QuickBooks, payroll, налогов, Sales Tax / DOR или разбора документов. Каждое направление ведёт на отдельную страницу услуги, а основной следующий шаг — структурированный запрос.</p>
+        <div class="services-hub-hero__actions">
           <a class="btn btn-primary" href="/ru/contact/#structured-request">Оставить структурированный запрос</a>
-          <a class="btn btn-secondary" href="#choose-by-situation">Выбрать по ситуации</a>
+          <a class="btn btn-secondary" href="#service-architecture">Посмотреть направления</a>
+        </div>
+        <div class="services-hub-chips" aria-label="Направления услуг">
+          <span>QuickBooks</span>
+          <span>Налоговые декларации</span>
+          <span>Payroll / L&amp;I</span>
+          <span>Sales Tax / DOR</span>
         </div>
       </div>
-      <aside class="service-hero__visual fade-in" aria-label="Обзор услуг">
-        <div class="service-context-strip__inner" style="flex-direction: column; align-items: stretch;">
-          <span>127+ компаний получили поддержку</span>
-          <span>Около 300 деклараций и отчётных подач подготовлено</span>
-          <span>QuickBooks + налоговые декларации</span>
-          <span>Washington + работа по США</span>
+      <aside class="services-hub-dossier fade-in" aria-label="Карта услуг">
+        <div class="services-hub-dossier__tab">Карта услуг</div>
+        <div class="services-hub-dossier__sheet">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="services-hub-dossier__rows">
+          <span>Основа бизнеса и документы</span>
+          <span>Учёт и payroll</span>
+          <span>Налоги и отчётность</span>
         </div>
       </aside>
     </div>
   </section>
 
-  <section class="section service-detail-section fade-in" id="service-groups">
+  <section class="section services-architecture-section fade-in" id="service-architecture">
     <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow">Направления</div>
-        <h2>Выберите услугу, которая ближе всего к вашей задаче.</h2>
+      <div class="section-heading services-hub-heading">
+        <div class="eyebrow">Архитектура услуг</div>
+        <h2>Шесть направлений, сгруппированных по типу задачи.</h2>
+        <p>Начните с блока, который ближе всего к вашей ситуации. Если запрос затрагивает несколько направлений, можно отправить один структурированный запрос.</p>
       </div>
-      <div class="service-detail-grid">
-        <article class="service-panel">
-          <div class="eyebrow">Основа бизнеса</div>
-          <h3>Регистрация и первые шаги бизнеса</h3>
-          <p>Помощь с регистрацией компании, EIN, business license и первыми шагами, чтобы документы и учёт были организованы с начала работы.</p>
-          <p><strong>Кому подходит:</strong> Новый бизнес, новая LLC, владельцы, которые не уверены, что делать после регистрации.</p>
-          <p><strong>Что подготовить:</strong> Название бизнеса, штат, владельцы, EIN при наличии и описание деятельности.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/ru/services/company-formation.html">Посмотреть услугу <span aria-hidden="true">&rarr;</span></a></div>
+      <div class="services-map-grid">
+        <article class="services-map-bucket services-map-bucket--foundation">
+          <div class="services-map-bucket__head">
+            <div class="services-map-motif services-map-motif--folder" aria-hidden="true"><span></span></div>
+            <div>
+              <span class="eyebrow">Блок 01</span>
+              <h3>Основа бизнеса и документы</h3>
+            </div>
+          </div>
+          <div class="services-map-list">
+            <a class="services-map-row" href="/ru/services/company-formation.html">
+              <strong>Регистрация бизнеса</strong>
+              <span>Направление по entity setup, EIN, лицензиям и первой структуре учёта.</span>
+              <em>Посмотреть услугу <span aria-hidden="true">&rarr;</span></em>
+            </a>
+            <a class="services-map-row" href="/ru/services/financial-consulting.html">
+              <strong>Финансовый разбор / документы</strong>
+              <span>Разбор уведомлений, документов, прошлых подач и неясных записей перед следующим шагом.</span>
+              <em>Посмотреть услугу <span aria-hidden="true">&rarr;</span></em>
+            </a>
+          </div>
         </article>
-        <article class="service-panel">
-          <div class="eyebrow">Ежемесячный учёт</div>
-          <h3>Бухгалтерский учёт / QuickBooks</h3>
-          <p>Ежемесячный бухгалтерский учёт / bookkeeping, QuickBooks, сверка счетов, категоризация операций и отчёты.</p>
-          <p><strong>Кому подходит:</strong> Работающий бизнес, которому нужен порядок в учёте и данные, готовые к налогам.</p>
-          <p><strong>Что подготовить:</strong> Доступ к QuickBooks, банковские выписки, кредитные карты, текущие отчёты и известные проблемы.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/ru/services/quickbooks-bookkeeping.html">Посмотреть услугу <span aria-hidden="true">&rarr;</span></a></div>
+
+        <article class="services-map-bucket services-map-bucket--books">
+          <div class="services-map-bucket__head">
+            <div class="services-map-motif services-map-motif--ledger" aria-hidden="true"><span></span></div>
+            <div>
+              <span class="eyebrow">Блок 02</span>
+              <h3>Учёт и payroll</h3>
+            </div>
+          </div>
+          <div class="services-map-list">
+            <a class="services-map-row" href="/ru/services/quickbooks-bookkeeping.html">
+              <strong>Бухгалтерский учёт / QuickBooks</strong>
+              <span>Ежемесячный учёт, сверка, категоризация, cleanup и отчёты, готовые к налогам.</span>
+              <em>Посмотреть услугу <span aria-hidden="true">&rarr;</span></em>
+            </a>
+            <a class="services-map-row" href="/ru/services/payroll-li-quarterly.html">
+              <strong>Payroll / L&amp;I</strong>
+              <span>Payroll records, квартальная отчётность и документы, связанные с L&amp;I.</span>
+              <em>Посмотреть услугу <span aria-hidden="true">&rarr;</span></em>
+            </a>
+          </div>
         </article>
-        <article class="service-panel">
-          <div class="eyebrow">Налоговый сезон</div>
-          <h3>Налоговые декларации и отчётность</h3>
-          <p>Подготовка документов для личной или бизнес-декларации и понимание, что нужно перед подачей.</p>
-          <p><strong>Кому подходит:</strong> Физические лица и владельцы бизнеса перед налоговым сезоном или проверкой документов.</p>
-          <p><strong>Что подготовить:</strong> Прошлые декларации, документы о доходах, расходы, отчёты QuickBooks, налоговые уведомления и сроки.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/ru/services/tax-returns.html">Посмотреть услугу <span aria-hidden="true">&rarr;</span></a></div>
-        </article>
-        <article class="service-panel">
-          <div class="eyebrow">Восстановление данных</div>
-          <h3>Cleanup / восстановление учёта</h3>
-          <p>Наведение порядка в учёте, если QuickBooks запутан, месяцы пропущены или отчётам нельзя доверять.</p>
-          <p><strong>Кому подходит:</strong> Бизнес с неразнесёнными операциями, несверенными счетами или пропущенными месяцами.</p>
-          <p><strong>Что подготовить:</strong> Доступ к QuickBooks, банковские выписки, кредитные карты, пропущенные периоды и известные проблемы.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/ru/services/quickbooks-bookkeeping.html">Посмотреть услугу <span aria-hidden="true">&rarr;</span></a></div>
-        </article>
-        <article class="service-panel">
-          <div class="eyebrow">Зарплатные документы</div>
-          <h3>Зарплатные отчёты / payroll и L&amp;I</h3>
-          <p>Организация документов по зарплате, зарплатных отчётов / payroll, квартальной отчётности и информации L&amp;I, чтобы отчётность и учёт были связаны.</p>
-          <p><strong>Кому подходит:</strong> Бизнес с сотрудниками, отчётами по зарплате, документами L&amp;I или квартальной отчётностью.</p>
-          <p><strong>Что подготовить:</strong> Документы по зарплате, зарплатные отчёты / payroll, данные сотрудников, документы L&amp;I, прошлые подачи и уведомления.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/ru/services/payroll-li-quarterly.html">Посмотреть услугу <span aria-hidden="true">&rarr;</span></a></div>
-        </article>
-        <article class="service-panel">
-          <div class="eyebrow">Отчётность DOR</div>
-          <h3>Налог с продаж / Sales Tax и DOR</h3>
-          <p>Организация документов по налогу с продаж / Sales Tax, отчётов Department of Revenue, подтверждений оплат и уведомлений.</p>
-          <p><strong>Кому подходит:</strong> Бизнес в Washington, который собирает налог с продаж / Sales Tax или подаёт отчёты DOR.</p>
-          <p><strong>Что подготовить:</strong> Данные о продажах, отчёты DOR, подтверждения оплат, уведомления и бухгалтерские отчёты.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/ru/services/sales-tax-dor-reporting.html">Посмотреть услугу <span aria-hidden="true">&rarr;</span></a></div>
-        </article>
-        <article class="service-panel service-panel--wide">
-          <div class="eyebrow">Разбор документов</div>
-          <h3>Документы, IRS, DOR, L&amp;I и уведомления</h3>
-          <p>Разбор уведомлений IRS, DOR или L&amp;I, налоговых уведомлений, запросов документов, прошлых подач и неясных записей.</p>
-          <p><strong>Кому подходит:</strong> Клиенты, которые получили уведомления IRS, DOR, L&amp;I или штата и не уверены, что делать дальше.</p>
-          <p><strong>Что подготовить:</strong> Копия уведомления, название агентства, срок, прошлые подачи и связанные документы.</p>
-          <div class="service-final-actions"><a class="service-cta" href="/ru/services/financial-consulting.html">Посмотреть услугу <span aria-hidden="true">&rarr;</span></a></div>
+
+        <article class="services-map-bucket services-map-bucket--tax">
+          <div class="services-map-bucket__head">
+            <div class="services-map-motif services-map-motif--report" aria-hidden="true"><span></span></div>
+            <div>
+              <span class="eyebrow">Блок 03</span>
+              <h3>Налоги и отчётность</h3>
+            </div>
+          </div>
+          <div class="services-map-list">
+            <a class="services-map-row" href="/ru/services/tax-returns.html">
+              <strong>Подготовка налоговых деклараций</strong>
+              <span>Организация документов для личных и бизнес-деклараций, review и подготовка к подаче.</span>
+              <em>Посмотреть услугу <span aria-hidden="true">&rarr;</span></em>
+            </a>
+            <a class="services-map-row" href="/ru/services/sales-tax-dor-reporting.html">
+              <strong>Sales Tax / DOR</strong>
+              <span>Sales Tax в Washington, отчёты DOR, подтверждения оплат, уведомления и записи.</span>
+              <em>Посмотреть услугу <span aria-hidden="true">&rarr;</span></em>
+            </a>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section section--soft service-related-section fade-in" id="choose-by-situation">
-    <div class="container service-related-layout">
+  <section class="section section--soft services-router-section fade-in" id="choose-by-situation">
+    <div class="container services-router-layout">
+      <div class="services-router-copy">
+        <div class="eyebrow">Выбрать по ситуации</div>
+        <h2>Не уверены, к какому направлению относится запрос?</h2>
+        <p>Выберите ближайшую ситуацию. Страница услуги поможет понять, подходит ли этот путь, прежде чем отправлять детали.</p>
+      </div>
+      <div class="services-router-grid">
+        <a href="/ru/services/quickbooks-bookkeeping.html">Нужно привести QuickBooks в порядок <span aria-hidden="true">&rarr;</span></a>
+        <a href="/ru/services/tax-returns.html">Нужна помощь с декларацией <span aria-hidden="true">&rarr;</span></a>
+        <a href="/ru/services/financial-consulting.html">Получено уведомление IRS/DOR/L&amp;I <span aria-hidden="true">&rarr;</span></a>
+        <a href="/ru/services/payroll-li-quarterly.html">Нужен payroll или L&amp;I <span aria-hidden="true">&rarr;</span></a>
+        <a href="/ru/services/company-formation.html">Открываю бизнес <span aria-hidden="true">&rarr;</span></a>
+        <a href="/ru/contact/#structured-request">Не понимаю, с чего начать <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-prep-section fade-in" id="what-to-gather">
+    <div class="container services-prep-card">
       <div>
-        <div class="eyebrow">Выбор направления</div>
-        <h2>Выберите по ситуации</h2>
-        <p class="lead">Если вы не уверены, какая услуга подходит, начните с ситуации. Эти направления помогут понять следующий шаг перед отправкой запроса.</p>
+        <div class="eyebrow">Что собрать</div>
+        <h2>Несколько деталей помогут правильно направить запрос.</h2>
+        <p>Не нужно готовить всё заранее перед обращением. Начните с того, что уже есть, а Financial Stream подскажет, что может понадобиться дальше.</p>
       </div>
-      <div class="service-related-grid">
-        <a class="service-related-card" href="/ru/services/company-formation.html"><span>Регистрация</span><strong>Я открываю бизнес</strong><small>Открыть услугу <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/ru/services/quickbooks-bookkeeping.html"><span>Cleanup / восстановление учёта</span><strong>QuickBooks запутан</strong><small>Открыть услугу <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/ru/services/tax-returns.html"><span>Налоги</span><strong>Нужна налоговая декларация</strong><small>Открыть услугу <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/ru/services/payroll-li-quarterly.html"><span>Зарплатные отчёты / payroll</span><strong>Есть вопросы по зарплатным отчётам / payroll и L&amp;I</strong><small>Открыть услугу <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/ru/services/sales-tax-dor-reporting.html"><span>DOR</span><strong>Нужна помощь с налогом с продаж / Sales Tax и DOR</strong><small>Открыть услугу <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/ru/services/financial-consulting.html"><span>Документы</span><strong>Пришло уведомление IRS, DOR или L&amp;I</strong><small>Открыть услугу <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/ru/contact/#structured-request"><span>Не уверен</span><strong>Не уверен, с чего начать</strong><small>Оставить запрос <span aria-hidden="true">&rarr;</span></small></a>
+      <div class="services-prep-grid">
+        <article>
+          <h3>Данные бизнеса</h3>
+          <p>Название бизнеса, штат, тип entity, владельцы, EIN при наличии и краткое описание деятельности.</p>
+        </article>
+        <article>
+          <h3>Доступы или финансовые документы</h3>
+          <p>Статус QuickBooks, свежие отчёты, банковские выписки, payroll records или документы Sales Tax / DOR.</p>
+        </article>
+        <article>
+          <h3>Уведомления или налоговые документы</h3>
+          <p>Уведомления IRS, DOR или L&amp;I, прошлые декларации, сроки и запросы документов.</p>
+        </article>
       </div>
+      <p class="services-prep-note">Не отправляйте пароли или полные SSN через незащищённые сообщения.</p>
     </div>
   </section>
 
-  <section class="section service-detail-section fade-in" id="what-to-prepare">
-    <div class="container service-detail-grid">
-      <article class="service-panel service-panel--wide">
-        <div class="eyebrow">Перед обращением</div>
-        <h2>Что подготовить перед отправкой запроса</h2>
-        <p>Не нужно готовить всё идеально до обращения, но несколько деталей помогут быстрее понять следующий шаг.</p>
-        <ul class="service-check-grid">
-          <li>штат и тип бизнеса</li>
-          <li>название бизнеса и тип компании</li>
-          <li>доступ к QuickBooks или состояние бухгалтерского учёта / bookkeeping</li>
-          <li>банковские выписки или выписки по кредитным картам, если нужен cleanup / наведение порядка в учёте</li>
-          <li>уведомления IRS, DOR или L&amp;I</li>
-          <li>документы по зарплате или зарплатные отчёты / payroll</li>
-          <li>документы по налогу с продаж / Sales Tax и DOR</li>
-          <li>прошлые налоговые декларации</li>
-          <li>срочные сроки или важные даты</li>
-          <li>короткое описание, что сейчас непонятно</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section section--soft service-process-section fade-in" id="request-process">
-    <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow">Процесс</div>
-        <h2>Как работает запрос</h2>
-      </div>
-      <ol class="service-process-list">
-        <li><span>01</span><strong>Оставьте структурированный запрос</strong></li>
-        <li><span>02</span><strong>Мы изучаем контекст</strong></li>
-        <li><span>03</span><strong>Уточняем документы или доступы</strong></li>
-        <li><span>04</span><strong>Определяем объём и следующий шаг</strong></li>
-        <li><span>05</span><strong>Работа начинается с понятного плана</strong></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section service-related-section fade-in" id="related-materials">
-    <div class="container service-related-layout">
+  <section class="section services-materials-section fade-in" id="related-materials">
+    <div class="container services-materials-layout">
       <div>
         <div class="eyebrow">Материалы</div>
-        <h2>Полезные материалы перед обращением</h2>
+        <h2>Полезно посмотреть перед стартом</h2>
       </div>
-      <div class="service-related-grid">
-        <a class="service-related-card" href="/ru/blog/nalogovaya-deklaraciya-usa-udalenno-cheklist.html"><span>Документы</span><strong>Удалённая подготовка налоговой декларации</strong><small>Читать материал <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/ru/blog/quickbooks-healthy-books.html"><span>QuickBooks</span><strong>QuickBooks без хаоса</strong><small>Читать материал <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/ru/blog/seattle-area-accountant-bookkeeper.html"><span>Выбор услуги</span><strong>Бухгалтер, bookkeeper или tax preparer</strong><small>Читать материал <span aria-hidden="true">&rarr;</span></small></a>
-        <a class="service-related-card" href="/ru/blog/irs-2026-inflation-adjustments.html"><span>IRS update</span><strong>IRS Inflation Adjustments 2026</strong><small>Читать материал <span aria-hidden="true">&rarr;</span></small></a>
-      </div>
-      <div class="service-final-actions">
-        <a class="btn btn-secondary" href="/ru/blog/">Посмотреть все материалы</a>
+      <div class="services-material-links">
+        <a href="/ru/blog/nalogovaya-deklaraciya-usa-udalenno-cheklist.html">Чеклист для налоговой декларации удалённо <span aria-hidden="true">&rarr;</span></a>
+        <a href="/ru/blog/quickbooks-healthy-books.html">QuickBooks Healthy Books <span aria-hidden="true">&rarr;</span></a>
+        <a href="/ru/blog/irs-2026-inflation-adjustments.html">IRS 2026 Inflation Adjustments <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
 
-  <section class="section service-final-cta-section fade-in">
-    <div class="container service-final-cta">
+  <section class="section services-hub-final-section fade-in">
+    <div class="container services-hub-final">
       <div>
         <div class="eyebrow">Следующий шаг</div>
-        <h2>Не уверены, какая услуга подходит?</h2>
-        <p>Начните со структурированного запроса. Опишите, какая помощь нужна, какие документы есть и что сейчас непонятно. Это поможет определить следующий практический шаг.</p>
+        <h2>Начните с направления, которое подходит вашей ситуации</h2>
+        <p>Выберите услугу, отправьте контекст, который уже есть, и Financial Stream поможет определить следующий практический шаг.</p>
       </div>
-      <div class="service-final-actions">
+      <div class="services-hub-final__actions">
         <a class="btn btn-primary" href="/ru/contact/#structured-request">Оставить структурированный запрос</a>
-        <a class="btn btn-secondary" href="/ru/contact/#consultation">Записаться на консультацию</a>
+        <a class="btn btn-secondary" href="#service-architecture">Посмотреть услуги</a>
       </div>
     </div>
   </section>
