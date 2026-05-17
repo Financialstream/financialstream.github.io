@@ -1218,6 +1218,28 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
   opacity: 0.84;
 }
 
+.quickbooks-service-main .service-final-cta-section {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: clamp(78px, 9vw, 132px) 0 clamp(52px, 6vw, 82px);
+  background:
+    linear-gradient(180deg, rgba(248, 250, 249, 0) 0%, rgba(238, 245, 247, 0.72) 14%, rgba(15, 41, 61, 0.92) 48%, #06111e 100%);
+}
+
+.quickbooks-service-main .service-final-cta-section + .footer.footer--premium {
+  margin-top: 0;
+}
+
+.quickbooks-service-main .service-final-cta--navy {
+  width: min(var(--container), calc(100vw - 40px));
+  border-color: rgba(148, 190, 215, 0.18);
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(58, 155, 200, 0.26), transparent 34%),
+    linear-gradient(145deg, rgba(7, 25, 39, 0.94), rgba(13, 38, 60, 0.88) 56%, rgba(18, 52, 74, 0.82));
+  box-shadow: none;
+}
+
 @media (max-width: 1180px) {
   .quickbooks-control-grid,
   .quickbooks-work-grid {
@@ -1241,6 +1263,19 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
   .quickbooks-rhythm-list span {
     min-width: 0;
   }
+
+  .quickbooks-service-main .service-final-cta-section {
+    padding: 72px 0 58px;
+  }
+
+  .quickbooks-service-main .service-final-cta--navy {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .quickbooks-service-main .service-final-actions {
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 360px) {
@@ -1249,6 +1284,17 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
   }
 
   .service-page--quickbooks-hero .service-hero__copy .btn-group .btn-primary {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .quickbooks-service-main .service-final-actions {
+    width: 100%;
+    padding-right: 72px;
+    box-sizing: border-box;
+  }
+
+  .quickbooks-service-main .service-final-actions .btn-primary {
     width: 100%;
     padding-inline: 16px;
   }
