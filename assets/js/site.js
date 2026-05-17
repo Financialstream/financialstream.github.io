@@ -6,7 +6,7 @@
   const header = document.querySelector('[data-proto-header]');
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const mobilePanel = header ? header.querySelector('.site-header__panel') : null;
-  const mobileHeaderQuery = window.matchMedia('(max-width: 768px)');
+  const mobileHeaderQuery = window.matchMedia('(max-width: 768px), (max-width: 1024px) and (max-height: 520px) and (orientation: landscape)');
   let lastHeaderScrollY = window.scrollY;
 
   function syncHeaderState() {

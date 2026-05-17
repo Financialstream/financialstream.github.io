@@ -2079,7 +2079,7 @@ html[lang="ru"] .article-hero__copy h1 {
   box-shadow: 0 10px 26px rgba(7, 29, 47, 0.08);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-width: 1024px) and (max-height: 520px) and (orientation: landscape) {
   .site-header.is-hidden-mobile:not(.is-open) {
     transform: translateY(-100%);
   }
