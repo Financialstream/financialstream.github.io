@@ -1061,6 +1061,188 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
   justify-content: flex-end;
 }
 
+.quickbooks-service-main .section-heading p,
+.quickbooks-panel-copy,
+.quickbooks-work-card p,
+.quickbooks-note-panel p {
+  color: var(--text-muted);
+  line-height: 1.72;
+}
+
+.quickbooks-control-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.58fr) minmax(0, 1fr);
+  gap: clamp(22px, 4vw, 48px);
+  align-items: start;
+}
+
+.quickbooks-section-heading {
+  margin: 0;
+  max-width: 520px;
+}
+
+.quickbooks-section-heading h2 {
+  margin-bottom: 16px;
+}
+
+.quickbooks-recognition-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.quickbooks-signal-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid rgba(184, 202, 214, 0.66);
+  border-radius: 22px;
+  background:
+    linear-gradient(90deg, rgba(58, 155, 200, 0.09), transparent 46%),
+    rgba(255, 255, 255, 0.78);
+  box-shadow: 0 12px 28px rgba(13, 34, 53, 0.05);
+}
+
+.quickbooks-signal-card span,
+.quickbooks-rhythm-list span {
+  color: var(--service-accent);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.quickbooks-signal-card p {
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.quickbooks-work-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 22px;
+}
+
+.quickbooks-work-card {
+  position: relative;
+  min-width: 0;
+  padding: clamp(26px, 3.4vw, 42px);
+  border: 1px solid rgba(184, 202, 214, 0.66);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(255, 255, 255, 0.88), transparent 26%),
+    linear-gradient(154deg, rgba(255, 255, 255, 0.92), rgba(238, 245, 247, 0.62));
+  box-shadow: 0 18px 42px rgba(13, 34, 53, 0.065), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+.quickbooks-work-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 24px 24px auto;
+  width: 86px;
+  height: 58px;
+  border-radius: 16px;
+  opacity: 0.32;
+  background:
+    linear-gradient(180deg, rgba(58, 155, 200, 0.32) 0 2px, transparent 2px 13px) 0 0 / 100% 13px,
+    rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+.quickbooks-work-card h2 {
+  margin-bottom: 16px;
+  font-size: clamp(1.7rem, 2.7vw, 2.55rem);
+}
+
+.quickbooks-work-card .service-clean-list {
+  margin-top: 22px;
+}
+
+.quickbooks-rhythm-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.quickbooks-rhythm-list span {
+  display: flex;
+  align-items: center;
+  min-height: 54px;
+  padding: 14px 16px;
+  border: 1px solid rgba(184, 202, 214, 0.7);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.quickbooks-panel-copy {
+  max-width: 680px;
+  font-size: 1.04rem;
+}
+
+.quickbooks-note-panel {
+  align-self: stretch;
+}
+
+.quickbooks-service-main .service-process-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.quickbooks-service-main > .service-related-section:not(.quickbooks-materials-section) .service-related-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.service-final-cta--navy {
+  border-color: rgba(148, 190, 215, 0.2);
+  background:
+    radial-gradient(circle at 86% 14%, rgba(58, 155, 200, 0.28), transparent 34%),
+    linear-gradient(145deg, #071927, #0d263c 58%, #12344a);
+  box-shadow: 0 22px 58px rgba(7, 25, 39, 0.22);
+}
+
+.service-final-cta--navy .eyebrow {
+  color: rgba(152, 218, 245, 0.9);
+}
+
+.service-final-cta--navy h2,
+.service-final-cta--navy p {
+  color: #f6fbff;
+}
+
+.service-final-cta--navy p {
+  opacity: 0.84;
+}
+
+@media (max-width: 1180px) {
+  .quickbooks-control-grid,
+  .quickbooks-work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quickbooks-service-main .service-process-list,
+  .quickbooks-service-main > .service-related-section:not(.quickbooks-materials-section) .service-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .quickbooks-service-main .service-process-list,
+  .quickbooks-service-main > .service-related-section:not(.quickbooks-materials-section) .service-related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quickbooks-signal-card,
+  .quickbooks-work-card,
+  .quickbooks-rhythm-list span {
+    min-width: 0;
+  }
+}
+
 .article-page {
   --article-accent: #1e6f9f;
   --article-accent-soft: rgba(30, 111, 159, 0.12);
