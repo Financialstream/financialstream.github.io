@@ -15275,6 +15275,29 @@ html[lang="en"] :is(.service-page--payroll-hero, .service-page--tax-returns-hero
   }
 }
 
+@media (max-width: 430px) {
+  .service-page--tax-returns-hero .service-hero__copy {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-page--tax-returns-hero .service-hero__copy .btn-group {
+    order: 2;
+    margin-top: 18px;
+  }
+
+  .service-page--tax-returns-hero .service-hero__copy .lead {
+    order: 3;
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .service-page--tax-returns-hero .service-hero__copy .btn-group {
+    margin-top: 2px;
+  }
+}
+
 .service-page--financial-consulting-hero .service-hero-image-wrap {
   --sales-tax-hero-x: 10px;
   --quickbooks-hero-x: var(--sales-tax-hero-x);
