@@ -15093,6 +15093,14 @@ html[lang="en"] :is(.service-page--payroll-hero, .service-page--tax-returns-hero
     transform: none;
   }
 
+  .service-page--payroll-hero .service-hero__visual--image {
+    margin-top: clamp(420px, 52svh, 540px);
+  }
+
+  html[lang="ru"] .service-page--payroll-hero .service-hero__copy h1 {
+    font-size: clamp(2rem, 7.65vw, 2.68rem);
+  }
+
   :is(.service-page--payroll-hero .service-hero-picture--payroll, .service-page--tax-returns-hero .service-hero-picture--tax-returns, .service-page--financial-consulting-hero .service-hero-picture--financial-consulting)::before {
     background:
       linear-gradient(180deg, rgba(248, 251, 253, 1) 0 8px, rgba(248, 251, 253, 0.68) 16px, rgba(248, 251, 253, 0.16) 27px, rgba(248, 251, 253, 0) 38px),
@@ -17155,6 +17163,30 @@ html[lang="ru"] :is(.service-page--payroll-hero, .service-page--tax-returns-hero
     min-height: 42px;
     align-self: flex-start;
     padding-inline: 14px;
+  }
+}
+
+@media (max-width: 430px) {
+  .service-page--payroll-hero .service-hero__copy .btn-group {
+    gap: 10px;
+    margin-top: clamp(410px, 51svh, 470px);
+  }
+
+  .service-page--payroll-hero .service-hero__visual--image {
+    margin-top: clamp(32px, 7vw, 48px);
+  }
+}
+
+@media (min-width: 861px) and (max-width: 1024px) {
+  .service-page--payroll-hero .service-hero__visual--image {
+    margin-top: clamp(320px, 86svh, 680px);
+  }
+}
+
+@media (min-width: 1025px) {
+  .service-page--payroll-hero .service-hero__visual--image {
+    justify-self: start;
+    max-width: 390px;
   }
 }
 
