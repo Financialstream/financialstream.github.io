@@ -1063,6 +1063,7 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
 
 .quickbooks-service-main .section-heading p,
 .payroll-service-main .section-heading p,
+.sales-tax-service-main .section-heading p,
 .quickbooks-panel-copy,
 .quickbooks-work-card p,
 .quickbooks-note-panel p {
@@ -1190,11 +1191,13 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
   align-self: stretch;
 }
 
-:is(.quickbooks-service-main, .payroll-service-main) .service-process-list {
+:is(.quickbooks-service-main, .payroll-service-main) .service-process-list,
+.sales-tax-service-main .service-process-list {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-:is(.quickbooks-service-main, .payroll-service-main) > .service-related-section:not(.quickbooks-materials-section) .service-related-grid {
+:is(.quickbooks-service-main, .payroll-service-main) > .service-related-section:not(.quickbooks-materials-section) .service-related-grid,
+.sales-tax-service-main > .service-related-section:not(.quickbooks-materials-section) .service-related-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
@@ -1219,7 +1222,8 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
   opacity: 0.84;
 }
 
-:is(.quickbooks-service-main, .payroll-service-main) .service-final-cta-section {
+:is(.quickbooks-service-main, .payroll-service-main) .service-final-cta-section,
+.sales-tax-service-main .service-final-cta-section {
   margin-top: 0;
   margin-bottom: 0;
   padding: clamp(78px, 9vw, 132px) 0 clamp(52px, 6vw, 82px);
@@ -1227,11 +1231,13 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
     linear-gradient(180deg, rgba(248, 250, 249, 0) 0%, rgba(238, 245, 247, 0.72) 14%, rgba(15, 41, 61, 0.92) 48%, #06111e 100%);
 }
 
-:is(.quickbooks-service-main, .payroll-service-main) .service-final-cta-section + .footer.footer--premium {
+:is(.quickbooks-service-main, .payroll-service-main) .service-final-cta-section + .footer.footer--premium,
+.sales-tax-service-main .service-final-cta-section + .footer.footer--premium {
   margin-top: 0;
 }
 
-:is(.quickbooks-service-main, .payroll-service-main) .service-final-cta--navy {
+:is(.quickbooks-service-main, .payroll-service-main) .service-final-cta--navy,
+.sales-tax-service-main .service-final-cta--navy {
   width: min(var(--container), calc(100vw - 40px));
   border-color: rgba(148, 190, 215, 0.18);
   border-radius: 0;
@@ -1248,14 +1254,18 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
   }
 
   :is(.quickbooks-service-main, .payroll-service-main) .service-process-list,
-  :is(.quickbooks-service-main, .payroll-service-main) > .service-related-section:not(.quickbooks-materials-section) .service-related-grid {
+  .sales-tax-service-main .service-process-list,
+  :is(.quickbooks-service-main, .payroll-service-main) > .service-related-section:not(.quickbooks-materials-section) .service-related-grid,
+  .sales-tax-service-main > .service-related-section:not(.quickbooks-materials-section) .service-related-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 860px) {
   :is(.quickbooks-service-main, .payroll-service-main) .service-process-list,
-  :is(.quickbooks-service-main, .payroll-service-main) > .service-related-section:not(.quickbooks-materials-section) .service-related-grid {
+  .sales-tax-service-main .service-process-list,
+  :is(.quickbooks-service-main, .payroll-service-main) > .service-related-section:not(.quickbooks-materials-section) .service-related-grid,
+  .sales-tax-service-main > .service-related-section:not(.quickbooks-materials-section) .service-related-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1265,16 +1275,19 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
     min-width: 0;
   }
 
-  :is(.quickbooks-service-main, .payroll-service-main) .service-final-cta-section {
+  :is(.quickbooks-service-main, .payroll-service-main) .service-final-cta-section,
+  .sales-tax-service-main .service-final-cta-section {
     padding: 72px 0 58px;
   }
 
-  :is(.quickbooks-service-main, .payroll-service-main) .service-final-cta--navy {
+  :is(.quickbooks-service-main, .payroll-service-main) .service-final-cta--navy,
+  .sales-tax-service-main .service-final-cta--navy {
     grid-template-columns: 1fr;
     align-items: start;
   }
 
-  :is(.quickbooks-service-main, .payroll-service-main) .service-final-actions {
+  :is(.quickbooks-service-main, .payroll-service-main) .service-final-actions,
+  .sales-tax-service-main .service-final-actions {
     justify-content: flex-start;
   }
 }
@@ -1289,13 +1302,15 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
     padding-inline: 16px;
   }
 
-  :is(.quickbooks-service-main, .payroll-service-main) .service-final-actions {
+  :is(.quickbooks-service-main, .payroll-service-main) .service-final-actions,
+  .sales-tax-service-main .service-final-actions {
     width: 100%;
     padding-right: 72px;
     box-sizing: border-box;
   }
 
-  :is(.quickbooks-service-main, .payroll-service-main) .service-final-actions .btn-primary {
+  :is(.quickbooks-service-main, .payroll-service-main) .service-final-actions .btn-primary,
+  .sales-tax-service-main .service-final-actions .btn-primary {
     width: 100%;
     padding-inline: 16px;
   }
@@ -14740,31 +14755,50 @@ html[lang="ru"] .service-page--sales-tax-hero .service-hero__copy h1 {
     drop-shadow(0 8px 20px rgba(0, 144, 172, 0.09));
 }
 
+.service-page--sales-tax-hero .service-hero-image-wrap {
+  animation: none;
+}
+
+.service-page--sales-tax-hero .service-hero-image-wrap::before {
+  filter: blur(24px);
+  opacity: 0.34;
+  animation: none;
+}
+
+.service-page--sales-tax-hero .service-hero-image-wrap::after,
+.service-page--sales-tax-hero .service-hero-picture--sales-tax::after {
+  display: none;
+}
+
+.service-page--sales-tax-hero .service-hero-image--sales-tax {
+  filter:
+    drop-shadow(0 18px 36px rgba(13, 61, 80, 0.08))
+    drop-shadow(0 6px 14px rgba(0, 96, 126, 0.06));
+}
+
 .service-page--sales-tax-hero .service-hero-image-wrap:hover::before {
-  opacity: 1;
-  filter: blur(35px);
-  transform: scale(1.014);
+  opacity: 0.42;
+  filter: blur(26px);
+  transform: none;
 }
 
 .service-page--sales-tax-hero .service-hero-image-wrap:hover::after {
-  opacity: 0.76;
-  animation: quickbooksHeroHoverSweep 1450ms cubic-bezier(0.2, 0.72, 0.22, 1) both;
-  filter: brightness(1.13);
+  opacity: 0;
+  animation: none;
+  filter: none;
 }
 
 .service-page--sales-tax-hero .service-hero-image-wrap:hover .service-hero-picture--sales-tax::after {
-  opacity: 0.66;
-  filter: brightness(1.18) saturate(1.08);
-  animation:
-    quickbooksHeroHoverGlass 1500ms cubic-bezier(0.2, 0.72, 0.22, 1) both,
-    quickbooksHeroGlass 7.8s cubic-bezier(0.42, 0, 0.24, 1) infinite 1500ms;
+  opacity: 0;
+  filter: none;
+  animation: none;
 }
 
 .service-page--sales-tax-hero .service-hero-image-wrap:hover .service-hero-image--sales-tax {
-  transform: translateY(-1px) scale(1.004);
+  transform: none;
   filter:
-    drop-shadow(0 28px 54px rgba(13, 61, 80, 0.13))
-    drop-shadow(0 9px 23px rgba(0, 144, 172, 0.12));
+    drop-shadow(0 18px 36px rgba(13, 61, 80, 0.08))
+    drop-shadow(0 6px 14px rgba(0, 96, 126, 0.06));
 }
 
 html[lang="en"] .service-page--sales-tax-hero .service-hero__copy {
@@ -14852,6 +14886,26 @@ html[lang="en"] .service-page--sales-tax-hero .service-hero__copy {
       linear-gradient(180deg, rgba(248, 251, 253, 0.92) 0 7px, rgba(248, 251, 253, 0.44) 16px, rgba(248, 251, 253, 0.08) 28px, rgba(248, 251, 253, 0) 42px),
       linear-gradient(0deg, rgba(248, 251, 253, 0.88) 0 7px, rgba(248, 251, 253, 0.34) 16px, rgba(248, 251, 253, 0.08) 28px, rgba(248, 251, 253, 0) 42px),
       linear-gradient(90deg, rgba(248, 251, 253, 0.84) 0 7px, rgba(248, 251, 253, 0.34) 16px, rgba(248, 251, 253, 0.06) 28px, rgba(248, 251, 253, 0) 42px, rgba(248, 251, 253, 0) calc(100% - 42px), rgba(248, 251, 253, 0.06) calc(100% - 28px), rgba(248, 251, 253, 0.32) calc(100% - 16px), rgba(248, 251, 253, 0.86) calc(100% - 7px), rgba(248, 251, 253, 0.92) 100%);
+  }
+}
+
+@media (max-width: 360px) {
+  .service-page--sales-tax-hero .service-hero__copy .btn-group {
+    margin-top: clamp(96px, 31vw, 116px);
+    padding-right: 72px;
+    box-sizing: border-box;
+  }
+
+  .service-page--sales-tax-hero .service-hero__copy .btn {
+    width: 100%;
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 932px) and (max-height: 430px) {
+  .sales-tax-service-main .service-final-actions {
+    width: calc(100% - 320px);
+    min-width: 260px;
   }
 }
 
