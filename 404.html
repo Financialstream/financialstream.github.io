@@ -183,6 +183,38 @@
       margin-top: 0;
     }
 
+    .error-footer {
+      width: min(1040px, 100%);
+      margin-top: 18px;
+      color: #5d7287;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .error-footer p {
+      margin: 0 0 10px;
+    }
+
+    .error-legal {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 16px;
+    }
+
+    .error-legal a {
+      color: #244b70;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .error-legal a:hover,
+    .error-legal a:focus-visible {
+      color: #153a60;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     @media (max-width: 760px) {
       body.error-page {
         place-items: start center;
@@ -208,6 +240,10 @@
 
       .error-actions a {
         width: 100%;
+      }
+
+      .error-footer {
+        font-size: 0.86rem;
       }
     }
 
@@ -252,6 +288,14 @@
       </aside>
     </div>
   </main>
+  <footer class="error-footer" aria-label="Legal links">
+    <p>&copy; 2026 Financial Stream LLC. All rights reserved.</p>
+    <nav class="error-legal">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-and-conditions.html">Terms of Use</a>
+      <a href="/sms-consent.html">SMS Consent</a>
+    </nav>
+  </footer>
   <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
