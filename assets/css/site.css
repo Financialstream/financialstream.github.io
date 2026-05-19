@@ -1297,11 +1297,11 @@ html[lang="ru"] .service-page--registration-hero .service-hero__copy h1 {
 }
 
 @media (max-width: 360px) {
-  :is(.service-page--quickbooks-hero, .service-page--tax-returns-hero) .service-hero__copy .btn-group {
+  :is(.service-page--quickbooks-hero, .service-page--tax-returns-hero, .service-page--financial-consulting-hero) .service-hero__copy .btn-group {
     padding-right: 72px;
   }
 
-  :is(.service-page--quickbooks-hero, .service-page--tax-returns-hero) .service-hero__copy .btn-group .btn-primary {
+  :is(.service-page--quickbooks-hero, .service-page--tax-returns-hero, .service-page--financial-consulting-hero) .service-hero__copy .btn-group .btn-primary {
     width: 100%;
     padding-inline: 16px;
   }
