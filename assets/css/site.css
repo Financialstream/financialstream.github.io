@@ -20167,6 +20167,10 @@ html[lang="ru"] .services-hub-hero__copy h1 {
   width: min(var(--container), calc(100% - 40px));
 }
 
+.start-orientation-page {
+  --start-chatbase-lane: 86px;
+}
+
 .start-orientation-main {
   overflow: hidden;
 }
@@ -20605,6 +20609,12 @@ html[lang="ru"] .start-final-cta h2 {
   background: rgba(255, 255, 255, 0.06);
 }
 
+@media (min-width: 761px) {
+  .start-route-grid {
+    padding-right: var(--start-chatbase-lane);
+  }
+}
+
 @media (max-width: 1100px) {
   .start-route-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -20661,6 +20671,11 @@ html[lang="ru"] .start-final-cta h2 {
   .start-final-cta__actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .start-orientation-actions,
+  .start-route-grid {
+    padding-right: calc(var(--start-chatbase-lane) - 10px);
   }
 
   .start-orientation-actions .btn,
@@ -20726,6 +20741,17 @@ html[lang="ru"] .start-final-cta h2 {
   }
 }
 
+@media (max-width: 360px) {
+  .start-orientation-page #chatbase-message-bubbles {
+    display: none !important;
+  }
+
+  .start-orientation-actions,
+  .start-route-grid {
+    padding-right: calc(var(--start-chatbase-lane) - 16px);
+  }
+}
+
 @media (max-width: 980px) and (max-height: 520px) and (orientation: landscape) {
   .start-orientation-hero {
     padding-top: 18px;
@@ -20753,6 +20779,7 @@ html[lang="ru"] .start-final-cta h2 {
   .start-orientation-actions {
     margin-top: 12px;
     gap: 8px;
+    padding-right: calc(var(--start-chatbase-lane) - 16px);
   }
 
   .start-orientation-actions .btn {
