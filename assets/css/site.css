@@ -21497,3 +21497,104 @@ body.contact-page .footer {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Package 9C: Contact uses the same trust marquee visual pattern as the homepage. */
+body.home-page #chatbase-message-bubbles,
+body.home-page #chatbase-bubble-button,
+body.home-page #chatbase-bubble-window {
+  z-index: 32 !important;
+}
+
+body.home-page .hero,
+body.home-page .client-trust-section,
+body.home-page .footer {
+  position: relative;
+  z-index: 33;
+}
+
+body.home-page .client-trust-section .trust-marquee__track,
+body.ru-home-page .client-trust-section .trust-marquee__track,
+.client-trust-section .trust-marquee__track {
+  animation: testimonialMarqueeScan 118s linear infinite !important;
+}
+
+body.contact-page .contact-testimonials-carousel,
+.contact-page .contact-testimonials-carousel {
+  overflow: hidden !important;
+  max-height: none !important;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent) !important;
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent) !important;
+}
+
+body.contact-page .contact-testimonials-carousel .trust-marquee__track,
+.contact-page .contact-testimonials-carousel .trust-marquee__track {
+  display: flex !important;
+  width: max-content !important;
+  gap: 20px !important;
+  overflow: visible !important;
+  max-height: none !important;
+  animation: testimonialMarqueeScan 118s linear infinite !important;
+  transform: none;
+  will-change: transform;
+}
+
+body.contact-page .contact-testimonials-carousel:hover .trust-marquee__track,
+body.contact-page .contact-testimonials-carousel:focus-within .trust-marquee__track,
+body.contact-page .contact-testimonials-carousel:active .trust-marquee__track,
+.contact-page .contact-testimonials-carousel:hover .trust-marquee__track,
+.contact-page .contact-testimonials-carousel:focus-within .trust-marquee__track,
+.contact-page .contact-testimonials-carousel:active .trust-marquee__track {
+  animation-play-state: paused !important;
+}
+
+body.contact-page .contact-testimonials-carousel .contact-testimonials-grid,
+.contact-page .contact-testimonials-carousel .contact-testimonials-grid {
+  display: flex !important;
+  grid-template-columns: none !important;
+  grid-auto-flow: initial !important;
+  align-items: stretch !important;
+  gap: 20px !important;
+  width: max-content !important;
+  max-width: none !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  scroll-snap-type: none !important;
+}
+
+body.contact-page .contact-testimonials-carousel .trust-card,
+.contact-page .contact-testimonials-carousel .trust-card {
+  flex: 0 0 clamp(360px, 29vw, 420px) !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  min-height: 330px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: transform 210ms ease, border-color 210ms ease, box-shadow 210ms ease, background-color 210ms ease !important;
+}
+
+@media (max-width: 1180px) {
+  body.contact-page .contact-testimonials-carousel .trust-card,
+  .contact-page .contact-testimonials-carousel .trust-card {
+    flex-basis: clamp(340px, 44vw, 380px) !important;
+  }
+}
+
+@keyframes testimonialMarqueeScan {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% + min(100vw, 1240px))); }
+}
+
+@media (max-width: 680px) {
+  body.contact-page .contact-testimonials-carousel,
+  .contact-page .contact-testimonials-carousel {
+    -webkit-mask-image: linear-gradient(90deg, #000, #000 88%, transparent) !important;
+    mask-image: linear-gradient(90deg, #000, #000 88%, transparent) !important;
+  }
+
+  body.contact-page .contact-testimonials-carousel .trust-card,
+  .contact-page .contact-testimonials-carousel .trust-card {
+    flex-basis: min(86vw, 360px) !important;
+    min-height: 320px !important;
+  }
+}
