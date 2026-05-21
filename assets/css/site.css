@@ -21598,3 +21598,29 @@ body.contact-page .contact-testimonials-carousel .trust-card,
     min-height: 320px !important;
   }
 }
+
+/* Package 9C-1: pause testimonial marquees cleanly without card jump. */
+body.home-page .client-trust-section .trust-marquee:hover .trust-marquee__track,
+body.home-page .client-trust-section .trust-marquee:focus-within .trust-marquee__track,
+body.contact-page .contact-testimonials-carousel:hover .trust-marquee__track,
+body.contact-page .contact-testimonials-carousel:focus-within .trust-marquee__track {
+  animation-play-state: paused !important;
+}
+
+body.home-page .client-trust-section .trust-card,
+body.contact-page .contact-testimonials-carousel .trust-card {
+  transform: none !important;
+  transition: border-color 210ms ease, box-shadow 210ms ease, background-color 210ms ease !important;
+}
+
+body.home-page .client-trust-section .trust-card:hover,
+body.home-page .client-trust-section .trust-card:focus-within,
+body.contact-page .contact-testimonials-carousel .trust-card:hover,
+body.contact-page .contact-testimonials-carousel .trust-card:focus-within {
+  transform: none !important;
+  border-color: rgba(95, 130, 168, 0.68);
+  box-shadow:
+    0 26px 58px rgba(17, 28, 47, 0.13),
+    0 0 0 1px rgba(255, 255, 255, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
