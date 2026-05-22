@@ -1,39 +1,57 @@
-# Financial Stream LLC — Website (GitHub Pages)
+# Financial Stream LLC Website
 
-This is a static website intended for GitHub Pages.
+This repository contains the static GitHub Pages website for Financial Stream LLC.
 
-## Live URL
-https://financialstreamllc.com
+Live site: https://financialstreamllc.com/
 
-## Bilingual (EN/RU)
-Language switching is handled by static EN/RU page pairs through header links, canonical tags, and hreflang alternates. Active shared behavior lives in `assets/js/site.js`; active styling lives in `assets/css/site.css`.
+## Site Structure
 
-## Form submissions (email delivery)
-GitHub Pages is static — it **cannot** send emails by itself.
+The site is bilingual EN/RU with dedicated pages, canonical tags, and hreflang alternates.
 
-Right now the forms use a safe fallback:
-- On submit, it opens an email draft to `financialstreamllc@gmail.com` with the entered data.
+Active styling lives in `assets/css/site.css`.
 
-### To receive submissions automatically (recommended)
-Pick **one** option:
-1) **Formspree** (easy):
-   - Create a Formspree form endpoint
-   - Keep the existing Formspree endpoint in the contact forms unless intentionally rotating providers
-   - Remove the JS `hookMailto(...)` calls (or keep, but it will conflict)
+Active behavior lives in `assets/js/site.js`.
 
-2) **Netlify Forms**:
-   - Deploy via Netlify (instead of GitHub Pages)
-   - Add Netlify form attributes and connect notifications to email
+## Contact Architecture
 
-## Assets
-- `assets/logo-horizontal.png` extracted from the approved business card
-- `assets/hero-bg.jpg` soft background image aligned with the card/site style
+Structured request routes:
 
-## Deploy to GitHub Pages
-1. Create repo named: `financialstreamllc.com`
-2. Upload all files from this folder to the repo root
-3. Settings → Pages → Source: `Deploy from a branch` → Branch: `main` → Folder: `/ (root)`
-4. Wait for build → your site is live.
+- `/contact/#structured-request`
+- `/ru/contact/#structured-request`
 
----
-If you need a custom domain later, add it in Settings → Pages.
+The current structured intake may route to Google Form.
+
+The short message form uses the Formspree endpoint:
+
+`https://formspree.io/f/xwvqekla`
+
+Preserve the existing Formspree fields and behavior unless a future package explicitly scopes a change:
+
+- `data-form-endpoint`
+- `_subject`
+- `site_lang`
+- `_gotcha`
+- existing field names
+- `sms_consent`
+- privacy, terms, and SMS links
+- `id="structured-request"`
+
+Chatbase config and script placement must be preserved unless a future package explicitly scopes a Chatbase change.
+
+## Content Guardrails
+
+Do not add fake ratings, fake review counts, guarantees, no-cost consult offers, timed consult offers, fake protected-portal claims, refund promises, penalty-avoidance promises, or audit-defense promises.
+
+## QA
+
+Run the internal stage audit from the non-public repo tooling path:
+
+```bash
+bash .github/scripts/audit-stage-1.sh
+```
+
+Also run JavaScript syntax checks before shipping behavior changes:
+
+```bash
+node --check assets/js/site.js
+```
