@@ -21518,6 +21518,23 @@ body.ru-home-page .client-trust-section .trust-marquee__track,
   animation: testimonialMarqueeScan 118s linear infinite !important;
 }
 
+/* Keep the Chatbase launcher above mobile hero/contact layers so taps reach it. */
+#chatbase-message-bubbles,
+#chatbase-bubble-button,
+#chatbase-bubble-window,
+body.home-page #chatbase-message-bubbles,
+body.home-page #chatbase-bubble-button,
+body.home-page #chatbase-bubble-window,
+body.ru-home-page #chatbase-message-bubbles,
+body.ru-home-page #chatbase-bubble-button,
+body.ru-home-page #chatbase-bubble-window,
+body.contact-page #chatbase-message-bubbles,
+body.contact-page #chatbase-bubble-button,
+body.contact-page #chatbase-bubble-window {
+  z-index: 2147483645 !important;
+  pointer-events: auto !important;
+}
+
 body.contact-page .contact-testimonials-carousel,
 .contact-page .contact-testimonials-carousel {
   overflow: hidden !important;
