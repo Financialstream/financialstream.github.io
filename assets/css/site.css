@@ -1564,6 +1564,16 @@ html[lang="ru"] .article-hero__copy h1 {
   text-underline-offset: 4px;
 }
 
+.article-content .btn-primary,
+.article-content .btn-primary:visited,
+.article-content .btn-primary:hover,
+.article-content .btn-primary:focus-visible,
+.article-content .btn-primary:active {
+  color: #ffffff;
+  text-decoration: none;
+  text-decoration-color: transparent;
+}
+
 .article-note-box,
 .article-checklist-box,
 .article-related-box {
