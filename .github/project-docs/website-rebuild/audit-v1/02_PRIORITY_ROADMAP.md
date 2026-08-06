@@ -1,5 +1,17 @@
 # 02 — Priority Matrix and Upgrade Roadmap — Corrected V1.1
 
+## Current near-term execution order
+
+The owner-approved sequence is:
+
+1. complete the two RU/EN flagship articles;
+2. create the premium About / Trust EN/RU pair;
+3. apply only the release-required accessibility, navigation, sitemap and QA fixes;
+4. pause broad Financial Stream redesign until the ProAI Expert website is finished;
+5. return later for the evidence-led full redesign.
+
+The roadmap phases below remain the long-term modernization backlog. They are not instructions to begin a broad standalone Phase 0 before the flagship articles and About pages.
+
 ## Superseded assumptions
 
 The following original findings are withdrawn:
@@ -29,6 +41,8 @@ The owner-confirmed model contains six peer services, including Payroll / L&I. F
 | P1-10 | P1 | Competing contact paths | High conversion | Medium | Operating model |
 
 ## Phase 0 — Accessibility, trust and QA alignment V2
+
+**Current treatment:** backlog package. Implement now only the small items required for the flagship article/About release; defer the broader package until Financial Stream work resumes.
 
 **Pages/systems**
 
