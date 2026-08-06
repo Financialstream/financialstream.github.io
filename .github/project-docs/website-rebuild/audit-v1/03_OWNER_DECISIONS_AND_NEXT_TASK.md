@@ -1,5 +1,17 @@
 # 03 — Owner Decisions and Recommended Next Task — Corrected V1.1
 
+## Current immediate sequence
+
+The current first work is not a broad standalone Phase 0. The owner-approved order is:
+
+1. complete the two RU/EN flagship articles;
+2. create a premium About / Trust page as a coordinated EN/RU pair using the approved owner photograph;
+3. apply only the accessibility, navigation, sitemap and QA fixes required for that release;
+4. pause broad Financial Stream redesign until the ProAI Expert website is finished;
+5. return later for the evidence-led full redesign.
+
+The detailed sequence is documented in `04_CURRENT_EXECUTION_SEQUENCE.md`.
+
 ## Decisions already resolved
 
 ### 1. Public service architecture
@@ -40,7 +52,7 @@ It may include:
 
 Guardrail: do not imply legal advice, investment-adviser services or unsupported professional credentials.
 
-## Decisions still required before implementation
+## Decisions still required before later broad implementation
 
 ### Proof governance
 
@@ -64,9 +76,11 @@ Choose one primary lead path and define the role of:
 
 Default: structured request is primary; short form is fallback; calendar appears only after context is collected. All six valid service topics, including Payroll, remain available.
 
-## Recommended next implementation task
+## Deferred technical work package
 
 # PHASE 0 — FINANCIAL STREAM ACCESSIBILITY, TRUST AND QA ALIGNMENT V2
+
+This package remains valid, but it is not the immediate first project. During the flagship article/About release, implement only the relevant low-risk items. Defer the broader package until Financial Stream work resumes after ProAI Expert.
 
 ## Scope
 
@@ -87,13 +101,13 @@ Default: structured request is primary; short form is fallback; calendar appears
 - No Payroll deletion, hiding, demotion or redirect.
 - No automatic promotion of Payroll to the first or dominant service position.
 - No artificial split between Financial Consulting and Document Review.
-- No broad visual redesign.
+- No broad visual redesign during the current first wave.
 - No article merges.
 - No mass URL changes.
-- No modification of the separately developed flagship branch.
+- No modification of the separately developed flagship branch from unrelated work.
 - No unsupported credentials or guarantees.
 
-## Definition of done
+## Definition of done for the later Phase 0 package
 
 - Six-service architecture is consistent across public copy, metadata, schema and intake.
 - Payroll remains a normal peer service throughout the site.
