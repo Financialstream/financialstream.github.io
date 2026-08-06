@@ -1,0 +1,38 @@
+{
+  "package": "financial-stream-website-audit",
+  "version": "1.1-corrected",
+  "audit_date": "2026-08-05",
+  "owner_direction_date": "2026-08-05",
+  "repository": "Financialstream/financialstream.github.io",
+  "production_baseline": {
+    "branch": "main",
+    "sha": "2fb271f745eba7d9722b1613abc46342479f96d5"
+  },
+  "documentation_branch": "agent/financial-stream-website-audit-roadmap-v1-1",
+  "repository_path": ".github/project-docs/website-rebuild/audit-v1/",
+  "google_drive_folder": "https://drive.google.com/drive/folders/1sOnYSza97wtxEVBDz1tj4I3uzHH8qPVQ",
+  "service_model": {
+    "type": "six-peer-services",
+    "payroll_li": "active peer service; preserve; do not automatically place first",
+    "financial_consulting_document_review": "combined complementary service"
+  },
+  "recommended_sequence": [
+    "complete two RU/EN flagship articles",
+    "create premium About/Trust page as EN/RU pair",
+    "apply only required safety and quality fixes",
+    "pause broad Financial Stream redesign until ProAI Expert is finished",
+    "return for evidence-led sitewide redesign"
+  ],
+  "files": [
+    "README.md",
+    "00_EXECUTIVE_REPORT.md",
+    "01_PAGE_INVENTORY_SUMMARY.md",
+    "02_PRIORITY_ROADMAP.md",
+    "03_OWNER_DECISIONS_AND_NEXT_TASK.md",
+    "04_CURRENT_EXECUTION_SEQUENCE.md",
+    "audit-manifest.json"
+  ],
+  "production_changes": false,
+  "pull_request_created": false,
+  "deployment_triggered": false
+}
