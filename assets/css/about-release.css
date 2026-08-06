@@ -1,0 +1,106 @@
+/* Final production safeguards for the bilingual About / Trust pages. */
+.about-page .site-header__inner > *,
+.about-page .site-header__panel > *,
+.about-page .about-hero__grid > *,
+.about-page .about-intro-grid > *,
+.about-page .about-note > *,
+.about-page .about-note__title > *,
+.about-page .about-note__body > *,
+.about-page .about-language-panel > *,
+.about-page .about-cta__card > *,
+.about-page .footer-grid > * {
+  min-width: 0;
+}
+
+.about-page .about-note__body p {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.about-page .footer-links a,
+.about-page .footer-note,
+.about-page .footer-bottom {
+  overflow-wrap: anywhere;
+}
+
+.about-page .site-header.is-open {
+  transform: none !important;
+}
+
+.about-page .about-service-card:focus-visible {
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  .about-page .about-owner-card {
+    position: static;
+    top: auto;
+  }
+
+  .about-page .site-header__inner > .header-actions {
+    display: flex;
+  }
+
+  .about-page .site-header__inner > .header-actions .lang-switch {
+    display: flex !important;
+  }
+
+  .about-page .site-header__panel .lang-switch,
+  .about-page .site-header__panel .header-actions > a:not(.btn) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .about-page .container {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .about-page .logo-image {
+    width: min(154px, 44vw);
+  }
+
+  .about-page .about-hero__actions .btn,
+  .about-page .about-cta__card .btn {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .about-page .about-service-card {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .about-page .about-service-card__arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .about-page .site-header__inner {
+    min-height: 68px;
+  }
+
+  .about-page .about-hero {
+    padding-top: 40px;
+  }
+
+  .about-page .about-portrait__frame {
+    max-height: 72vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page *,
+  .about-page *::before,
+  .about-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body.js-enabled.about-page .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+}
