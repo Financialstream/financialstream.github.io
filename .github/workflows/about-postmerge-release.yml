@@ -1,18 +1,21 @@
-name: About Post-Merge Release
+name: About Final Release Executor
 
 on:
-  push:
-    branches: [main]
+  issue_comment:
+    types: [created]
 
 permissions:
   contents: write
   pull-requests: write
+  pages: write
+  actions: read
 
 jobs:
   release:
-    if: contains(github.event.head_commit.message, 'premium bilingual About') || contains(github.event.head_commit.message, 'About / Trust') || contains(github.event.head_commit.message, 'About trust')
+    if: github.event.issue.number == 9 && contains(github.event.comment.body, '/run-about-release')
     runs-on: ubuntu-latest
     timeout-minutes: 45
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,67 +26,83 @@ jobs:
         with:
           node-version: 22
 
-      - name: Apply final production fixes
+      - name: Apply production fixes
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "Financial Stream Release"
           git config user.email "actions@users.noreply.github.com"
 
-          # Restore the stable production JavaScript from pre-merge main.
-          git show HEAD^1:assets/js/site.js > assets/js/site.js
+          # site-core.js is byte-identical to the stable pre-PR production site.js.
+          test "$(git hash-object assets/js/site-core.js)" = "e31dcece0aa4b9d9ad90c5825f99cb211622681e"
+          cp assets/js/site-core.js assets/js/site.js
           rm -f assets/js/site-core.js
+          rm -f .github/workflows/about-release-finalize.yml
+          rm -f docs/about-release-trigger.txt
 
           python3 - <<'PY'
           from pathlib import Path
           import re
 
           def clean_about(path):
-              p=Path(path); s=p.read_text(encoding='utf-8')
-              s=re.sub(r'<span class="about-note__disclaimer">.*?</span>','',s,flags=re.S)
-              s=re.sub(r'<small>\s*(?:Company principle|Принцип работы компании).*?</small>','',s,flags=re.S)
-              for phrase in [
+              p = Path(path)
+              s = p.read_text(encoding='utf-8')
+              s = re.sub(r'<span class="about-note__disclaimer">.*?</span>', '', s, flags=re.S)
+              s = re.sub(r'<small>\s*(?:Company principle|Принцип работы компании).*?</small>', '', s, flags=re.S)
+              for phrase in (
                   'Company principle. This space can later be replaced with Tetiana’s approved personal wording.',
                   'Company principle. This is not presented as a personal quotation.',
                   'Принцип работы компании. Текст не оформлен как личная цитата.',
-                  'Позже этот блок можно заменить'
-              ]: s=s.replace(phrase,'')
-              p.write_text(s,encoding='utf-8')
+                  'Позже этот блок можно заменить',
+              ):
+                  s = s.replace(phrase, '')
+              p.write_text(s, encoding='utf-8')
 
           clean_about('about/index.html')
           clean_about('ru/about/index.html')
 
-          def home(path,href,label,services,service_label,nav_title):
-              p=Path(path); s=p.read_text(encoding='utf-8')
-              anchor=f'<a href="{href}">{label}</a>'
-              service=f'<a href="{services}">{service_label}</a>'
-              if s.count(anchor)<2:
-                  s=s.replace(service,service+'\n      '+anchor,2)
-              marker=f'<h3 class="footer-title">{nav_title}</h3>\n        <ul class="footer-links">'
-              if s.count(anchor)<3:
-                  if marker not in s: raise SystemExit(f'footer marker missing: {path}')
-                  s=s.replace(marker,marker+f'\n          <li><a href="{href}">{label}</a></li>',1)
-              if s.count(anchor)!=3: raise SystemExit(f'About link count is {s.count(anchor)} in {path}')
-              p.write_text(s,encoding='utf-8')
+          def patch_home(path, href, label, services_href, services_label, footer_title):
+              p = Path(path)
+              s = p.read_text(encoding='utf-8')
+              link = f'<a href="{href}">{label}</a>'
+              services = f'<a href="{services_href}">{services_label}</a>'
 
-          home('index.html','/about/','About','/services/','Services','Navigation')
-          home('ru/index.html','/ru/about/','О нас','/ru/services/','Услуги','Навигация')
+              # Add once to desktop nav and once to mobile nav.
+              missing_nav = max(0, 2 - s.count(link))
+              if missing_nav:
+                  s = s.replace(services, services + '\n      ' + link, missing_nav)
 
-          cssp=Path('assets/css/about.css'); css=cssp.read_text(encoding='utf-8')
-          mark='/* FINAL_ABOUT_RELEASE_GATE */'
-          if mark in css: css=css.split(mark,1)[0].rstrip()+'\n'
+              # Add once to footer Navigation.
+              marker = f'<h3 class="footer-title">{footer_title}</h3>\n        <ul class="footer-links">'
+              if s.count(link) < 3:
+                  if marker not in s:
+                      raise SystemExit(f'Footer marker not found in {path}')
+                  s = s.replace(marker, marker + f'\n          <li>{link}</li>', 1)
+
+              if s.count(link) != 3:
+                  raise SystemExit(f'Expected 3 static About links in {path}; found {s.count(link)}')
+              p.write_text(s, encoding='utf-8')
+
+          patch_home('index.html', '/about/', 'About', '/services/', 'Services', 'Navigation')
+          patch_home('ru/index.html', '/ru/about/', 'О нас', '/ru/services/', 'Услуги', 'Навигация')
+
+          css_path = Path('assets/css/about.css')
+          css = css_path.read_text(encoding='utf-8')
+          marker = '/* FINAL_ABOUT_RELEASE_GATE */'
+          if marker in css:
+              css = css.split(marker, 1)[0].rstrip() + '\n'
           css += r'''
           /* FINAL_ABOUT_RELEASE_GATE */
           .about-page .site-header__inner>*,.about-page .site-header__panel>*,.about-page .about-hero__grid>*,.about-page .about-intro-grid>*,.about-page .about-note>*,.about-page .about-language-panel>*,.about-page .about-cta__card>*,.about-page .footer-grid>*{min-width:0}
           .about-page .about-note__body>div{min-width:0}.about-page .about-note__body p{overflow-wrap:normal;word-break:normal}
           .about-page .footer-links a,.about-page .footer-note,.about-page .footer-bottom{overflow-wrap:anywhere}
-          .about-page .site-header.menu-open{transform:none!important}.about-page .about-service-card:focus-visible{transform:none}
+          .about-page .site-header.is-open{transform:none!important}.about-page .about-service-card:focus-visible{transform:none}
           @media(max-width:900px){.about-page .about-owner-card{position:static;top:auto}.about-page .site-header__inner>.header-actions{display:flex}.about-page .site-header__inner>.header-actions .lang-switch{display:flex!important}.about-page .site-header__panel .lang-switch,.about-page .site-header__panel .header-actions>a:not(.btn){display:none!important}}
           @media(max-width:430px){.about-page .container{width:min(100% - 28px,1180px)}.about-page .logo-image{width:min(154px,44vw)}.about-page .about-hero__actions .btn,.about-page .about-cta__card .btn{width:100%;white-space:normal}.about-page .about-service-card{grid-template-columns:auto minmax(0,1fr)}.about-page .about-service-card__arrow{display:none}}
           @media(max-width:900px) and (orientation:landscape){.about-page .site-header__inner{min-height:68px}.about-page .about-hero{padding-top:40px}.about-page .about-portrait__frame{max-height:72vh}}
           @media(prefers-reduced-motion:reduce){.about-page *,.about-page *::before,.about-page *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}body.js-enabled.about-page .fade-in{opacity:1;transform:none}}
           '''
-          cssp.write_text(css,encoding='utf-8')
+          css_path.write_text(css, encoding='utf-8')
           PY
 
       - name: Static release gate
@@ -91,137 +110,260 @@ jobs:
         run: |
           set -euo pipefail
           python3 -m pip install --quiet pillow beautifulsoup4
-          mkdir -p /tmp/about-qa/premerge /tmp/about-qa/live
+          mkdir -p /tmp/about-qa/predeploy /tmp/about-qa/live
           python3 - <<'PY'
           from pathlib import Path
           from bs4 import BeautifulSoup
           from PIL import Image
-          import json,re,subprocess
-          forbidden=re.compile(r'Owner\s*&\s*Practicing Accountant|Practicing Accountant|practicing accountant|\bCPA\b|\bEA\b|\blicensed\b|\bcertified\b|This space can later be replaced|not presented as a personal quotation|Позже этот блок можно заменить|Текст не оформлен как личная цитата',re.I)
-          report={'pages':{},'checks':[]}
-          for path,lang,canonical,other,person in [
-            ('about/index.html','en','https://financialstreamllc.com/about/','/ru/about/','Tetiana Horb'),
-            ('ru/about/index.html','ru','https://financialstreamllc.com/ru/about/','/about/','Татьяна Горб')]:
-              text=Path(path).read_text(encoding='utf-8'); soup=BeautifulSoup(text,'html.parser')
-              assert soup.html.get('lang')==lang and len(soup.find_all('h1'))==1
-              ids=[x['id'] for x in soup.find_all(id=True)]; assert len(ids)==len(set(ids))
-              assert not forbidden.search(text) and 'CEO, Financial Stream LLC' in text and person in text
-              assert len(soup.select('.about-service-card'))==6
-              visible=soup.get_text(' ',strip=True)
-              assert ('Payroll' in visible or 'Расчёт заработной платы' in visible)
-              assert ('Financial Consulting / Document Review' in visible or 'Финансовые консультации / Проверка документов' in visible)
-              assert soup.find('link',rel='canonical')['href']==canonical
-              alts={(x.get('hreflang'),x.get('href')) for x in soup.find_all('link',rel='alternate')}
-              assert ('x-default','https://financialstreamllc.com/about/') in alts and any(x[0]=='en' for x in alts) and any(x[0]=='ru' for x in alts)
-              data=json.loads(soup.find('script',attrs={'type':'application/ld+json'}).string); org=data['mainEntity']
-              assert data['@type']=='AboutPage' and org['name']=='Financial Stream LLC' and org['areaServed']=='US'
-              assert org['employee']=={'@type':'Person','name':person,'jobTitle':'CEO'}
-              assert org['address']['addressLocality']=='Federal Way' and org['availableLanguage']==['English','Russian']
-              portrait=soup.select_one('.about-portrait img'); assert portrait.get('width')=='1200' and portrait.get('height')=='1500' and portrait.get('fetchpriority')=='high'
-              assert all(x.get('alt') is not None for x in soup.find_all('img'))
-              assert len(soup.select('.lang-switch'))==1 and soup.select_one('.site-header__inner .lang-switch a')['href']==other and not soup.select('.site-header__panel .lang-switch')
-              assert soup.find('script',src=re.compile(r'assets/js/site\.js'))
-              report['pages'][path]={'ids':len(ids),'services':6,'h1':1}
-          assert Path('index.html').read_text().count('href="/about/">About</a>')==3
-          assert Path('ru/index.html').read_text().count('href="/ru/about/">О нас</a>')==3
+          import json, re, subprocess
+
+          forbidden = re.compile(r'Owner\s*&\s*Practicing Accountant|Practicing Accountant|practicing accountant|\bCPA\b|\bEA\b|\blicensed\b|\bcertified\b|This space can later be replaced|not presented as a personal quotation|Позже этот блок можно заменить|Текст не оформлен как личная цитата', re.I)
+          report = {'pages': {}}
+          pages = [
+              ('about/index.html', 'en', 'https://financialstreamllc.com/about/', '/ru/about/', 'Tetiana Horb'),
+              ('ru/about/index.html', 'ru', 'https://financialstreamllc.com/ru/about/', '/about/', 'Татьяна Горб'),
+          ]
+          for path, lang, canonical, other, person in pages:
+              text = Path(path).read_text(encoding='utf-8')
+              soup = BeautifulSoup(text, 'html.parser')
+              assert soup.html.get('lang') == lang
+              assert len(soup.find_all('h1')) == 1
+              ids = [node['id'] for node in soup.find_all(id=True)]
+              assert len(ids) == len(set(ids))
+              assert not forbidden.search(text)
+              assert person in text and 'CEO, Financial Stream LLC' in text
+              assert len(soup.select('.about-service-card')) == 6
+              visible = soup.get_text(' ', strip=True)
+              assert 'Payroll' in visible or 'Расчёт заработной платы' in visible
+              assert 'Financial Consulting / Document Review' in visible or 'Финансовые консультации / Проверка документов' in visible
+              assert soup.find('link', rel='canonical')['href'] == canonical
+              alternates = {(x.get('hreflang'), x.get('href')) for x in soup.find_all('link', rel='alternate')}
+              assert ('x-default', 'https://financialstreamllc.com/about/') in alternates
+              assert any(x[0] == 'en' for x in alternates) and any(x[0] == 'ru' for x in alternates)
+              schema = json.loads(soup.find('script', attrs={'type': 'application/ld+json'}).string)
+              org = schema['mainEntity']
+              assert schema['@type'] == 'AboutPage'
+              assert org['name'] == 'Financial Stream LLC' and org['areaServed'] == 'US'
+              assert org['employee'] == {'@type': 'Person', 'name': person, 'jobTitle': 'CEO'}
+              assert org['address']['addressLocality'] == 'Federal Way'
+              assert org['availableLanguage'] == ['English', 'Russian']
+              portrait = soup.select_one('.about-portrait img')
+              assert portrait and portrait.get('width') == '1200' and portrait.get('height') == '1500'
+              assert portrait.get('fetchpriority') == 'high'
+              assert all(img.get('alt') is not None for img in soup.find_all('img'))
+              assert len(soup.select('.lang-switch')) == 1
+              assert soup.select_one('.site-header__inner .lang-switch a')['href'] == other
+              assert not soup.select('.site-header__panel .lang-switch')
+              assert soup.find('script', src=re.compile(r'assets/js/site\.js'))
+              report['pages'][path] = {'h1': 1, 'services': 6, 'ids': len(ids)}
+
+          assert Path('index.html').read_text(encoding='utf-8').count('href="/about/">About</a>') == 3
+          assert Path('ru/index.html').read_text(encoding='utf-8').count('href="/ru/about/">О нас</a>') == 3
+          assert subprocess.check_output(['git', 'hash-object', 'assets/js/site.js'], text=True).strip() == 'e31dcece0aa4b9d9ad90c5825f99cb211622681e'
           assert not Path('assets/js/site-core.js').exists()
-          stable=subprocess.check_output(['git','show','HEAD^1:assets/js/site.js']); assert Path('assets/js/site.js').read_bytes()==stable
-          sm=Path('sitemap.xml').read_text(); assert 'https://financialstreamllc.com/about/' in sm and 'https://financialstreamllc.com/ru/about/' in sm
-          changed=subprocess.check_output(['git','diff','--name-only','HEAD^1'],text=True).splitlines(); assert not [p for p in changed if re.search(r'(^|/)(blog|articles?)(/|$)',p)]
-          photo=Path('assets/img/about/tetiana-financial-stream-ceo.webp')
-          with Image.open(photo) as im: assert im.format=='WEBP' and im.size==(1200,1500)
-          report['photo']={'bytes':photo.stat().st_size,'width':1200,'height':1500,'format':'WEBP'}; report['changed_files']=changed
-          Path('/tmp/about-qa/static-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False))
-          print(json.dumps(report,indent=2,ensure_ascii=False))
+          sitemap = Path('sitemap.xml').read_text(encoding='utf-8')
+          assert 'https://financialstreamllc.com/about/' in sitemap and 'https://financialstreamllc.com/ru/about/' in sitemap
+          changed = subprocess.check_output(['git', 'diff', '--name-only', 'HEAD'], text=True).splitlines()
+          assert not [p for p in changed if re.search(r'(^|/)(blog|articles?)(/|$)', p)]
+          photo = Path('assets/img/about/tetiana-financial-stream-ceo.webp')
+          with Image.open(photo) as image:
+              assert image.format == 'WEBP' and image.size == (1200, 1500)
+          report['photo'] = {'bytes': photo.stat().st_size, 'width': 1200, 'height': 1500, 'format': 'WEBP'}
+          report['production_changes'] = subprocess.check_output(['git', 'diff', '--name-only'], text=True).splitlines()
+          Path('/tmp/about-qa/static-report.json').write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding='utf-8')
+          print(json.dumps(report, indent=2, ensure_ascii=False))
           PY
 
-      - name: Local browser QA and pre-deployment screenshots
+      - name: Install browser runtime
         shell: bash
         run: |
           set -euo pipefail
-          npm install --no-save playwright-core@1.55.0 >/dev/null 2>&1
-          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/about-http.log 2>&1 &
-          PID=$!; trap 'kill $PID || true' EXIT; sleep 2
-          cat > /tmp/qa.mjs <<'JS'
-          import{chromium}from'playwright-core';import fs from'node:fs';
-          const base=process.env.BASE_URL||'http://127.0.0.1:4173',out=process.env.OUT_DIR||'/tmp/about-qa/premerge';fs.mkdirSync(out,{recursive:true});
-          const exe=['/usr/bin/google-chrome','/usr/bin/google-chrome-stable','/usr/bin/chromium'].find(fs.existsSync);if(!exe)throw Error('Chrome missing');
-          const b=await chromium.launch({headless:true,executablePath:exe,args:['--no-sandbox']});const failures=[],results=[];
-          const sizes=[['1440',1440,1000],['1280',1280,900],['1024',1024,768],['768p',768,1024],['430',430,932],['390',390,844],['375',375,812],['360',360,800],['320',320,720],['844x390',844,390],['932x430',932,430]];
-          for(const[lang,path]of[['en','/about/'],['ru','/ru/about/']])for(const[label,w,h]of sizes){const p=await b.newPage({viewport:{width:w,height:h}}),err=[],failed=[];p.on('pageerror',e=>err.push(String(e)));p.on('requestfailed',r=>{if(new URL(r.url()).origin===new URL(base).origin)failed.push(r.url())});const r=await p.goto(base+path,{waitUntil:'networkidle'});const x=await p.evaluate(()=>({sw:document.documentElement.scrollWidth,iw:innerWidth,h1:document.querySelectorAll('h1').length,services:document.querySelectorAll('.about-service-card').length,lang:document.querySelectorAll('.lang-switch').length}));if(!r?.ok()||x.sw>x.iw+1||x.h1!==1||x.services!==6||x.lang!==1||err.length||failed.length)failures.push({lang,label,status:r?.status(),x,err,failed});if(w<=430){const t=p.locator('[data-menu-toggle]');await t.click();if(await t.getAttribute('aria-expanded')!=='true'||!await p.locator('.site-header__panel').isVisible())failures.push({lang,label,menu:false});await t.click();await p.evaluate(()=>scrollTo(0,document.body.scrollHeight*.4));await p.waitForTimeout(250);await p.evaluate(()=>scrollBy(0,-220));await p.waitForTimeout(250);const hb=await p.locator('.site-header').boundingBox();if(!hb||hb.y<-2)failures.push({lang,label,headerReturn:false})}results.push({lang,label,status:r?.status(),...x,err,failed});await p.close()}
-          async function shot(path,name,w,h,sel=null,menu=false){const p=await b.newPage({viewport:{width:w,height:h}});await p.goto(base+path,{waitUntil:'networkidle'});if(menu)await p.locator('[data-menu-toggle]').click();await(sel?p.locator(sel):p).screenshot({path:`${out}/${name}.png`,fullPage:!sel});await p.close()}
-          await shot('/about/','01-en-desktop-1440',1440,1000);await shot('/ru/about/','02-ru-desktop-1440',1440,1000);await shot('/about/','03-en-mobile-390',390,844);await shot('/ru/about/','04-ru-mobile-390',390,844);await shot('/ru/about/','05-ru-mobile-320',320,720);await shot('/about/','06-mobile-landscape',844,390);await shot('/about/','07-mobile-header',390,844,'.site-header');await shot('/about/','08-open-mobile-menu',390,844,'.site-header',true);await shot('/about/','09-owner-ceo-note',1280,900,'.about-intro-grid');await shot('/about/','10-six-services',1280,900,'.about-services-grid');await shot('/ru/about/','11-mobile-footer',390,844,'.footer');
-          for(const[lang,path,href]of[['en','/','/about/'],['ru','/ru/','/ru/about/']]){const p=await b.newPage({viewport:{width:390,height:844}});const r=await p.goto(base+path,{waitUntil:'networkidle'}),count=await p.locator(`a[href="${href}"]`).count(),overflow=await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);if(!r?.ok()||count!==3||overflow)failures.push({lang,homepage:true,status:r?.status(),count,overflow});await p.close()}
-          fs.writeFileSync(`${out}/browser-report.json`,JSON.stringify({base,results,failures},null,2));await b.close();if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1)}
-          JS
-          BASE_URL=http://127.0.0.1:4173 OUT_DIR=/tmp/about-qa/premerge node /tmp/qa.mjs
+          npm install --no-save playwright@1.55.0 >/dev/null 2>&1
+          npx playwright install chromium >/dev/null 2>&1
 
-      - name: Commit production release and remove temporary files
+      - name: Create QA runner
+        shell: bash
+        run: |
+          cat > /tmp/about-qa.mjs <<'JS'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs';
+          const base = process.env.BASE_URL;
+          const out = process.env.OUT_DIR;
+          fs.mkdirSync(out, { recursive: true });
+          const browser = await chromium.launch({ headless: true });
+          const failures = [];
+          const results = [];
+          const sizes = [
+            ['desktop-1440',1440,1000],['desktop-1280',1280,900],['desktop-1024',1024,768],
+            ['tablet-768',768,1024],['tablet-landscape-1024',1024,768],
+            ['mobile-430',430,932],['mobile-390',390,844],['mobile-375',375,812],['mobile-360',360,800],['mobile-320',320,720],
+            ['landscape-844',844,390],['landscape-932',932,430]
+          ];
+          for (const [lang,path] of [['en','/about/'],['ru','/ru/about/']]) {
+            for (const [label,width,height] of sizes) {
+              const page = await browser.newPage({ viewport: { width, height } });
+              const consoleErrors = [];
+              const pageErrors = [];
+              const failed = [];
+              page.on('console', message => { if (message.type() === 'error') consoleErrors.push(message.text()); });
+              page.on('pageerror', error => pageErrors.push(String(error)));
+              page.on('requestfailed', request => {
+                try { if (new URL(request.url()).origin === new URL(base).origin) failed.push(request.url()); } catch {}
+              });
+              const response = await page.goto(base + path, { waitUntil: 'domcontentloaded', timeout: 60000 });
+              await page.waitForTimeout(900);
+              const layout = await page.evaluate(() => ({
+                scrollWidth: document.documentElement.scrollWidth,
+                innerWidth: window.innerWidth,
+                h1: document.querySelectorAll('h1').length,
+                services: document.querySelectorAll('.about-service-card').length,
+                languageSwitches: document.querySelectorAll('.lang-switch').length,
+                footer: Boolean(document.querySelector('.footer'))
+              }));
+              if (!response?.ok() || layout.scrollWidth > layout.innerWidth + 1 || layout.h1 !== 1 || layout.services !== 6 || layout.languageSwitches !== 1 || !layout.footer || consoleErrors.length || pageErrors.length || failed.length) {
+                failures.push({ lang, label, status: response?.status(), layout, consoleErrors, pageErrors, failed });
+              }
+              if (width <= 430) {
+                const toggle = page.locator('[data-menu-toggle]');
+                await toggle.click();
+                if (await toggle.getAttribute('aria-expanded') !== 'true' || !await page.locator('.site-header__panel').isVisible()) failures.push({ lang, label, menuOpen: false });
+                await toggle.click();
+                await page.evaluate(() => scrollTo(0, document.body.scrollHeight * .42));
+                await page.waitForTimeout(300);
+                await page.evaluate(() => scrollBy(0, -260));
+                await page.waitForTimeout(300);
+                const header = await page.locator('.site-header').boundingBox();
+                if (!header || header.y < -2) failures.push({ lang, label, headerReturn: false });
+              }
+              results.push({ lang, label, status: response?.status(), ...layout, consoleErrors, pageErrors, failed });
+              await page.close();
+            }
+          }
+          async function shot(path,name,width,height,selector=null,menu=false) {
+            const page = await browser.newPage({ viewport: { width, height } });
+            await page.goto(base + path, { waitUntil: 'domcontentloaded', timeout: 60000 });
+            await page.waitForTimeout(900);
+            if (menu) await page.locator('[data-menu-toggle]').click();
+            const target = selector ? page.locator(selector) : page;
+            await target.screenshot({ path: `${out}/${name}.png`, fullPage: !selector });
+            await page.close();
+          }
+          await shot('/about/','01-en-about-desktop-1440',1440,1000);
+          await shot('/ru/about/','02-ru-about-desktop-1440',1440,1000);
+          await shot('/about/','03-en-about-mobile-390',390,844);
+          await shot('/ru/about/','04-ru-about-mobile-390',390,844);
+          await shot('/ru/about/','05-ru-about-mobile-320',320,720);
+          await shot('/about/','06-mobile-landscape-844',844,390);
+          await shot('/about/','07-mobile-header',390,844,'.site-header');
+          await shot('/about/','08-open-mobile-menu',390,844,'.site-header',true);
+          await shot('/about/','09-owner-ceo-note',1280,900,'.about-intro-grid');
+          await shot('/about/','10-six-services',1280,900,'.about-services-grid');
+          await shot('/ru/about/','11-mobile-footer',390,844,'.footer');
+          for (const [lang,path,href] of [['en','/','/about/'],['ru','/ru/','/ru/about/']]) {
+            const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+            const response = await page.goto(base + path, { waitUntil: 'domcontentloaded', timeout: 60000 });
+            await page.waitForTimeout(700);
+            const count = await page.locator(`a[href="${href}"]`).count();
+            const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
+            if (!response?.ok() || count !== 3 || overflow) failures.push({ lang, homepage: true, status: response?.status(), count, overflow });
+            await page.close();
+          }
+          fs.writeFileSync(`${out}/browser-report.json`, JSON.stringify({ base, results, failures, checkedAt: new Date().toISOString() }, null, 2));
+          await browser.close();
+          if (failures.length) { console.error(JSON.stringify(failures, null, 2)); process.exit(1); }
+          JS
+
+      - name: Pre-deployment browser QA
         shell: bash
         run: |
           set -euo pipefail
-          rm -f .github/workflows/about-release-finalize.yml .github/workflows/about-postmerge-release.yml docs/about-release-trigger.txt
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/about-http.log 2>&1 &
+          server=$!
+          trap 'kill $server || true' EXIT
+          sleep 2
+          BASE_URL=http://127.0.0.1:4173 OUT_DIR=/tmp/about-qa/predeploy node /tmp/about-qa.mjs
+
+      - name: Commit production fixes
+        shell: bash
+        run: |
+          set -euo pipefail
           git add -A
           git commit -m "Finalize About trust production release"
           git push origin main
-          git rev-parse HEAD | tee /tmp/about-qa/release-sha.txt
+          git rev-parse HEAD > /tmp/about-qa/release-sha.txt
 
-      - name: Wait for GitHub Pages
-        shell: bash
-        run: |
-          set -euo pipefail
-          for i in $(seq 1 150);do
-            en=$(curl -fsSL https://financialstreamllc.com/about/||true);ru=$(curl -fsSL https://financialstreamllc.com/ru/about/||true)
-            if grep -q 'A note from the CEO'<<<"$en"&&grep -q 'Слово руководителя'<<<"$ru"&&!grep -q 'This space can later be replaced'<<<"$en";then exit 0;fi
-            sleep 10
-          done
-          echo 'Production did not update' >&2;exit 1
-
-      - name: Live browser QA and screenshots
-        shell: bash
-        run: |
-          set -euo pipefail
-          BASE_URL=https://financialstreamllc.com OUT_DIR=/tmp/about-qa/live node /tmp/qa.mjs
-
-      - name: Publish rendered QA evidence to PR history
+      - name: Request and wait for Pages deployment
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          mkdir -p qa-output/about-release
-          cp -R /tmp/about-qa/premerge qa-output/about-release/
-          cp -R /tmp/about-qa/live qa-output/about-release/
-          cp /tmp/about-qa/static-report.json /tmp/about-qa/release-sha.txt qa-output/about-release/
-          git add qa-output/about-release
+          curl -fsSL -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" https://api.github.com/repos/Financialstream/financialstream.github.io/pages/builds >/tmp/pages-build.json || true
+          for i in $(seq 1 120); do
+            en=$(curl -fsSL https://financialstreamllc.com/about/ || true)
+            ru=$(curl -fsSL https://financialstreamllc.com/ru/about/ || true)
+            if grep -q 'A note from the CEO' <<<"$en" && grep -q 'Слово руководителя' <<<"$ru" && ! grep -q 'This space can later be replaced' <<<"$en"; then exit 0; fi
+            sleep 10
+          done
+          echo "Live pages did not reach the release SHA" >&2
+          exit 1
+
+      - name: Live browser QA
+        shell: bash
+        run: |
+          BASE_URL=https://financialstreamllc.com OUT_DIR=/tmp/about-qa/live node /tmp/about-qa.mjs
+
+      - name: Publish permanent QA evidence
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          evidence="qa-output/about-release/${GITHUB_RUN_ID}"
+          mkdir -p "$evidence"
+          cp -R /tmp/about-qa/predeploy "$evidence/"
+          cp -R /tmp/about-qa/live "$evidence/"
+          cp /tmp/about-qa/static-report.json /tmp/about-qa/release-sha.txt "$evidence/"
+          git add "$evidence"
           git commit -m "Publish About release QA evidence"
           git push origin main
-          ART_SHA=$(git rev-parse HEAD)
-          BASE="https://raw.githubusercontent.com/Financialstream/financialstream.github.io/$ART_SHA/qa-output/about-release"
-          cat >/tmp/comment.md <<EOF
-          ## About / Trust release QA evidence
+          evidence_sha=$(git rev-parse HEAD)
+          base="https://raw.githubusercontent.com/Financialstream/financialstream.github.io/${evidence_sha}/${evidence}"
+          cat > /tmp/release-comment.md <<EOF
+          ## About / Trust release completed
 
           Production release SHA: \`$(cat /tmp/about-qa/release-sha.txt)\`
-          Evidence commit (permanent history reference): \`$ART_SHA\`
+          Evidence history SHA: \`${evidence_sha}\`
+          Workflow run: \`${GITHUB_RUN_ID}\`
 
           ### Live rendered screenshots
-          ![EN About desktop]($BASE/live/01-en-desktop-1440.png)
-          ![RU About desktop]($BASE/live/02-ru-desktop-1440.png)
-          ![EN About mobile 390]($BASE/live/03-en-mobile-390.png)
-          ![RU About mobile 390]($BASE/live/04-ru-mobile-390.png)
-          ![RU About mobile 320]($BASE/live/05-ru-mobile-320.png)
-          ![Mobile landscape]($BASE/live/06-mobile-landscape.png)
-          ![Mobile header]($BASE/live/07-mobile-header.png)
-          ![Opened mobile menu]($BASE/live/08-open-mobile-menu.png)
-          ![Owner and CEO note]($BASE/live/09-owner-ceo-note.png)
-          ![Six services]($BASE/live/10-six-services.png)
-          ![Mobile footer]($BASE/live/11-mobile-footer.png)
+          ![EN About desktop 1440](${base}/live/01-en-about-desktop-1440.png)
+          ![RU About desktop 1440](${base}/live/02-ru-about-desktop-1440.png)
+          ![EN About mobile 390](${base}/live/03-en-about-mobile-390.png)
+          ![RU About mobile 390](${base}/live/04-ru-about-mobile-390.png)
+          ![RU About mobile 320](${base}/live/05-ru-about-mobile-320.png)
+          ![Mobile landscape](${base}/live/06-mobile-landscape-844.png)
+          ![Mobile header](${base}/live/07-mobile-header.png)
+          ![Opened mobile menu](${base}/live/08-open-mobile-menu.png)
+          ![Owner and CEO note](${base}/live/09-owner-ceo-note.png)
+          ![Six services](${base}/live/10-six-services.png)
+          ![Mobile footer](${base}/live/11-mobile-footer.png)
 
-          [Live browser report]($BASE/live/browser-report.json) · [Pre-deployment browser report]($BASE/premerge/browser-report.json) · [Static report]($BASE/static-report.json)
+          [Live browser report](${base}/live/browser-report.json) · [Pre-deployment browser report](${base}/predeploy/browser-report.json) · [Static report](${base}/static-report.json)
           EOF
-          curl -fsSL -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" https://api.github.com/repos/Financialstream/financialstream.github.io/issues/9/comments -d "$(jq -Rs '{body:.}' </tmp/comment.md)"
+          curl -fsSL -X PATCH -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" https://api.github.com/repos/Financialstream/financialstream.github.io/issues/comments/5207994771 -d "$(jq -Rs '{body:.}' < /tmp/release-comment.md)"
+
+      - name: Remove temporary release infrastructure
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
           rm -rf qa-output
+          rm -f .github/workflows/about-postmerge-release.yml
           git add -A
-          git commit -m "Remove temporary About QA files"
+          git commit -m "Remove temporary About release files"
           git push origin main
-          git rev-parse HEAD | tee /tmp/about-qa/final-main-sha.txt
+          git rev-parse HEAD > /tmp/final-main-sha.txt
+          curl -fsSL -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" https://api.github.com/repos/Financialstream/financialstream.github.io/pages/builds >/tmp/final-pages-build.json || true
+          echo "Final main SHA: $(cat /tmp/final-main-sha.txt)"
