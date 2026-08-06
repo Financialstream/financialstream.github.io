@@ -1,1 +1,1 @@
-Trigger About branch QA after pull request creation.
+Trigger traceable About QA and publish its workflow run ID.
