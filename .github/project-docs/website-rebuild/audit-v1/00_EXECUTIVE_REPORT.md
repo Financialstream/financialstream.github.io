@@ -1,5 +1,17 @@
 # 00 — Executive Report — Corrected V1.1
 
+## Current execution override — owner direction
+
+The immediate execution order is now:
+
+1. complete the two RU/EN flagship articles;
+2. create a premium About / Trust page as an EN/RU pair using the approved owner photograph;
+3. apply only the safety and release-quality fixes required around those pages;
+4. pause broad Financial Stream redesign until the ProAI Expert website is finished;
+5. return later for the evidence-led sitewide redesign.
+
+This sequence supersedes the earlier recommendation to begin a standalone full Phase 0 immediately. Phase 0 findings remain valid backlog items, but only the small fixes required for the article/About release should be implemented now.
+
 ## Owner correction and controlling rule
 
 The original audit incorrectly treated Payroll / L&I as excluded from the approved service set. That assumption is invalid and all findings derived from it are withdrawn.
@@ -129,4 +141,4 @@ Do not add CPA, EA, attorney, licensed, certified, ratings, awards, guarantees, 
 
 ## Recommended next move
 
-Complete **Phase 0 — Accessibility, Trust and QA Alignment V2** before broad redesign. Preserve the six-service system, all current production URLs and the combined Financial Consulting / Document Review service concept.
+Complete the two flagship articles first, then create the coordinated About / Trust EN/RU pair. Bundle only the required safety fixes with that release, then pause broad Financial Stream redesign until ProAI Expert is complete. Preserve the six-service system, all current production URLs and the combined Financial Consulting / Document Review service concept.
