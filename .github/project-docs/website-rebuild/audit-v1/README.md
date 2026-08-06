@@ -47,12 +47,21 @@ This package is the working control set for the sitewide Financial Stream modern
 2. `01_PAGE_INVENTORY_SUMMARY.md`
 3. `02_PRIORITY_ROADMAP.md`
 4. `03_OWNER_DECISIONS_AND_NEXT_TASK.md`
-5. `audit-manifest.json`
+5. `04_CURRENT_EXECUTION_SEQUENCE.md`
+6. `audit-manifest.json`
 
-## Default next action
+## Current owner-approved execution sequence
 
-Start a separate implementation branch for:
+1. Complete the two RU/EN flagship articles.
+2. Create a premium About / Trust page as an EN/RU pair using the approved owner photograph.
+3. Apply only small safety and release-quality fixes required around those pages.
+4. Pause broad Financial Stream redesign until the ProAI Expert website is finished.
+5. Return later for the evidence-led sitewide redesign.
 
-> **PHASE 0 — FINANCIAL STREAM ACCESSIBILITY, TRUST AND QA ALIGNMENT V2**
+See `04_CURRENT_EXECUTION_SEQUENCE.md` for the complete rationale and guardrails.
+
+## Default technical next action
+
+For any implementation work, use a separate branch and owner-reviewed pull request. Do not modify `main` directly.
 
 Do not delete, hide, demote or redirect Payroll pages. Do not force Financial Consulting and Document Review into an artificial either/or choice.
