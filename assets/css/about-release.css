@@ -3,7 +3,6 @@
   --about-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --about-motion-fast: 260ms;
   --about-motion-medium: 620ms;
-  --about-champagne: #c8a66a;
 }
 
 .about-page .site-header__inner > *,
@@ -44,33 +43,23 @@
   transform: none;
 }
 
-/* Progressive reveal: content is visible by default and only transitions after JS adds .js-enabled. */
+/* Progressive reveal: content is visible by default and only animates after JS adds .js-enabled. */
 body.js-enabled.about-page .fade-in {
   --about-reveal-delay: 0ms;
+  --about-reveal-y: 18px;
   opacity: 0;
-  transform: translate3d(0, 18px, 0);
-  transition:
-    opacity var(--about-motion-medium) var(--about-motion-ease),
-    transform var(--about-motion-medium) var(--about-motion-ease),
-    border-color var(--about-motion-fast) ease,
-    box-shadow var(--about-motion-fast) ease;
-  transition-delay: var(--about-reveal-delay);
-  will-change: opacity, transform;
+  transform: translate3d(0, var(--about-reveal-y), 0);
 }
 
 body.js-enabled.about-page .fade-in.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  will-change: auto;
+  animation: aboutReveal var(--about-motion-medium) var(--about-motion-ease) var(--about-reveal-delay) 1 backwards;
 }
 
 body.js-enabled.about-page .about-portrait.fade-in {
   --about-reveal-delay: 90ms;
-  transform: translate3d(0, 22px, 0);
-}
-
-body.js-enabled.about-page .about-portrait.fade-in.is-visible {
-  transform: translate3d(0, 0, 0);
+  --about-reveal-y: 22px;
 }
 
 .about-values-grid > :nth-child(2),
@@ -100,6 +89,17 @@ body.js-enabled.about-page .about-portrait.fade-in.is-visible {
 
 .about-services-grid > :nth-child(6) {
   --about-reveal-delay: 350ms;
+}
+
+@keyframes aboutReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--about-reveal-y), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /* Portrait depth remains restrained and never alters the face or crop. */
