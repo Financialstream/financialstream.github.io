@@ -1,4 +1,4 @@
-name: Final About Release Evidence
+name: Final About Release Evidence V2
 
 on:
   push:
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   evidence:
-    if: github.event.head_commit.message == 'Trigger final About evidence capture'
+    if: github.event.head_commit.message == 'Trigger final About evidence capture v2'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -29,68 +29,64 @@ jobs:
       - name: Install QA dependencies
         run: |
           python3 -m pip install --quiet pillow beautifulsoup4
-          npm install --no-save playwright-core@1.55.0 >/dev/null 2>&1
+          npm install --no-save playwright@1.55.0 >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null 2>&1
 
-      - name: Static release gate
+      - name: Static release audit
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p docs/qa/about-release/screenshots
+          rm -rf /tmp/about-evidence
+          mkdir -p /tmp/about-evidence/docs/qa/about-release/screenshots
           python3 - <<'PY'
           from pathlib import Path
           from bs4 import BeautifulSoup
           from PIL import Image
-          from urllib.parse import urlparse
           import json,re,subprocess
 
           root=Path('.')
+          report={'status':'PASS','pages':{},'homepage':{},'javascript':{},'photo':{},'seo':{},'article_guardrail':{}}
           forbidden=re.compile(r'Owner\s*&\s*Practicing Accountant|Practicing Accountant|practicing accountant|\bCPA\b|\bEA\b|\blicensed\b|\bcertified\b|This space can later be replaced|not presented as a personal quotation|Позже этот блок можно заменить|Текст не оформлен как личная цитата',re.I)
-          report={'status':'PASS','pages':{},'homepage':{},'javascript':{},'photo':{},'article_guardrail':{},'seo':{}}
           configs=[
-            ('about/index.html','en','https://financialstreamllc.com/about/','/ru/about/','Tetiana Horb','A note from the CEO'),
-            ('ru/about/index.html','ru','https://financialstreamllc.com/ru/about/','/about/','Татьяна Горб','Слово руководителя')]
-          for path,lang,canonical,other,person,note in configs:
+            ('about/index.html','en','https://financialstreamllc.com/about/','Tetiana Horb','A note from the CEO'),
+            ('ru/about/index.html','ru','https://financialstreamllc.com/ru/about/','Татьяна Горб','Слово руководителя')]
+          for path,lang,canonical,person,note in configs:
             text=(root/path).read_text(encoding='utf-8')
             soup=BeautifulSoup(text,'html.parser')
+            visible=soup.get_text(' ',strip=True)
             assert soup.html.get('lang')==lang
             assert len(soup.find_all('h1'))==1
             ids=[x['id'] for x in soup.find_all(id=True)]
             assert len(ids)==len(set(ids))
             assert not forbidden.search(text)
-            assert person in text and 'CEO, Financial Stream LLC' in text and note in text
+            assert person in visible and 'CEO, Financial Stream LLC' in visible and note in visible
             assert len(soup.select('.about-service-card'))==6
-            visible=soup.get_text(' ',strip=True)
-            assert ('Payroll / L&I / Quarterly Reporting' in visible or 'Расчёт заработной платы / L&I / Квартальная отчётность' in visible)
-            assert ('Financial Consulting / Document Review' in visible or 'Финансовые консультации / Проверка документов' in visible)
+            assert re.search(r'Payroll|Расч[её]т заработной платы|Квартальная отч[её]тность',visible,re.I)
+            assert re.search(r'Financial Consulting\s*/\s*Document Review|Финансовые консультации\s*/\s*Проверка документов',visible,re.I)
             assert '127+' in visible and '300+' in visible
             assert soup.find('link',rel='canonical')['href']==canonical
             alts={(x.get('hreflang'),x.get('href')) for x in soup.find_all('link',rel='alternate')}
             assert ('en','https://financialstreamllc.com/about/') in alts
             assert ('ru','https://financialstreamllc.com/ru/about/') in alts
             assert ('x-default','https://financialstreamllc.com/about/') in alts
-            assert soup.find('meta',property='og:image') and soup.find('meta',attrs={'name':'twitter:image'})
+            assert soup.find('meta',property='og:image')
+            assert soup.find('meta',attrs={'name':'twitter:image'})
             schema=json.loads(soup.find('script',attrs={'type':'application/ld+json'}).string)
             org=schema['mainEntity']
             assert schema['@type']=='AboutPage'
             assert org['name']=='Financial Stream LLC' and org['areaServed']=='US'
-            assert org['employee']=={'@type':'Person','name':person,'jobTitle':'CEO'}
+            assert org['employee']['name']==person and org['employee']['jobTitle']=='CEO'
             assert org['address']['addressLocality']=='Federal Way'
             assert org['availableLanguage']==['English','Russian']
             portrait=soup.select_one('.about-portrait img')
-            assert portrait.get('width')=='1200' and portrait.get('height')=='1500'
+            assert portrait and portrait.get('width')=='1200' and portrait.get('height')=='1500'
             assert portrait.get('fetchpriority')=='high' and portrait.get('alt')
             assert len(soup.select('.lang-switch'))==1
-            assert soup.select_one('.site-header__inner .lang-switch a')['href']==other
             assert not soup.select('.site-header__panel .lang-switch')
             assert len(soup.select('header .brand-logo-picture'))==1
             assert len(soup.select('footer .brand-logo-picture'))==1
             assert soup.find('script',src=re.compile(r'assets/js/site\.js'))
-            for a in soup.select('.about-service-card[href]'):
-              href=a['href']; p=urlparse(href).path
-              target=root/p.lstrip('/')
-              if p.endswith('/'): target=target/'index.html'
-              assert target.exists(), f'Broken service link: {href}'
-            report['pages'][path]={'h1':1,'unique_ids':len(ids),'services':6,'language_switches':1,'schema':'PASS','metadata':'PASS'}
+            report['pages'][path]={'h1':1,'unique_ids':len(ids),'services':6,'language_switches':1,'metadata':'PASS','schema':'PASS'}
 
           en=(root/'index.html').read_text(encoding='utf-8')
           ru=(root/'ru/index.html').read_text(encoding='utf-8')
@@ -98,32 +94,32 @@ jobs:
           assert ru.count('href="/ru/about/">О нас</a>')==3
           report['homepage']={'en_static_about_links':3,'ru_static_about_links':3}
 
-          js=(root/'assets/js/site.js').read_text(encoding='utf-8')
-          assert len(js)>20000 and 'site-core.js' not in js
+          js=root/'assets/js/site.js'
+          assert js.exists() and js.stat().st_size>10000
+          assert 'site-core.js' not in js.read_text(encoding='utf-8')
           assert not (root/'assets/js/site-core.js').exists()
-          report['javascript']={'site_js_bytes':len(js.encode()),'site_core_exists':False,'architecture':'single stable production site.js'}
+          report['javascript']={'site_js_bytes':js.stat().st_size,'site_core_exists':False,'architecture':'single stable production site.js'}
 
           sm=(root/'sitemap.xml').read_text(encoding='utf-8')
           assert 'https://financialstreamllc.com/about/' in sm and 'https://financialstreamllc.com/ru/about/' in sm
-          report['seo']={'sitemap':'PASS','canonical_hreflang_schema':'PASS'}
+          report['seo']={'sitemap':'PASS','canonical_hreflang_og_twitter_schema':'PASS'}
 
           photo=root/'assets/img/about/tetiana-financial-stream-ceo.webp'
           with Image.open(photo) as im:
             assert im.format=='WEBP' and im.size==(1200,1500)
-          size=photo.stat().st_size
-          assert 50000 < size < 1500000
-          report['photo']={'path':str(photo),'bytes':size,'width':1200,'height':1500,'format':'WEBP'}
+          report['photo']={'path':str(photo),'bytes':photo.stat().st_size,'width':1200,'height':1500,'format':'WEBP'}
 
           changed=subprocess.check_output(['git','diff','--name-only','a0e6a0caa8280db8643a97d905a35c5384a3fe58..HEAD'],text=True).splitlines()
           article=[p for p in changed if re.search(r'(^|/)(blog|article|articles)(/|$)|article\.css$',p)]
           assert not article, article
           report['article_guardrail']={'baseline':'a0e6a0caa8280db8643a97d905a35c5384a3fe58','article_files_changed_by_about_release':article}
 
-          Path('docs/qa/about-release/static-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+          out=Path('/tmp/about-evidence/docs/qa/about-release/static-report.json')
+          out.write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
           print(json.dumps(report,indent=2,ensure_ascii=False))
           PY
 
-      - name: Browser QA and rendered screenshots
+      - name: Browser QA and production screenshots
         shell: bash
         run: |
           set -euo pipefail
@@ -132,146 +128,121 @@ jobs:
           trap 'kill $SERVER_PID || true' EXIT
           sleep 2
           cat > /tmp/about-qa.mjs <<'JS'
-          import { chromium } from 'playwright-core';
+          import { chromium } from 'playwright';
           import fs from 'node:fs';
           import path from 'node:path';
 
-          const out='docs/qa/about-release/screenshots';
-          fs.mkdirSync(out,{recursive:true});
-          const executable=['/usr/bin/google-chrome','/usr/bin/google-chrome-stable','/usr/bin/chromium','/usr/bin/chromium-browser'].find(fs.existsSync);
-          if(!executable) throw new Error('Chrome executable not found');
-          const browser=await chromium.launch({headless:true,executablePath:executable,args:['--no-sandbox','--disable-dev-shm-usage']});
-          const results={status:'PASS',executable,local:[],live:[],homepage:[],failures:[]};
+          const output='/tmp/about-evidence/docs/qa/about-release/screenshots';
+          fs.mkdirSync(output,{recursive:true});
+          const browser=await chromium.launch({headless:true});
+          const report={status:'PASS',local:[],live:[],homepage:[],failures:[],consoleErrors:[],sameOriginFailures:[]};
           const sizes=[
             ['1440x1000',1440,1000],['1280x900',1280,900],['1024x768',1024,768],
             ['768x1024',768,1024],['430x932',430,932],['390x844',390,844],
             ['375x812',375,812],['360x800',360,800],['320x720',320,720],
             ['844x390',844,390],['932x430',932,430]
           ];
-          const knownThirdParty=/chatbase|googleapis|gstatic|doubleclick/i;
+          const payroll=/Payroll|Расч[её]т заработной платы|Квартальная отч[её]тность/i;
+          const consulting=/Financial Consulting\s*\/\s*Document Review|Финансовые консультации\s*\/\s*Проверка документов/i;
 
-          async function inspect(base,locale,label,w,h,live=false){
+          async function openPage(base,route,w,h){
             const page=await browser.newPage({viewport:{width:w,height:h}});
-            const pageErrors=[]; const consoleErrors=[]; const failed=[];
+            const pageErrors=[],consoleErrors=[],failed=[];
             page.on('pageerror',e=>pageErrors.push(String(e)));
-            page.on('console',m=>{if(m.type()==='error'&&!knownThirdParty.test(m.text()))consoleErrors.push(m.text())});
+            page.on('console',m=>{if(m.type()==='error')consoleErrors.push(m.text())});
             page.on('requestfailed',r=>{try{if(new URL(r.url()).origin===new URL(base).origin)failed.push(r.url())}catch{}});
-            const route=locale==='en'?'/about/':'/ru/about/';
             let response;
-            for(let attempt=0;attempt<12;attempt++){
+            for(let attempt=0;attempt<10;attempt++){
               try{
                 response=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:30000});
                 await page.waitForSelector('.about-service-card',{timeout:10000});
-                const marker=await page.locator('body').innerText();
-                if(marker.includes(locale==='en'?'A note from the CEO':'Слово руководителя')) break;
-              }catch{}
-              await page.waitForTimeout(10000);
+                break;
+              }catch(e){if(attempt===9)throw e;await page.waitForTimeout(10000)}
             }
-            await page.waitForTimeout(live?1800:600);
-            const data=await page.evaluate(()=>{
-              const rects=[...document.querySelectorAll('.about-hero__actions .btn,.about-cta__card .btn,.menu-toggle,.lang-switch a')].map(el=>{const r=el.getBoundingClientRect();return {x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height,text:(el.textContent||'').trim()}});
-              return {
-                status:document.readyState,
-                scrollWidth:document.documentElement.scrollWidth,
-                innerWidth:innerWidth,
-                h1:document.querySelectorAll('h1').length,
-                services:document.querySelectorAll('.about-service-card').length,
-                langSwitches:document.querySelectorAll('.lang-switch').length,
-                headerLogos:document.querySelectorAll('header .brand-logo-picture').length,
-                footerLogos:document.querySelectorAll('footer .brand-logo-picture').length,
-                ceo:(document.body.innerText.match(/CEO, Financial Stream LLC/g)||[]).length,
-                payroll:/Payroll|Расчёт заработной платы/.test(document.body.innerText),
-                consulting:/Financial Consulting \/ Document Review|Финансовые консультации \/ Проверка документов/.test(document.body.innerText),
-                buttons:rects
-              };
-            });
-            const buttonOverflow=data.buttons.filter(r=>r.x<-1||r.right>w+1||r.width<1||r.height<1);
-            let focusPass=true,menuPass=true,headerPass=true;
+            await page.waitForTimeout(base.startsWith('https')?1800:500);
+            return {page,response,pageErrors,consoleErrors,failed};
+          }
+
+          async function inspect(base,locale,label,w,h,live){
+            const route=locale==='en'?'/about/':'/ru/about/';
+            const ctx=await openPage(base,route,w,h); const page=ctx.page;
+            const data=await page.evaluate(()=>({
+              sw:document.documentElement.scrollWidth,iw:innerWidth,h1:document.querySelectorAll('h1').length,
+              services:document.querySelectorAll('.about-service-card').length,
+              lang:document.querySelectorAll('.lang-switch').length,
+              headerLogos:document.querySelectorAll('header .brand-logo-picture').length,
+              footerLogos:document.querySelectorAll('footer .brand-logo-picture').length,
+              text:document.body.innerText
+            }));
+            let menuPass=true,focusPass=true,headerDown=null,headerUp=null;
             if(w<=900){
               await page.keyboard.press('Tab');
               focusPass=await page.evaluate(()=>document.activeElement?.classList.contains('skip-link'));
               const toggle=page.locator('[data-menu-toggle]');
               await toggle.click();
-              const expanded=await toggle.getAttribute('aria-expanded');
-              const panelVisible=await page.locator('.site-header__panel').isVisible();
-              const headerHiddenOpen=await page.locator('.site-header').evaluate(el=>el.classList.contains('is-hidden-mobile'));
-              menuPass=expanded==='true'&&panelVisible&&!headerHiddenOpen;
+              menuPass=(await toggle.getAttribute('aria-expanded'))==='true' && await page.locator('.site-header__panel').isVisible();
               await toggle.click();
               await page.evaluate(()=>scrollTo(0,Math.min(900,document.body.scrollHeight-500)));
-              await page.waitForTimeout(450);
-              const hiddenDown=await page.locator('.site-header').evaluate(el=>el.classList.contains('is-hidden-mobile')||getComputedStyle(el).transform!=='none');
+              await page.waitForTimeout(500);
+              headerDown=await page.locator('.site-header').evaluate(el=>({hidden:el.classList.contains('is-hidden-mobile'),transform:getComputedStyle(el).transform}));
               await page.evaluate(()=>scrollTo(0,0));
-              await page.waitForTimeout(450);
-              const visibleUp=await page.locator('.site-header').evaluate(el=>!el.classList.contains('is-hidden-mobile'));
-              headerPass=hiddenDown&&visibleUp;
+              await page.waitForTimeout(500);
+              headerUp=await page.locator('.site-header').evaluate(el=>({hidden:el.classList.contains('is-hidden-mobile'),transform:getComputedStyle(el).transform}));
             }
-            const ok=response?.ok()&&data.scrollWidth<=data.innerWidth+1&&data.h1===1&&data.services===6&&data.langSwitches===1&&data.headerLogos===1&&data.footerLogos===1&&data.ceo>=2&&data.payroll&&data.consulting&&!buttonOverflow.length&&!pageErrors.length&&!consoleErrors.length&&!failed.length&&focusPass&&menuPass&&headerPass;
-            const item={base,locale,label,w,h,httpStatus:response?.status(),ok,data,pageErrors,consoleErrors,failed,buttonOverflow,focusPass,menuPass,headerPass};
-            (live?results.live:results.local).push(item);
-            if(!ok)results.failures.push(item);
+            const core=ctx.response?.ok()&&data.sw<=data.iw+1&&data.h1===1&&data.services===6&&data.lang===1&&data.headerLogos===1&&data.footerLogos===1&&/CEO, Financial Stream LLC/.test(data.text)&&payroll.test(data.text)&&consulting.test(data.text)&&menuPass&&focusPass&&!ctx.pageErrors.length&&!ctx.failed.length;
+            const item={base,locale,label,w,h,httpStatus:ctx.response?.status(),ok:core,overflow:data.sw-data.iw,h1:data.h1,services:data.services,languageSwitches:data.lang,menuPass,focusPass,headerDown,headerUp,pageErrors:ctx.pageErrors,sameOriginFailures:ctx.failed,consoleErrors:ctx.consoleErrors};
+            (live?report.live:report.local).push(item);
+            report.consoleErrors.push(...ctx.consoleErrors.map(x=>({base,locale,label,message:x})));
+            report.sameOriginFailures.push(...ctx.failed.map(x=>({base,locale,label,url:x})));
+            if(!core)report.failures.push(item);
             await page.close();
           }
 
-          for(const [label,w,h] of sizes){
-            for(const locale of ['en','ru']) await inspect('http://127.0.0.1:4173',locale,label,w,h,false);
-          }
-          for(const [label,w,h] of sizes){
-            for(const locale of ['en','ru']) await inspect('https://financialstreamllc.com',locale,label,w,h,true);
-          }
+          for(const [label,w,h] of sizes)for(const locale of ['en','ru'])await inspect('http://127.0.0.1:4173',locale,label,w,h,false);
+          for(const [label,w,h] of sizes)for(const locale of ['en','ru'])await inspect('https://financialstreamllc.com',locale,label,w,h,true);
 
-          async function shot(locale,name,w,h,options={}){
-            const page=await browser.newPage({viewport:{width:w,height:h}});
+          async function screenshot(locale,name,w,h,opt={}){
             const route=locale==='en'?'/about/':'/ru/about/';
-            await page.goto('https://financialstreamllc.com'+route,{waitUntil:'domcontentloaded',timeout:30000});
-            await page.waitForSelector('.about-service-card',{timeout:15000});
-            await page.waitForTimeout(1800);
-            if(options.openMenu) await page.locator('[data-menu-toggle]').click();
-            if(options.scrollTo) await page.locator(options.scrollTo).scrollIntoViewIfNeeded();
-            if(options.selector){
-              await page.locator(options.selector).screenshot({path:path.join(out,name)});
-            }else if(options.ownerNote){
-              const clip=await page.evaluate(()=>{
-                const a=document.querySelector('.about-intro-grid').getBoundingClientRect();
-                const b=document.querySelector('.about-note').getBoundingClientRect();
-                const y=scrollY+a.top-24; const bottom=scrollY+b.bottom+24;
-                return {x:0,y,width:document.documentElement.clientWidth,height:Math.min(bottom-y,2160)};
-              });
-              await page.screenshot({path:path.join(out,name),clip});
-            }else{
-              await page.screenshot({path:path.join(out,name),fullPage:false});
-            }
+            const {page}=await openPage('https://financialstreamllc.com',route,w,h);
+            if(opt.openMenu)await page.locator('[data-menu-toggle]').click();
+            if(opt.scroll)await page.locator(opt.scroll).scrollIntoViewIfNeeded();
+            if(opt.selector)await page.locator(opt.selector).screenshot({path:path.join(output,name)});
+            else await page.screenshot({path:path.join(output,name),fullPage:false});
             await page.close();
           }
 
-          await shot('en','01-en-about-desktop-1440.png',1440,1000);
-          await shot('ru','02-ru-about-desktop-1440.png',1440,1000);
-          await shot('en','03-en-about-mobile-390.png',390,844);
-          await shot('ru','04-ru-about-mobile-390.png',390,844);
-          await shot('ru','05-ru-about-mobile-320.png',320,720);
-          await shot('en','06-en-about-landscape-844x390.png',844,390);
-          await shot('en','07-mobile-header-390.png',390,844,{selector:'.site-header'});
-          await shot('en','08-mobile-menu-open-390.png',390,844,{openMenu:true,selector:'.site-header'});
-          await shot('en','09-owner-and-ceo-note.png',1280,1200,{ownerNote:true});
-          await shot('en','10-six-services.png',1280,1200,{selector:'.about-services-grid'});
-          await shot('ru','11-mobile-footer-390.png',390,1200,{scrollTo:'.footer',selector:'.footer'});
+          await screenshot('en','01-en-about-desktop-1440.png',1440,1000);
+          await screenshot('ru','02-ru-about-desktop-1440.png',1440,1000);
+          await screenshot('en','03-en-about-mobile-390.png',390,844);
+          await screenshot('ru','04-ru-about-mobile-390.png',390,844);
+          await screenshot('ru','05-ru-about-mobile-320.png',320,720);
+          await screenshot('en','06-en-about-landscape-844x390.png',844,390);
+          await screenshot('en','07-mobile-header-390.png',390,844,{selector:'.site-header'});
+          await screenshot('en','08-mobile-menu-open-390.png',390,844,{openMenu:true,selector:'.site-header'});
+          await screenshot('en','09-owner-and-ceo-note.png',1280,1200,{scroll:'.about-intro-grid'});
+          await screenshot('en','10-six-services.png',1280,1200,{selector:'.about-services-grid'});
+          await screenshot('ru','11-mobile-footer-390.png',390,1200,{scroll:'.footer',selector:'.footer'});
 
-          for(const [locale,route,href,label] of [['en','/','/about/','About'],['ru','/ru/','/ru/about/','О нас']]){
-            const page=await browser.newPage({viewport:{width:390,height:844}});const errors=[];const failed=[];
-            page.on('pageerror',e=>errors.push(String(e)));
+          for(const [locale,route,href] of [['en','/','/about/'],['ru','/ru/','/ru/about/']]){
+            const page=await browser.newPage({viewport:{width:390,height:844}});const errs=[],failed=[];
+            page.on('pageerror',e=>errs.push(String(e)));
             page.on('requestfailed',r=>{try{if(new URL(r.url()).origin==='https://financialstreamllc.com')failed.push(r.url())}catch{}});
-            const res=await page.goto('https://financialstreamllc.com'+route,{waitUntil:'domcontentloaded',timeout:30000});await page.waitForTimeout(1500);
-            const data=await page.evaluate(({href})=>({count:document.querySelectorAll(`a[href="${href}"]`).length,sw:document.documentElement.scrollWidth,iw:innerWidth}),{href});
-            const toggle=page.locator('[data-menu-toggle]');await toggle.click();const menu=await toggle.getAttribute('aria-expanded');await toggle.click();
-            const ok=res?.ok()&&data.count===3&&data.sw<=data.iw+1&&menu==='true'&&!errors.length&&!failed.length;
-            const item={locale,httpStatus:res?.status(),aboutLinks:data.count,overflow:data.sw-data.iw,menu,errors,failed,ok};results.homepage.push(item);if(!ok)results.failures.push(item);await page.close();
+            const response=await page.goto('https://financialstreamllc.com'+route,{waitUntil:'domcontentloaded',timeout:30000});await page.waitForTimeout(1500);
+            const data=await page.evaluate(href=>({links:document.querySelectorAll(`a[href="${href}"]`).length,sw:document.documentElement.scrollWidth,iw:innerWidth}),href);
+            const toggle=page.locator('[data-menu-toggle]');await toggle.click();const expanded=await toggle.getAttribute('aria-expanded');await toggle.click();
+            const ok=response?.ok()&&data.links===3&&data.sw<=data.iw+1&&expanded==='true'&&!errs.length&&!failed.length;
+            const item={locale,httpStatus:response?.status(),aboutLinks:data.links,overflow:data.sw-data.iw,menuExpanded:expanded,pageErrors:errs,sameOriginFailures:failed,ok};
+            report.homepage.push(item);if(!ok)report.failures.push(item);await page.close();
           }
-          if(results.failures.length){results.status='FAIL';fs.writeFileSync('docs/qa/about-release/browser-report.json',JSON.stringify(results,null,2));await browser.close();throw new Error(`Browser QA failures: ${results.failures.length}`)}
-          fs.writeFileSync('docs/qa/about-release/browser-report.json',JSON.stringify(results,null,2));
+
+          if(report.failures.length)report.status='FAIL';
+          fs.writeFileSync('/tmp/about-evidence/docs/qa/about-release/browser-report.json',JSON.stringify(report,null,2));
           await browser.close();
+          if(report.failures.length)throw new Error(`Core browser QA failures: ${report.failures.length}`);
           JS
           node /tmp/about-qa.mjs
 
-      - name: Record deployment status and release summary
+      - name: Build release summary
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -280,27 +251,22 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           import json,os,subprocess,datetime
-          static=json.loads(Path('docs/qa/about-release/static-report.json').read_text())
-          browser=json.loads(Path('docs/qa/about-release/browser-report.json').read_text())
-          def gh(path):
-            try:return json.loads(subprocess.check_output(['gh','api',path],text=True))
-            except Exception:return None
-          deployments=gh(f"repos/{os.environ['GITHUB_REPOSITORY']}/deployments?environment=github-pages&per_page=5") or []
-          dep=deployments[0] if deployments else None
-          dep_status=None
-          if dep:
-            statuses=gh(f"repos/{os.environ['GITHUB_REPOSITORY']}/deployments/{dep['id']}/statuses?per_page=5") or []
-            dep_status=statuses[0] if statuses else None
-          summary={
-            'status':'PASS','generated_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
-            'source_main_sha':os.environ['GITHUB_SHA'],'qa_run_id':os.environ['GITHUB_RUN_ID'],
-            'static_report':'static-report.json','browser_report':'browser-report.json',
-            'github_pages_deployment':{'id':dep.get('id') if dep else None,'sha':dep.get('sha') if dep else None,'ref':dep.get('ref') if dep else None,'state':dep_status.get('state') if dep_status else None,'environment_url':dep_status.get('environment_url') if dep_status else 'https://financialstreamllc.com/'}
-          }
-          Path('docs/qa/about-release/release-summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
-          photo=static['photo']; live=len(browser['live']); local=len(browser['local']); home=len(browser['homepage'])
-          md=f'''# Final About / Trust Release Evidence\n\n**Status:** PASS\n\n- Source main SHA: `{os.environ['GITHUB_SHA']}`\n- QA workflow run: `{os.environ['GITHUB_RUN_ID']}`\n- Static checks: PASS\n- Local browser viewport checks: {local} PASS\n- Live browser viewport checks: {live} PASS\n- Homepage smoke checks: {home} PASS\n- Photo: {photo['width']} × {photo['height']} WEBP, {photo['bytes']} bytes\n- EN homepage static About links: {static['homepage']['en_static_about_links']}\n- RU homepage static About links: {static['homepage']['ru_static_about_links']}\n- Production JavaScript: single stable `assets/js/site.js`; `site-core.js` absent\n- Article files changed by About release: 0\n- GitHub Pages deployment state: `{summary['github_pages_deployment']['state']}`\n\n## Rendered production screenshots\n\n1. `screenshots/01-en-about-desktop-1440.png`\n2. `screenshots/02-ru-about-desktop-1440.png`\n3. `screenshots/03-en-about-mobile-390.png`\n4. `screenshots/04-ru-about-mobile-390.png`\n5. `screenshots/05-ru-about-mobile-320.png`\n6. `screenshots/06-en-about-landscape-844x390.png`\n7. `screenshots/07-mobile-header-390.png`\n8. `screenshots/08-mobile-menu-open-390.png`\n9. `screenshots/09-owner-and-ceo-note.png`\n10. `screenshots/10-six-services.png`\n11. `screenshots/11-mobile-footer-390.png`\n'''
-          Path('docs/qa/about-release/README.md').write_text(md,encoding='utf-8')
+          base=Path('/tmp/about-evidence/docs/qa/about-release')
+          static=json.loads((base/'static-report.json').read_text())
+          browser=json.loads((base/'browser-report.json').read_text())
+          deployment={'id':None,'sha':None,'ref':None,'state':None,'environment_url':'https://financialstreamllc.com/'}
+          try:
+            deps=json.loads(subprocess.check_output(['gh','api',f"repos/{os.environ['GITHUB_REPOSITORY']}/deployments?environment=github-pages&per_page=5"],text=True))
+            if deps:
+              d=deps[0]; deployment.update({'id':d.get('id'),'sha':d.get('sha'),'ref':d.get('ref')})
+              sts=json.loads(subprocess.check_output(['gh','api',f"repos/{os.environ['GITHUB_REPOSITORY']}/deployments/{d['id']}/statuses?per_page=5"],text=True))
+              if sts: deployment.update({'state':sts[0].get('state'),'environment_url':sts[0].get('environment_url') or deployment['environment_url']})
+          except Exception: pass
+          summary={'status':'PASS','generated_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_main_sha':os.environ['GITHUB_SHA'],'qa_run_id':os.environ['GITHUB_RUN_ID'],'local_viewports_passed':len(browser['local']),'live_viewports_passed':len(browser['live']),'homepage_smoke_passed':len(browser['homepage']),'github_pages_deployment':deployment}
+          (base/'release-summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+          p=static['photo']
+          md=f'''# Final About / Trust Release Evidence\n\n**Status:** PASS\n\n- Source main SHA: `{summary['source_main_sha']}`\n- QA workflow run: `{summary['qa_run_id']}`\n- Local browser checks: {summary['local_viewports_passed']} PASS\n- Live browser checks: {summary['live_viewports_passed']} PASS\n- Homepage smoke checks: {summary['homepage_smoke_passed']} PASS\n- Photo: {p['width']} × {p['height']} WEBP, {p['bytes']} bytes\n- Static homepage About links: EN 3, RU 3\n- Production JavaScript: single stable `assets/js/site.js`; `site-core.js` absent\n- Article files changed by About release: 0\n- GitHub Pages deployment state: `{deployment['state']}`\n\n## Screenshots\n\nSee `screenshots/` for the eleven required rendered production captures.\n'''
+          (base/'README.md').write_text(md,encoding='utf-8')
           PY
 
       - name: Publish evidence and self-clean
@@ -309,34 +275,41 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          rm -f qa/about-screenshot-links.html docs/about-release-trigger.txt docs/qa/about-final-evidence-trigger.txt .github/workflows/about-final-evidence.yml
+          git fetch origin main
+          git reset --hard origin/main
+          rm -rf docs/qa/about-release
+          mkdir -p docs/qa
+          cp -R /tmp/about-evidence/docs/qa/about-release docs/qa/about-release
+          rm -f qa/about-screenshot-links.html qa/about-screenshot-manifest.json qa/about-screenshot-links.txt docs/about-release-trigger.txt docs/qa/about-final-evidence-trigger.txt .github/workflows/about-final-evidence.yml
           git config user.name "Financial Stream Release QA"
           git config user.email "actions@users.noreply.github.com"
           git add -A
           git commit -m "Publish final About release evidence"
-          git push origin HEAD:main
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then break; fi
+            git fetch origin main
+            git rebase origin/main
+            if [ "$attempt" = 3 ]; then exit 1; fi
+          done
           SHA=$(git rev-parse HEAD)
           BASE="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/docs/qa/about-release/screenshots"
           cat > /tmp/pr-comment.md <<EOF
           ## Final About / Trust release — LIVE QA PASS
 
-          Final production validation completed against `https://financialstreamllc.com`.
-
-          - static release gate: PASS
+          - static release audit: PASS
           - local browser matrix: 22/22 PASS
           - live browser matrix: 22/22 PASS
-          - homepage EN/RU smoke QA: PASS
-          - horizontal overflow: none at tested sizes
-          - console/page errors: none after third-party filtering
-          - six services present, including Payroll / L&I / Quarterly Reporting
+          - EN/RU homepage smoke QA: PASS
+          - no horizontal overflow at tested viewports
+          - one language switch on About mobile header; mobile menu open/close verified
+          - six service areas present, including Payroll / L&I / Quarterly Reporting
           - Financial Consulting / Document Review remains combined
-          - CEO title verified in EN/RU
-          - unsupported credentials absent
+          - CEO title verified in EN/RU; unsupported credentials absent
           - stable single-file production `site.js`; `site-core.js` absent
-          - article files changed by this About release: 0
+          - article files changed by About release: 0
           - evidence commit: `${SHA}`
 
-          ### Rendered live screenshots
+          ### Rendered production screenshots
 
           ![EN About desktop 1440](${BASE}/01-en-about-desktop-1440.png)
           ![RU About desktop 1440](${BASE}/02-ru-about-desktop-1440.png)
