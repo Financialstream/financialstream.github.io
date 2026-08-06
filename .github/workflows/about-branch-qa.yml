@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - agent/about-premium-motion-polish-v1
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
