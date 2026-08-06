@@ -30,7 +30,71 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/site.css">
-<style data-blog-visibility-fallback>.blog-materials-page .fade-in{opacity:1!important;transform:none!important;visibility:visible!important}</style>
+<style data-blog-materials-fix>
+.blog-materials-page .fade-in,
+.blog-materials-page .blog-featured-section,
+.blog-materials-page .blog-library-section,
+.blog-materials-page .blog-month-section,
+.blog-materials-page .blog-article-card {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+.blog-materials-page .blog-library-top,
+.blog-materials-page .blog-featured-grid,
+.blog-materials-page .blog-article-grid,
+.blog-materials-page .blog-article-card {
+  min-width: 0;
+  max-width: 100%;
+}
+.blog-materials-page .blog-featured-grid,
+.blog-materials-page .blog-article-grid {
+  padding-right: 0 !important;
+}
+.blog-materials-page .blog-article-card {
+  width: 100%;
+}
+.blog-materials-page .blog-month-section.is-empty {
+  display: none !important;
+}
+.blog-materials-page .blog-filter-bar {
+  min-width: 0;
+  max-width: 100%;
+}
+@media (max-width: 860px) {
+  .blog-materials-page .blog-filter-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    padding: 6px 12px 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    scroll-padding-inline: 12px;
+    border-radius: 20px;
+  }
+  .blog-materials-page .blog-filter {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  .blog-materials-page .blog-filter:last-child {
+    margin-right: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blog-materials-page .fade-in,
+  .blog-materials-page .blog-article-card,
+  .blog-materials-page .blog-filter {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
 </head>
 <body class="proto-body proto-page blog-page blog-materials-page">
 <div class="proto-bg" aria-hidden="true"></div>
@@ -124,7 +188,7 @@
     </div>
   </section>
 
-  <section class="section blog-featured-section fade-in" aria-labelledby="featured-guides-title">
+  <section class="section blog-featured-section" aria-labelledby="featured-guides-title">
     <div class="container">
       <div class="section-heading blog-section-heading">
         <div>
@@ -166,7 +230,7 @@
     </div>
   </section>
 
-  <section class="section section--soft blog-library-section fade-in" aria-labelledby="article-library-title" data-blog-library>
+  <section class="section section--soft blog-library-section" aria-labelledby="article-library-title" data-blog-library>
     <div class="container">
       <div class="blog-library-top">
         <div>
@@ -208,7 +272,7 @@
           <span class="blog-card-meta">IRS notice &middot; Guide &middot; 12 min &middot; June 2026</span>
             <h4>IRS Notice or Missed Tax Deadline in 2026: What to Do and What Documents to Prepare</h4>
             <p>What to check in an IRS notice, what to do after a missed filing deadline, and what documents to prepare before the next step.</p>
-            <span class="blog-card-cta">Read material <span aria-hidden="true">?</span></span>
+            <span class="blog-card-cta">Read material <span aria-hidden="true">→</span></span>
           </a>
         </div>
       </div>
