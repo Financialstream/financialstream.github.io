@@ -1,0 +1,109 @@
+name: Scheduled Final About Release QA
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+permissions:
+  contents: write
+  pull-requests: write
+  deployments: read
+
+jobs:
+  release-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install browser QA dependencies
+        run: |
+          python -m pip install --quiet beautifulsoup4 pillow playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Start local site
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 >/tmp/about-http.log 2>&1 &
+          echo $! >/tmp/about-http.pid
+          sleep 2
+
+      - name: Run static and browser release gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/about_final_release_qa.py
+
+      - name: Publish evidence, remove temporary QA infrastructure, and comment on PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          kill "$(cat /tmp/about-http.pid)" 2>/dev/null || true
+          git fetch origin main
+          git reset --hard origin/main
+          rm -rf docs/qa/about-release
+          mkdir -p docs/qa
+          cp -R /tmp/about-final-evidence/docs/qa/about-release docs/qa/about-release
+          rm -f \
+            .github/workflows/about-final-scheduled.yml \
+            .github/workflows/about-final-evidence.yml \
+            .github/scripts/about_final_release_qa.py \
+            docs/qa/about-final-evidence-trigger.txt \
+            docs/about-release-trigger.txt \
+            qa/about-render-capture.html \
+            qa/about-screenshot-links.html \
+            qa/about-screenshot-manifest.json \
+            qa/about-screenshot-links.txt
+          git config user.name "Financial Stream Release QA"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Publish final About release evidence"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then break; fi
+            git fetch origin main
+            git rebase origin/main
+            if [ "$attempt" = 3 ]; then exit 1; fi
+          done
+          SHA=$(git rev-parse HEAD)
+          BASE="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/docs/qa/about-release/screenshots"
+          cat > /tmp/final-about-comment.md <<EOF
+          ## Final About / Trust release — LIVE QA PASS
+
+          - static release audit: PASS
+          - local browser matrix: 22/22 PASS
+          - live browser matrix: 22/22 PASS
+          - EN/RU homepage smoke QA: PASS
+          - horizontal overflow: none at tested viewports
+          - mobile language switch and menu behavior: PASS
+          - six services present, including Payroll / L&I / Quarterly Reporting
+          - Financial Consulting / Document Review remains combined
+          - Tetiana Horb / Татьяна Горб title: CEO, Financial Stream LLC
+          - unsupported credentials: absent
+          - production JavaScript: stable single `assets/js/site.js`; `site-core.js` absent
+          - article files changed by this About release: 0
+          - evidence commit: `${SHA}`
+
+          ### Rendered production screenshots
+
+          ![EN About desktop 1440](${BASE}/01-en-about-desktop-1440.png)
+          ![RU About desktop 1440](${BASE}/02-ru-about-desktop-1440.png)
+          ![EN About mobile 390](${BASE}/03-en-about-mobile-390.png)
+          ![RU About mobile 390](${BASE}/04-ru-about-mobile-390.png)
+          ![RU About mobile 320](${BASE}/05-ru-about-mobile-320.png)
+          ![Mobile landscape](${BASE}/06-en-about-landscape-844x390.png)
+          ![Mobile header](${BASE}/07-mobile-header-390.png)
+          ![Opened mobile menu](${BASE}/08-mobile-menu-open-390.png)
+          ![Owner and CEO note](${BASE}/09-owner-and-ceo-note.png)
+          ![Six services](${BASE}/10-six-services.png)
+          ![Mobile footer](${BASE}/11-mobile-footer-390.png)
+
+          **LIVE — READY FOR OWNER DEVICE REVIEW**
+          EOF
+          gh pr comment 9 --body-file /tmp/final-about-comment.md
