@@ -1,57 +1,109 @@
-# Financial Stream LLC Website
+<div align="center">
 
-This repository contains the static GitHub Pages website for Financial Stream LLC.
+<img src="./assets/img/og/financial-stream-og-en-1200x630.png" alt="Financial Stream LLC — accounting and tax support" width="100%">
 
-Live site: https://financialstreamllc.com/
+# Financial Stream LLC
 
-## Site Structure
+### Structured accounting and tax support for U.S. small businesses
 
-The site is bilingual EN/RU with dedicated pages, canonical tags, and hreflang alternates.
+**Bookkeeping · Tax Returns · Sales Tax · Business Setup · Document Review**
 
-Active styling lives in `assets/css/site.css`.
+[Official Website](https://financialstreamllc.com/) · [Services](https://financialstreamllc.com/services/) · [Start a Structured Request](https://financialstreamllc.com/contact/#structured-request) · [Русская версия](https://financialstreamllc.com/ru/)
 
-Active behavior lives in `assets/js/site.js`.
+</div>
 
-## Contact Architecture
+## Official website project
 
-Structured request routes:
+This repository contains the production website for **Financial Stream LLC**, a U.S.-based accounting and tax support business serving small businesses through a structured, remote-first workflow.
 
-- `/contact/#structured-request`
-- `/ru/contact/#structured-request`
+The site is designed to help visitors understand available services, review practical materials, and submit the information needed for an appropriate next step.
 
-The current structured intake may route to Google Form.
+## Core service areas
 
-The short message form uses the Formspree endpoint:
+- **Bookkeeping** — organization, cleanup, and ongoing record support.
+- **Tax Returns** — preparation support based on the client’s documents and situation.
+- **Sales Tax** — reporting support, including relevant state and local requirements.
+- **Business Setup** — formation-related documents and initial financial organization.
+- **Document Review** — structured review of financial and business records before the next action is taken.
 
-`https://formspree.io/f/xwvqekla`
+Service availability and scope depend on the client’s facts, documents, jurisdiction, and requested work.
 
-Preserve the existing Formspree fields and behavior unless a future package explicitly scopes a change:
+## Website capabilities
 
-- `data-form-endpoint`
-- `_subject`
-- `site_lang`
-- `_gotcha`
-- existing field names
-- `sms_consent`
-- privacy, terms, and SMS links
-- `id="structured-request"`
+- responsive static production website;
+- dedicated English and Russian content paths;
+- service pages and practical editorial materials;
+- structured contact and request pathways;
+- canonical URLs and `hreflang` alternates;
+- organization and service structured data;
+- accessible navigation patterns and mobile layouts;
+- GitHub Pages deployment with a custom domain.
 
-Chatbase config and script placement must be preserved unless a future package explicitly scopes a Chatbase change.
+## Primary public routes
 
-## Content Guardrails
+| Purpose | English | Russian |
+|---|---|---|
+| Home | [financialstreamllc.com](https://financialstreamllc.com/) | [financialstreamllc.com/ru/](https://financialstreamllc.com/ru/) |
+| Services | [/services/](https://financialstreamllc.com/services/) | [/ru/services/](https://financialstreamllc.com/ru/services/) |
+| Materials | [/blog/](https://financialstreamllc.com/blog/) | [/ru/blog/](https://financialstreamllc.com/ru/blog/) |
+| Contact | [/contact/](https://financialstreamllc.com/contact/) | [/ru/contact/](https://financialstreamllc.com/ru/contact/) |
+| Structured request | [/contact/#structured-request](https://financialstreamllc.com/contact/#structured-request) | [/ru/contact/#structured-request](https://financialstreamllc.com/ru/contact/#structured-request) |
 
-Do not add fake ratings, fake review counts, guarantees, no-cost consult offers, timed consult offers, fake protected-portal claims, refund promises, penalty-avoidance promises, or audit-defense promises.
+## Technology overview
 
-## QA
+The production site uses semantic HTML, CSS, JavaScript, responsive image assets, structured data, and GitHub Pages. It intentionally avoids unnecessary framework and runtime complexity for a stable, fast, maintainable public website.
 
-Run the internal stage audit from the non-public repo tooling path:
+## Repository structure
 
-```bash
-bash .github/scripts/audit-stage-1.sh
+```text
+assets/       Brand, image, CSS, and JavaScript assets
+blog/         English practical materials
+contact/      English contact and structured intake route
+services/     English service pages
+ru/           Russian-localized site structure
+.github/      Repository and validation tooling
 ```
 
-Also run JavaScript syntax checks before shipping behavior changes:
+Detailed maintenance guidance is available in:
 
-```bash
-node --check assets/js/site.js
-```
+- [`docs/REPOSITORY-GUIDE.md`](docs/REPOSITORY-GUIDE.md)
+- [`docs/CONTENT-INTEGRITY.md`](docs/CONTENT-INTEGRITY.md)
+- [`docs/DEPLOYMENT-NOTES.md`](docs/DEPLOYMENT-NOTES.md)
+- [`SECURITY.md`](SECURITY.md)
+- [`COPYRIGHT.md`](COPYRIGHT.md)
+
+## Content integrity
+
+This project does not permit fake ratings, fabricated review counts, unsupported guarantees, invented credentials, guaranteed tax outcomes, guaranteed rankings, guaranteed revenue results, or claims that professional judgment has been replaced by automation.
+
+Published service and educational content must remain accurate, appropriately qualified, and subject to individual review where required.
+
+## Maintenance principles
+
+Production changes should:
+
+- preserve English and Russian routes;
+- preserve contact, consent, privacy, and terms architecture;
+- protect canonical, `hreflang`, and structured-data relationships;
+- maintain responsive behavior across common mobile widths;
+- distinguish implemented functionality from planned functionality;
+- avoid unsupported marketing or financial claims;
+- receive review before merging to `main`.
+
+## Website and digital systems
+
+The Financial Stream website and related digital systems were designed and developed by **[ProAI Expert](https://proai-expert.com/)**, an AI systems, business automation, and premium website studio for service businesses.
+
+- [ProAI Expert website](https://proai-expert.com/)
+- [ProAI Expert GitHub](https://github.com/proaiexpert)
+- [Financial Stream case study](https://proai-expert.com/case-studies/financial-stream/)
+
+## Client support boundary
+
+GitHub is not monitored for accounting or tax service requests. Do not submit client records, tax documents, financial data, or personally identifiable information through GitHub Issues, pull requests, or public comments.
+
+Use the official [structured request form](https://financialstreamllc.com/contact/#structured-request) for service inquiries.
+
+---
+
+© Financial Stream LLC. All rights reserved. Public repository access does not grant permission to reuse Financial Stream branding, written content, design assets, or client materials.
