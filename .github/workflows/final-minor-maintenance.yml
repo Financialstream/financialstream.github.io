@@ -28,7 +28,21 @@ jobs:
           expected_menu_files = {
               'ru/index.html',
               'ru/blog/index.html',
+              'ru/blog/buhgalter-seattle-quickbooks.html',
               'ru/blog/buhgalteriya-ssha-malogo-biznesa.html',
+              'ru/blog/irs-2026-inflation-adjustments.html',
+              'ru/blog/nalogovaya-deklaraciya-seattle.html',
+              'ru/blog/nalogovaya-deklaraciya-ssha-cheklist-dokumentov-2026.html',
+              'ru/blog/nalogovaya-deklaraciya-usa-udalenno-cheklist.html',
+              'ru/blog/payroll-2026.html',
+              'ru/blog/podgotovka-nalogovoy-deklaracii-ssha.html',
+              'ru/blog/quickbooks-healthy-books.html',
+              'ru/blog/quickbooks-uchet-ssha-ezhemesyachnyy-cheklist.html',
+              'ru/blog/russkogovoryashchiy-bukhgalter-v-ssha-seattle-washington.html',
+              'ru/blog/sales-tax-2026.html',
+              'ru/blog/seattle-area-accountant-bookkeeper.html',
+              'ru/blog/seattle-bo-tax-changes-2026.html',
+              'ru/blog/washington-bookkeeping-quickbooks.html',
               'ru/contact/index.html',
               'ru/start-here/index.html',
               'ru/services/tax-returns.html',
@@ -100,6 +114,7 @@ jobs:
               if path.read_bytes().decode('utf-8').count(twitter_alt) != 1:
                   raise SystemExit(f'Expected exactly one twitter:image:alt in {file_name}')
 
+          # Accessibility source QA across every RU HTML page using the mobile toggle.
           for path in sorted(Path('ru').rglob('*.html')):
               text = path.read_bytes().decode('utf-8')
               for match in menu_tag.finditer(text):
@@ -114,6 +129,7 @@ jobs:
                   if f'id="{controls.group(1)}"' not in text:
                       raise SystemExit(f'aria-controls target missing in {path}: {controls.group(1)}')
 
+          # Flagship metadata QA: preserve canonical/hreflang/OG/Twitter image and schema blocks.
           checks = {
               'blog/us-bookkeeping-small-business.html': [
                   '<link rel="canonical" href="https://financialstreamllc.com/blog/us-bookkeeping-small-business.html">',
@@ -157,19 +173,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
-            ru/index.html \
-            ru/blog/index.html \
-            ru/blog/buhgalteriya-ssha-malogo-biznesa.html \
-            ru/contact/index.html \
-            ru/start-here/index.html \
-            ru/services/tax-returns.html \
-            ru/services/company-formation.html \
-            ru/services/payroll-li-quarterly.html \
-            ru/services/financial-consulting.html \
-            ru/services/quickbooks-bookkeeping.html \
-            ru/services/sales-tax-dor-reporting.html \
-            blog/us-bookkeeping-small-business.html
+          git diff --name-only -z | xargs -0 git add --
           git diff --cached --check
           git commit -m "Fix minor accessibility and Twitter image metadata"
           git push origin HEAD:${{ github.head_ref }}
