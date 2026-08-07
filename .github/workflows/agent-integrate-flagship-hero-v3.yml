@@ -1,0 +1,121 @@
+name: Flagship hero integration v3
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  integrate-and-qa:
+    if: github.head_ref == 'agent/integrate-flagship-hero-image'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      HERO_PATH: assets/img/blog/financial-stream-flagship-bookkeeping-hero.webp
+      HERO_SHA256: fbdfdebe7150c9d420d616a96c56ceb53d1397880612ae85e65a5793c0095bd7
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Reconstruct and verify exact Drive asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$HERO_PATH")"
+          cat \
+            .agent-asset-chunks/01.bin \
+            .agent-asset-chunks/02.bin \
+            .agent-asset-chunks/03.bin \
+            .agent-asset-chunks/04.bin \
+            .agent-asset-chunks/05.bin \
+            .agent-asset-chunks/06.bin \
+            .agent-asset-chunks/07.bin \
+            .agent-asset-chunks/08.bin \
+            .agent-asset-chunks/09.bin > "$HERO_PATH"
+          test "$(stat -c%s "$HERO_PATH")" = 89056
+          test "$(sha256sum "$HERO_PATH" | cut -d' ' -f1)" = "$HERO_SHA256"
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+
+          data = Path('assets/img/blog/financial-stream-flagship-bookkeeping-hero.webp').read_bytes()
+          assert data[:4] == b'RIFF' and data[8:12] == b'WEBP'
+          width = height = None
+          offset = 12
+          while offset + 8 <= len(data):
+              fourcc = data[offset:offset + 4]
+              size = struct.unpack_from('<I', data, offset + 4)[0]
+              payload = data[offset + 8:offset + 8 + size]
+              if fourcc == b'VP8X' and len(payload) >= 10:
+                  width = 1 + int.from_bytes(payload[4:7], 'little')
+                  height = 1 + int.from_bytes(payload[7:10], 'little')
+                  break
+              if fourcc == b'VP8 ' and len(payload) >= 10 and payload[3:6] == b'\x9d\x01\x2a':
+                  width = int.from_bytes(payload[6:8], 'little') & 0x3FFF
+                  height = int.from_bytes(payload[8:10], 'little') & 0x3FFF
+                  break
+              if fourcc == b'VP8L' and len(payload) >= 5 and payload[0] == 0x2F:
+                  bits = int.from_bytes(payload[1:5], 'little')
+                  width = (bits & 0x3FFF) + 1
+                  height = ((bits >> 14) & 0x3FFF) + 1
+                  break
+              offset += 8 + size + (size & 1)
+          assert (width, height) == (1086, 1448), (width, height)
+          assert width * 4 == height * 3
+          print('Exact WebP verified: 1086x1448, 3:4, 89,056 bytes, SHA-256 matched')
+          PY
+
+      - name: Run scoped transform and responsive QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pyyaml
+          python3 - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          workflow = yaml.safe_load(Path('.github/workflows/agent-integrate-flagship-hero-v2.yml').read_text())
+          steps = workflow['jobs']['integrate-and-qa']['steps']
+          wanted = {
+              'Apply four-file scoped change': Path('/tmp/apply-flagship-hero.sh'),
+              'Responsive QA at all required widths': Path('/tmp/qa-flagship-hero.sh'),
+          }
+          found = set()
+          for step in steps:
+              name = step.get('name')
+              if name in wanted:
+                  wanted[name].write_text(step['run'])
+                  found.add(name)
+          assert found == set(wanted), found
+          PY
+          bash /tmp/apply-flagship-hero.sh
+          bash /tmp/qa-flagship-hero.sh
+
+      - name: Commit exact approved diff
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .agent-asset-chunks
+          rm -f \
+            .github/workflows/agent-integrate-flagship-hero.yml \
+            .github/workflows/agent-integrate-flagship-hero-v2.yml \
+            .github/workflows/agent-integrate-flagship-hero-v3.yml
+          git add -A
+          mapfile -t changed < <(git diff --cached --name-only origin/main | sort)
+          mapfile -t expected < <(printf '%s\n' \
+            assets/css/flagship-hero-image.css \
+            assets/img/blog/financial-stream-flagship-bookkeeping-hero.webp \
+            blog/us-bookkeeping-small-business.html \
+            ru/blog/buhgalteriya-ssha-malogo-biznesa.html | sort)
+          test "${changed[*]}" = "${expected[*]}"
+          git diff --cached --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Add premium hero image to flagship articles'
+          git push origin "HEAD:${{ github.head_ref }}"
