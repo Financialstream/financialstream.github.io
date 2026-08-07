@@ -193,7 +193,7 @@ Do not add unsupported claims such as:
 
 Preserve the existing production service scope and wording unless the owner explicitly changes it.
 
-The active service structure includes:
+The active service structure includes six equal core services:
 
 1. Bookkeeping / QuickBooks
 2. Tax Returns / Tax Preparation
@@ -202,7 +202,9 @@ The active service structure includes:
 5. Business Setup / Company Formation
 6. Financial Consulting / Document Review
 
-Do not remove Payroll.
+Payroll is already confirmed and approved as an equal core Financial Stream service. This is not an open question and does not require renewed owner confirmation during future repository, content, navigation, or maintenance work.
+
+Do not remove Payroll, demote it, describe it as unapproved, or ask the owner to reconfirm it merely because an older document omitted it or contained outdated cautionary wording. If legacy repository documentation conflicts with this rule, this closure record controls and the conflicting documentation should be corrected.
 
 Do not separate Financial Consulting from Document Review without explicit approval.
 
@@ -259,6 +261,7 @@ Before modifying the project:
 12. Do not make broad redesign changes while Phase 1 remains closed.
 13. Keep GitHub documentation authoritative.
 14. Treat Google Drive copies as backups, not canonical replacements.
+15. Treat Payroll / L&I / Quarterly Reporting as one of six approved equal core services; do not request renewed confirmation or propose its removal based on outdated documentation.
 
 ## Restart procedure
 
