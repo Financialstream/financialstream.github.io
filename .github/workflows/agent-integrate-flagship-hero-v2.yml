@@ -1,0 +1,267 @@
+name: Flagship hero integration v2
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  integrate-and-qa:
+    if: github.head_ref == 'agent/integrate-flagship-hero-image'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      HERO_PATH: assets/img/blog/financial-stream-flagship-bookkeeping-hero.webp
+      HERO_SHA256: fbdfdebe7150c9d420d616a96c56ceb53d1397880612ae85e65a5793c0095bd7
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Reconstruct and verify exact Drive asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$HERO_PATH")"
+          : > "$HERO_PATH"
+          chunks=(
+            4d716568502ed7dc85afc29623c11501cf531b86
+            22932f1285b209954b20c7b1043a3c55bda0406e
+            02f8417bcbd5b051d7b7ff10e4c8770b3b95c3c5
+            5630b161438cfd9cbf15bb4e8bb6614171d57324
+            ce81bca31426cdabf54bd6be0760116ba0f4cb08
+            b2cf6cc0145de3bcf17e5bcb7e80e38c5e6f96ad
+            1f1d1fffd5508ec244bd5ce7ec3a4dfb6245a18e
+            483cc6e84497a87f711dd066a48e97140bbc337b
+            f17fc6b8f1a2b73ef9eb2b86e6376521f1fe217c
+          )
+          for sha in "${chunks[@]}"; do
+            gh api "/repos/${GITHUB_REPOSITORY}/git/blobs/${sha}" --jq '.content' \
+              | tr -d '\n' | base64 --decode >> "$HERO_PATH"
+          done
+          test "$(stat -c%s "$HERO_PATH")" = 89056
+          test "$(sha256sum "$HERO_PATH" | cut -d' ' -f1)" = "$HERO_SHA256"
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          p = Path('assets/img/blog/financial-stream-flagship-bookkeeping-hero.webp')
+          with Image.open(p) as im:
+              assert im.format == 'WEBP'
+              assert im.size == (1086, 1448)
+          assert 1086 * 4 == 1448 * 3
+          print('Exact WebP verified: 1086x1448, 3:4, 89,056 bytes, SHA-256 matched')
+          PY
+
+      - name: Apply four-file scoped change
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > assets/css/flagship-hero-image.css <<'CSS'
+          /* Scoped presentation for the flagship article hero image. */
+          .flagship-article .flagship-hero {
+            grid-template-columns: minmax(0, 1.52fr) minmax(320px, 0.98fr);
+            gap: clamp(32px, 4vw, 48px);
+            align-items: center;
+          }
+
+          .flagship-article .flagship-hero-media {
+            width: min(100%, 460px);
+            aspect-ratio: 3 / 4;
+            margin: 0;
+            justify-self: end;
+            overflow: hidden;
+            border: 1px solid rgba(22, 67, 99, 0.12);
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 24px 60px rgba(22, 67, 99, 0.14);
+          }
+
+          .flagship-article .flagship-hero-media img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+            object-position: 50% 50%;
+          }
+
+          @media (max-width: 1100px) {
+            .flagship-article .flagship-hero {
+              grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr);
+              gap: 32px;
+            }
+            .flagship-article .flagship-hero-media { width: min(100%, 420px); }
+          }
+
+          @media (max-width: 900px) {
+            .flagship-article .flagship-hero {
+              grid-template-columns: minmax(0, 1fr);
+              align-items: start;
+              gap: 30px;
+            }
+            .flagship-article .flagship-hero-media {
+              width: 100%;
+              max-width: none;
+              aspect-ratio: 4 / 3;
+              justify-self: stretch;
+            }
+            .flagship-article .flagship-hero-media img { object-position: 50% 62%; }
+          }
+
+          @media (max-width: 640px) {
+            .flagship-article .flagship-hero { gap: 24px; }
+            .flagship-article .flagship-hero-media {
+              aspect-ratio: 6 / 5;
+              border-radius: 26px;
+            }
+          }
+          CSS
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, re
+
+          asset = '/assets/img/blog/financial-stream-flagship-bookkeeping-hero.webp'
+          old = '<div class="hero-control" aria-hidden="true"><span class="hero-control__line"></span><span class="hero-control__node">1</span><span class="hero-control__node">2</span><span class="hero-control__node">3</span><span class="hero-control__node">4</span><span class="hero-control__node">5</span><span class="hero-control__node">6</span></div>'
+          pages = [
+              ('blog/us-bookkeeping-small-business.html', '../', 'Organized bookkeeping documents and financial reports reviewed for a small-business decision'),
+              ('ru/blog/buhgalteriya-ssha-malogo-biznesa.html', '../../', 'Проверка бухгалтерских документов и финансового отчёта перед решением владельца бизнеса'),
+          ]
+          for name, prefix, alt in pages:
+              path = Path(name)
+              original = path.read_text(encoding='utf-8')
+              preload = f'<link rel="preload" as="image" href="{asset}" type="image/webp">\n'
+              css = f'<link rel="stylesheet" href="{prefix}assets/css/flagship-hero-image.css">\n'
+              apple = f'<link rel="apple-touch-icon" href="{prefix}assets/brand/financial-stream/apple-touch-icon.png">\n'
+              author_css = f'<link rel="stylesheet" href="{prefix}assets/css/flagship-author.css">\n'
+              figure = ('<figure class="flagship-hero-media">\n'
+                        f'<img src="{asset}" alt="{alt}" width="1086" height="1448" loading="eager" fetchpriority="high" decoding="async">\n'
+                        '</figure>')
+              assert original.count(old) == 1
+              assert asset not in original
+              schema = re.search(r'<script type="application/ld\+json" data-schema="financial-stream-flagship">(.*?)</script>', original, re.S)
+              assert schema
+              json.loads(schema.group(1))
+              modified = original.replace(apple, apple + preload, 1)
+              modified = modified.replace(author_css, author_css + css, 1)
+              modified = modified.replace(old, figure, 1)
+              schema2 = re.search(r'<script type="application/ld\+json" data-schema="financial-stream-flagship">(.*?)</script>', modified, re.S)
+              assert schema2 and schema2.group(1) == schema.group(1)
+              assert modified.count('class="chain-flow"') == original.count('class="chain-flow"') == 1
+              assert modified.count('class="flagship-author"') == original.count('class="flagship-author"') == 1
+              assert modified.count('rel="canonical"') == original.count('rel="canonical"')
+              assert modified.count('hreflang=') == original.count('hreflang=')
+              assert modified.count('rel="icon"') == original.count('rel="icon"')
+              assert 'class="hero-control"' not in modified
+              assert modified.count('flagship-hero-image.css') == 1
+              assert modified.count(f'rel="preload" as="image" href="{asset}"') == 1
+              restored = modified.replace(preload, '', 1).replace(css, '', 1).replace(figure, old, 1)
+              assert restored == original, f'Unexpected locked-content change: {name}'
+              path.write_text(modified, encoding='utf-8', newline='')
+          assert len(Path('assets/css/flagship-hero-image.css').read_text().splitlines()) < 180
+          print('Locked article content round-trip verified')
+          PY
+          git diff --check
+
+      - name: Responsive QA at all required widths
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/qa && cd /tmp/qa
+          npm init -y >/dev/null 2>&1
+          npm install --no-save playwright@1.55.0 >/dev/null
+          npx playwright install chromium >/dev/null
+          cd "$GITHUB_WORKSPACE"
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/http.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          for _ in {1..30}; do curl -fsS http://127.0.0.1:4173/blog/us-bookkeeping-small-business.html >/dev/null && break; sleep 1; done
+          node <<'JS'
+          const { chromium } = require('/tmp/qa/node_modules/playwright');
+          const widths = [1440,1280,1100,1024,900,768,430,390,375,360,320];
+          const specs = [
+            ['/blog/us-bookkeeping-small-business.html','Organized bookkeeping documents and financial reports reviewed for a small-business decision'],
+            ['/ru/blog/buhgalteriya-ssha-malogo-biznesa.html','Проверка бухгалтерских документов и финансового отчёта перед решением владельца бизнеса']
+          ];
+          const ok = (v,m) => { if (!v) throw new Error(m); };
+          (async () => {
+            const browser = await chromium.launch({headless:true});
+            try {
+              for (const [path, alt] of specs) for (const width of widths) {
+                const page = await browser.newPage({viewport:{width,height:1000}});
+                const errors=[];
+                page.on('pageerror', e=>errors.push(e.message));
+                page.on('console', m=>{if(m.type()==='error') errors.push(m.text())});
+                const res=await page.goto('http://127.0.0.1:4173'+path,{waitUntil:'domcontentloaded'});
+                ok(res && res.status()===200, `${path} ${width} HTTP`);
+                await page.locator('.flagship-hero-media img').waitFor({state:'visible'});
+                await page.waitForFunction(()=>{const i=document.querySelector('.flagship-hero-media img');return i&&i.complete&&i.naturalWidth>0});
+                const q=await page.evaluate(({width,alt})=>{
+                  const h=document.querySelector('.flagship-hero'), c=document.querySelector('.hero-copy'), t=c.querySelector('h1');
+                  const m=document.querySelector('.flagship-hero-media'), i=m.querySelector('img');
+                  const r=e=>e.getBoundingClientRect(), tr=r(t), cr=r(c), mr=r(m);
+                  return {
+                    old:document.querySelectorAll('.hero-control').length,
+                    chain:document.querySelectorAll('.chain-flow').length,
+                    alt:i.alt, attrs:[i.getAttribute('width'),i.getAttribute('height'),i.loading,i.getAttribute('fetchpriority'),i.decoding],
+                    natural:[i.naturalWidth,i.naturalHeight], fit:getComputedStyle(i).objectFit, pos:getComputedStyle(i).objectPosition,
+                    opacity:+getComputedStyle(i).opacity, ratio:mr.width/mr.height, mediaWidth:mr.width,
+                    overlap:!(tr.right<=mr.left||tr.left>=mr.right||tr.bottom<=mr.top||tr.top>=mr.bottom),
+                    below:mr.top>=cr.bottom-1, right:mr.left>=cr.right-1,
+                    overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1,
+                    meta:!!document.querySelector('.article-meta-row'), author:!!document.querySelector('.flagship-author'),
+                    authorSrc:document.querySelector('.flagship-author img')?.getAttribute('src')||'',
+                    cta:document.querySelectorAll('a.btn.btn-primary').length,
+                    fav:document.querySelectorAll('link[rel="icon"]').length,
+                    preload:document.querySelectorAll('link[rel="preload"][as="image"][href="/assets/img/blog/financial-stream-flagship-bookkeeping-hero.webp"]').length,
+                    css:[...document.styleSheets].some(s=>s.href?.endsWith('/assets/css/flagship-hero-image.css'))
+                  };
+                },{width,alt});
+                ok(q.old===0 && q.chain===1, `${path} ${width} visuals`);
+                ok(q.alt===alt, `${path} ${width} alt`);
+                ok(JSON.stringify(q.attrs)===JSON.stringify(['1086','1448','eager','high','async']), `${path} ${width} attrs ${q.attrs}`);
+                ok(q.natural[0]===1086 && q.natural[1]===1448 && q.fit==='cover' && q.opacity>.99, `${path} ${width} image`);
+                ok(!q.overlap && !q.overflow && q.meta && q.author && q.cta>0, `${path} ${width} layout`);
+                ok(q.authorSrc.includes('tetiana-horb-ceo') && q.fav>=2 && q.preload===1 && q.css, `${path} ${width} locked assets`);
+                if(width>900){
+                  ok(q.right && Math.abs(q.ratio-.75)<.03 && q.mediaWidth>=299 && q.mediaWidth<=481, `${path} ${width} desktop ${JSON.stringify(q)}`);
+                } else {
+                  const target=width<=640?1.2:4/3;
+                  ok(q.below && Math.abs(q.ratio-target)<.04 && q.pos==='50% 62%', `${path} ${width} mobile ${JSON.stringify(q)}`);
+                }
+                ok(errors.length===0, `${path} ${width} errors ${errors.join(' | ')}`);
+                await page.close();
+              }
+            } finally { await browser.close(); }
+            console.log('Responsive QA passed: EN/RU × 11 widths');
+          })().catch(e=>{console.error(e);process.exit(1)});
+          JS
+          test "$(curl -fsS -o /dev/null -w '%{http_code}' http://127.0.0.1:4173/$HERO_PATH)" = 200
+          test "$(curl -fsSI http://127.0.0.1:4173/$HERO_PATH | tr -d '\r' | awk -F': ' 'tolower($1)=="content-type"{print $2}')" = image/webp
+          test "$(curl -fsS http://127.0.0.1:4173/$HERO_PATH | wc -c)" = 89056
+
+      - name: Commit exact approved diff
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/agent-integrate-flagship-hero.yml .github/workflows/agent-integrate-flagship-hero-v2.yml
+          git add -A
+          mapfile -t changed < <(git diff --cached --name-only origin/main | sort)
+          mapfile -t expected < <(printf '%s\n' \
+            assets/css/flagship-hero-image.css \
+            assets/img/blog/financial-stream-flagship-bookkeeping-hero.webp \
+            blog/us-bookkeeping-small-business.html \
+            ru/blog/buhgalteriya-ssha-malogo-biznesa.html | sort)
+          test "${changed[*]}" = "${expected[*]}"
+          git diff --cached --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Add premium hero image to flagship articles'
+          git push origin "HEAD:${{ github.head_ref }}"
