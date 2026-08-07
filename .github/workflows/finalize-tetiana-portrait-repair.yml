@@ -1,0 +1,65 @@
+name: Finalize Tetiana portrait repair
+
+on:
+  push:
+    branches:
+      - agent/fix-tetiana-portrait-v2
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/fix-tetiana-portrait-v2
+      - name: Fix RU absolute path and portrait alt text
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          en = Path('about/index.html')
+          text = en.read_text(encoding='utf-8')
+          text = text.replace(
+              'alt="Tetiana Horb, CEO of Financial Stream LLC, seated in a professional office setting"',
+              'alt="Tetiana Horb, CEO of Financial Stream LLC"',
+          )
+          en.write_text(text, encoding='utf-8')
+
+          ru = Path('ru/about/index.html')
+          text = ru.read_text(encoding='utf-8')
+          text = text.replace('..//assets/img/team/tetiana-horb-ceo-approved.webp', '/assets/img/team/tetiana-horb-ceo-approved.webp')
+          text = text.replace(
+              'alt="Татьяна Горб, CEO, Financial Stream LLC, в профессиональной офисной обстановке"',
+              'alt="Татьяна Горб, CEO, Financial Stream LLC"',
+          )
+          ru.write_text(text, encoding='utf-8')
+          PY
+      - name: Verify final references
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -R -n '\.\./\/assets/img/team/tetiana-horb-ceo-approved.webp' about/index.html ru/about/index.html
+          ! grep -R -n 'seated in a professional office setting\|в профессиональной офисной обстановке' about/index.html ru/about/index.html
+          grep -q 'src="/assets/img/team/tetiana-horb-ceo-approved.webp"' about/index.html
+          grep -q 'src="/assets/img/team/tetiana-horb-ceo-approved.webp"' ru/about/index.html
+          test "$(stat -c%s assets/img/team/tetiana-horb-ceo-approved.webp)" = "46188"
+          echo "a4bd2076b9f23387da73713abab95ec504cc566df2de4579927324521e39852b  assets/img/team/tetiana-horb-ceo-approved.webp" | sha256sum -c -
+      - name: Remove temporary automation
+        shell: bash
+        run: |
+          rm -f .github/workflows/finalize-tetiana-portrait-repair.yml
+          rm -f .github/finalize-tetiana-trigger.txt
+      - name: Commit final cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Finalize canonical Tetiana portrait references"
+          git push origin HEAD:agent/fix-tetiana-portrait-v2
