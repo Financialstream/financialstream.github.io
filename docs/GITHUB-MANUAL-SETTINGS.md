@@ -1,6 +1,39 @@
 # Financial Stream GitHub Manual Settings
 
-These settings are account- or repository-level controls that are not changed by the presentation branch. Apply them only after the branch content and draft pull request are approved.
+This file covers account- and repository-level GitHub presentation controls that may require the repository owner to use the GitHub web interface.
+
+## Current access status — verified August 6, 2026
+
+The connected GitHub app has full repository-level access to `Financialstream/financialstream.github.io`, including admin, maintain, push, pull, branches, commits, and pull requests.
+
+The following are not repository-content access problems, but separate GitHub account or Settings UI controls that are not reliably writable through the current connector:
+
+- personal profile name, bio, website, and location;
+- profile repository creation;
+- pinned repositories;
+- repository About description, homepage, and topics;
+- repository social-preview upload;
+- some repository feature toggles.
+
+Current verified presentation gaps:
+
+- the GitHub profile display name is blank;
+- the profile repository `Financialstream/Financialstream` does not currently exist;
+- the production repository files and documentation are accessible and complete;
+- the approved repository social-preview asset exists at `assets/img/og/financial-stream-og-en-1200x630.png`.
+
+## Canonical service rule
+
+Financial Stream has six equal approved core services:
+
+1. Bookkeeping / QuickBooks
+2. Tax Returns / Tax Preparation
+3. Sales Tax / DOR Reporting
+4. Payroll / L&I / Quarterly Reporting
+5. Business Setup / Company Formation
+6. Financial Consulting / Document Review
+
+Payroll is confirmed and does not require renewed approval. Do not remove it from profile, repository, topic, or description guidance.
 
 ## 1. Account profile
 
@@ -16,7 +49,7 @@ Set:
 
 ### Bio
 
-`Bookkeeping, tax preparation, sales tax, business setup, and document support for U.S. small businesses. EN/RU.`
+`Bookkeeping, tax preparation, sales tax, payroll, business setup, and financial document review for U.S. small businesses. EN/RU.`
 
 ### Website
 
@@ -45,7 +78,7 @@ Do not use:
 
 ## 2. Create the profile repository
 
-Create a new public repository with the exact name:
+Create one new public repository with the exact name:
 
 `Financialstream`
 
@@ -64,7 +97,9 @@ Replace its README with the approved content from:
 
 `docs/GITHUB-PROFILE-README.md`
 
-GitHub shows this README on the account profile because the repository name exactly matches the username.
+GitHub displays this README on the account profile because the repository name exactly matches the username.
+
+Do not create duplicate profile repositories or alternate spellings.
 
 ## 3. Pin the production repository
 
@@ -86,7 +121,7 @@ In the **About** panel, select the edit icon and set:
 
 ### Description
 
-`Official EN/RU website for Financial Stream LLC — bookkeeping, tax preparation, sales tax, business setup, and document support for U.S. small businesses.`
+`Official EN/RU website for Financial Stream LLC — bookkeeping, tax preparation, sales tax, payroll, business setup, and financial document review for U.S. small businesses.`
 
 ### Website
 
@@ -98,8 +133,10 @@ Add:
 
 - `accounting`
 - `bookkeeping`
+- `quickbooks`
 - `tax-preparation`
 - `sales-tax`
+- `payroll`
 - `business-setup`
 - `small-business`
 - `financial-services`
@@ -109,7 +146,7 @@ Add:
 - `english`
 - `russian`
 
-Do not add `payroll`, `open-source`, `fintech`, `saas`, or `ai-accounting` unless the project scope materially changes and the new label is verified.
+Do not add `open-source`, `fintech`, `saas`, or `ai-accounting` unless the project scope materially changes and the label becomes accurate.
 
 ## 5. Repository social preview
 
@@ -120,6 +157,8 @@ Open:
 Preferred source:
 
 `assets/img/og/financial-stream-og-en-1200x630.png`
+
+The source file is present in the production repository.
 
 Before upload, confirm:
 
@@ -147,18 +186,31 @@ Recommended state:
 
 Keep GitHub Pages and required Actions workflows enabled.
 
-## 7. Verify the public result
+## 7. Final manual verification
 
-After applying settings, verify:
+After applying the settings, verify:
 
 - [ ] profile name is `Financial Stream LLC`;
-- [ ] bio is complete and not truncated materially;
+- [ ] bio includes all six approved services without material truncation;
 - [ ] official website is clickable;
+- [ ] location is `Washington, United States`;
 - [ ] avatar is clear in circular crop;
+- [ ] profile repository `Financialstream/Financialstream` exists;
 - [ ] profile README appears on `github.com/Financialstream`;
 - [ ] `financialstream.github.io` is pinned;
-- [ ] About description is visible;
+- [ ] About description includes Payroll and the other five approved services;
 - [ ] website and topics are saved;
+- [ ] `payroll` is included as an approved topic;
 - [ ] social preview renders when the repository link is shared;
 - [ ] ProAI Expert appears only as subordinate developer attribution;
 - [ ] no client or tax data is exposed.
+
+## Authority note
+
+This manual checklist does not override:
+
+- `PROJECT_STATUS.md`;
+- `docs/FINANCIAL_STREAM_PHASE_1_CLOSURE.md`;
+- `docs/CONTENT-INTEGRITY.md`.
+
+GitHub repository documentation remains canonical. Account-level manual settings must be kept consistent with the six approved Financial Stream services.
