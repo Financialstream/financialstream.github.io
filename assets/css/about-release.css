@@ -339,6 +339,17 @@ body.js-enabled.about-page .about-portrait.fade-in {
 }
 
 @media (max-width: 900px) {
+  /* Keep mobile Safari in final geometry from first paint; desktop reveal remains unchanged. */
+  body.js-enabled.about-page .fade-in,
+  body.js-enabled.about-page .fade-in.is-visible,
+  body.js-enabled.about-page .about-portrait.fade-in {
+    --about-reveal-delay: 0ms;
+    --about-reveal-y: 0px;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
   .about-page .about-owner-card {
     position: static;
     top: auto;
