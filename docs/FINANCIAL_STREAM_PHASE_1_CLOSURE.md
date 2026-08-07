@@ -173,8 +173,8 @@ Preserve the following approved facts unless the owner explicitly changes them:
 - small businesses;
 - service-based businesses;
 - private clients;
-- 127+ companies supported;
-- 300+ tax forms and declarations prepared.
+- 127+ ongoing business clients receiving recurring accounting support;
+- 300+ tax forms and returns filed during January–April 2026.
 
 Do not add unsupported claims such as:
 
