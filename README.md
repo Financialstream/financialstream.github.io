@@ -18,6 +18,10 @@ This repository contains the production website for **Financial Stream LLC**, a 
 
 The site is designed to help visitors understand available services, review practical materials, and submit the information needed for an appropriate next step.
 
+## Project status
+
+See [`PROJECT_STATUS.md`](PROJECT_STATUS.md) before starting repository work.
+
 ## Core service areas
 
 - **Bookkeeping** — organization, cleanup, and ongoing record support.
