@@ -6,7 +6,7 @@
 
 ### Structured accounting and tax support for U.S. small businesses
 
-**Bookkeeping · Tax Returns · Sales Tax · Business Setup · Document Review**
+**Bookkeeping · Tax Returns · Sales Tax · Payroll / L&I · Business Setup · Financial Consulting / Document Review**
 
 [Official Website](https://financialstreamllc.com/) · [Services](https://financialstreamllc.com/services/) · [Start a Structured Request](https://financialstreamllc.com/contact/#structured-request) · [Русская версия](https://financialstreamllc.com/ru/)
 
@@ -24,11 +24,14 @@ See [`PROJECT_STATUS.md`](PROJECT_STATUS.md) before starting repository work.
 
 ## Core service areas
 
-- **Bookkeeping** — organization, cleanup, and ongoing record support.
-- **Tax Returns** — preparation support based on the client’s documents and situation.
-- **Sales Tax** — reporting support, including relevant state and local requirements.
-- **Business Setup** — formation-related documents and initial financial organization.
-- **Document Review** — structured review of financial and business records before the next action is taken.
+The approved production service structure contains six equal core areas:
+
+- **Bookkeeping / QuickBooks** — organization, cleanup, and ongoing record support.
+- **Tax Returns / Tax Preparation** — preparation support based on the client’s documents and situation.
+- **Sales Tax / DOR Reporting** — reporting support, including relevant state and local requirements.
+- **Payroll / L&I / Quarterly Reporting** — payroll records and related quarterly and L&I reporting support.
+- **Business Setup / Company Formation** — formation-related documents and initial financial organization.
+- **Financial Consulting / Document Review** — structured review of financial and business records before the next action is taken.
 
 Service availability and scope depend on the client’s facts, documents, jurisdiction, and requested work.
 
