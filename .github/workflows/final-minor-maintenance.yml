@@ -1,9 +1,9 @@
 name: Final minor maintenance patch
 
 on:
-  push:
+  pull_request:
     branches:
-      - agent/final-financial-stream-minor-maintenance
+      - main
 
 permissions:
   contents: write
@@ -15,6 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.head_ref }}
           fetch-depth: 0
 
       - name: Apply exact maintenance patch and source QA
@@ -22,6 +23,7 @@ jobs:
         run: |
           from pathlib import Path
           import re
+          import subprocess
 
           expected_menu_files = {
               'ru/index.html',
@@ -41,13 +43,10 @@ jobs:
           menu_tag = re.compile(r'<button\b[^>]*\bdata-menu-toggle\b[^>]*>')
 
           for path in sorted(Path('ru').rglob('*.html')):
-              raw = path.read_bytes()
-              text = raw.decode('utf-8')
-              original = text
+              text = path.read_bytes().decode('utf-8')
               tags = list(menu_tag.finditer(text))
               if not tags:
                   continue
-
               out = []
               cursor = 0
               changed = False
@@ -68,7 +67,6 @@ jobs:
                   cursor = match.end()
               out.append(text[cursor:])
               text = ''.join(out)
-
               if changed:
                   changed_menu_files.add(path.as_posix())
                   path.write_bytes(text.encode('utf-8'))
@@ -102,7 +100,6 @@ jobs:
               if path.read_bytes().decode('utf-8').count(twitter_alt) != 1:
                   raise SystemExit(f'Expected exactly one twitter:image:alt in {file_name}')
 
-          # Accessibility source QA across every RU HTML page using the mobile toggle.
           for path in sorted(Path('ru').rglob('*.html')):
               text = path.read_bytes().decode('utf-8')
               for match in menu_tag.finditer(text):
@@ -117,7 +114,6 @@ jobs:
                   if f'id="{controls.group(1)}"' not in text:
                       raise SystemExit(f'aria-controls target missing in {path}: {controls.group(1)}')
 
-          # Flagship metadata QA: preserve canonical/hreflang/OG/Twitter image and schema blocks.
           checks = {
               'blog/us-bookkeeping-small-business.html': [
                   '<link rel="canonical" href="https://financialstreamllc.com/blog/us-bookkeeping-small-business.html">',
@@ -147,11 +143,11 @@ jobs:
                   raise SystemExit(f'Expected exactly one twitter:image:alt in {file_name}')
 
           allowed = expected_menu_files | {'blog/us-bookkeeping-small-business.html'}
-          import subprocess
           changed = set(subprocess.check_output(['git', 'diff', '--name-only'], text=True).splitlines())
           if changed != allowed:
               raise SystemExit(f'Unexpected changed files: {sorted(changed)}; expected {sorted(allowed)}')
 
+          subprocess.run(['git', 'diff', '--check'], check=True)
           print('Source QA passed. Changed files:')
           for item in sorted(changed):
               print(item)
@@ -176,4 +172,4 @@ jobs:
             blog/us-bookkeeping-small-business.html
           git diff --cached --check
           git commit -m "Fix minor accessibility and Twitter image metadata"
-          git push origin HEAD:agent/final-financial-stream-minor-maintenance
+          git push origin HEAD:${{ github.head_ref }}
