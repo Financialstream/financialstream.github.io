@@ -1,0 +1,78 @@
+name: One-time RU FAQ schema cleanup
+
+on:
+  push:
+    branches:
+      - agent/fix-ru-faq-schema-footnotes
+
+permissions:
+  contents: write
+
+jobs:
+  fix-schema:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/fix-ru-faq-schema-footnotes
+          fetch-depth: 0
+
+      - name: Remove footnote artifacts from FAQ JSON-LD
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('ru/blog/buhgalteriya-ssha-malogo-biznesa.html')
+          text = path.read_text(encoding='utf-8')
+
+          replacements = {
+              'Достаточный документ зависит от характера операции. 1 3':
+                  'Достаточный документ зависит от характера операции.',
+              'поэтому нужны оба контроля. 4 6':
+                  'поэтому нужны оба контроля.',
+          }
+
+          for old, new in replacements.items():
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'Expected exactly one occurrence of {old!r}, found {count}')
+              text = text.replace(old, new, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Validate cleanup
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          path = Path('ru/blog/buhgalteriya-ssha-malogo-biznesa.html')
+          text = path.read_text(encoding='utf-8')
+
+          if 'характера операции. 1 3' in text or 'оба контроля. 4 6' in text:
+              raise SystemExit('FAQ schema footnote artifacts remain')
+
+          match = re.search(
+              r'<script type="application/ld\+json" data-schema="financial-stream-flagship">(.*?)</script>',
+              text,
+              re.S,
+          )
+          if not match:
+              raise SystemExit('Flagship JSON-LD block not found')
+
+          json.loads(match.group(1))
+          print('JSON-LD valid; both artifacts removed.')
+          PY
+
+      - name: Remove one-time workflow and commit final diff
+        run: |
+          rm .github/workflows/one-time-fix-ru-faq-schema.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ru/blog/buhgalteriya-ssha-malogo-biznesa.html .github/workflows/one-time-fix-ru-faq-schema.yml
+          git commit -m "Fix Russian flagship FAQ schema artifacts"
+          git push origin HEAD:agent/fix-ru-faq-schema-footnotes
