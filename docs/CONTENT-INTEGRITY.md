@@ -6,15 +6,25 @@ Financial Stream content must build trust through accurate scope, clear qualific
 
 ## Approved core service framing
 
-Public repository presentation may describe the following core areas:
+The approved production service structure contains six equal core service areas:
 
-- Bookkeeping
-- Tax Returns
-- Sales Tax
-- Business Setup
-- Document Review
+1. Bookkeeping / QuickBooks
+2. Tax Returns / Tax Preparation
+3. Sales Tax / DOR Reporting
+4. Payroll / L&I / Quarterly Reporting
+5. Business Setup / Company Formation
+6. Financial Consulting / Document Review
 
-Do not add new service categories to repository or profile copy without explicit approval. In particular, do not promote Payroll as a core public service unless the business owner confirms the current offering and exact scope.
+Payroll is a confirmed, approved core Financial Stream service. It does not require renewed owner confirmation before normal maintenance, documentation, navigation, or content work.
+
+Do not:
+
+- remove Payroll from the approved service structure;
+- demote Payroll to an optional, unconfirmed, or secondary service;
+- ask the owner to reconfirm whether Payroll is offered merely because an older document omitted it;
+- separate Financial Consulting from Document Review without explicit owner approval.
+
+Do not add a seventh service category or materially change the six approved service scopes without explicit approval.
 
 ## Prohibited claims
 
@@ -101,7 +111,8 @@ The attribution must not imply that ProAI Expert provides accounting or tax serv
 
 Before merging public-content changes, confirm:
 
-- [ ] service scope is approved;
+- [ ] service scope matches the six approved core service areas;
+- [ ] Payroll remains present as an equal approved core service where the complete service structure is represented;
 - [ ] facts and dates are verified;
 - [ ] no unsupported guarantee is present;
 - [ ] no fabricated social proof is present;
