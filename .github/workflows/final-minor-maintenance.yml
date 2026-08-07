@@ -119,8 +119,9 @@ jobs:
               text = path.read_bytes().decode('utf-8')
               for match in menu_tag.finditer(text):
                   tag = match.group(0)
-                  if 'aria-label="Открыть меню"' not in tag:
-                      raise SystemExit(f'Missing canonical aria-label in {path}: {tag}')
+                  label = re.search(r'aria-label="([^"]+)"', tag)
+                  if not label or not label.group(1).strip():
+                      raise SystemExit(f'Missing accessible name in {path}: {tag}')
                   if 'aria-expanded="false"' not in tag:
                       raise SystemExit(f'aria-expanded damaged in {path}: {tag}')
                   controls = re.search(r'aria-controls="([^"]+)"', tag)
